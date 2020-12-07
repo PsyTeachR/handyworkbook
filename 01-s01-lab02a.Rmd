@@ -164,7 +164,7 @@ If we were to look at a critical values look-up table for $df = `r (desc %>% fil
 
 ## Test Yourself
 
-### Example 1
+### DataSet 1
 
 ```{r ex1, echo = FALSE}
 
@@ -207,7 +207,7 @@ desc %>%
 ```
 
 
-`r hide("Show me the answer")`
+`r hide("Show me the working and answer")`
 
 Let's look at the main t-test formula:
 
@@ -330,7 +330,7 @@ If we were to look at a critical values look-up table for $df = `r (desc %>% fil
 
 `r unhide()`
 
-### Example 2
+### DataSet 2
 
 ```{r ex2, echo = FALSE}
 
@@ -373,7 +373,7 @@ desc %>%
 ```
 
 
-`r hide("Show me the answer")`
+`r hide("Show me the working and answer")`
 
 Let's look at the main t-test formula:
 
@@ -496,7 +496,7 @@ If we were to look at a critical values look-up table for $df = `r (desc %>% fil
 
 `r unhide()`
 
-### Example 3
+### DataSet 3
 
 ```{r ex3, echo = FALSE}
 
@@ -539,7 +539,7 @@ desc %>%
 ```
 
 
-`r hide("Show me the answer")`
+`r hide("Show me the working and answer")`
 
 Let's look at the main t-test formula:
 
@@ -664,7 +664,7 @@ If we were to look at a critical values look-up table for $df = `r (desc %>% fil
 
 ## Look-Up table
 
-Remembering that the $t_{crit}$ value is the smallest t-value you need to find a significant effect, find the $t_{crit}$ for your df, assuming $\alpha = .05$. If the $t-value$ you calculated is equal to or larger than $t_{crit}$ then your test is significant.
+Remembering that the $t_{crit}$ value is the smallest t-value you need to find a significant effect, find the $t_{crit}$ for your df, assuming $\alpha = .05$. If the $t$ value you calculated is equal to or larger than $t_{crit}$ then your test is significant.
 
 |df | $\alpha = .05$|
 |:-:|:-------------:|
