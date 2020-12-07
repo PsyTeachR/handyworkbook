@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Between-Subjects Student’s t-test | A Handy Workbook for Research Methods and Statistics</title>
+  <meta name="description" content="ug2-practical-materials" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Between-Subjects Student’s t-test | A Handy Workbook for Research Methods and Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="ug2-practical-materials" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Between-Subjects Student’s t-test | A Handy Workbook for Research Methods and Statistics" />
+  
+  <meta name="twitter:description" content="ug2-practical-materials" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="one-sample-chi-square.html"/>
+<link rel="next" href="within-subjects-t-test.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Handy Workbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html"><i class="fa fa-check"></i><b>1</b> One-Sample Chi-Square</a><ul>
+<li class="chapter" data-level="1.1" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#the-worked-example"><i class="fa fa-check"></i><b>1.1</b> The Worked Example</a></li>
+<li class="chapter" data-level="1.2" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#test-yourself"><i class="fa fa-check"></i><b>1.2</b> Test Yourself</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#dataset-1"><i class="fa fa-check"></i><b>1.2.1</b> DataSet 1</a></li>
+<li class="chapter" data-level="1.2.2" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#dataset-2"><i class="fa fa-check"></i><b>1.2.2</b> DataSet 2</a></li>
+<li class="chapter" data-level="1.2.3" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#dataset-3"><i class="fa fa-check"></i><b>1.2.3</b> DataSet 3</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#chisquare-look-up-table"><i class="fa fa-check"></i><b>1.3</b> ChiSquare Look-up Table</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html"><i class="fa fa-check"></i><b>2</b> Between-Subjects Student’s t-test</a><ul>
+<li class="chapter" data-level="2.1" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#the-worked-example-1"><i class="fa fa-check"></i><b>2.1</b> The Worked Example</a></li>
+<li class="chapter" data-level="2.2" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#test-yourself-1"><i class="fa fa-check"></i><b>2.2</b> Test Yourself</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#example-1"><i class="fa fa-check"></i><b>2.2.1</b> Example 1</a></li>
+<li class="chapter" data-level="2.2.2" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#example-2"><i class="fa fa-check"></i><b>2.2.2</b> Example 2</a></li>
+<li class="chapter" data-level="2.2.3" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#example-3"><i class="fa fa-check"></i><b>2.2.3</b> Example 3</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#look-up-table"><i class="fa fa-check"></i><b>2.3</b> Look-Up table</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>3</b> Within-Subjects t-test</a><ul>
+<li class="chapter" data-level="3.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#the-worked-example-2"><i class="fa fa-check"></i><b>3.1</b> The Worked Example</a></li>
+<li class="chapter" data-level="3.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#test-yourself-2"><i class="fa fa-check"></i><b>3.2</b> Test Yourself</a></li>
+<li class="chapter" data-level="3.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#look-up-table-1"><i class="fa fa-check"></i><b>3.3</b> Look-Up table</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Handy Workbook for Research Methods and Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="between-subjects-students-t-test" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Between-Subjects Student’s t-test</h1>
+<div id="the-worked-example-1" class="section level2">
+<h2><span class="header-section-number">2.1</span> The Worked Example</h2>
+<p>Here is your data:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Group
+</th>
+<th style="text-align:center;">
+N
+</th>
+<th style="text-align:center;">
+Mean
+</th>
+<th style="text-align:center;">
+SD
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+A
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+26.45
+</td>
+<td style="text-align:center;">
+2.44
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+B
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+28.38
+</td>
+<td style="text-align:center;">
+2.88
+</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s look at the main t-test formula:</p>
+<p><span class="math display">\[t = \frac{\bar{X}_1 - \bar{X}_2}{s_p \times \sqrt{\frac{1}{N_1} + \frac{1}{N_2}}}\]</span></p>
+<p>Now, from the table above we know:</p>
+<ul>
+<li>the mean of Group A is <span class="math inline">\(\bar{X_1} = 26.45\)</span>,</li>
+<li>the mean of Group B is <span class="math inline">\(\bar{X_2} = 28.38\)</span>,</li>
+<li>the N of Group A is <span class="math inline">\(N_1 = 47\)</span>,</li>
+<li>and the N of Group B is <span class="math inline">\(N_2 = 47\)</span>,</li>
+</ul>
+<p>which we can put into the equation right now:</p>
+<p><span class="math display">\[t = \frac{26.45 - 28.38}{s_p \times \sqrt{\frac{1}{47} + \frac{1}{47}}}\]</span></p>
+<p>And now we can see that the only thing we don’t yet know is the pooled standard deviation (<span class="math inline">\(s_p\)</span>). Let’s look at that formula:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(n_1 -1)  \times s^2_{X_1} + (n_2 -1)\times s^2_{X_2}}{n_1 + n_2 - 2}}\]</span></p>
+<p>And if we start to fill in some details:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(47 -1)  \times s^2_{X_1} + (47 -1)\times s^2_{X_2}}{47 + 47 - 2}}\]</span></p>
+<p>Now looking at the formula, it is clear we are missing:</p>
+<ul>
+<li><span class="math inline">\(s^2_{X_1}\)</span> - the variance of Group A (could be written as <span class="math inline">\(s^2_{A}\)</span>)</li>
+<li><span class="math inline">\(s^2_{X_2}\)</span> - the variance of Group B (could be written as <span class="math inline">\(s^2_{B}\)</span>)</li>
+</ul>
+<p>What we do know though, from the table, is the standard deviations of both groups (<span class="math inline">\(SD_A\)</span> = 2.44; <span class="math inline">\(SD_B\)</span> = 2.88), and we know that variance of a group is equal to the standard deviation squared. So:</p>
+<ul>
+<li><span class="math inline">\(s^2_{X_1}\)</span> = <span class="math inline">\(s^2_A\)</span> = <span class="math inline">\(SD_A \times SD_A\)</span> = <span class="math inline">\(2.44 \times 2.44\)</span> = <span class="math inline">\(5.9536\)</span></li>
+<li><span class="math inline">\(s^2_{X_2}\)</span> = <span class="math inline">\(s^2_B\)</span> = <span class="math inline">\(SD_B \times SD_B\)</span> = <span class="math inline">\(2.88 \times 2.88\)</span> = <span class="math inline">\(8.2944\)</span></li>
+</ul>
+<p>And if we now add those values to our formula we get:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(47 -1)  \times 5.9536 + (47 -1)\times 8.2944}{47 + 47 - 2}}\]</span></p>
+<p>And we can then start working through the formula, taking each stage in turn to make sure we don’t make mistakes. Let’s get rid of the brackets first:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(46  \times 5.9536) + (46 \times 8.2944)}{92}}\]</span></p>
+<p>Now we deal with the multiplications:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{273.8656 + 381.5424}{92}}\]</span></p>
+<p>Let’s tidy up that top half of the equation (the numerator):</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{655.408}{92}}\]</span></p>
+<p>Which if we then divide the numerator by the denominator (the bottom half), and then take the square root of that we get:</p>
+<p><span class="math display">\[s_p = \sqrt{7.124}\]</span></p>
+<p>Giving a pooled standard deviation of:</p>
+<p><span class="math display">\[s_p = 2.6690822\]</span></p>
+<p>Meaning that our pooled standard deviation, rounded to three decimal places, is <span class="math inline">\(s_p = 2.669\)</span> and we can now add that to the t-test formula to give us:</p>
+<p><span class="math display">\[t = \frac{26.45 - 28.38}{2.669 \times \sqrt{\frac{1}{47} + \frac{1}{47}}}\]</span></p>
+<p>And again we just start working through the formula. Let’s deal with the fractions relating to sample size first:</p>
+<p><span class="math display">\[t = \frac{26.45 - 28.38}{2.669 \times \sqrt{0.0212766 + 0.0212766}}\]</span></p>
+<p>Which we can tidy up a little to give:</p>
+<p><span class="math display">\[t = \frac{-1.93}{2.669 \times \sqrt{0.0425532}}\]</span></p>
+<p>And if we sort out the square root on the denominator we are left with:</p>
+<p><span class="math display">\[t = \frac{-1.93}{2.669 \times 0.2062842}\]</span></p>
+<p>We can then tidy up the denominator to give us:</p>
+<p><span class="math display">\[t = \frac{-1.93}{0.5505727}\]</span></p>
+<p>Which we can finally solve to give us a t-value, rounded to two decimal places, of <span class="math inline">\(t = -3.51\)</span></p>
+<p>Great! Now we just need the degrees of freedom where the formula is:</p>
+<p><span class="math display">\[df = (n_1 - 1) + (n_2 - 1)\]</span></p>
+<p>And we already know that:</p>
+<ul>
+<li>the N of Group A is <span class="math inline">\(N_1 = 47\)</span>,</li>
+<li>and the N of Group B is <span class="math inline">\(N_2 = 47\)</span>,</li>
+</ul>
+<p>So putting them into the equation we get:</p>
+<p><span class="math display">\[df = (47 - 1) + (47 - 1)\]</span>
+<span class="math display">\[df = 46 + 46\]</span>
+<span class="math display">\[df = 92\]</span></p>
+<p>And finally Cohen’s d, the effect size:</p>
+<p><span class="math display">\[d = \frac{2t}{\sqrt{df}}\]</span></p>
+<p>Which, based on the info above, we know:</p>
+<ul>
+<li><span class="math inline">\(t = -3.51\)</span></li>
+<li><span class="math inline">\(df = 92\)</span></li>
+</ul>
+<p>Putting them into the formula we get:</p>
+<p><span class="math display">\[d = \frac{2 \times -3.51}{\sqrt{92}}\]</span></p>
+<p>And if we tidy the nominator and the denominator we get:</p>
+<p><span class="math display">\[d = \frac{-7.02}{9.591663}\]</span></p>
+<p>Which we can then resolve to learn that <span class="math inline">\(d = -0.73\)</span></p>
+<p><strong>Determining Significance</strong></p>
+<p>If we were to look at a critical values look-up table for <span class="math inline">\(df = 92\)</span> and <span class="math inline">\(\alpha = .05\)</span> (two-tailed), we would see that the critical value is <span class="math inline">\(t_{crit} = 1.986\)</span>. Given that our t-value, ignoring polarity and just looking at the absolute value, so <span class="math inline">\(t = 3.51\)</span>, is equal to or larger than our <span class="math inline">\(t_{crit}\)</span> then we can say our result is significant, and as such would be written up as t(92) = 3.51, p &lt; .05, d = 0.73</p>
+<p><strong>Remember:</strong> If you were writing this up as a report, and analysis the data in R, then you would see the p-value was actually p = 6.959109810^{-4}, and would be written up as p &lt; .001</p>
+</div>
+<div id="test-yourself-1" class="section level2">
+<h2><span class="header-section-number">2.2</span> Test Yourself</h2>
+<div id="example-1" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Example 1</h3>
+<p>Here is your data:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Group
+</th>
+<th style="text-align:center;">
+N
+</th>
+<th style="text-align:center;">
+Mean
+</th>
+<th style="text-align:center;">
+SD
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+A
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+13.13
+</td>
+<td style="text-align:center;">
+2.28
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+B
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+14.06
+</td>
+<td style="text-align:center;">
+2.43
+</td>
+</tr>
+</tbody>
+</table>
+<div class="solution">
+<button>
+Show me the answer
+</button>
+<p>Let’s look at the main t-test formula:</p>
+<p><span class="math display">\[t = \frac{\bar{X}_1 - \bar{X}_2}{s_p \times \sqrt{\frac{1}{N_1} + \frac{1}{N_2}}}\]</span></p>
+<p>Now, from the table above we know:</p>
+<ul>
+<li>the mean of Group A is <span class="math inline">\(\bar{X_1} = 13.13\)</span>,</li>
+<li>the mean of Group B is <span class="math inline">\(\bar{X_2} = 14.06\)</span>,</li>
+<li>the N of Group A is <span class="math inline">\(N_1 = 48\)</span>,</li>
+<li>and the N of Group B is <span class="math inline">\(N_2 = 48\)</span>,</li>
+</ul>
+<p>which we can put into the equation right now:</p>
+<p><span class="math display">\[t = \frac{13.13 - 14.06}{s_p \times \sqrt{\frac{1}{48} + \frac{1}{48}}}\]</span></p>
+<p>And now we can see that the only thing we don’t yet know is the pooled standard deviation (<span class="math inline">\(s_p\)</span>). Let’s look at that formula:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(n_1 -1)  \times s^2_{X_1} + (n_2 -1)\times s^2_{X_2}}{n_1 + n_2 - 2}}\]</span></p>
+<p>And if we start to fill in some details:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(48 -1)  \times s^2_{X_1} + (48 -1)\times s^2_{X_2}}{48 + 48 - 2}}\]</span></p>
+<p>Now looking at the formula, it is clear we are missing:</p>
+<ul>
+<li><span class="math inline">\(s^2_{X_1}\)</span> - the variance of Group A (could be written as <span class="math inline">\(s^2_{A}\)</span>)</li>
+<li><span class="math inline">\(s^2_{X_2}\)</span> - the variance of Group B (could be written as <span class="math inline">\(s^2_{B}\)</span>)</li>
+</ul>
+<p>What we do know though, from the table, is the standard deviations of both groups (<span class="math inline">\(SD_A\)</span> = 2.28; <span class="math inline">\(SD_B\)</span> = 2.43), and we know that variance of a group is equal to the standard deviation squared. So:</p>
+<ul>
+<li><span class="math inline">\(s^2_{X_1}\)</span> = <span class="math inline">\(s^2_A\)</span> = <span class="math inline">\(SD_A \times SD_A\)</span> = <span class="math inline">\(2.28 \times 2.28\)</span> = <span class="math inline">\(5.1984\)</span></li>
+<li><span class="math inline">\(s^2_{X_2}\)</span> = <span class="math inline">\(s^2_B\)</span> = <span class="math inline">\(SD_B \times SD_B\)</span> = <span class="math inline">\(2.43 \times 2.43\)</span> = <span class="math inline">\(5.9049\)</span></li>
+</ul>
+<p>And if we now add those values to our formula we get:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(48 -1)  \times 5.1984 + (48 -1)\times 5.9049}{48 + 48 - 2}}\]</span></p>
+<p>And we can then start working through the formula, taking each stage in turn to make sure we don’t make mistakes. Let’s get rid of the brackets first:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(47  \times 5.1984) + (47 \times 5.9049)}{94}}\]</span></p>
+<p>Now we deal with the multiplications:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{244.3248 + 277.5303}{94}}\]</span></p>
+<p>Let’s tidy up that top half of the equation (the numerator):</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{521.8551}{94}}\]</span></p>
+<p>Which if we then divide the numerator by the denominator (the bottom half), and then take the square root of that we get:</p>
+<p><span class="math display">\[s_p = \sqrt{5.55165}\]</span></p>
+<p>Giving a pooled standard deviation of:</p>
+<p><span class="math display">\[s_p = 2.356194\]</span></p>
+<p>Meaning that our pooled standard deviation, rounded to three decimal places, is <span class="math inline">\(s_p = 2.356\)</span> and we can now add that to the t-test formula to give us:</p>
+<p><span class="math display">\[t = \frac{13.13 - 14.06}{2.356 \times \sqrt{\frac{1}{48} + \frac{1}{48}}}\]</span></p>
+<p>And again we just start working through the formula. Let’s deal with the fractions relating to sample size first:</p>
+<p><span class="math display">\[t = \frac{13.13 - 14.06}{2.356 \times \sqrt{0.0208333 + 0.0208333}}\]</span></p>
+<p>Which we can tidy up a little to give:</p>
+<p><span class="math display">\[t = \frac{-0.93}{2.356 \times \sqrt{0.0416667}}\]</span></p>
+<p>And if we sort out the square root on the denominator we are left with:</p>
+<p><span class="math display">\[t = \frac{-0.93}{2.356 \times 0.2041241}\]</span></p>
+<p>We can then tidy up the denominator to give us:</p>
+<p><span class="math display">\[t = \frac{-0.93}{0.4809165}\]</span></p>
+<p>Which we can finally solve to give us a t-value, rounded to two decimal places, of <span class="math inline">\(t = -1.93\)</span></p>
+<p>Great! Now we just need the degrees of freedom where the formula is:</p>
+<p><span class="math display">\[df = (n_1 - 1) + (n_2 - 1)\]</span></p>
+<p>And we already know that:</p>
+<ul>
+<li>the N of Group A is <span class="math inline">\(N_1 = 48\)</span>,</li>
+<li>and the N of Group B is <span class="math inline">\(N_2 = 48\)</span>,</li>
+</ul>
+<p>So putting them into the equation we get:</p>
+<p><span class="math display">\[df = (48 - 1) + (48 - 1)\]</span>
+<span class="math display">\[df = 47 + 47\]</span>
+<span class="math display">\[df = 94\]</span></p>
+<p>And finally Cohen’s d, the effect size:</p>
+<p><span class="math display">\[d = \frac{2t}{\sqrt{df}}\]</span></p>
+<p>Which, based on the info above, we know:</p>
+<ul>
+<li><span class="math inline">\(t = -1.93\)</span></li>
+<li><span class="math inline">\(df = 94\)</span></li>
+</ul>
+<p>Putting them into the formula we get:</p>
+<p><span class="math display">\[d = \frac{2 \times -1.93}{\sqrt{94}}\]</span></p>
+<p>And if we tidy the nominator and the denominator we get:</p>
+<p><span class="math display">\[d = \frac{-3.86}{9.6953597}\]</span></p>
+<p>Which we can then resolve to learn that <span class="math inline">\(d = -0.4\)</span></p>
+<p><strong>Determining Significance</strong></p>
+<p>If we were to look at a critical values look-up table for <span class="math inline">\(df = 94\)</span> and <span class="math inline">\(\alpha = .05\)</span> (two-tailed), we would see that the critical value is <span class="math inline">\(t_{crit} = 1.986\)</span>. Given that our t-value, ignoring polarity and just looking at the absolute value, so <span class="math inline">\(t = 1.93\)</span>, is smaller than our <span class="math inline">\(t_{crit}\)</span> then we can say our result is non-significant, and as such would be written up as t(94) = 1.93, p &gt; .05, d = 0.4</p>
+<p><strong>Remember:</strong> If you were writing this up as a report, and analysis the data in R, then you would see the p-value was actually p = 0.0566217, and would be written up as p = 0.057</p>
+</div>
+</div>
+<div id="example-2" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Example 2</h3>
+<p>Here is your data:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Group
+</th>
+<th style="text-align:center;">
+N
+</th>
+<th style="text-align:center;">
+Mean
+</th>
+<th style="text-align:center;">
+SD
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+A
+</td>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:center;">
+12.93
+</td>
+<td style="text-align:center;">
+1.33
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+B
+</td>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:center;">
+12.47
+</td>
+<td style="text-align:center;">
+1.67
+</td>
+</tr>
+</tbody>
+</table>
+<div class="solution">
+<button>
+Show me the answer
+</button>
+<p>Let’s look at the main t-test formula:</p>
+<p><span class="math display">\[t = \frac{\bar{X}_1 - \bar{X}_2}{s_p \times \sqrt{\frac{1}{N_1} + \frac{1}{N_2}}}\]</span></p>
+<p>Now, from the table above we know:</p>
+<ul>
+<li>the mean of Group A is <span class="math inline">\(\bar{X_1} = 12.93\)</span>,</li>
+<li>the mean of Group B is <span class="math inline">\(\bar{X_2} = 12.47\)</span>,</li>
+<li>the N of Group A is <span class="math inline">\(N_1 = 17\)</span>,</li>
+<li>and the N of Group B is <span class="math inline">\(N_2 = 17\)</span>,</li>
+</ul>
+<p>which we can put into the equation right now:</p>
+<p><span class="math display">\[t = \frac{12.93 - 12.47}{s_p \times \sqrt{\frac{1}{17} + \frac{1}{17}}}\]</span></p>
+<p>And now we can see that the only thing we don’t yet know is the pooled standard deviation (<span class="math inline">\(s_p\)</span>). Let’s look at that formula:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(n_1 -1)  \times s^2_{X_1} + (n_2 -1)\times s^2_{X_2}}{n_1 + n_2 - 2}}\]</span></p>
+<p>And if we start to fill in some details:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(17 -1)  \times s^2_{X_1} + (17 -1)\times s^2_{X_2}}{17 + 17 - 2}}\]</span></p>
+<p>Now looking at the formula, it is clear we are missing:</p>
+<ul>
+<li><span class="math inline">\(s^2_{X_1}\)</span> - the variance of Group A (could be written as <span class="math inline">\(s^2_{A}\)</span>)</li>
+<li><span class="math inline">\(s^2_{X_2}\)</span> - the variance of Group B (could be written as <span class="math inline">\(s^2_{B}\)</span>)</li>
+</ul>
+<p>What we do know though, from the table, is the standard deviations of both groups (<span class="math inline">\(SD_A\)</span> = 1.33; <span class="math inline">\(SD_B\)</span> = 1.67), and we know that variance of a group is equal to the standard deviation squared. So:</p>
+<ul>
+<li><span class="math inline">\(s^2_{X_1}\)</span> = <span class="math inline">\(s^2_A\)</span> = <span class="math inline">\(SD_A \times SD_A\)</span> = <span class="math inline">\(1.33 \times 1.33\)</span> = <span class="math inline">\(1.7689\)</span></li>
+<li><span class="math inline">\(s^2_{X_2}\)</span> = <span class="math inline">\(s^2_B\)</span> = <span class="math inline">\(SD_B \times SD_B\)</span> = <span class="math inline">\(1.67 \times 1.67\)</span> = <span class="math inline">\(2.7889\)</span></li>
+</ul>
+<p>And if we now add those values to our formula we get:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(17 -1)  \times 1.7689 + (17 -1)\times 2.7889}{17 + 17 - 2}}\]</span></p>
+<p>And we can then start working through the formula, taking each stage in turn to make sure we don’t make mistakes. Let’s get rid of the brackets first:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(16  \times 1.7689) + (16 \times 2.7889)}{32}}\]</span></p>
+<p>Now we deal with the multiplications:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{28.3024 + 44.6224}{32}}\]</span></p>
+<p>Let’s tidy up that top half of the equation (the numerator):</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{72.9248}{32}}\]</span></p>
+<p>Which if we then divide the numerator by the denominator (the bottom half), and then take the square root of that we get:</p>
+<p><span class="math display">\[s_p = \sqrt{2.2789}\]</span></p>
+<p>Giving a pooled standard deviation of:</p>
+<p><span class="math display">\[s_p = 1.5096026\]</span></p>
+<p>Meaning that our pooled standard deviation, rounded to three decimal places, is <span class="math inline">\(s_p = 1.51\)</span> and we can now add that to the t-test formula to give us:</p>
+<p><span class="math display">\[t = \frac{12.93 - 12.47}{1.51 \times \sqrt{\frac{1}{17} + \frac{1}{17}}}\]</span></p>
+<p>And again we just start working through the formula. Let’s deal with the fractions relating to sample size first:</p>
+<p><span class="math display">\[t = \frac{12.93 - 12.47}{1.51 \times \sqrt{0.0588235 + 0.0588235}}\]</span></p>
+<p>Which we can tidy up a little to give:</p>
+<p><span class="math display">\[t = \frac{0.46}{1.51 \times \sqrt{0.1176471}}\]</span></p>
+<p>And if we sort out the square root on the denominator we are left with:</p>
+<p><span class="math display">\[t = \frac{0.46}{1.51 \times 0.3429972}\]</span></p>
+<p>We can then tidy up the denominator to give us:</p>
+<p><span class="math display">\[t = \frac{0.46}{0.5179257}\]</span></p>
+<p>Which we can finally solve to give us a t-value, rounded to two decimal places, of <span class="math inline">\(t = 0.89\)</span></p>
+<p>Great! Now we just need the degrees of freedom where the formula is:</p>
+<p><span class="math display">\[df = (n_1 - 1) + (n_2 - 1)\]</span></p>
+<p>And we already know that:</p>
+<ul>
+<li>the N of Group A is <span class="math inline">\(N_1 = 17\)</span>,</li>
+<li>and the N of Group B is <span class="math inline">\(N_2 = 17\)</span>,</li>
+</ul>
+<p>So putting them into the equation we get:</p>
+<p><span class="math display">\[df = (17 - 1) + (17 - 1)\]</span>
+<span class="math display">\[df = 16 + 16\]</span>
+<span class="math display">\[df = 32\]</span></p>
+<p>And finally Cohen’s d, the effect size:</p>
+<p><span class="math display">\[d = \frac{2t}{\sqrt{df}}\]</span></p>
+<p>Which, based on the info above, we know:</p>
+<ul>
+<li><span class="math inline">\(t = 0.89\)</span></li>
+<li><span class="math inline">\(df = 32\)</span></li>
+</ul>
+<p>Putting them into the formula we get:</p>
+<p><span class="math display">\[d = \frac{2 \times 0.89}{\sqrt{32}}\]</span></p>
+<p>And if we tidy the nominator and the denominator we get:</p>
+<p><span class="math display">\[d = \frac{1.78}{5.6568542}\]</span></p>
+<p>Which we can then resolve to learn that <span class="math inline">\(d = 0.31\)</span></p>
+<p><strong>Determining Significance</strong></p>
+<p>If we were to look at a critical values look-up table for <span class="math inline">\(df = 32\)</span> and <span class="math inline">\(\alpha = .05\)</span> (two-tailed), we would see that the critical value is <span class="math inline">\(t_{crit} = 2.037\)</span>. Given that our t-value, ignoring polarity and just looking at the absolute value, so <span class="math inline">\(t = 0.89\)</span>, is smaller than our <span class="math inline">\(t_{crit}\)</span> then we can say our result is non-significant, and as such would be written up as t(32) = 0.89, p &gt; .05, d = 0.31</p>
+<p><strong>Remember:</strong> If you were writing this up as a report, and analysis the data in R, then you would see the p-value was actually p = 0.3801084, and would be written up as p = 0.377</p>
+</div>
+</div>
+<div id="example-3" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Example 3</h3>
+<p>Here is your data:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Group
+</th>
+<th style="text-align:center;">
+N
+</th>
+<th style="text-align:center;">
+Mean
+</th>
+<th style="text-align:center;">
+SD
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+A
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+53.99
+</td>
+<td style="text-align:center;">
+4.37
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+B
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+53.30
+</td>
+<td style="text-align:center;">
+3.29
+</td>
+</tr>
+</tbody>
+</table>
+<div class="solution">
+<button>
+Show me the answer
+</button>
+<p>Let’s look at the main t-test formula:</p>
+<p><span class="math display">\[t = \frac{\bar{X}_1 - \bar{X}_2}{s_p \times \sqrt{\frac{1}{N_1} + \frac{1}{N_2}}}\]</span></p>
+<p>Now, from the table above we know:</p>
+<ul>
+<li>the mean of Group A is <span class="math inline">\(\bar{X_1} = 53.99\)</span>,</li>
+<li>the mean of Group B is <span class="math inline">\(\bar{X_2} = 53.3\)</span>,</li>
+<li>the N of Group A is <span class="math inline">\(N_1 = 23\)</span>,</li>
+<li>and the N of Group B is <span class="math inline">\(N_2 = 23\)</span>,</li>
+</ul>
+<p>which we can put into the equation right now:</p>
+<p><span class="math display">\[t = \frac{53.99 - 53.3}{s_p \times \sqrt{\frac{1}{23} + \frac{1}{23}}}\]</span></p>
+<p>And now we can see that the only thing we don’t yet know is the pooled standard deviation (<span class="math inline">\(s_p\)</span>). Let’s look at that formula:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(n_1 -1)  \times s^2_{X_1} + (n_2 -1)\times s^2_{X_2}}{n_1 + n_2 - 2}}\]</span></p>
+<p>And if we start to fill in some details:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(23 -1)  \times s^2_{X_1} + (23 -1)\times s^2_{X_2}}{23 + 23 - 2}}\]</span></p>
+<p>Now looking at the formula, it is clear we are missing:</p>
+<ul>
+<li><span class="math inline">\(s^2_{X_1}\)</span> - the variance of Group A (could be written as <span class="math inline">\(s^2_{A}\)</span>)</li>
+<li><span class="math inline">\(s^2_{X_2}\)</span> - the variance of Group B (could be written as <span class="math inline">\(s^2_{B}\)</span>)</li>
+</ul>
+<p>What we do know though, from the table, is the standard deviations of both groups (<span class="math inline">\(SD_A\)</span> = 4.37; <span class="math inline">\(SD_B\)</span> = 3.29), and we know that variance of a group is equal to the standard deviation squared. So:</p>
+<ul>
+<li><span class="math inline">\(s^2_{X_1}\)</span> = <span class="math inline">\(s^2_A\)</span> = <span class="math inline">\(SD_A \times SD_A\)</span> = <span class="math inline">\(4.37 \times 4.37\)</span> = <span class="math inline">\(19.0969\)</span></li>
+<li><span class="math inline">\(s^2_{X_2}\)</span> = <span class="math inline">\(s^2_B\)</span> = <span class="math inline">\(SD_B \times SD_B\)</span> = <span class="math inline">\(3.29 \times 3.29\)</span> = <span class="math inline">\(10.8241\)</span></li>
+</ul>
+<p>And if we now add those values to our formula we get:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(23 -1)  \times 19.0969 + (23 -1)\times 10.8241}{23 + 23 - 2}}\]</span></p>
+<p>And we can then start working through the formula, taking each stage in turn to make sure we don’t make mistakes. Let’s get rid of the brackets first:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{(22  \times 19.0969) + (22 \times 10.8241)}{44}}\]</span></p>
+<p>Now we deal with the multiplications:</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{420.1318 + 238.1302}{44}}\]</span></p>
+<p>Let’s tidy up that top half of the equation (the numerator):</p>
+<p><span class="math display">\[s_p = \sqrt{\frac{658.262}{44}}\]</span></p>
+<p>Which if we then divide the numerator by the denominator (the bottom half), and then take the square root of that we get:</p>
+<p><span class="math display">\[s_p = \sqrt{14.9605}\]</span></p>
+<p>Giving a pooled standard deviation of:</p>
+<p><span class="math display">\[s_p = 3.8678806\]</span></p>
+<p>Meaning that our pooled standard deviation, rounded to three decimal places, is <span class="math inline">\(s_p = 3.868\)</span> and we can now add that to the t-test formula to give us:</p>
+<p><span class="math display">\[t = \frac{53.99 - 53.3}{3.868 \times \sqrt{\frac{1}{23} + \frac{1}{23}}}\]</span></p>
+<p>And again we just start working through the formula. Let’s deal with the fractions relating to sample size first:</p>
+<p><span class="math display">\[t = \frac{53.99 - 53.3}{3.868 \times \sqrt{0.0434783 + 0.0434783}}\]</span></p>
+<p>Which we can tidy up a little to give:</p>
+<p><span class="math display">\[t = \frac{0.69}{3.868 \times \sqrt{0.0869565}}\]</span></p>
+<p>And if we sort out the square root on the denominator we are left with:</p>
+<p><span class="math display">\[t = \frac{0.69}{3.868 \times 0.2948839}\]</span></p>
+<p>We can then tidy up the denominator to give us:</p>
+<p><span class="math display">\[t = \frac{0.69}{1.140611}\]</span></p>
+<p>Which we can finally solve to give us a t-value, rounded to two decimal places, of <span class="math inline">\(t = 0.6\)</span></p>
+<p>Great! Now we just need the degrees of freedom where the formula is:</p>
+<p><span class="math display">\[df = (n_1 - 1) + (n_2 - 1)\]</span></p>
+<p>And we already know that:</p>
+<ul>
+<li>the N of Group A is <span class="math inline">\(N_1 = 23\)</span>,</li>
+<li>and the N of Group B is <span class="math inline">\(N_2 = 23\)</span>,</li>
+</ul>
+<p>So putting them into the equation we get:</p>
+<p><span class="math display">\[df = (23 - 1) + (23 - 1)\]</span>
+<span class="math display">\[df = 22 + 22\]</span>
+<span class="math display">\[df = 44\]</span></p>
+<p>And finally Cohen’s d, the effect size:</p>
+<p><span class="math display">\[d = \frac{2t}{\sqrt{df}}\]</span></p>
+<p>Which, based on the info above, we know:</p>
+<ul>
+<li><span class="math inline">\(t = 0.6\)</span></li>
+<li><span class="math inline">\(df = 44\)</span></li>
+</ul>
+<p>Putting them into the formula we get:</p>
+<p><span class="math display">\[d = \frac{2 \times 0.6}{\sqrt{44}}\]</span></p>
+<p>And if we tidy the nominator and the denominator we get:</p>
+<p><span class="math display">\[d = \frac{1.2}{6.6332496}\]</span></p>
+<p>Which we can then resolve to learn that <span class="math inline">\(d = 0.18\)</span></p>
+<p><strong>Determining Significance</strong></p>
+<p>If we were to look at a critical values look-up table for <span class="math inline">\(df = 44\)</span> and <span class="math inline">\(\alpha = .05\)</span> (two-tailed), we would see that the critical value is <span class="math inline">\(t_{crit} = 2.015\)</span>. Given that our t-value, ignoring polarity and just looking at the absolute value, so <span class="math inline">\(t = 0.6\)</span>, is smaller than our <span class="math inline">\(t_{crit}\)</span> then we can say our result is non-significant, and as such would be written up as t(44) = 0.6, p &gt; .05, d = 0.18</p>
+<p><strong>Remember:</strong> If you were writing this up as a report, and analysis the data in R, then you would see the p-value was actually p = 0.551584, and would be written up as p = 0.543</p>
+</div>
+</div>
+</div>
+<div id="look-up-table" class="section level2">
+<h2><span class="header-section-number">2.3</span> Look-Up table</h2>
+<p>Remembering that the <span class="math inline">\(t_{crit}\)</span> value is the smallest t-value you need to find a significant effect, find the <span class="math inline">\(t_{crit}\)</span> for your df, assuming <span class="math inline">\(\alpha = .05\)</span>. If the <span class="math inline">\(t-value\)</span> you calculated is equal to or larger than <span class="math inline">\(t_{crit}\)</span> then your test is significant.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">df</th>
+<th align="center"><span class="math inline">\(\alpha = .05\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">2.571</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">2.228</td>
+</tr>
+<tr class="odd">
+<td align="center">15</td>
+<td align="center">2.131</td>
+</tr>
+<tr class="even">
+<td align="center">20</td>
+<td align="center">2.086</td>
+</tr>
+<tr class="odd">
+<td align="center">30</td>
+<td align="center">2.042</td>
+</tr>
+<tr class="even">
+<td align="center">40</td>
+<td align="center">2.021</td>
+</tr>
+<tr class="odd">
+<td align="center">50</td>
+<td align="center">2.009</td>
+</tr>
+<tr class="even">
+<td align="center">60</td>
+<td align="center">2</td>
+</tr>
+<tr class="odd">
+<td align="center">70</td>
+<td align="center">1.994</td>
+</tr>
+<tr class="even">
+<td align="center">80</td>
+<td align="center">1.99</td>
+</tr>
+<tr class="odd">
+<td align="center">90</td>
+<td align="center">1.987</td>
+</tr>
+<tr class="even">
+<td align="center">100</td>
+<td align="center">1.984</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="one-sample-chi-square.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="within-subjects-t-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": {},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

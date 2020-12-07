@@ -1,0 +1,476 @@
+# One-Sample Chi-Square
+
+## The Worked Example
+
+```{r we-setup, message=FALSE, warning=FALSE, echo=FALSE}
+library(webex)
+library(tidyverse)
+
+dat_o <- tibble(Conditions = c("A","B","C","D"),
+                Counts = c(4,5,8,15)) %>% 
+  pivot_wider(names_from = "Conditions", values_from = "Counts") %>%
+  mutate(Values = "Observed") %>%
+  select(Values, everything())
+
+md_d <- dat_o %>% 
+  pivot_longer(cols = A:D,
+               names_to = "Conditions", 
+               values_to = "Counts") %>% 
+  pull(Counts)
+
+colsMax <- which(md_d == max(md_d))
+
+```
+
+Here is our data:
+
+```{r we-table-orig, echo=FALSE}
+knitr::kable(dat_o, align = "c")
+```
+
+And if we add on a column showing the total number of participants, adding all the numbers in the different conditions together, (i.e. `r dat_o %>% pull(A)` + `r dat_o %>% pull(B)` + `r dat_o %>% pull(C)` + `r dat_o %>% pull(D)` = `r dat_o %>% pull(A)+dat_o %>% pull(B)+dat_o %>% pull(C)+dat_o %>% pull(D)`),  then we get:
+
+```{r we-table-totals, echo=FALSE}
+dat <- dat_o %>% 
+  mutate(Total = A + B + C + D)
+
+knitr::kable(dat, align = "c")
+```
+
+Now the formula for the chi-square is:
+
+$$x^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
+
+The Expected values for each condition, in a one-sample chi-square assuming a uniform (equal) distribution is calculated by $N \times \frac{1}{k}$ where $k$ is the number of conditions and $N$ is the total number of participants. This can also be written more straightforward as $N/k$. That means that in our example the expected value in each condition would be:
+
+$$Expected = \frac{N}{k} = \frac{`r dat %>% pull(Total)`}{`r dim(dat)[2] - 2`} = `r dat %>% pull(Total)/(dim(dat)[2] - 2)`$$
+
+Let's now add those Expected values to our table which looks like:
+
+```{r we-table-expecteds, echo=FALSE}
+expecteds <- tibble(A = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    B = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    C = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    D = dat %>% pull(Total)/(dim(dat)[2] - 2)) %>%
+  mutate(Total = A + B + C + D,
+         Values = "Expected") %>%
+  select(Values, everything())
+
+dat_e <- bind_rows(dat, expecteds)
+
+knitr::kable(dat_e, align = "c")
+```
+
+We now have our data, let's start putting it into the formula, which we said was:
+
+$$x^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
+
+Which really means:
+
+$$x^2 = \frac{(Observed_{A} - Expected_{A})^2}{Expected_{A}} + \frac{(Observed_{B} - Expected_{B})^2}{Expected_{B}} +  \frac{(Observed_{C} - Expected_{C})^2}{Expected_{C}} + \\ \frac{(Observed_{D} - Expected_{D})^2}{Expected_{D}}$$
+
+
+So
+
+$$x^2 = \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(A)` - `r dat_e %>% filter(Values == "Expected") %>% pull(A)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(B)` - `r dat_e %>% filter(Values == "Expected") %>% pull(B)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(C)` - `r dat_e %>% filter(Values == "Expected") %>% pull(C)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(D)` - `r dat_e %>% filter(Values == "Expected") %>% pull(D)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+Which becomes:
+
+$$x^2 = \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+And if we now square the top halves (the numerators):
+
+$$x^2 = \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+Then divide the top half by the bottom half for each condition:
+
+$$x^2 = {`r (dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+And finally add them altogether
+
+$$x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$$
+
+So we find that $x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$
+
+The degrees of freedom in this test is $k - 1$ and given that we have `r dim(dat_o)[2]-1` conditions:
+
+$$df = k - 1$$
+$$df = `r dim(dat_o)[2]-1` - 1$$
+$$df = `r (dim(dat_o)[2]-1) - 1`$$
+
+
+**The effect size**
+
+A common effect size for the one-sample chi-square test is $\phi$ (pronounced "ph-aye" and can be written as "phi"). The formula for $\phi$ is: 
+
+$$\phi = \frac{\chi^2}{N}$$
+
+And if we know that $\chi^2 =`r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$ and that $N = `r dat %>% pull(Total)`$, then putting them into the formula we get:
+
+$$\phi = \frac{`r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`}{`r dat %>% pull(Total)`}$$
+
+$$\phi = `r (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D)))/((dat %>% pull(Total)))`$$
+
+**The write-up**
+
+If we were to look at a critical value look-up table, we would see that the critical value associated with a $df = `r (dim(dat_o)[2]-1) - 1`$ at $\alpha = .05$, to three decimal places, is $x^2_{crit} = `r qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)`$. As the chi-square value of this test (i.e. $x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$) is `r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"larger","smaller")` than $x^2_{crit}$ then we can say that our test is `r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"significant","non-significant")`, and as such would be written up as $x^2(df = `r (dim(dat_o)[2]-1) - 1`, N = `r dat_o %>% pull(A)+dat_o %>% pull(B)+dat_o %>% pull(C)+dat_o %>% pull(D)`) = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`,`r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"p < .05","p > .05")`$.
+
+Finally, if our test was significant then all we need to do is state the condition with the highest frequency (i.e. the mode), which in this case is Condition `r paste(case_when(colsMax == 1 ~ "A", colsMax == 2 ~ "B", colsMax == 1 ~ "C", TRUE ~ "D"))`
+
+## Test Yourself
+
+### DataSet 1
+
+```{r st1-setup, message=FALSE, warning=FALSE, echo=FALSE}
+set.seed(1409)
+
+dat_o <- tibble(Conditions = c("A","B","C","D"),
+                Counts = sample(0:20,4, replace = FALSE)) %>% 
+  pivot_wider(names_from = "Conditions", values_from = "Counts") %>%
+  mutate(Values = "Observed") %>%
+  select(Values, everything())
+
+md_d <- dat_o %>% 
+  pivot_longer(cols = A:D,
+               names_to = "Conditions", 
+               values_to = "Counts") %>% 
+  pull(Counts)
+
+colsMax <- which(md_d == max(md_d))
+
+```
+
+Here is our data:
+
+```{r st1-table-orig, echo=FALSE}
+knitr::kable(dat_o, align = "c")
+```
+
+
+`r hide("Show me the working and answer")`
+And if we add on a column showing the total number of participants, adding all the numbers in the different conditions together, (i.e. `r dat_o %>% pull(A)` + `r dat_o %>% pull(B)` + `r dat_o %>% pull(C)` + `r dat_o %>% pull(D)` = `r dat_o %>% pull(A)+dat_o %>% pull(B)+dat_o %>% pull(C)+dat_o %>% pull(D)`),  then we get:
+
+```{r st1-table-totals, echo=FALSE}
+dat <- dat_o %>% 
+  mutate(Total = A + B + C + D)
+
+knitr::kable(dat, align = "c")
+```
+
+Now the formula for the chi-square is:
+
+$$x^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
+
+The Expected values for each condition, in a one-sample chi-square assuming a uniform (equal) distribution is calculated by $N \times \frac{1}{k}$ where $k$ is the number of conditions and $N$ is the total number of participants. This can also be written more straightforward as $N/k$. That means that in our example the expected value in each condition would be:
+
+$$Expected = \frac{N}{k} = \frac{`r dat %>% pull(Total)`}{`r dim(dat)[2] - 2`} = `r dat %>% pull(Total)/(dim(dat)[2] - 2)`$$
+
+Let's now add those Expected values to our table which looks like:
+
+```{r st1-table-expecteds, echo=FALSE}
+expecteds <- tibble(A = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    B = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    C = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    D = dat %>% pull(Total)/(dim(dat)[2] - 2)) %>%
+  mutate(Total = A + B + C + D,
+         Values = "Expected") %>%
+  select(Values, everything())
+
+dat_e <- bind_rows(dat, expecteds)
+
+knitr::kable(dat_e, align = "c")
+```
+
+We now have our data, let's start putting it into the formula, which we said was:
+
+$$x^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
+
+So
+
+$$x^2 = \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(A)` - `r dat_e %>% filter(Values == "Expected") %>% pull(A)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(B)` - `r dat_e %>% filter(Values == "Expected") %>% pull(B)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(C)` - `r dat_e %>% filter(Values == "Expected") %>% pull(C)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(D)` - `r dat_e %>% filter(Values == "Expected") %>% pull(D)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+Which becomes:
+
+$$x^2 = \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+And if we now square the top halves (the numerators):
+
+$$x^2 = \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+Then divide the top half by the bottom half for each condition:
+
+$$x^2 = {`r (dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+And finally add them altogether
+
+$$x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$$
+
+So we find that $x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$
+
+The degrees of freedom in this test is $k - 1$ and given that we have `r dim(dat_o)[2]-1` conditions:
+
+$$df = k - 1$$
+$$df = `r dim(dat_o)[2]-1` - 1$$
+$$df = `r (dim(dat_o)[2]-1) - 1`$$
+
+
+**The effect size**
+
+A common effect size for the one-sample chi-square test is $\phi$ (pronounced "ph-aye" and can be written as "phi"). The formula for $\phi$ is: 
+
+$$\phi = \frac{\chi^2}{N}$$
+
+And if we know that $\chi^2 =`r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$ and that $N = `r dat %>% pull(Total)`$, then putting them into the formula we get:
+
+$$\phi = \frac{`r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`}{`r dat %>% pull(Total)`}$$
+
+$$\phi = `r (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D)))/((dat %>% pull(Total)))`$$
+
+**The write-up**
+
+If we were to look at a critical value look-up table, we would see that the critical value associated with a $df = `r (dim(dat_o)[2]-1) - 1`$ at $\alpha = .05$, to three decimal places, is $x^2_{crit} = `r qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)`$. As the chi-square value of this test (i.e. $x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$) is `r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"larger","smaller")` than $x^2_{crit}$ then we can say that our test is `r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"significant","non-significant")`, and as such would be written up as $x^2(df = `r (dim(dat_o)[2]-1) - 1`, N = `r dat_o %>% pull(A)+dat_o %>% pull(B)+dat_o %>% pull(C)+dat_o %>% pull(D)`) = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`,`r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"p < .05","p > .05")`$.
+
+Finally, if our test was significant then all we need to do is state the condition with the highest frequency (i.e. the mode), which in this case is Condition `r paste(case_when(colsMax == 1 ~ "A", colsMax == 2 ~ "B", colsMax == 1 ~ "C", TRUE ~ "D"))`
+
+`r unhide()`
+
+### DataSet 2
+
+```{r st2-setup, message=FALSE, warning=FALSE, echo=FALSE}
+
+dat_o <- tibble(Conditions = c("A","B","C","D"),
+                Counts = sample(0:20,4, replace = FALSE)) %>% 
+  pivot_wider(names_from = "Conditions", values_from = "Counts") %>%
+  mutate(Values = "Observed") %>%
+  select(Values, everything())
+
+md_d <- dat_o %>% 
+  pivot_longer(cols = A:D,
+               names_to = "Conditions", 
+               values_to = "Counts") %>% 
+  pull(Counts)
+
+colsMax <- which(md_d == max(md_d))
+
+```
+
+Here is our data:
+
+```{r st2-table-orig, echo=FALSE}
+knitr::kable(dat_o, align = "c")
+```
+
+
+`r hide("Show me the working and answer")`
+And if we add on a column showing the total number of participants, adding all the numbers in the different conditions together, (i.e. `r dat_o %>% pull(A)` + `r dat_o %>% pull(B)` + `r dat_o %>% pull(C)` + `r dat_o %>% pull(D)` = `r dat_o %>% pull(A)+dat_o %>% pull(B)+dat_o %>% pull(C)+dat_o %>% pull(D)`),  then we get:
+
+```{r st2-table-totals, echo=FALSE}
+dat <- dat_o %>% 
+  mutate(Total = A + B + C + D)
+
+knitr::kable(dat, align = "c")
+```
+
+Now the formula for the chi-square is:
+
+$$x^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
+
+The Expected values for each condition, in a one-sample chi-square assuming a uniform (equal) distribution is calculated by $N \times \frac{1}{k}$ where $k$ is the number of conditions and $N$ is the total number of participants. This can also be written more straightforward as $N/k$. That means that in our example the expected value in each condition would be:
+
+$$Expected = \frac{N}{k} = \frac{`r dat %>% pull(Total)`}{`r dim(dat)[2] - 2`} = `r dat %>% pull(Total)/(dim(dat)[2] - 2)`$$
+
+Let's now add those Expected values to our table which looks like:
+
+```{r st2-table-expecteds, echo=FALSE}
+expecteds <- tibble(A = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    B = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    C = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    D = dat %>% pull(Total)/(dim(dat)[2] - 2)) %>%
+  mutate(Total = A + B + C + D,
+         Values = "Expected") %>%
+  select(Values, everything())
+
+dat_e <- bind_rows(dat, expecteds)
+
+knitr::kable(dat_e, align = "c")
+```
+
+We now have our data, let's start putting it into the formula, which we said was:
+
+$$x^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
+
+So
+
+$$x^2 = \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(A)` - `r dat_e %>% filter(Values == "Expected") %>% pull(A)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(B)` - `r dat_e %>% filter(Values == "Expected") %>% pull(B)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(C)` - `r dat_e %>% filter(Values == "Expected") %>% pull(C)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(D)` - `r dat_e %>% filter(Values == "Expected") %>% pull(D)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+Which becomes:
+
+$$x^2 = \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+And if we now square the top halves (the numerators):
+
+$$x^2 = \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+Then divide the top half by the bottom half for each condition:
+
+$$x^2 = {`r (dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+And finally add them altogether
+
+$$x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$$
+
+So we find that $x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$
+
+The degrees of freedom in this test is $k - 1$ and given that we have `r dim(dat_o)[2]-1` conditions:
+
+$$df = k - 1$$
+$$df = `r dim(dat_o)[2]-1` - 1$$
+$$df = `r (dim(dat_o)[2]-1) - 1`$$
+
+
+**The effect size**
+
+A common effect size for the one-sample chi-square test is $\phi$ (pronounced "ph-aye" and can be written as "phi"). The formula for $\phi$ is: 
+
+$$\phi = \frac{\chi^2}{N}$$
+
+And if we know that $\chi^2 =`r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$ and that $N = `r dat %>% pull(Total)`$, then putting them into the formula we get:
+
+$$\phi = \frac{`r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`}{`r dat %>% pull(Total)`}$$
+
+$$\phi = `r (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D)))/((dat %>% pull(Total)))`$$
+
+**The write-up**
+
+If we were to look at a critical value look-up table, we would see that the critical value associated with a $df = `r (dim(dat_o)[2]-1) - 1`$ at $\alpha = .05$, to three decimal places, is $x^2_{crit} = `r qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)`$. As the chi-square value of this test (i.e. $x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$) is `r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"larger","smaller")` than $x^2_{crit}$ then we can say that our test is `r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"significant","non-significant")`, and as such would be written up as $x^2(df = `r (dim(dat_o)[2]-1) - 1`, N = `r dat_o %>% pull(A)+dat_o %>% pull(B)+dat_o %>% pull(C)+dat_o %>% pull(D)`) = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`,`r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"p < .05","p > .05")`$.
+
+Finally, if our test was significant then all we need to do is state the condition with the highest frequency (i.e. the mode), which in this case is Condition `r paste(case_when(colsMax == 1 ~ "A", colsMax == 2 ~ "B", colsMax == 1 ~ "C", TRUE ~ "D"))`
+
+`r unhide()`
+
+### DataSet 3
+
+```{r st3-setup, message=FALSE, warning=FALSE, echo=FALSE}
+
+dat_o <- tibble(Conditions = c("A","B","C","D"),
+                Counts = sample(0:20,4, replace = FALSE)) %>% 
+  pivot_wider(names_from = "Conditions", values_from = "Counts") %>%
+  mutate(Values = "Observed") %>%
+  select(Values, everything())
+
+md_d <- dat_o %>% 
+  pivot_longer(cols = A:D,
+               names_to = "Conditions", 
+               values_to = "Counts") %>% 
+  pull(Counts)
+
+colsMax <- which(md_d == max(md_d))
+
+```
+
+Here is our data:
+
+```{r st3-table-orig, echo=FALSE}
+knitr::kable(dat_o, align = "c")
+```
+
+
+`r hide("Show me the working and answer")`
+And if we add on a column showing the total number of participants, adding all the numbers in the different conditions together, (i.e. `r dat_o %>% pull(A)` + `r dat_o %>% pull(B)` + `r dat_o %>% pull(C)` + `r dat_o %>% pull(D)` = `r dat_o %>% pull(A)+dat_o %>% pull(B)+dat_o %>% pull(C)+dat_o %>% pull(D)`),  then we get:
+
+```{r st3-table-totals, echo=FALSE}
+dat <- dat_o %>% 
+  mutate(Total = A + B + C + D)
+
+knitr::kable(dat, align = "c")
+```
+
+Now the formula for the chi-square is:
+
+$$x^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
+
+The Expected values for each condition, in a one-sample chi-square assuming a uniform (equal) distribution is calculated by $N \times \frac{1}{k}$ where $k$ is the number of conditions and $N$ is the total number of participants. This can also be written more straightforward as $N/k$. That means that in our example the expected value in each condition would be:
+
+$$Expected = \frac{N}{k} = \frac{`r dat %>% pull(Total)`}{`r dim(dat)[2] - 2`} = `r dat %>% pull(Total)/(dim(dat)[2] - 2)`$$
+
+Let's now add those Expected values to our table which looks like:
+
+```{r st3-table-expecteds, echo=FALSE}
+expecteds <- tibble(A = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    B = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    C = dat %>% pull(Total)/(dim(dat)[2] - 2),
+                    D = dat %>% pull(Total)/(dim(dat)[2] - 2)) %>%
+  mutate(Total = A + B + C + D,
+         Values = "Expected") %>%
+  select(Values, everything())
+
+dat_e <- bind_rows(dat, expecteds)
+
+knitr::kable(dat_e, align = "c")
+```
+
+We now have our data, let's start putting it into the formula, which we said was:
+
+$$x^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
+
+So
+
+$$x^2 = \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(A)` - `r dat_e %>% filter(Values == "Expected") %>% pull(A)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(B)` - `r dat_e %>% filter(Values == "Expected") %>% pull(B)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(C)` - `r dat_e %>% filter(Values == "Expected") %>% pull(C)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`}+\frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(D)` - `r dat_e %>% filter(Values == "Expected") %>% pull(D)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+Which becomes:
+
+$$x^2 = \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`} + \frac{(`r dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D)`)^2}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+And if we now square the top halves (the numerators):
+
+$$x^2 = \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(A)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(B)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(C)`} + \frac{`r (dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2`}{`r dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+
+Then divide the top half by the bottom half for each condition:
+
+$$x^2 = {`r (dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)`}+{`r (dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D)`}$$
+And finally add them altogether
+
+$$x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$$
+
+So we find that $x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$
+
+The degrees of freedom in this test is $k - 1$ and given that we have `r dim(dat_o)[2]-1` conditions:
+
+$$df = k - 1$$
+$$df = `r dim(dat_o)[2]-1` - 1$$
+$$df = `r (dim(dat_o)[2]-1) - 1`$$
+
+
+**The effect size**
+
+A common effect size for the one-sample chi-square test is $\phi$ (pronounced "ph-aye" and can be written as "phi"). The formula for $\phi$ is: 
+
+$$\phi = \frac{\chi^2}{N}$$
+
+And if we know that $\chi^2 =`r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$ and that $N = `r dat %>% pull(Total)`$, then putting them into the formula we get:
+
+$$\phi = \frac{`r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`}{`r dat %>% pull(Total)`}$$
+
+$$\phi = `r (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D)))/((dat %>% pull(Total)))`$$
+
+**The write-up**
+
+If we were to look at a critical value look-up table, we would see that the critical value associated with a $df = `r (dim(dat_o)[2]-1) - 1`$ at $\alpha = .05$, to three decimal places, is $x^2_{crit} = `r qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)`$. As the chi-square value of this test (i.e. $x^2 = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`$) is `r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"larger","smaller")` than $x^2_{crit}$ then we can say that our test is `r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"significant","non-significant")`, and as such would be written up as $x^2(df = `r (dim(dat_o)[2]-1) - 1`, N = `r dat_o %>% pull(A)+dat_o %>% pull(B)+dat_o %>% pull(C)+dat_o %>% pull(D)`) = `r ((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))`,`r ifelse( (((dat_e %>% filter(Values == "Observed") %>% pull(A) - dat_e %>% filter(Values == "Expected") %>% pull(A))^2/dat_e %>% filter(Values == "Expected") %>% pull(A))  +  ((dat_e %>% filter(Values == "Observed") %>% pull(B) - dat_e %>% filter(Values == "Expected") %>% pull(B))^2/dat_e %>% filter(Values == "Expected") %>% pull(B)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(C) - dat_e %>% filter(Values == "Expected") %>% pull(C))^2/dat_e %>% filter(Values == "Expected") %>% pull(C)) +  ((dat_e %>% filter(Values == "Observed") %>% pull(D) - dat_e %>% filter(Values == "Expected") %>% pull(D))^2/dat_e %>% filter(Values == "Expected") %>% pull(D))) >= (qchisq(.05, ((dim(dat_o)[2]-1) - 1), lower.tail = FALSE) %>% round2(3)),"p < .05","p > .05")`$.
+
+Finally, if our test was significant then all we need to do is state the condition with the highest frequency (i.e. the mode), which in this case is Condition `r paste(case_when(colsMax == 1 ~ "A", colsMax == 2 ~ "B", colsMax == 1 ~ "C", TRUE ~ "D"))`
+
+`r unhide()`
+
+## ChiSquare Look-up Table
+
+
+
+|df | $\alpha = .05$|
+|:-:|:-------------:|
+|1  |`r qchisq(.05, 1, lower.tail = FALSE) %>% round2(3)`|
+|2  |`r qchisq(.05, 2, lower.tail = FALSE) %>% round2(3)`|
+|3  |`r qchisq(.05, 3, lower.tail = FALSE) %>% round2(3)`|
+|4  |`r qchisq(.05, 4, lower.tail = FALSE) %>% round2(3)`|
+|5  |`r qchisq(.05, 5, lower.tail = FALSE) %>% round2(3)`|
+|6  |`r qchisq(.05, 6, lower.tail = FALSE) %>% round2(3)`|
+|7  |`r qchisq(.05, 7, lower.tail = FALSE) %>% round2(3)`|
+|8  |`r qchisq(.05, 8, lower.tail = FALSE) %>% round2(3)`|
+|9  |`r qchisq(.05, 9, lower.tail = FALSE) %>% round2(3)`|
+|10  |`r qchisq(.05, 10, lower.tail = FALSE) %>% round2(3)`|
