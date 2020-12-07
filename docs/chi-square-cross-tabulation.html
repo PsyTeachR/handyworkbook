@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 References | A Handy Workbook for Research Methods and Statistics</title>
+  <title>Chapter 2 Chi-Square Cross-Tabulation | A Handy Workbook for Research Methods and Statistics</title>
   <meta name="description" content="ug2-practical-materials" />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 References | A Handy Workbook for Research Methods and Statistics" />
+  <meta property="og:title" content="Chapter 2 Chi-Square Cross-Tabulation | A Handy Workbook for Research Methods and Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 References | A Handy Workbook for Research Methods and Statistics" />
+  <meta name="twitter:title" content="Chapter 2 Chi-Square Cross-Tabulation | A Handy Workbook for Research Methods and Statistics" />
   
   <meta name="twitter:description" content="ug2-practical-materials" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="within-subjects-t-test.html"/>
-
+<link rel="prev" href="one-sample-chi-square.html"/>
+<link rel="next" href="between-subjects-students-t-test.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -126,9 +126,205 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> References</h1>
+<div id="chi-square-cross-tabulation" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Chi-Square Cross-Tabulation</h1>
+<div id="the-worked-example-1" class="section level2">
+<h2><span class="header-section-number">2.1</span> The Worked Example</h2>
+<p>Here is our data:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Groups
+</th>
+<th style="text-align:center;">
+Yes
+</th>
+<th style="text-align:center;">
+No
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+A
+</td>
+<td style="text-align:center;">
+88
+</td>
+<td style="text-align:center;">
+93
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+B
+</td>
+<td style="text-align:center;">
+160
+</td>
+<td style="text-align:center;">
+59
+</td>
+</tr>
+</tbody>
+</table>
+<p>We are going to need to know the Column Totals and Row Totals and the Total number of participants (N), so lets calculate them add them to our tables:</p>
+<ul>
+<li><strong>Group A Row Total</strong> = 88 + 93 = 181</li>
+<li><strong>Group B Row Total</strong> = 160 + 59 = 219</li>
+<li><strong>Yes Column Total</strong> = 88 + 160 = 248</li>
+<li><strong>No Column Total</strong> = 93 + 59 = 152</li>
+<li><strong>N =</strong> 88 + 93 +160 + 59 = 400</li>
+</ul>
+<p>And if we add those to our table we see:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Groups
+</th>
+<th style="text-align:center;">
+Yes
+</th>
+<th style="text-align:center;">
+No
+</th>
+<th style="text-align:center;">
+Totals
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+A
+</td>
+<td style="text-align:center;">
+88
+</td>
+<td style="text-align:center;">
+93
+</td>
+<td style="text-align:center;">
+181
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+B
+</td>
+<td style="text-align:center;">
+160
+</td>
+<td style="text-align:center;">
+59
+</td>
+<td style="text-align:center;">
+219
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Totals
+</td>
+<td style="text-align:center;">
+248
+</td>
+<td style="text-align:center;">
+152
+</td>
+<td style="text-align:center;">
+400
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now the formula for the chi-square is:</p>
+<p><span class="math display">\[\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
+<p>The Expected values for each condition, in the cross-tabulation in a few ways but the one we will use here is probably the easiest to use and it is:</p>
+<p><span class="math display">\[Expected = \frac{Total_{row} \times Total_{column}}{N_{total}}\]</span></p>
+<p>This is the same as other versions you might have seen such as:</p>
+<p><span class="math display">\[Expected = \frac{Total_{row}}{N_{total}} \times \frac{Total_{column}}{N_{total}} \times N_{total}\]</span></p>
+<p>The will both give the same result. So using the first approach we would see that the Expected values are:</p>
+<p><strong>For Group A people that said Yes:</strong></p>
+<p><span class="math display">\[Expected_{A-Yes} = \frac{181 \times 248}{400} = \frac{44888}{400} = 112.22\]</span></p>
+<p><strong>For Group A people that said No:</strong></p>
+<p><span class="math display">\[Expected_{A-No} = \frac{181 \times 152}{400} = \frac{27512}{400} = 68.78\]</span></p>
+<p><strong>For Group B people that said Yes:</strong></p>
+<p><span class="math display">\[Expected_{B-Yes} = \frac{219 \times 248}{400} = \frac{54312}{400} = 135.78\]</span></p>
+<p><strong>For Group B people that said No:</strong></p>
+<p><span class="math display">\[Expected_{B-No} = \frac{219 \times 152}{400} = \frac{33288}{400} = 83.22\]</span></p>
+<p>We now have our data, let’s start putting it into the formula, which we said was:</p>
+<p><span class="math display">\[x^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
+<p>Which really means:</p>
+<p><span class="math display">\[x^2 = \frac{(Observed_{A-Yes} - Expected_{A-Yes})^2}{Expected_{A-Yes}} + \frac{(Observed_{A-No} - Expected_{A-No})^2}{Expected_{A-No}} + \\ \frac{(Observed_{B-Yes} - Expected_{B-Yes})^2}{Expected_{B-Yes}} +  \frac{(Observed_{B-No} - Expected_{B-No})^2}{Expected_{B-No}}\]</span></p>
+<p>And if we start putting in the values, becomes:</p>
+<p><span class="math display">\[x^2 = \frac{(88 - 112.22)^2}{112.22}+ \frac{(93 - 68.78)^2}{68.78}+\frac{(160 - 135.78)^2}{135.78}+\frac{(59 - 83.22)^2}{83.22}\]</span></p>
+<p><strong>To Be Continued</strong></p>
+</div>
+<div id="test-yourself-1" class="section level2">
+<h2><span class="header-section-number">2.2</span> Test Yourself</h2>
+<div id="dataset-1-1" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> DataSet 1</h3>
+<p>To Be Added</p>
+</div>
+</div>
+<div id="chisquare-look-up-table-1" class="section level2">
+<h2><span class="header-section-number">2.3</span> ChiSquare Look-up Table</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="center">df</th>
+<th align="center"><span class="math inline">\(\alpha = .05\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">3.841</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">5.991</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">7.815</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">9.488</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">11.07</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">12.592</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">14.067</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">15.507</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">16.919</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">18.307</td>
+</tr>
+</tbody>
+</table>
 
+</div>
 </div>
 <div class="psyteachr_footer">
   
@@ -220,8 +416,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="within-subjects-t-test.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="one-sample-chi-square.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="between-subjects-students-t-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
