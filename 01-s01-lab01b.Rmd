@@ -1,0 +1,131 @@
+# Chi-Square Cross-Tabulation
+
+## The Worked Example
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+
+dat_o <- tibble(Groups = c("A", "A","B","B"),
+                Response = c("Yes","No","Yes","No"),
+                Counts = c(88,93,160,59)) %>% 
+  pivot_wider(names_from = "Response", values_from = "Counts")
+
+#md_d <- dat_o %>% 
+#  pivot_longer(cols = A:D,
+#               names_to = "Conditions", 
+#               values_to = "Counts") %>% 
+#  pull(Counts)
+
+#colsMax <- which(md_d == max(md_d))
+
+```
+
+Here is our data:
+
+```{r, echo=FALSE}
+knitr::kable(dat_o, align = "c")
+```
+
+We are going to need to know the Column Totals and Row Totals and the Total number of participants (N), so lets calculate them add them to our tables:
+
+* **Group A Row Total** = `r dat_o %>% filter(Groups == "A") %>% pull(Yes)` + `r dat_o %>% filter(Groups == "A") %>% pull(No)` = `r dat_o %>% filter(Groups == "A") %>% pull(Yes) + dat_o %>% filter(Groups == "A") %>% pull(No)`
+* **Group B Row Total** = `r dat_o %>% filter(Groups == "B") %>% pull(Yes)` + `r dat_o %>% filter(Groups == "B") %>% pull(No)` = `r dat_o %>% filter(Groups == "B") %>% pull(Yes) + dat_o %>% filter(Groups == "B") %>% pull(No)`
+* **Yes Column Total** = `r dat_o %>% filter(Groups == "A") %>% pull(Yes)` + `r dat_o %>% filter(Groups == "B") %>% pull(Yes)` = `r dat_o %>% filter(Groups == "A") %>% pull(Yes) + dat_o %>% filter(Groups == "B") %>% pull(Yes)`
+* **No Column Total** = `r dat_o %>% filter(Groups == "A") %>% pull(No)` + `r dat_o %>% filter(Groups == "B") %>% pull(No)` = `r dat_o %>% filter(Groups == "A") %>% pull(No) + dat_o %>% filter(Groups == "B") %>% pull(No)`
+* **N =** `r dat_o %>% filter(Groups == "A") %>% pull(Yes)` + `r dat_o %>% filter(Groups == "A") %>% pull(No)` +`r dat_o %>% filter(Groups == "B") %>% pull(Yes)` + `r dat_o %>% filter(Groups == "B") %>% pull(No)` = `r dat_o %>% filter(Groups == "A") %>% pull(Yes) + dat_o %>% filter(Groups == "A") %>% pull(No) + dat_o %>% filter(Groups == "B") %>% pull(Yes) + dat_o %>% filter(Groups == "B") %>% pull(No)`
+
+And if we add those to our table we see:
+
+```{r, echo=FALSE}
+
+colsums_chi <- tibble(Response = c("Yes","No"),
+               sum = c(dat_o %>% filter(Groups == "A") %>% pull(Yes) + dat_o %>% filter(Groups == "B") %>% pull(Yes),dat_o %>% filter(Groups == "A") %>% pull(No) + dat_o %>% filter(Groups == "B") %>% pull(No))) %>%
+  pivot_wider(names_from = "Response",
+              values_from = "sum") %>%
+  mutate(Groups = "Totals") %>%
+  select(Groups, Yes, No)
+
+dat <- dat_o %>%
+  bind_rows(colsums_chi) %>%
+  mutate(Totals = Yes + No)
+
+knitr::kable(dat, align = "c")
+```
+
+Now the formula for the chi-square is:
+
+$$\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
+
+The Expected values for each condition, in the cross-tabulation in a few ways but the one we will use here is probably the easiest to use and it is:
+
+
+$$Expected = \frac{Total_{row} \times Total_{column}}{N_{total}}$$
+
+This is the same as other versions you might have seen such as:
+
+$$Expected = \frac{Total_{row}}{N_{total}} \times \frac{Total_{column}}{N_{total}} \times N_{total}$$
+
+The will both give the same result. So using the first approach we would see that the Expected values are:
+
+**For Group A people that said Yes:**
+
+$$Expected_{A-Yes} = \frac{`r dat %>% filter(Groups == "A") %>% pull(Totals)` \times `r dat %>% filter(Groups == "Totals") %>% pull(Yes)`}{`r dat %>% filter(Groups == "Totals") %>% pull(Totals)`} = \frac{`r format(dat %>% filter(Groups == "A") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(Yes), scientific = FALSE)`}{`r dat %>% filter(Groups == "Totals") %>% pull(Totals)`} = `r (dat %>% filter(Groups == "A") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(Yes))/(dat %>% filter(Groups == "Totals") %>% pull(Totals))`$$
+
+**For Group A people that said No:**
+
+$$Expected_{A-No} = \frac{`r dat %>% filter(Groups == "A") %>% pull(Totals)` \times `r dat %>% filter(Groups == "Totals") %>% pull(No)`}{`r dat %>% filter(Groups == "Totals") %>% pull(Totals)`} = \frac{`r format(dat %>% filter(Groups == "A") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(No), scientific = FALSE)`}{`r dat %>% filter(Groups == "Totals") %>% pull(Totals)`} = `r (dat %>% filter(Groups == "A") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(No))/(dat %>% filter(Groups == "Totals") %>% pull(Totals))`$$
+
+**For Group B people that said Yes:**
+
+$$Expected_{B-Yes} = \frac{`r dat %>% filter(Groups == "B") %>% pull(Totals)` \times `r dat %>% filter(Groups == "Totals") %>% pull(Yes)`}{`r dat %>% filter(Groups == "Totals") %>% pull(Totals)`} = \frac{`r format(dat %>% filter(Groups == "B") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(Yes), scientific = FALSE)`}{`r dat %>% filter(Groups == "Totals") %>% pull(Totals)`} = `r (dat %>% filter(Groups == "B") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(Yes))/(dat %>% filter(Groups == "Totals") %>% pull(Totals))`$$
+
+**For Group B people that said No:**
+
+$$Expected_{B-No} = \frac{`r dat %>% filter(Groups == "B") %>% pull(Totals)` \times `r dat %>% filter(Groups == "Totals") %>% pull(No)`}{`r dat %>% filter(Groups == "Totals") %>% pull(Totals)`} = \frac{`r format(dat %>% filter(Groups == "B") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(No), scientific = FALSE)`}{`r dat %>% filter(Groups == "Totals") %>% pull(Totals)`} = `r (dat %>% filter(Groups == "B") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(No))/(dat %>% filter(Groups == "Totals") %>% pull(Totals))`$$
+
+We now have our data, let's start putting it into the formula, which we said was:
+
+$$x^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
+
+Which really means:
+
+$$x^2 = \frac{(Observed_{A-Yes} - Expected_{A-Yes})^2}{Expected_{A-Yes}} + \frac{(Observed_{A-No} - Expected_{A-No})^2}{Expected_{A-No}} + \\ \frac{(Observed_{B-Yes} - Expected_{B-Yes})^2}{Expected_{B-Yes}} +  \frac{(Observed_{B-No} - Expected_{B-No})^2}{Expected_{B-No}}$$
+
+```{r hide-we, echo=FALSE}
+AYO <- dat_o %>% filter(Groups == "A") %>% pull(Yes)
+ANO <- dat_o %>% filter(Groups == "A") %>% pull(No)
+BYO <- dat_o %>% filter(Groups == "B") %>% pull(Yes)
+BNO <- dat_o %>% filter(Groups == "B") %>% pull(No)
+AYE <-(dat %>% filter(Groups == "A") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(Yes))/(dat %>% filter(Groups == "Totals") %>% pull(Totals))
+ANE <-(dat %>% filter(Groups == "A") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(No))/(dat %>% filter(Groups == "Totals") %>% pull(Totals))
+BYE <-(dat %>% filter(Groups == "B") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(Yes))/(dat %>% filter(Groups == "Totals") %>% pull(Totals))
+BNE <-(dat %>% filter(Groups == "B") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(No))/(dat %>% filter(Groups == "Totals") %>% pull(Totals))
+
+```
+
+And if we start putting in the values, becomes:
+
+$$x^2 = \frac{(`r AYO` - `r AYE`)^2}{`r AYE`}+ \frac{(`r ANO` - `r ANE`)^2}{`r ANE`}+\frac{(`r BYO` - `r BYE`)^2}{`r BYE`}+\frac{(`r BNO` - `r BNE`)^2}{`r BNE`}$$
+
+**To Be Continued**
+
+## Test Yourself
+
+### DataSet 1
+
+To Be Added
+
+## ChiSquare Look-up Table
+
+
+|df | $\alpha = .05$|
+|:-:|:-------------:|
+|1  |`r qchisq(.05, 1, lower.tail = FALSE) %>% round2(3)`|
+|2  |`r qchisq(.05, 2, lower.tail = FALSE) %>% round2(3)`|
+|3  |`r qchisq(.05, 3, lower.tail = FALSE) %>% round2(3)`|
+|4  |`r qchisq(.05, 4, lower.tail = FALSE) %>% round2(3)`|
+|5  |`r qchisq(.05, 5, lower.tail = FALSE) %>% round2(3)`|
+|6  |`r qchisq(.05, 6, lower.tail = FALSE) %>% round2(3)`|
+|7  |`r qchisq(.05, 7, lower.tail = FALSE) %>% round2(3)`|
+|8  |`r qchisq(.05, 8, lower.tail = FALSE) %>% round2(3)`|
+|9  |`r qchisq(.05, 9, lower.tail = FALSE) %>% round2(3)`|
+|10  |`r qchisq(.05, 10, lower.tail = FALSE) %>% round2(3)`|
