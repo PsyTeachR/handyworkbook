@@ -257,11 +257,20 @@ Totals
 <p><strong>For Group B people that said No:</strong></p>
 <p><span class="math display">\[Expected_{B-No} = \frac{219 \times 152}{400} = \frac{33288}{400} = 83.22\]</span></p>
 <p>We now have our data, let’s start putting it into the formula, which we said was:</p>
-<p><span class="math display">\[x^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
+<p><span class="math display">\[\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
 <p>Which really means:</p>
-<p><span class="math display">\[x^2 = \frac{(Observed_{A-Yes} - Expected_{A-Yes})^2}{Expected_{A-Yes}} + \frac{(Observed_{A-No} - Expected_{A-No})^2}{Expected_{A-No}} + \\ \frac{(Observed_{B-Yes} - Expected_{B-Yes})^2}{Expected_{B-Yes}} +  \frac{(Observed_{B-No} - Expected_{B-No})^2}{Expected_{B-No}}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(Observed_{A-Yes} - Expected_{A-Yes})^2}{Expected_{A-Yes}} + \frac{(Observed_{A-No} - Expected_{A-No})^2}{Expected_{A-No}} + \\ \frac{(Observed_{B-Yes} - Expected_{B-Yes})^2}{Expected_{B-Yes}} +  \frac{(Observed_{B-No} - Expected_{B-No})^2}{Expected_{B-No}}\]</span></p>
 <p>And if we start putting in the values, becomes:</p>
-<p><span class="math display">\[x^2 = \frac{(88 - 112.22)^2}{112.22}+ \frac{(93 - 68.78)^2}{68.78}+\frac{(160 - 135.78)^2}{135.78}+\frac{(59 - 83.22)^2}{83.22}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(88 - 112.22)^2}{112.22}+ \frac{(93 - 68.78)^2}{68.78}+\frac{(160 - 135.78)^2}{135.78}+\frac{(59 - 83.22)^2}{83.22}\]</span></p>
+<p>And if we start to tidy those top halves up a little it becomes:</p>
+<p><span class="math display">\[\chi^2 = \frac{(-24.22)^2}{112.22}+ \frac{(24.22)^2}{68.78}+\frac{(24.22)^2}{135.78}+\frac{(-24.22)^2}{83.22}\]</span></p>
+<p>And now we square those top halves to give:</p>
+<p><span class="math display">\[\chi^2 = \frac{586.6084}{112.22} + \frac{586.6084}{68.78} + \frac{586.6084}{135.78} + \frac{586.6084}{83.22} \]</span></p>
+<p>And then divide the top halves by the bottom halves</p>
+<p><span class="math display">\[\chi^2 = {5.2273071} + {8.5287642} + {4.3202858} + {7.0488873}\]</span></p>
+<p>And then we sum them altogether to find:</p>
+<p><span class="math display">\[\chi^2 = 25.1252443 \]</span></p>
+<p>Meaning that, rounded to two decimal places, we find <span class="math inline">\(\chi^2 = 25.13\)</span></p>
 <p><strong>To Be Continued</strong></p>
 </div>
 <div id="test-yourself-1" class="section level2">
