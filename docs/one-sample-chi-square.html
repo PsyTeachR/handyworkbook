@@ -219,7 +219,7 @@ Observed
 </tbody>
 </table>
 <p>Now the formula for the chi-square is:</p>
-<p><span class="math display">\[x^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
+<p><span class="math display">\[\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
 <p>The Expected values for each condition, in a one-sample chi-square assuming a uniform (equal) distribution is calculated by <span class="math inline">\(N \times \frac{1}{k}\)</span> where <span class="math inline">\(k\)</span> is the number of conditions and <span class="math inline">\(N\)</span> is the total number of participants. This can also be written more straightforward as <span class="math inline">\(N/k\)</span>. That means that in our example the expected value in each condition would be:</p>
 <p><span class="math display">\[Expected = \frac{N}{k} = \frac{32}{4} = 8\]</span></p>
 <p>Let’s now add those Expected values to our table which looks like:</p>
@@ -290,20 +290,20 @@ Expected
 </tbody>
 </table>
 <p>We now have our data, let’s start putting it into the formula, which we said was:</p>
-<p><span class="math display">\[x^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
+<p><span class="math display">\[\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
 <p>Which really means:</p>
-<p><span class="math display">\[x^2 = \frac{(Observed_{A} - Expected_{A})^2}{Expected_{A}} + \frac{(Observed_{B} - Expected_{B})^2}{Expected_{B}} +  \frac{(Observed_{C} - Expected_{C})^2}{Expected_{C}} + \\ \frac{(Observed_{D} - Expected_{D})^2}{Expected_{D}}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(Observed_{A} - Expected_{A})^2}{Expected_{A}} + \frac{(Observed_{B} - Expected_{B})^2}{Expected_{B}} +  \frac{(Observed_{C} - Expected_{C})^2}{Expected_{C}} + \\ \frac{(Observed_{D} - Expected_{D})^2}{Expected_{D}}\]</span></p>
 <p>So</p>
-<p><span class="math display">\[x^2 = \frac{(4 - 8)^2}{8}+\frac{(5 - 8)^2}{8}+\frac{(8 - 8)^2}{8}+\frac{(15 - 8)^2}{8}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(4 - 8)^2}{8}+\frac{(5 - 8)^2}{8}+\frac{(8 - 8)^2}{8}+\frac{(15 - 8)^2}{8}\]</span></p>
 <p>Which becomes:</p>
-<p><span class="math display">\[x^2 = \frac{(-4)^2}{8} + \frac{(-3)^2}{8} + \frac{(0)^2}{8} + \frac{(7)^2}{8}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(-4)^2}{8} + \frac{(-3)^2}{8} + \frac{(0)^2}{8} + \frac{(7)^2}{8}\]</span></p>
 <p>And if we now square the top halves (the numerators):</p>
-<p><span class="math display">\[x^2 = \frac{16}{8} + \frac{9}{8} + \frac{0}{8} + \frac{49}{8}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{16}{8} + \frac{9}{8} + \frac{0}{8} + \frac{49}{8}\]</span></p>
 <p>Then divide the top half by the bottom half for each condition:</p>
-<p><span class="math display">\[x^2 = {2}+{1.125}+{0}+{6.125}\]</span>
+<p><span class="math display">\[\chi^2 = {2}+{1.125}+{0}+{6.125}\]</span>
 And finally add them altogether</p>
-<p><span class="math display">\[x^2 = 9.25\]</span></p>
-<p>So we find that <span class="math inline">\(x^2 = 9.25\)</span></p>
+<p><span class="math display">\[\chi^2 = 9.25\]</span></p>
+<p>So we find that <span class="math inline">\(\chi^2 = 9.25\)</span></p>
 <p>The degrees of freedom in this test is <span class="math inline">\(k - 1\)</span> and given that we have 4 conditions:</p>
 <p><span class="math display">\[df = k - 1\]</span>
 <span class="math display">\[df = 4 - 1\]</span>
@@ -315,7 +315,7 @@ And finally add them altogether</p>
 <p><span class="math display">\[\phi = \sqrt\frac{9.25}{32}\]</span></p>
 <p><span class="math display">\[\phi = 0.5376453\]</span></p>
 <p><strong>The write-up</strong></p>
-<p>If we were to look at a critical value look-up table, we would see that the critical value associated with a <span class="math inline">\(df = 3\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(x^2_{crit} = 7.815\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(x^2 = 9.25\)</span>) is larger than <span class="math inline">\(x^2_{crit}\)</span> then we can say that our test is significant, and as such would be written up as <span class="math inline">\(x^2(df = 3, N = 32) = 9.25,p &lt; .05\)</span>.</p>
+<p>If we were to look at a critical value look-up table, we would see that the critical value associated with a <span class="math inline">\(df = 3\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(\chi^2_{crit} = 7.815\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(\chi^2 = 9.25\)</span>) is larger than <span class="math inline">\(\chi^2_{crit}\)</span> then we can say that our test is significant, and as such would be written up as <span class="math inline">\(\chi^2(df = 3, N = 32) = 9.25,p &lt; .05\)</span>.</p>
 <p>Finally, if our test was significant then all we need to do is state the condition with the highest frequency (i.e. the mode), which in this case is Condition D</p>
 </div>
 <div id="test-yourself" class="section level2">
@@ -415,7 +415,7 @@ Observed
 </tbody>
 </table>
 <p>Now the formula for the chi-square is:</p>
-<p><span class="math display">\[x^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
+<p><span class="math display">\[\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
 <p>The Expected values for each condition, in a one-sample chi-square assuming a uniform (equal) distribution is calculated by <span class="math inline">\(N \times \frac{1}{k}\)</span> where <span class="math inline">\(k\)</span> is the number of conditions and <span class="math inline">\(N\)</span> is the total number of participants. This can also be written more straightforward as <span class="math inline">\(N/k\)</span>. That means that in our example the expected value in each condition would be:</p>
 <p><span class="math display">\[Expected = \frac{N}{k} = \frac{55}{4} = 13.75\]</span></p>
 <p>Let’s now add those Expected values to our table which looks like:</p>
@@ -486,18 +486,18 @@ Expected
 </tbody>
 </table>
 <p>We now have our data, let’s start putting it into the formula, which we said was:</p>
-<p><span class="math display">\[x^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
+<p><span class="math display">\[\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
 <p>So</p>
-<p><span class="math display">\[x^2 = \frac{(14 - 13.75)^2}{13.75}+\frac{(19 - 13.75)^2}{13.75}+\frac{(2 - 13.75)^2}{13.75}+\frac{(20 - 13.75)^2}{13.75}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(14 - 13.75)^2}{13.75}+\frac{(19 - 13.75)^2}{13.75}+\frac{(2 - 13.75)^2}{13.75}+\frac{(20 - 13.75)^2}{13.75}\]</span></p>
 <p>Which becomes:</p>
-<p><span class="math display">\[x^2 = \frac{(0.25)^2}{13.75} + \frac{(5.25)^2}{13.75} + \frac{(-11.75)^2}{13.75} + \frac{(6.25)^2}{13.75}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(0.25)^2}{13.75} + \frac{(5.25)^2}{13.75} + \frac{(-11.75)^2}{13.75} + \frac{(6.25)^2}{13.75}\]</span></p>
 <p>And if we now square the top halves (the numerators):</p>
-<p><span class="math display">\[x^2 = \frac{0.0625}{13.75} + \frac{27.5625}{13.75} + \frac{138.0625}{13.75} + \frac{39.0625}{13.75}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{0.0625}{13.75} + \frac{27.5625}{13.75} + \frac{138.0625}{13.75} + \frac{39.0625}{13.75}\]</span></p>
 <p>Then divide the top half by the bottom half for each condition:</p>
-<p><span class="math display">\[x^2 = {0.0045455}+{2.0045455}+{10.0409091}+{2.8409091}\]</span>
+<p><span class="math display">\[\chi^2 = {0.0045455}+{2.0045455}+{10.0409091}+{2.8409091}\]</span>
 And finally add them altogether</p>
-<p><span class="math display">\[x^2 = 14.8909091\]</span></p>
-<p>So we find that <span class="math inline">\(x^2 = 14.8909091\)</span></p>
+<p><span class="math display">\[\chi^2 = 14.8909091\]</span></p>
+<p>So we find that <span class="math inline">\(\chi^2 = 14.8909091\)</span></p>
 <p>The degrees of freedom in this test is <span class="math inline">\(k - 1\)</span> and given that we have 4 conditions:</p>
 <p><span class="math display">\[df = k - 1\]</span>
 <span class="math display">\[df = 4 - 1\]</span>
@@ -509,7 +509,7 @@ And finally add them altogether</p>
 <p><span class="math display">\[\phi = \sqrt\frac{14.8909091}{55}\]</span></p>
 <p><span class="math display">\[\phi = 0.5203305\]</span></p>
 <p><strong>The write-up</strong></p>
-<p>If we were to look at a critical value look-up table, we would see that the critical value associated with a <span class="math inline">\(df = 3\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(x^2_{crit} = 7.815\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(x^2 = 14.8909091\)</span>) is larger than <span class="math inline">\(x^2_{crit}\)</span> then we can say that our test is significant, and as such would be written up as <span class="math inline">\(x^2(df = 3, N = 55) = 14.8909091,p &lt; .05\)</span>.</p>
+<p>If we were to look at a critical value look-up table, we would see that the critical value associated with a <span class="math inline">\(df = 3\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(\chi^2_{crit} = 7.815\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(\chi^2 = 14.8909091\)</span>) is larger than <span class="math inline">\(\chi^2_{crit}\)</span> then we can say that our test is significant, and as such would be written up as <span class="math inline">\(\chi^2(df = 3, N = 55) = 14.8909091,p &lt; .05\)</span>.</p>
 <p>Finally, if our test was significant then all we need to do is state the condition with the highest frequency (i.e. the mode), which in this case is Condition D</p>
 </div>
 </div>
@@ -608,7 +608,7 @@ Observed
 </tbody>
 </table>
 <p>Now the formula for the chi-square is:</p>
-<p><span class="math display">\[x^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
+<p><span class="math display">\[\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
 <p>The Expected values for each condition, in a one-sample chi-square assuming a uniform (equal) distribution is calculated by <span class="math inline">\(N \times \frac{1}{k}\)</span> where <span class="math inline">\(k\)</span> is the number of conditions and <span class="math inline">\(N\)</span> is the total number of participants. This can also be written more straightforward as <span class="math inline">\(N/k\)</span>. That means that in our example the expected value in each condition would be:</p>
 <p><span class="math display">\[Expected = \frac{N}{k} = \frac{37}{4} = 9.25\]</span></p>
 <p>Let’s now add those Expected values to our table which looks like:</p>
@@ -679,18 +679,18 @@ Expected
 </tbody>
 </table>
 <p>We now have our data, let’s start putting it into the formula, which we said was:</p>
-<p><span class="math display">\[x^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
+<p><span class="math display">\[\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
 <p>So</p>
-<p><span class="math display">\[x^2 = \frac{(2 - 9.25)^2}{9.25}+\frac{(8 - 9.25)^2}{9.25}+\frac{(7 - 9.25)^2}{9.25}+\frac{(20 - 9.25)^2}{9.25}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(2 - 9.25)^2}{9.25}+\frac{(8 - 9.25)^2}{9.25}+\frac{(7 - 9.25)^2}{9.25}+\frac{(20 - 9.25)^2}{9.25}\]</span></p>
 <p>Which becomes:</p>
-<p><span class="math display">\[x^2 = \frac{(-7.25)^2}{9.25} + \frac{(-1.25)^2}{9.25} + \frac{(-2.25)^2}{9.25} + \frac{(10.75)^2}{9.25}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(-7.25)^2}{9.25} + \frac{(-1.25)^2}{9.25} + \frac{(-2.25)^2}{9.25} + \frac{(10.75)^2}{9.25}\]</span></p>
 <p>And if we now square the top halves (the numerators):</p>
-<p><span class="math display">\[x^2 = \frac{52.5625}{9.25} + \frac{1.5625}{9.25} + \frac{5.0625}{9.25} + \frac{115.5625}{9.25}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{52.5625}{9.25} + \frac{1.5625}{9.25} + \frac{5.0625}{9.25} + \frac{115.5625}{9.25}\]</span></p>
 <p>Then divide the top half by the bottom half for each condition:</p>
-<p><span class="math display">\[x^2 = {5.6824324}+{0.1689189}+{0.5472973}+{12.4932432}\]</span>
+<p><span class="math display">\[\chi^2 = {5.6824324}+{0.1689189}+{0.5472973}+{12.4932432}\]</span>
 And finally add them altogether</p>
-<p><span class="math display">\[x^2 = 18.8918919\]</span></p>
-<p>So we find that <span class="math inline">\(x^2 = 18.8918919\)</span></p>
+<p><span class="math display">\[\chi^2 = 18.8918919\]</span></p>
+<p>So we find that <span class="math inline">\(\chi^2 = 18.8918919\)</span></p>
 <p>The degrees of freedom in this test is <span class="math inline">\(k - 1\)</span> and given that we have 4 conditions:</p>
 <p><span class="math display">\[df = k - 1\]</span>
 <span class="math display">\[df = 4 - 1\]</span>
@@ -702,7 +702,7 @@ And finally add them altogether</p>
 <p><span class="math display">\[\phi = \sqrt\frac{18.8918919}{37}\]</span></p>
 <p><span class="math display">\[\phi = 0.714557\]</span></p>
 <p><strong>The write-up</strong></p>
-<p>If we were to look at a critical value look-up table, we would see that the critical value associated with a <span class="math inline">\(df = 3\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(x^2_{crit} = 7.815\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(x^2 = 18.8918919\)</span>) is larger than <span class="math inline">\(x^2_{crit}\)</span> then we can say that our test is significant, and as such would be written up as <span class="math inline">\(x^2(df = 3, N = 37) = 18.8918919,p &lt; .05\)</span>.</p>
+<p>If we were to look at a critical value look-up table, we would see that the critical value associated with a <span class="math inline">\(df = 3\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(\chi^2_{crit} = 7.815\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(\chi^2 = 18.8918919\)</span>) is larger than <span class="math inline">\(\chi^2_{crit}\)</span> then we can say that our test is significant, and as such would be written up as <span class="math inline">\(\chi^2(df = 3, N = 37) = 18.8918919,p &lt; .05\)</span>.</p>
 <p>Finally, if our test was significant then all we need to do is state the condition with the highest frequency (i.e. the mode), which in this case is Condition D</p>
 </div>
 </div>
@@ -801,7 +801,7 @@ Observed
 </tbody>
 </table>
 <p>Now the formula for the chi-square is:</p>
-<p><span class="math display">\[x^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
+<p><span class="math display">\[\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
 <p>The Expected values for each condition, in a one-sample chi-square assuming a uniform (equal) distribution is calculated by <span class="math inline">\(N \times \frac{1}{k}\)</span> where <span class="math inline">\(k\)</span> is the number of conditions and <span class="math inline">\(N\)</span> is the total number of participants. This can also be written more straightforward as <span class="math inline">\(N/k\)</span>. That means that in our example the expected value in each condition would be:</p>
 <p><span class="math display">\[Expected = \frac{N}{k} = \frac{40}{4} = 10\]</span></p>
 <p>Let’s now add those Expected values to our table which looks like:</p>
@@ -872,18 +872,18 @@ Expected
 </tbody>
 </table>
 <p>We now have our data, let’s start putting it into the formula, which we said was:</p>
-<p><span class="math display">\[x^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
+<p><span class="math display">\[\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}\]</span></p>
 <p>So</p>
-<p><span class="math display">\[x^2 = \frac{(5 - 10)^2}{10}+\frac{(10 - 10)^2}{10}+\frac{(14 - 10)^2}{10}+\frac{(11 - 10)^2}{10}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(5 - 10)^2}{10}+\frac{(10 - 10)^2}{10}+\frac{(14 - 10)^2}{10}+\frac{(11 - 10)^2}{10}\]</span></p>
 <p>Which becomes:</p>
-<p><span class="math display">\[x^2 = \frac{(-5)^2}{10} + \frac{(0)^2}{10} + \frac{(4)^2}{10} + \frac{(1)^2}{10}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(-5)^2}{10} + \frac{(0)^2}{10} + \frac{(4)^2}{10} + \frac{(1)^2}{10}\]</span></p>
 <p>And if we now square the top halves (the numerators):</p>
-<p><span class="math display">\[x^2 = \frac{25}{10} + \frac{0}{10} + \frac{16}{10} + \frac{1}{10}\]</span></p>
+<p><span class="math display">\[\chi^2 = \frac{25}{10} + \frac{0}{10} + \frac{16}{10} + \frac{1}{10}\]</span></p>
 <p>Then divide the top half by the bottom half for each condition:</p>
-<p><span class="math display">\[x^2 = {2.5}+{0}+{1.6}+{0.1}\]</span>
+<p><span class="math display">\[\chi^2 = {2.5}+{0}+{1.6}+{0.1}\]</span>
 And finally add them altogether</p>
-<p><span class="math display">\[x^2 = 4.2\]</span></p>
-<p>So we find that <span class="math inline">\(x^2 = 4.2\)</span></p>
+<p><span class="math display">\[\chi^2 = 4.2\]</span></p>
+<p>So we find that <span class="math inline">\(\chi^2 = 4.2\)</span></p>
 <p>The degrees of freedom in this test is <span class="math inline">\(k - 1\)</span> and given that we have 4 conditions:</p>
 <p><span class="math display">\[df = k - 1\]</span>
 <span class="math display">\[df = 4 - 1\]</span>
@@ -895,7 +895,7 @@ And finally add them altogether</p>
 <p><span class="math display">\[\phi = \sqrt\frac{4.2}{40}\]</span></p>
 <p><span class="math display">\[\phi = 0.324037\]</span></p>
 <p><strong>The write-up</strong></p>
-<p>If we were to look at a critical value look-up table, we would see that the critical value associated with a <span class="math inline">\(df = 3\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(x^2_{crit} = 7.815\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(x^2 = 4.2\)</span>) is smaller than <span class="math inline">\(x^2_{crit}\)</span> then we can say that our test is non-significant, and as such would be written up as <span class="math inline">\(x^2(df = 3, N = 40) = 4.2,p &gt; .05\)</span>.</p>
+<p>If we were to look at a critical value look-up table, we would see that the critical value associated with a <span class="math inline">\(df = 3\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(\chi^2_{crit} = 7.815\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(\chi^2 = 4.2\)</span>) is smaller than <span class="math inline">\(\chi^2_{crit}\)</span> then we can say that our test is non-significant, and as such would be written up as <span class="math inline">\(\chi^2(df = 3, N = 40) = 4.2,p &gt; .05\)</span>.</p>
 <p>Finally, if our test was significant then all we need to do is state the condition with the highest frequency (i.e. the mode), which in this case is Condition C</p>
 </div>
 </div>

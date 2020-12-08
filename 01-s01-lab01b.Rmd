@@ -84,11 +84,11 @@ $$Expected_{B-No} = \frac{`r dat %>% filter(Groups == "B") %>% pull(Totals)` \ti
 
 We now have our data, let's start putting it into the formula, which we said was:
 
-$$x^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
+$$\chi^2 = \sum\frac{(Observed - Expected)^2}{Expected}$$
 
 Which really means:
 
-$$x^2 = \frac{(Observed_{A-Yes} - Expected_{A-Yes})^2}{Expected_{A-Yes}} + \frac{(Observed_{A-No} - Expected_{A-No})^2}{Expected_{A-No}} + \\ \frac{(Observed_{B-Yes} - Expected_{B-Yes})^2}{Expected_{B-Yes}} +  \frac{(Observed_{B-No} - Expected_{B-No})^2}{Expected_{B-No}}$$
+$$\chi^2 = \frac{(Observed_{A-Yes} - Expected_{A-Yes})^2}{Expected_{A-Yes}} + \frac{(Observed_{A-No} - Expected_{A-No})^2}{Expected_{A-No}} + \\ \frac{(Observed_{B-Yes} - Expected_{B-Yes})^2}{Expected_{B-Yes}} +  \frac{(Observed_{B-No} - Expected_{B-No})^2}{Expected_{B-No}}$$
 
 ```{r hide-we, echo=FALSE}
 AYO <- dat_o %>% filter(Groups == "A") %>% pull(Yes)
@@ -104,7 +104,25 @@ BNE <-(dat %>% filter(Groups == "B") %>% pull(Totals) * dat %>% filter(Groups ==
 
 And if we start putting in the values, becomes:
 
-$$x^2 = \frac{(`r AYO` - `r AYE`)^2}{`r AYE`}+ \frac{(`r ANO` - `r ANE`)^2}{`r ANE`}+\frac{(`r BYO` - `r BYE`)^2}{`r BYE`}+\frac{(`r BNO` - `r BNE`)^2}{`r BNE`}$$
+$$\chi^2 = \frac{(`r AYO` - `r AYE`)^2}{`r AYE`}+ \frac{(`r ANO` - `r ANE`)^2}{`r ANE`}+\frac{(`r BYO` - `r BYE`)^2}{`r BYE`}+\frac{(`r BNO` - `r BNE`)^2}{`r BNE`}$$
+
+And if we start to tidy those top halves up a little it becomes:
+
+$$\chi^2 = \frac{(`r AYO - AYE`)^2}{`r AYE`}+ \frac{(`r ANO - ANE`)^2}{`r ANE`}+\frac{(`r BYO - BYE`)^2}{`r BYE`}+\frac{(`r BNO - BNE`)^2}{`r BNE`}$$
+
+And now we square those top halves to give:
+
+$$\chi^2 = \frac{`r (AYO - AYE)^2`}{`r AYE`} + \frac{`r (ANO - ANE)^2`}{`r ANE`} + \frac{`r (BYO - BYE)^2`}{`r BYE`} + \frac{`r (BNO - BNE)^2`}{`r BNE`} $$
+
+And then divide the top halves by the bottom halves
+
+$$\chi^2 = {`r ((AYO - AYE)^2)/AYE`} + {`r ((ANO - ANE)^2)/ANE`} + {`r ((BYO - BYE)^2)/BYE`} + {`r ((BNO - BNE)^2)/BNE`}$$
+
+And then we sum them altogether to find:
+
+$$\chi^2 = `r (((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE) + (((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)` $$
+
+Meaning that, rounded to two decimal places, we find $\chi^2 = `r ((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE) + (((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2)`$
 
 **To Be Continued**
 
