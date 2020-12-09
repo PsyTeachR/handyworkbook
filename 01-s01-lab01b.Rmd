@@ -99,6 +99,7 @@ AYE <-(dat %>% filter(Groups == "A") %>% pull(Totals) * dat %>% filter(Groups ==
 ANE <-(dat %>% filter(Groups == "A") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(No))/(dat %>% filter(Groups == "Totals") %>% pull(Totals))
 BYE <-(dat %>% filter(Groups == "B") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(Yes))/(dat %>% filter(Groups == "Totals") %>% pull(Totals))
 BNE <-(dat %>% filter(Groups == "B") %>% pull(Totals) * dat %>% filter(Groups == "Totals") %>% pull(No))/(dat %>% filter(Groups == "Totals") %>% pull(Totals))
+NT <- dat %>% filter(Groups == "Totals") %>% pull(Totals)
 
 ```
 
@@ -123,6 +124,98 @@ And then we sum them altogether to find:
 $$\chi^2 = `r (((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE) + (((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)` $$
 
 Meaning that, rounded to two decimal places, we find $\chi^2 = `r ((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE) + (((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2)`$
+
+**Degrees of Freedom**
+
+The degrees of freedom for the cross-tabulation is calculated as:
+
+$$df = (Rows - 1) \times (Columns - 1)$$
+
+Which is read as **the number of Rows minus 1 times the number of Columns minus 1**. If we look at our original data again:
+
+```{r df-orig, echo=FALSE}
+chival <- ((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE) + (((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2)
+
+
+knitr::kable(dat_o, align = "c")
+```
+
+Looking at the table we see we have `r dim(dat_o)[1]` rows and `r dim(dat_o)[2] - 1` columns of actual observed data (not looking at the titles and group names), so:
+
+$$Rows - 1 = `r dim(dat_o)[1]` - 1 = `r dim(dat_o)[1] - 1`$$
+
+And
+
+$$Columns - 1 = `r dim(dat_o)[2]-1` - 1 = `r dim(dat_o)[2]-1 - 1`$$
+
+Meaning that:
+
+$$df = (Rows - 1) \times (Columns - 1)$$
+
+which becomes:
+
+$$df = (`r dim(dat_o)[1]` - 1) \times (`r dim(dat_o)[2]-1` - 1)$$
+
+And reduces to:
+
+$$df = (`r dim(dat_o)[1] - 1`) \times (`r dim(dat_o)[2]-1 - 1`)$$
+
+leaving us with:
+
+$$df = `r (dim(dat_o)[1] - 1) * ((dim(dat_o)[2]-1) - 1)`$$
+
+so we see that $df = `r (dim(dat_o)[1] - 1) * ((dim(dat_o)[2]-1) - 1)`$
+
+**The effect size**
+
+One of the common effect sizes for a cross-tabulation chi-square test is Cramer's $V$ and is calculated as:
+
+$$V = \sqrt\frac{\chi^2}{N \times \min(C-1, R-1)}$$
+
+The key thing to note is $\min(C-1, R-1)$ which is read as **the minimum of EITHER the number of Columns (C) minus 1 OR the number of Rows (R) minus 1**; whichever of those two values is smallest. 
+
+And the minimum of Columns minus 1 or Rows minus 1 is:
+
+$$\min(C-1, R-1) = \min( `r dim(dat_o)[1]` - 1,  `r dim(dat_o)[2]-1` - 1)$$
+$$\min(C-1, R-1) = \min( `r dim(dat_o)[1] - 1`,  `r dim(dat_o)[2]-1 - 1`)$$
+which gives us:
+
+$$\min(C-1, R-1) = `r min((dim(dat_o)[1] - 1), (dim(dat_o)[2]-1 - 1))`$$
+
+And now we can start completing the Cramer's $V$ formula as we know:
+
+* $\chi^2 = `r chival`$
+* $N = `r NT`$
+* $\min(C-1, R-1) = `r min((dim(dat_o)[1] - 1), (dim(dat_o)[2]-1 - 1))`$
+
+Giving us:
+
+$$V = \sqrt\frac{`r chival`}{`r NT` \times `r min((dim(dat_o)[1] - 1), (dim(dat_o)[2]-1 - 1))`}$$
+
+And if we deal with the bottom half first we get:
+
+$$V = \sqrt\frac{`r chival`}{`r NT * (min((dim(dat_o)[1] - 1), (dim(dat_o)[2]-1 - 1)))`}$$
+
+Then if we divide the top by the bottom we get
+
+$$V = \sqrt{`r chival /(NT * (min((dim(dat_o)[1] - 1), (dim(dat_o)[2]-1 - 1))))`}$$
+
+Giving us:
+
+$$V = `r sqrt(chival /(NT * (min((dim(dat_o)[1] - 1), (dim(dat_o)[2]-1 - 1)))))`$$
+
+So we see that, rounded to two decimal places, the effect size is $V = `r sqrt(chival /(NT * (min((dim(dat_o)[1] - 1), (dim(dat_o)[2]-1 - 1))))) %>% round2(2)`$
+
+**The write-up**
+
+```{r writeup, echo=FALSE}
+
+df <- (dim(dat_o)[1] - 1) * ((dim(dat_o)[2]-1) - 1)
+V <- sqrt(chival /(NT * (min((dim(dat_o)[1] - 1), (dim(dat_o)[2]-1 - 1))))) %>% round2(2)
+```
+
+If we were to look at a critical value look-up table, we would see that the critical value associated with a $df = `r df`$ at $\alpha = .05$, to three decimal places, is $\chi^2_{crit} = `r qchisq(.05, df, lower.tail = FALSE) %>% round2(3)`$. As the chi-square value of this test (i.e. $\chi^2 = `r chival`$) is `r ifelse(chival >= (qchisq(.05, df, lower.tail = FALSE) %>% round2(3)),"larger","smaller")` than $\chi^2_{crit}$ then we can say that our test is `r ifelse(chival >= (qchisq(.05, df, lower.tail = FALSE) %>% round2(3)),"significant","non-significant")`, and as such would be written up as $\chi^2(df = `r df`, N = `r NT`) = `r chival`,`r ifelse(chival >= (qchisq(.05, df, lower.tail = FALSE) %>% round2(3)),"p < .05","p > .05")`, V = `r V`$.
+
 
 **To Be Continued**
 

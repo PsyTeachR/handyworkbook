@@ -271,6 +271,88 @@ Totals
 <p>And then we sum them altogether to find:</p>
 <p><span class="math display">\[\chi^2 = 25.1252443 \]</span></p>
 <p>Meaning that, rounded to two decimal places, we find <span class="math inline">\(\chi^2 = 25.13\)</span></p>
+<p><strong>Degrees of Freedom</strong></p>
+<p>The degrees of freedom for the cross-tabulation is calculated as:</p>
+<p><span class="math display">\[df = (Rows - 1) \times (Columns - 1)\]</span></p>
+<p>Which is read as <strong>the number of Rows minus 1 times the number of Columns minus 1</strong>. If we look at our original data again:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Groups
+</th>
+<th style="text-align:center;">
+Yes
+</th>
+<th style="text-align:center;">
+No
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+A
+</td>
+<td style="text-align:center;">
+88
+</td>
+<td style="text-align:center;">
+93
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+B
+</td>
+<td style="text-align:center;">
+160
+</td>
+<td style="text-align:center;">
+59
+</td>
+</tr>
+</tbody>
+</table>
+<p>Looking at the table we see we have 2 rows and 2 columns of actual observed data (not looking at the titles and group names), so:</p>
+<p><span class="math display">\[Rows - 1 = 2 - 1 = 1\]</span></p>
+<p>And</p>
+<p><span class="math display">\[Columns - 1 = 2 - 1 = 1\]</span></p>
+<p>Meaning that:</p>
+<p><span class="math display">\[df = (Rows - 1) \times (Columns - 1)\]</span></p>
+<p>which becomes:</p>
+<p><span class="math display">\[df = (2 - 1) \times (2 - 1)\]</span></p>
+<p>And reduces to:</p>
+<p><span class="math display">\[df = (1) \times (1)\]</span></p>
+<p>leaving us with:</p>
+<p><span class="math display">\[df = 1\]</span></p>
+<p>so we see that <span class="math inline">\(df = 1\)</span></p>
+<p><strong>The effect size</strong></p>
+<p>One of the common effect sizes for a cross-tabulation chi-square test is Cramer’s <span class="math inline">\(V\)</span> and is calculated as:</p>
+<p><span class="math display">\[V = \sqrt\frac{\chi^2}{N \times \min(C-1, R-1)}\]</span></p>
+<p>The key thing to note is <span class="math inline">\(\min(C-1, R-1)\)</span> which is read as <strong>the minimum of EITHER the number of Columns (C) minus 1 OR the number of Rows (R) minus 1</strong>; whichever of those two values is smallest.</p>
+<p>And the minimum of Columns minus 1 or Rows minus 1 is:</p>
+<p><span class="math display">\[\min(C-1, R-1) = \min( 2 - 1,  2 - 1)\]</span>
+<span class="math display">\[\min(C-1, R-1) = \min( 1,  1)\]</span>
+which gives us:</p>
+<p><span class="math display">\[\min(C-1, R-1) = 1\]</span></p>
+<p>And now we can start completing the Cramer’s <span class="math inline">\(V\)</span> formula as we know:</p>
+<ul>
+<li><span class="math inline">\(\chi^2 = 25.13\)</span></li>
+<li><span class="math inline">\(N = 400\)</span></li>
+<li><span class="math inline">\(\min(C-1, R-1) = 1\)</span></li>
+</ul>
+<p>Giving us:</p>
+<p><span class="math display">\[V = \sqrt\frac{25.13}{400 \times 1}\]</span></p>
+<p>And if we deal with the bottom half first we get:</p>
+<p><span class="math display">\[V = \sqrt\frac{25.13}{400}\]</span></p>
+<p>Then if we divide the top by the bottom we get</p>
+<p><span class="math display">\[V = \sqrt{0.062825}\]</span></p>
+<p>Giving us:</p>
+<p><span class="math display">\[V = 0.2506492\]</span></p>
+<p>So we see that, rounded to two decimal places, the effect size is <span class="math inline">\(V = 0.25\)</span></p>
+<p><strong>The write-up</strong></p>
+<p>If we were to look at a critical value look-up table, we would see that the critical value associated with a <span class="math inline">\(df = 1\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(\chi^2_{crit} = 3.841\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(\chi^2 = 25.13\)</span>) is larger than <span class="math inline">\(\chi^2_{crit}\)</span> then we can say that our test is significant, and as such would be written up as <span class="math inline">\(\chi^2(df = 1, N = 400) = 25.13,p &lt; .05, V = 0.25\)</span>.</p>
 <p><strong>To Be Continued</strong></p>
 </div>
 <div id="test-yourself-1" class="section level2">
