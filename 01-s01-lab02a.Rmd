@@ -1,5 +1,7 @@
 # Between-Subjects Student's t-test
 
+**between-subjects t-test:** Compare two groups or conditions where the participants are different in each group and have not been matched or are only matched on broad demographics, e.g. only age.
+
 ## The Worked Example
 
 ```{r we, echo = FALSE}
@@ -60,6 +62,8 @@ $$t = \frac{`r desc %>% filter(Group == "A") %>% pull(Means)` - `r desc %>% filt
 
 And now we can see that the only thing we don't yet know is the pooled standard deviation ($s_p$). Let's look at that formula:
 
+**Calculating the pooled standard deviation**
+
 $$s_p = \sqrt{\frac{(n_1 -1)  \times s^2_{X_1} + (n_2 -1)\times s^2_{X_2}}{n_1 + n_2 - 2}}$$
 
 And if we start to fill in some details:
@@ -102,6 +106,8 @@ $$s_p = `r sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% fil
 
 Meaning that our pooled standard deviation, rounded to three decimal places, is $s_p = `r sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3)`$ and we can now add that to the t-test formula to give us:
 
+**Calculating the t-value**
+
 $$t = \frac{`r desc %>% filter(Group == "A") %>% pull(Means)` - `r desc %>% filter(Group == "B") %>% pull(Means)`}{`r sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3)` \times \sqrt{\frac{1}{`r desc %>% filter(Group == "A") %>% pull(Npg)`} + \frac{1}{`r desc %>% filter(Group == "B") %>% pull(Npg)`}}}$$
 
 And again we just start working through the formula. Let's deal with the fractions relating to sample size first:
@@ -122,6 +128,8 @@ $$t = \frac{`r desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(G
 
 Which we can finally solve to give us a t-value, rounded to two decimal places, of $t = `r ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)`$
 
+**Degrees of Freedom**
+
 Great! Now we just need the degrees of freedom where the formula is:
 
 $$df = (n_1 - 1) + (n_2 - 1)$$
@@ -136,6 +144,8 @@ So putting them into the equation we get:
 $$df = (`r desc %>% filter(Group == "A") %>% pull(Npg)` - 1) + (`r desc %>% filter(Group == "B") %>% pull(Npg)` - 1)$$
 $$df = `r desc %>% filter(Group == "A") %>% pull(Npg) - 1` + `r desc %>% filter(Group == "B") %>% pull(Npg) - 1`$$
 $$df = `r (desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)`$$
+
+**Effect Size: Cohen's d**
 
 And finally Cohen's d, the effect size:
 
@@ -154,7 +164,7 @@ And if we tidy the nominator and the denominator we get:
 
 $$d = \frac{`r 2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)`}{`r sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1))`}$$
 
-Which we can then resolve to learn that $d = `r ((2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) / (sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)))) %>% round2(2)`$
+Which we can then solve to learn that $d = `r ((2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) / (sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)))) %>% round2(2)`$
 
 **Determining Significance**
 
@@ -320,7 +330,7 @@ And if we tidy the nominator and the denominator we get:
 
 $$d = \frac{`r 2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)`}{`r sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1))`}$$
 
-Which we can then resolve to learn that $d = `r ((2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) / (sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)))) %>% round2(2)`$
+Which we can then solve to learn that $d = `r ((2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) / (sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)))) %>% round2(2)`$
 
 **Determining Significance**
 
@@ -486,7 +496,7 @@ And if we tidy the nominator and the denominator we get:
 
 $$d = \frac{`r 2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)`}{`r sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1))`}$$
 
-Which we can then resolve to learn that $d = `r ((2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) / (sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)))) %>% round2(2)`$
+Which we can then solve to learn that $d = `r ((2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) / (sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)))) %>% round2(2)`$
 
 **Determining Significance**
 
@@ -652,7 +662,7 @@ And if we tidy the nominator and the denominator we get:
 
 $$d = \frac{`r 2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)`}{`r sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1))`}$$
 
-Which we can then resolve to learn that $d = `r ((2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) / (sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)))) %>% round2(2)`$
+Which we can then solve to learn that $d = `r ((2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) / (sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)))) %>% round2(2)`$
 
 **Determining Significance**
 
@@ -668,7 +678,15 @@ Remembering that the $t_{crit}$ value is the smallest t-value you need to find a
 
 |df | $\alpha = .05$|
 |:-:|:-------------:|
+|1  |`r qt(1-.975, 1, lower.tail = FALSE) %>% round2(3)`|
+|2  |`r qt(1-.975, 2, lower.tail = FALSE) %>% round2(3)`|
+|3  |`r qt(1-.975, 3, lower.tail = FALSE) %>% round2(3)`|
+|4  |`r qt(1-.975, 4, lower.tail = FALSE) %>% round2(3)`|
 |5  |`r qt(1-.975, 5, lower.tail = FALSE) %>% round2(3)`|
+|6  |`r qt(1-.975, 6, lower.tail = FALSE) %>% round2(3)`|
+|7  |`r qt(1-.975, 7, lower.tail = FALSE) %>% round2(3)`|
+|8  |`r qt(1-.975, 8, lower.tail = FALSE) %>% round2(3)`|
+|9  |`r qt(1-.975, 9, lower.tail = FALSE) %>% round2(3)`|
 |10 |`r qt(1-.975, 10, lower.tail = FALSE) %>% round2(3)`|
 |15 |`r qt(1-.975, 15, lower.tail = FALSE) %>% round2(3)`|
 |20 |`r qt(1-.975, 20, lower.tail = FALSE) %>% round2(3)`|
