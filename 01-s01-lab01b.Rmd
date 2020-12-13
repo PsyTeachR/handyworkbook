@@ -216,6 +216,16 @@ V <- sqrt(chival /(NT * (min((dim(dat_o)[1] - 1), (dim(dat_o)[2]-1 - 1))))) %>% 
 
 If we were to look at a critical value look-up table, we would see that the critical value associated with a $df = `r df`$ at $\alpha = .05$, to three decimal places, is $\chi^2_{crit} = `r qchisq(.05, df, lower.tail = FALSE) %>% round2(3)`$. As the chi-square value of this test (i.e. $\chi^2 = `r chival`$) is `r ifelse(chival >= (qchisq(.05, df, lower.tail = FALSE) %>% round2(3)),"larger","smaller")` than $\chi^2_{crit}$ then we can say that our test is `r ifelse(chival >= (qchisq(.05, df, lower.tail = FALSE) %>% round2(3)),"significant","non-significant")`, and as such would be written up as $\chi^2(df = `r df`, N = `r NT`) = `r chival`,`r ifelse(chival >= (qchisq(.05, df, lower.tail = FALSE) %>% round2(3)),"p < .05","p > .05")`, V = `r V`$.
 
+If our test was significant then we would go on to carry out the relevant one-sample chi-squares to breakdown how the association manifests itself. The key thing to remember however is that in these one-sample chi-squares, following the cross-tabulation, you **MUST** use the expected values from the cross-tabulation and **do not** calculate new expected values. For instance if you were looking at the one-sample chi-square within Group A, then you would use the expected values of $Expected_{A-Yes} = `r AYE`$ and $Expected_{A-No} = `r ANE`$ to compare against the observed values of $Observed_{A-Yes} = `r AYO`$ and $Observed_{A-No} = `r ANO`$ as such:
+
+$$\chi^2 = \frac{(`r AYO` - `r AYE`)^2}{`r AYE`}+ \frac{(`r ANO` - `r ANE`)^2}{`r ANE`}$$
+
+Which if you walk the process through you find:
+
+$$\chi^2 = `r (((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)`$$
+
+Meaning that, rounded to two decimal places, we find $\chi^2 = `r ((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2)`$
+
 
 **To Be Continued**
 

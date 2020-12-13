@@ -98,6 +98,8 @@
 <li class="chapter" data-level="4.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#the-worked-example-3"><i class="fa fa-check"></i><b>4.1</b> The Worked Example</a></li>
 <li class="chapter" data-level="4.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#test-yourself-3"><i class="fa fa-check"></i><b>4.2</b> Test Yourself</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#dataset-1-3"><i class="fa fa-check"></i><b>4.2.1</b> DataSet 1</a></li>
+<li class="chapter" data-level="4.2.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#dataset-2-2"><i class="fa fa-check"></i><b>4.2.2</b> DataSet 2</a></li>
+<li class="chapter" data-level="4.2.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#dataset-3-2"><i class="fa fa-check"></i><b>4.2.3</b> DataSet 3</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#look-up-table-1"><i class="fa fa-check"></i><b>4.3</b> Look-Up table</a></li>
 </ul></li>
@@ -353,6 +355,11 @@ which gives us:</p>
 <p>So we see that, rounded to two decimal places, the effect size is <span class="math inline">\(V = 0.25\)</span></p>
 <p><strong>The write-up</strong></p>
 <p>If we were to look at a critical value look-up table, we would see that the critical value associated with a <span class="math inline">\(df = 1\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(\chi^2_{crit} = 3.841\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(\chi^2 = 25.13\)</span>) is larger than <span class="math inline">\(\chi^2_{crit}\)</span> then we can say that our test is significant, and as such would be written up as <span class="math inline">\(\chi^2(df = 1, N = 400) = 25.13,p &lt; .05, V = 0.25\)</span>.</p>
+<p>If our test was significant then we would go on to carry out the relevant one-sample chi-squares to breakdown how the association manifests itself. The key thing to remember however is that in these one-sample chi-squares, following the cross-tabulation, you <strong>MUST</strong> use the expected values from the cross-tabulation and <strong>do not</strong> calculate new expected values. For instance if you were looking at the one-sample chi-square within Group A, then you would use the expected values of <span class="math inline">\(Expected_{A-Yes} = 112.22\)</span> and <span class="math inline">\(Expected_{A-No} = 68.78\)</span> to compare against the observed values of <span class="math inline">\(Observed_{A-Yes} = 88\)</span> and <span class="math inline">\(Observed_{A-No} = 93\)</span> as such:</p>
+<p><span class="math display">\[\chi^2 = \frac{(88 - 112.22)^2}{112.22}+ \frac{(93 - 68.78)^2}{68.78}\]</span></p>
+<p>Which if you walk the process through you find:</p>
+<p><span class="math display">\[\chi^2 = 13.7560713\]</span></p>
+<p>Meaning that, rounded to two decimal places, we find <span class="math inline">\(\chi^2 = 13.76\)</span></p>
 <p><strong>To Be Continued</strong></p>
 </div>
 <div id="test-yourself-1" class="section level2">
