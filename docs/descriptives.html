@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 References | A Handy Workbook for Research Methods and Statistics</title>
+  <title>Chapter 1 Descriptives | A Handy Workbook for Research Methods and Statistics</title>
   <meta name="description" content="ug2-practical-materials" />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 References | A Handy Workbook for Research Methods and Statistics" />
+  <meta property="og:title" content="Chapter 1 Descriptives | A Handy Workbook for Research Methods and Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 References | A Handy Workbook for Research Methods and Statistics" />
+  <meta name="twitter:title" content="Chapter 1 Descriptives | A Handy Workbook for Research Methods and Statistics" />
   
   <meta name="twitter:description" content="ug2-practical-materials" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="within-subjects-t-test.html"/>
-
+<link rel="prev" href="index.html"/>
+<link rel="next" href="one-sample-chi-square.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -141,9 +141,236 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> References</h1>
+<div id="descriptives" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Descriptives</h1>
+<div id="worked-examples" class="section level2">
+<h2><span class="header-section-number">1.1</span> Worked Examples</h2>
+<p><strong>The Data</strong></p>
+<p>To look at the mean, variance, standard deviation, standard error, 95% Confidence Intervals, and z-scores, we will use the following data from 10 participants:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Participants
+</th>
+<th style="text-align:center;">
+X
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+<div id="the-mean" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> The Mean</h3>
+<p>The symbol for the mean is generally written as <span class="math inline">\(\bar{X}\)</span> (pronounced as X-bar) and the formula for the mean is:</p>
+<p><span class="math display">\[\bar{X} = \frac{\sum{X}}{N}\]</span></p>
+<p>If we start to fill in the information from above we get:</p>
+<p><span class="math display">\[\bar{X} = \frac{8 + 11 + 6 +3 +1 +6 +1 +0 +1 +4}{10}\]</span></p>
+<p>And if we sum all the values on the top half together we get:</p>
+<p><span class="math display">\[\bar{X} = \frac{41}{10}\]</span></p>
+<p>And finally divide the top half by the bottom half, leaving:</p>
+<p><span class="math display">\[\bar{X} = 4.1\]</span></p>
+<p>We find that the mean, rounded to two decimal places, is <strong><span class="math inline">\(\bar{X} = 4.1\)</span></strong></p>
+</div>
+<div id="variance" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Variance</h3>
+<p>The symbol for the variance is generally written as <span class="math inline">\(s^2\)</span> (pronounced as sigma-squared) but can also be written as <span class="math inline">\(Var\)</span>. The formula for the variance is:</p>
+<p><span class="math display">\[s^2 = \frac{\sum(X - \bar{X})^2}{N-1}\]</span></p>
+<p>So let’s again start by filling in the numbers to the formula:</p>
+<p><span class="math display">\[s^2 = \frac{(8 - 4.1)^2 + (11 - 4.1)^2 + (6 - 4.1)^2 + (3 - 4.1)^2 + (1 - 4.1)^2 + \\(6 - 4.1)^2 + (1 - 4.1)^2 + (0 - 4.1)^2 + (1 - 4.1)^2 + (4 - 4.1)^2}{10 - 1}\]</span></p>
+<p>And we do the subtractions in all those brackets of the top half and the one on the bottom:</p>
+<p><span class="math display">\[s^2 = \frac{(3.9)^2 + (6.9)^2 + (1.9)^2 + (-1.1)^2 + (-3.1)^2 + \\(1.9)^2 + (-3.1)^2 + (-4.1)^2 + (-3.1)^2 + (-0.1)^2}{9}\]</span></p>
+<p>Then we square all those values on the top half:</p>
+<p><span class="math display">\[s^2 = \frac{15.21 + 47.61+ 3.61+ 1.21+ 9.61+ 3.61+ 9.61+ 16.81+ 9.61+ 0.01}{9}\]</span></p>
+<p>Sum those values together:</p>
+<p><span class="math display">\[s^2 = \frac{116.9}{9}\]</span>
+And divide the top half by the bottom half:</p>
+<p><span class="math display">\[s^2 = 12.9888889\]</span></p>
+<p>Showing that the variance, rounded to two decimal places is, <strong><span class="math inline">\(s^2 = 12.99\)</span></strong></p>
+</div>
+<div id="standard-deviation" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> Standard Deviation</h3>
+<p>The symbol for the standard deviation is generally written as <span class="math inline">\(s\)</span> (pronounced as sigma) but can also be written as <span class="math inline">\(SD\)</span>. The formula for the standard deviation is:</p>
+<p><span class="math display">\[s = \sqrt\frac{\sum(X - \bar{X})^2}{N-1}\]</span>
+So let’s again start by filling in the numbers to the formula:</p>
+<p><span class="math display">\[s = \sqrt\frac{(8 - 4.1)^2 + (11 - 4.1)^2 + (6 - 4.1)^2 + (3 - 4.1)^2 + (1 - 4.1)^2 + \\(6 - 4.1)^2 + (1 - 4.1)^2 + (0 - 4.1)^2 + (1 - 4.1)^2 + (4 - 4.1)^2}{10 - 1}\]</span></p>
+<p>And we do the subtractions in all those brackets of the top half and the one on the bottom:</p>
+<p><span class="math display">\[s = \sqrt\frac{(3.9)^2 + (6.9)^2 + (1.9)^2 + (-1.1)^2 + (-3.1)^2 + \\(1.9)^2 + (-3.1)^2 + (-4.1)^2 + (-3.1)^2 + (-0.1)^2}{9}\]</span></p>
+<p>Then we square all those values on the top half:</p>
+<p><span class="math display">\[s = \sqrt\frac{15.21 + 47.61+ 3.61+ 1.21+ 9.61+ 3.61+ 9.61+ 16.81+ 9.61+ 0.01}{9}\]</span>
+Sum those values together:</p>
+<p><span class="math display">\[s = \sqrt\frac{116.9}{9}\]</span>
+Divide the top half by the bottom half:</p>
+<p><span class="math display">\[s = \sqrt{12.9888889}\]</span>
+And finally take the square root:</p>
+<p><span class="math display">\[s = 3.6040101\]</span></p>
+<p>We find that the standard deviation, rounded to two decimal places, is <strong><span class="math inline">\(s = 3.6\)</span></strong></p>
+</div>
+<div id="var-to-sd" class="section level3">
+<h3><span class="header-section-number">1.1.4</span> Var to SD</h3>
+<p>Remembering that the standard deviation is the square root of the variance, then if you know the variance (<span class="math inline">\(s^2\)</span>) and you need the standard deviation (<span class="math inline">\(s\)</span>) then you can do:</p>
+<p><span class="math display">\[s = \sqrt{s^2}\]</span></p>
+<p>In our example, <span class="math inline">\(s^2 = 12.9888889\)</span> and so</p>
+<p><span class="math display">\[s = \sqrt{12.9888889}\]</span></p>
+<p>giving:</p>
+<p><span class="math display">\[s = 3.6040101\]</span></p>
+</div>
+<div id="sd-to-var" class="section level3">
+<h3><span class="header-section-number">1.1.5</span> SD to Var</h3>
+<p>Sometimes you need to go from the standard deviation to the variance, and remembering that the variance is the standard deviation squared, or the standard deviation multiplied by itself, then you can do:</p>
+<p><span class="math display">\[s^2 = s \times s\]</span></p>
+<p>And if we know that the standard deviation in our example is <span class="math inline">\(s = 3.6040101\)</span> then:</p>
+<p><span class="math display">\[s^2 = 3.6040101 \times 3.6040101\]</span></p>
+<p>giving us:</p>
+<p><span class="math display">\[s^2 = 12.9888889\]</span></p>
+</div>
+<div id="z-scores" class="section level3">
+<h3><span class="header-section-number">1.1.6</span> Z-Scores</h3>
+<p>Any value on a continuous scale can be converted to a z-score (standard deviation units) through the formula:</p>
+<p><span class="math display">\[z = \frac{X - \bar{X}}{s_{X}}\]</span></p>
+<p>which can be read as the value (<span class="math inline">\(X\)</span>) minus the mean value (<span class="math inline">\(\bar{X}\)</span>), divided by the standard deviation (<span class="math inline">\(s_{X}\)</span>). For example, if we look at Participant 1:</p>
+<ul>
+<li><span class="math inline">\(X = 8\)</span></li>
+<li><span class="math inline">\(\bar{X} = 4.1\)</span></li>
+<li><span class="math inline">\(s_{X} = 3.6040101\)</span></li>
+</ul>
+<p>Which if we fill in the formula we get:</p>
+<p><span class="math display">\[z = \frac{8 - 4.1}{3.6040101}\]</span></p>
+<p>And if we sort our the top half first:</p>
+<p><span class="math display">\[z = \frac{3.9}{3.6040101}\]</span></p>
+<p>Leaving us with:</p>
+<p><span class="math display">\[z = 1.0821279\]</span></p>
+<p>So Participant 1, when converted to a z-score and rounded to two decimal places, would have <strong>z = 1.08</strong></p>
+</div>
+<div id="standard-error-of-the-mean" class="section level3">
+<h3><span class="header-section-number">1.1.7</span> Standard Error of the Mean</h3>
+<p>The symbol for the standard error is usually <span class="math inline">\(SE\)</span> but can also be written as <span class="math inline">\(SEM\)</span> when specificaly about the mean - short for standard error of the mean. The formula for the standard error is the standard deviation (<span class="math inline">\(s\)</span>) divided by the square root of N (<span class="math inline">\(\sqrt{N}\)</span>), and is written as:</p>
+<p><span class="math display">\[SE = \frac{s}{\sqrt{N}}\]</span></p>
+<p>but can also be written as:</p>
+<p><span class="math display">\[SE = \frac{SD}{\sqrt{N}}\]</span></p>
+<p>We know that our <span class="math inline">\(SD = 3.6040101\)</span> and that we have <span class="math inline">\(N = 10\)</span> participants, so:</p>
+<p><span class="math display">\[SE = \frac{3.6040101}{\sqrt{10}}\]</span></p>
+<p>And if we do the square root of the bottom half (denominator):</p>
+<p><span class="math display">\[SE = \frac{3.6040101}{3.1622777}\]</span></p>
+<p>And divide the top by the bottom:</p>
+<p><span class="math display">\[SE = 1.1396881\]</span></p>
+<p>We find that the standard error, rounded to two decimal places, is <span class="math inline">\(SE = 1.14\)</span></p>
+</div>
+<div id="confidence-intervals" class="section level3">
+<h3><span class="header-section-number">1.1.8</span> Confidence Intervals</h3>
+<p>We will specifically focus on the 95% Confidence Interval using the cut-off value (assuming <span class="math inline">\(\alpha = .05\)</span> and two-tailed) of <span class="math inline">\(z = 1.96\)</span>. The key formulas are:</p>
+<p><span class="math display">\[Upper \space 95\%CI = \bar{X} + (z \times SE)\]</span></p>
+<p>And</p>
+<p><span class="math display">\[Lower \space 95\%CI = \bar{X} - (z \times SE)\]</span></p>
+<p>We know that:</p>
+<ul>
+<li><span class="math inline">\(\bar{X} = 4.1\)</span></li>
+<li><span class="math inline">\(SE = 1.1396881\)</span></li>
+<li><span class="math inline">\(z = 1.96\)</span></li>
+</ul>
+<p><strong>Upper 95% CI</strong></p>
+<p>Dealing with the <strong>Upper 95% CI</strong> we get:</p>
+<p><span class="math display">\[Upper \space 95\%CI = 4.1 + (1.96 \times 1.1396881)\]</span></p>
+<p>And if we sort out the bracket first:</p>
+<p><span class="math display">\[Upper \space 95\%CI = 4.1 + 2.2337886\]</span></p>
+<p>Which leaves us with:</p>
+<p><span class="math display">\[Upper \space 95\%CI = 6.3337886\]</span></p>
+<p><strong>Lower 95% CI</strong></p>
+<p>And now the <strong>Lower 95% CI</strong> we get:</p>
+<p><span class="math display">\[Lower \space 95\%CI = 4.1 - (1.96 \times 1.1396881)\]</span></p>
+<p>And if we sort out the bracket first:</p>
+<p><span class="math display">\[Lower \space 95\%CI = 4.1 - 2.2337886\]</span></p>
+<p>Which leaves us with:</p>
+<p><span class="math display">\[Lower \space 95\%CI = 1.8662114\]</span></p>
+<p>And if we round both those values to two decimal places, then you get <strong><span class="math inline">\(Lower \space 95\%CI = 1.87\)</span></strong> and <strong><span class="math inline">\(Upper \space 95\%CI = 6.33\)</span></strong></p>
+</div>
+<div id="the-write-up" class="section level3">
+<h3><span class="header-section-number">1.1.9</span> The Write-Up</h3>
+<p>And if we were to do a decent presentation of this data, including a measure of central tendency (the mean), a measure of spread relating to the sample (the standard deviation), and a measure of spread relating to the population (the 95% CI), then it would start as something like: <strong>“We ran 10 participants (M = 4.1, SD = 3.6, 95%CI = [1.87, 6.33])…..”</strong></p>
 
+</div>
+</div>
 </div>
 <div class="psyteachr_footer">
   
@@ -235,8 +462,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="within-subjects-t-test.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="one-sample-chi-square.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

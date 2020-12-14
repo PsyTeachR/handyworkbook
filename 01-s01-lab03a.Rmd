@@ -71,11 +71,11 @@ dmean <- ((dat %>% filter(Participants == 1) %>% pull(PostTest) - dat %>% filter
 
 The standard deviation formula is:
 
-$$SD = \sqrt\frac{(X - \bar{X})^2}{N-1}$$
+$$SD = \sqrt\frac{\sum(X - \bar{X})^2}{N-1}$$
 
 Which if we translate to using D, becomes:
 
-$$SD_{D} = \sqrt\frac{(D - \bar{D})^2}{N-1}$$
+$$SD_{D} = \sqrt\frac{\sum(D - \bar{D})^2}{N-1}$$
 
 Then:
 
@@ -263,11 +263,11 @@ dmean <- ((dat %>% filter(Participants == 1) %>% pull(PostTest) - dat %>% filter
 
 The standard deviation formula is:
 
-$$SD = \sqrt\frac{(X - \bar{X})^2}{N-1}$$
+$$SD = \sqrt\frac{\sum(X - \bar{X})^2}{N-1}$$
 
 Which if we translate to using D, becomes:
 
-$$SD_{D} = \sqrt\frac{(D - \bar{D})^2}{N-1}$$
+$$SD_{D} = \sqrt\frac{\sum(D - \bar{D})^2}{N-1}$$
 
 Then:
 
@@ -456,11 +456,11 @@ dmean <- ((dat %>% filter(Participants == 1) %>% pull(PostTest) - dat %>% filter
 
 The standard deviation formula is:
 
-$$SD = \sqrt\frac{(X - \bar{X})^2}{N-1}$$
+$$SD = \sqrt\frac{\sum(X - \bar{X})^2}{N-1}$$
 
 Which if we translate to using D, becomes:
 
-$$SD_{D} = \sqrt\frac{(D - \bar{D})^2}{N-1}$$
+$$SD_{D} = \sqrt\frac{\sum(D - \bar{D})^2}{N-1}$$
 
 Then:
 
@@ -648,11 +648,11 @@ dmean <- ((dat %>% filter(Participants == 1) %>% pull(PostTest) - dat %>% filter
 
 The standard deviation formula is:
 
-$$SD = \sqrt\frac{(X - \bar{X})^2}{N-1}$$
+$$SD = \sqrt\frac{\sum(X - \bar{X})^2}{N-1}$$
 
 Which if we translate to using D, becomes:
 
-$$SD_{D} = \sqrt\frac{(D - \bar{D})^2}{N-1}$$
+$$SD_{D} = \sqrt\frac{\sum(D - \bar{D})^2}{N-1}$$
 
 Then:
 
