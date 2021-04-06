@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Handy Workbook for Research Methods and Statistics</title>
+  <title>Chapter 7 ANOVA | A Handy Workbook for Research Methods and Statistics</title>
   <meta name="description" content="ug2-practical-materials" />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Handy Workbook for Research Methods and Statistics" />
+  <meta property="og:title" content="Chapter 7 ANOVA | A Handy Workbook for Research Methods and Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Handy Workbook for Research Methods and Statistics" />
+  <meta name="twitter:title" content="Chapter 7 ANOVA | A Handy Workbook for Research Methods and Statistics" />
   
   <meta name="twitter:description" content="ug2-practical-materials" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="descriptives.html"/>
+<link rel="prev" href="correlation-pearson.html"/>
+<link rel="next" href="random-formulas.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -152,20 +152,225 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A Handy Workbook for Research Methods and Statistics</h1>
-<p class="date"><em>Last Update: 2021-04-06</em></p>
+<div id="anova" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> ANOVA</h1>
+<p>This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.</p>
+<div id="the-anova-table" class="section level2">
+<h2><span class="header-section-number">7.1</span> The ANOVA table</h2>
+<p><strong>Scenario:</strong> A research team are investigating the influence of mainstream media on body image and self-esteem. First they record a number of variables from a large cohort of men (n = 72) and
+women (n = 81) including ratings of self-esteem (from 10, low to 40, high), BMI (normal weight considered 18.5 to 24.9), hours spent per week on social media
+(hours), and age (years). The researchers want to check the influence of sex in this study. Calculate F from the below one-way ANOVA output table comparing mean BMI across the two sexes and state whether there is a significant difference between
+the sexes or not. The Sums of Squares (<span class="math inline">\(SS\)</span>) have been given to you.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Conditions</th>
+<th align="center"><span class="math inline">\(SS\)</span></th>
+<th align="center"><span class="math inline">\(df\)</span></th>
+<th align="center">Mean Square</th>
+<th align="center">F-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Between</td>
+<td align="center">44.56</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Within</td>
+<td align="center">2126.3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">2170.86</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>In order to complete the above table we need to:</p>
+<ul>
+<li>determine the degrees of freedom (<span class="math inline">\(df\)</span>) of the Between and the Within components</li>
+<li>use the <span class="math inline">\(df\)</span> to calculate the Mean Squares (<span class="math inline">\(MS\)</span>)</li>
+<li>use the Mean Squares to calculate the F-value</li>
+</ul>
+<p>The df of the Between component is calculated as:</p>
+<p><span class="math display">\[df_{between} = k - 1\]</span></p>
+<p>Where <span class="math inline">\(k\)</span> is the number of conditions or groups. And the df of the Within component is calculated as:</p>
+<p><span class="math display">\[df_{within} = N - k\]</span></p>
+<p>Where <span class="math inline">\(N\)</span> is total number of participants in the whole experiment and <span class="math inline">\(k\)</span> is again the number of conditions or groups. The <span class="math inline">\(df_{within}\)</span> can also be phrased as the:</p>
+<p><span class="math display">\[df_{within} = \sum_1^k(n_{k}-1)\]</span></p>
+<p>Which can be read as taking 1 away from the n in each group (<span class="math inline">\(k\)</span>) and then summing those values together. For example, if you had a total of 20 participants in your experiment (<span class="math inline">\(N = 20\)</span>) and they were split into 2 groups (<span class="math inline">\(k = 2\)</span>) of 10 per group (<span class="math inline">\(n = 10\)</span>), then you would do:</p>
+<p><span class="math display">\[df_{within} = (10-1)+(10-1) = 18\]</span></p>
+<p>But as that is the same as <span class="math inline">\(N-k\)</span> (i.e. 20 - 2 = 18), and <span class="math inline">\(N-k\)</span> is easier to think about, we will use that approach here.</p>
+<p>The remaining formulas we need are for the Mean Squares (<span class="math inline">\(MS\)</span>) and the <span class="math inline">\(F\)</span>-value.</p>
+<p>The Mean Squares is calculated as:</p>
+<p><span class="math display">\[MS = \frac{SS}{df}\]</span></p>
+<p>And the F-value is calculated as:</p>
+<p><span class="math display">\[F= \frac{MS_{between}}{MS_{within}}\]</span></p>
 </div>
-<div id="overview" class="section level1 unnumbered">
-<h1>Overview</h1>
-<p><img src="images/HW.png" style="width: 200px; float: right;"></p>
-<p><strong>PLEASE NOTE THIS BOOK IS IN EARLY STAGES OF DEVELOPMENT AND WILL BE ADDED TO AND MAY VERY WELL CURRENTLY CONTAIN MISTAKES</strong></p>
-<p><strong>Authors:</strong> Phil McAleer</p>
-<p><strong>Aim:</strong> A Handy Workbook to help students understand Research Methods and Statistics through worked examples and self-tests.</p>
-<p><strong>Contact:</strong> This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact <a href="mailto:philip.mcaleer@glasgow.ac.uk">Phil McAleer</a>.</p>
-<p><strong>R Version:</strong> This book has been written with R version 3.5.1 (2018-07-02)</p>
-<p><strong>Randomising Seed:</strong> In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.</p>
+<div id="look-up-table-3" class="section level2">
+<h2><span class="header-section-number">7.2</span> Look-Up table</h2>
+<p>Remembering that the <span class="math inline">\(F_{crit}\)</span> value is the smallest t-value you need to find a significant effect, find the <span class="math inline">\(F_{crit}\)</span> for your dfs, assuming <span class="math inline">\(\alpha = .05\)</span>. If the <span class="math inline">\(F\)</span>-value you calculated is equal to or larger than <span class="math inline">\(F_{crit}\)</span> then your test is significant.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">dfs</th>
+<th align="center">df1 = 1</th>
+<th align="center">df1 = 2</th>
+<th align="center">df1 = 3</th>
+<th align="center">df1 = 4</th>
+<th align="center">df1 = 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>df2 = 1</strong></td>
+<td align="center">161.448</td>
+<td align="center">199.5</td>
+<td align="center">215.707</td>
+<td align="center">224.583</td>
+<td align="center">230.162</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 2</strong></td>
+<td align="center">18.513</td>
+<td align="center">19</td>
+<td align="center">19.164</td>
+<td align="center">19.247</td>
+<td align="center">19.296</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 3</strong></td>
+<td align="center">10.128</td>
+<td align="center">9.552</td>
+<td align="center">9.277</td>
+<td align="center">9.117</td>
+<td align="center">9.013</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 4</strong></td>
+<td align="center">7.709</td>
+<td align="center">6.944</td>
+<td align="center">6.591</td>
+<td align="center">6.388</td>
+<td align="center">6.256</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 5</strong></td>
+<td align="center">6.608</td>
+<td align="center">5.786</td>
+<td align="center">5.409</td>
+<td align="center">5.192</td>
+<td align="center">5.05</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 10</strong></td>
+<td align="center">4.965</td>
+<td align="center">4.103</td>
+<td align="center">3.708</td>
+<td align="center">3.478</td>
+<td align="center">3.326</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 15</strong></td>
+<td align="center">4.543</td>
+<td align="center">3.682</td>
+<td align="center">3.287</td>
+<td align="center">3.056</td>
+<td align="center">2.901</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 20</strong></td>
+<td align="center">4.351</td>
+<td align="center">3.493</td>
+<td align="center">3.098</td>
+<td align="center">2.866</td>
+<td align="center">2.711</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 25</strong></td>
+<td align="center">4.242</td>
+<td align="center">3.385</td>
+<td align="center">2.991</td>
+<td align="center">2.759</td>
+<td align="center">2.603</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 30</strong></td>
+<td align="center">4.171</td>
+<td align="center">3.316</td>
+<td align="center">2.922</td>
+<td align="center">2.69</td>
+<td align="center">2.534</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 40</strong></td>
+<td align="center">4.085</td>
+<td align="center">3.232</td>
+<td align="center">2.839</td>
+<td align="center">2.606</td>
+<td align="center">2.449</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 50</strong></td>
+<td align="center">4.034</td>
+<td align="center">3.183</td>
+<td align="center">2.79</td>
+<td align="center">2.557</td>
+<td align="center">2.4</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 60</strong></td>
+<td align="center">4.001</td>
+<td align="center">3.15</td>
+<td align="center">2.758</td>
+<td align="center">2.525</td>
+<td align="center">2.368</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 70</strong></td>
+<td align="center">3.978</td>
+<td align="center">3.128</td>
+<td align="center">2.736</td>
+<td align="center">2.503</td>
+<td align="center">2.346</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 80</strong></td>
+<td align="center">3.96</td>
+<td align="center">3.111</td>
+<td align="center">2.719</td>
+<td align="center">2.486</td>
+<td align="center">2.329</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 90</strong></td>
+<td align="center">3.947</td>
+<td align="center">3.098</td>
+<td align="center">2.706</td>
+<td align="center">2.473</td>
+<td align="center">2.316</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 100</strong></td>
+<td align="center">3.936</td>
+<td align="center">3.087</td>
+<td align="center">2.696</td>
+<td align="center">2.463</td>
+<td align="center">2.305</td>
+</tr>
+</tbody>
+</table>
 
+</div>
 </div>
 <div class="psyteachr_footer">
   
@@ -257,8 +462,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-
-<a href="descriptives.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="correlation-pearson.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="random-formulas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

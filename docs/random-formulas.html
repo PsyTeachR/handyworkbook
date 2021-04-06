@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Handy Workbook for Research Methods and Statistics</title>
+  <title>Chapter 8 Random formulas | A Handy Workbook for Research Methods and Statistics</title>
   <meta name="description" content="ug2-practical-materials" />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Handy Workbook for Research Methods and Statistics" />
+  <meta property="og:title" content="Chapter 8 Random formulas | A Handy Workbook for Research Methods and Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Handy Workbook for Research Methods and Statistics" />
+  <meta name="twitter:title" content="Chapter 8 Random formulas | A Handy Workbook for Research Methods and Statistics" />
   
   <meta name="twitter:description" content="ug2-practical-materials" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="descriptives.html"/>
+<link rel="prev" href="anova.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -152,20 +152,18 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A Handy Workbook for Research Methods and Statistics</h1>
-<p class="date"><em>Last Update: 2021-04-06</em></p>
-</div>
-<div id="overview" class="section level1 unnumbered">
-<h1>Overview</h1>
-<p><img src="images/HW.png" style="width: 200px; float: right;"></p>
-<p><strong>PLEASE NOTE THIS BOOK IS IN EARLY STAGES OF DEVELOPMENT AND WILL BE ADDED TO AND MAY VERY WELL CURRENTLY CONTAIN MISTAKES</strong></p>
-<p><strong>Authors:</strong> Phil McAleer</p>
-<p><strong>Aim:</strong> A Handy Workbook to help students understand Research Methods and Statistics through worked examples and self-tests.</p>
-<p><strong>Contact:</strong> This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact <a href="mailto:philip.mcaleer@glasgow.ac.uk">Phil McAleer</a>.</p>
-<p><strong>R Version:</strong> This book has been written with R version 3.5.1 (2018-07-02)</p>
-<p><strong>Randomising Seed:</strong> In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.</p>
+<div id="random-formulas" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Random formulas</h1>
+<p>These formulas will eventually move somewhere that makes sense but for now they need a home and this is it:</p>
+<div id="t-value-to-r-value" class="section level2">
+<h2><span class="header-section-number">8.1</span> t-value to r-value</h2>
+<p>Did you know that the conversion of a t-value to an r-value is:</p>
+<p><span class="math display">\[r = \sqrt\frac{t^2}{t^2 + df}\]</span></p>
+<p>And the conversion of an r-value to a t-value is:</p>
+<p><span class="math display">\[t = \sqrt\frac{df * r^2}{1-r^2}\]</span></p>
+<p>Where in both formulas, the <span class="math inline">\(df\)</span> is the degrees of freedom of the respective analysis that has been carried out. For example, if you have carried out a correlation and have an r-value but want the t-value, use the df of the correlation to make the conversion. Likewise, if you have carried out a t-test and you want the r-value, use the df of the t-test to make the conversion.</p>
 
+</div>
 </div>
 <div class="psyteachr_footer">
   
@@ -257,8 +255,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-
-<a href="descriptives.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

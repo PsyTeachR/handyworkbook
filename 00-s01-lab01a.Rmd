@@ -32,7 +32,7 @@ $$\bar{X} = \frac{\sum{X}}{N}$$
 
 If we start to fill in the information from above we get:
 
-$$\bar{X} = \frac{`r dat %>% filter(Participants == 1) %>% pull(X)` + `r dat %>% filter(Participants == 2) %>% pull(X)` + `r dat %>% filter(Participants == 3) %>% pull(X)` +`r dat %>% filter(Participants == 4) %>% pull(X)` +`r dat %>% filter(Participants == 5) %>% pull(X)` +`r dat %>% filter(Participants == 6) %>% pull(X)` +`r dat %>% filter(Participants == 7) %>% pull(X)` +`r dat %>% filter(Participants == 8) %>% pull(X)` +`r dat %>% filter(Participants == 9) %>% pull(X)` +`r dat %>% filter(Participants == 10) %>% pull(X)`}{`r dim(dat)[1]`}$$
+$$\bar{X} = \frac{`r dat %>% filter(Participants == 1) %>% pull(X)` + 50000`r dat %>% filter(Participants == 2) %>% pull(X)` + `r dat %>% filter(Participants == 3) %>% pull(X)` +`r dat %>% filter(Participants == 4) %>% pull(X)` +`r dat %>% filter(Participants == 5) %>% pull(X)` +`r dat %>% filter(Participants == 6) %>% pull(X)` +`r dat %>% filter(Participants == 7) %>% pull(X)` +`r dat %>% filter(Participants == 8) %>% pull(X)` +`r dat %>% filter(Participants == 9) %>% pull(X)` +`r dat %>% filter(Participants == 10) %>% pull(X)`}{`r dim(dat)[1]`}$$
 
 And if we sum all the values on the top half together we get:
 

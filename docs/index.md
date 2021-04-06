@@ -1,7 +1,7 @@
 
 --- 
 title: "A Handy Workbook for Research Methods and Statistics"
-date: "Last Update: 2020-12-14"
+date: "Last Update: 2021-04-06"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -16,7 +16,7 @@ description: ug2-practical-materials
 
 <img src="images/HW.png" style="width: 200px; float: right;">
 
-**PLEASE NOTE THIS BOOK IS IN EARLY STAGES OF DEVELOPMENT AND MAY VERY WELL CONTAIN MISTAKES**
+**PLEASE NOTE THIS BOOK IS IN EARLY STAGES OF DEVELOPMENT AND WILL BE ADDED TO AND MAY VERY WELL CURRENTLY CONTAIN MISTAKES**
 
 **Authors:** Phil McAleer
 

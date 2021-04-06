@@ -188,7 +188,7 @@ Meaning that the effect size, to two decimal places, is d = `r cohensd`.
 
 **Determining Significance**
 
-If we were to look at a critical values look-up table for $df = `r df`$ and $\alpha = .05$ (two-tailed), we would see that the critical value is $t_{crit} = `r qt(1-.975, 9, lower.tail = FALSE) %>% round2(3)`$. Given that our t-value, ignoring polarity and just looking at the absolute value, so $t = `r round2(t_val,2) %>% abs()`$, is `r ifelse(abs(t_val) >= t_crit, "equal to or larger than", "smaller than")` our $t_{crit}$ then we can say our result is `r ifelse(t_val >= t_crit, "significant", "not significant")`, and as such would be written up as t(`r df`) = `r round2(t_val,2) %>% abs()`, `r ifelse(abs(t_val) >= t_crit, "p < .05", "p > .05")`, d = `r abs(cohensd)`. 
+If we were to look at a critical values look-up table for $df = `r df`$ and $\alpha = .05$ (two-tailed), we would see that the critical value is $t_{crit} = `r qt(1-.975, 9, lower.tail = FALSE) %>% round2(3)`$. Given that our t-value, ignoring polarity and just looking at the absolute value, so $t = `r round2(t_val,2) %>% abs()`$, is `r ifelse(abs(t_val) >= t_crit, "equal to or larger than", "smaller than")` our $t_{crit}$ then we can say our result is `r ifelse(abs(t_val) >= t_crit, "significant", "not significant")`, and as such would be written up as t(`r df`) = `r round2(t_val,2) %>% abs()`, `r ifelse(abs(t_val) >= t_crit, "p < .05", "p > .05")`, d = `r abs(cohensd)`. 
 
 **Remember:** If you were writing this up as a report, and analysis the data in R, then you would see the p-value was actually p = `r realp`, and would be written up as `r ifelse(realp < .001, "p < .001", paste("p = ", realp))`
 
