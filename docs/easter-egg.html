@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Handy Workbook for Research Methods and Statistics</title>
+  <title>Chapter 7 Easter Egg | A Handy Workbook for Research Methods and Statistics</title>
   <meta name="description" content="ug2-practical-materials" />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Handy Workbook for Research Methods and Statistics" />
+  <meta property="og:title" content="Chapter 7 Easter Egg | A Handy Workbook for Research Methods and Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Handy Workbook for Research Methods and Statistics" />
+  <meta name="twitter:title" content="Chapter 7 Easter Egg | A Handy Workbook for Research Methods and Statistics" />
   
   <meta name="twitter:description" content="ug2-practical-materials" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="descriptives.html"/>
+<link rel="prev" href="correlation-pearson.html"/>
+<link rel="next" href="anova.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -120,12 +120,9 @@
 <li class="chapter" data-level="6.1" data-path="correlation-pearson.html"><a href="correlation-pearson.html#the-worked-example-4"><i class="fa fa-check"></i><b>6.1</b> The Worked Example</a></li>
 <li class="chapter" data-level="6.2" data-path="correlation-pearson.html"><a href="correlation-pearson.html#look-up-table-2"><i class="fa fa-check"></i><b>6.2</b> Look-Up table</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>7</b> ANOVA</a><ul>
-<li class="chapter" data-level="7.1" data-path="anova.html"><a href="anova.html#the-anova-table"><i class="fa fa-check"></i><b>7.1</b> The ANOVA table</a></li>
-<li class="chapter" data-level="7.2" data-path="anova.html"><a href="anova.html#look-up-table-3"><i class="fa fa-check"></i><b>7.2</b> Look-Up table</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="random-formulas.html"><a href="random-formulas.html"><i class="fa fa-check"></i><b>8</b> Random formulas</a><ul>
-<li class="chapter" data-level="8.1" data-path="random-formulas.html"><a href="random-formulas.html#t-value-to-r-value"><i class="fa fa-check"></i><b>8.1</b> t-value to r-value</a></li>
+<li class="chapter" data-level="7" data-path="easter-egg.html"><a href="easter-egg.html"><i class="fa fa-check"></i><b>7</b> Easter Egg</a></li>
+<li class="chapter" data-level="8" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>8</b> ANOVA</a><ul>
+<li class="chapter" data-level="8.1" data-path="anova.html"><a href="anova.html#look-up-table-3"><i class="fa fa-check"></i><b>8.1</b> Look-Up table</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>9</b> References</a></li>
 <li class="divider"></li>
@@ -152,19 +149,13 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A Handy Workbook for Research Methods and Statistics</h1>
-<p class="date"><em>Last Update: 2021-04-06</em></p>
-</div>
-<div id="overview" class="section level1 unnumbered">
-<h1>Overview</h1>
-<p><img src="images/HW.png" style="width: 200px; float: right;"></p>
-<p><strong>PLEASE NOTE THIS BOOK IS IN EARLY STAGES OF DEVELOPMENT AND WILL BE ADDED TO AND MAY VERY WELL CURRENTLY CONTAIN MISTAKES</strong></p>
-<p><strong>Authors:</strong> Phil McAleer</p>
-<p><strong>Aim:</strong> A Handy Workbook to help students understand Research Methods and Statistics through worked examples and self-tests.</p>
-<p><strong>Contact:</strong> This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact <a href="mailto:philip.mcaleer@glasgow.ac.uk">Phil McAleer</a>.</p>
-<p><strong>R Version:</strong> This book has been written with R version 3.5.1 (2018-07-02)</p>
-<p><strong>Randomising Seed:</strong> In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.</p>
+<div id="easter-egg" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Easter Egg</h1>
+<p>Did you know that the conversion of a t-value to an r-value is:</p>
+<p><span class="math display">\[r = \sqrt\frac{t^2}{t^2 + df}\]</span></p>
+<p>And the conversion of an r-value to a t-value is:</p>
+<p><span class="math display">\[t = \sqrt\frac{df * r^2}{1-r^2}\]</span></p>
+<p>Where in both formulas, the <span class="math inline">\(df\)</span> is the degrees of freedom of the respective analysis that has been carried out. For example, if you have carried out a correlation and have an r-value but want the t-value, use the df of the correlation to make the conversion. Likewise, if you have carried out a t-test and you want the r-value, use the df of the t-test to make the conversion</p>
 
 </div>
 <div class="psyteachr_footer">
@@ -257,8 +248,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-
-<a href="descriptives.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="correlation-pearson.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
