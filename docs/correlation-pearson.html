@@ -287,42 +287,44 @@ IQ
 </table>
 <p>and the formula for the Pearson correlation is:</p>
 <p><span class="math display">\[r_{(x,y)} = \frac{cov(x,y)}{\sigma_{x}\sigma_{y}}\]</span></p>
-<p>Meaning that, assuming HeadSize we consider as variable <span class="math inline">\(x\)</span> and IQ as variable <span class="math inline">\(y\)</span>, to determine the correlation between HeadSize and IQ (<span class="math inline">\(r_{(HeadSize, IQ)}\)</span>) we first need to know the covariance between HeadSize and IQ, (<span class="math inline">\(cov(HeadSize, IQ)\)</span>), as well as the standard deviation of HeadSize (<span class="math inline">\(\sigma_{HeadSize}\)</span>) and the standard deviation of IQ (<span class="math inline">\(\sigma_{IQ}\)</span>). That is what we are going to look at here. We will run it all through from start to finish, assuming all we know are the values. If you know certain aspects like the covariance and the standard deviations then you can skip to just running the correlation but it is good to see the analysis in its entirety.</p>
+<p>Meaning that, assuming we consider HeadSize as variable <span class="math inline">\(x\)</span> and IQ as variable <span class="math inline">\(y\)</span>, to determine the correlation between HeadSize and IQ (<span class="math inline">\(r_{(HeadSize, IQ)}\)</span>) we first need to know the covariance between HeadSize and IQ, (<span class="math inline">\(cov(HeadSize, IQ)\)</span>), as well as the standard deviation of HeadSize (<span class="math inline">\(\sigma_{HeadSize}\)</span>) and the standard deviation of IQ (<span class="math inline">\(\sigma_{IQ}\)</span>). That is what we are going to look at here. We will run it all through from start to finish, assuming all we know are the values. If you know certain aspects like the covariance and the standard deviations then you can skip to just running the correlation but it is good to see the analysis in its entirety.</p>
 <p><strong>Covariance</strong></p>
 <p>The formula for the covariance between two continuous variables is:</p>
-<p><span class="math display">\[cov(x,y) = \frac{\sum_i^n(x_i - \bar{x})(y_i - \bar{y})}{n-1}\]</span></p>
-<p>where the <span class="math inline">\(\sum_i^n\)</span> translates as sum (i.e. add up) the values of <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y})\)</span> for each pair of observations in your data. But to do that we first need to know the mean of x <span class="math inline">\(\bar{x}\)</span> and the mean of y, <span class="math inline">\(\bar{y}\)</span>. Now we know that the mean of a value is the sum of all the values of that variable divided by the number of values - also written as <span class="math inline">\(\bar{x} = \frac{\sum_i^n x_i}{n}\)</span>. So the mean of x is:</p>
-<p><span class="math display">\[\bar{x} = \frac{50.8 + 63.5 +  45.7  + 25.4  + 29.2  + 49.5  + 38.1  + 30.5  + 35.6  + 58.4}{10}\]</span></p>
+<p><span class="math display">\[cov(x,y) = \frac{\sum_i^n(x_i - \overline{x})(y_i - \overline{y})}{n-1}\]</span></p>
+<p>where the <span class="math inline">\(\sum_i^n\)</span> translates as sum (i.e. add up) the values of <span class="math inline">\((x_i - \overline{x})(y_i - \overline{y})\)</span> for each pair of observations in your data. But to do that we first need to know the mean of x (<span class="math inline">\(\overline{x}\)</span>) and the mean of y, (<span class="math inline">\(\overline{y}\)</span>). Now we know that the mean of a value is the sum of all the values of that variable divided by the number of values - also written as:</p>
+<p><span class="math display">\[\overline{x} = \frac{\sum_i^n x_i}{n}\]</span>.</p>
+<p>So the mean of x (i.e. HeadSize) is:</p>
+<p><span class="math display">\[\overline{x} = \frac{50.8 + 63.5 +  45.7  + 25.4  + 29.2  + 49.5  + 38.1  + 30.5  + 35.6  + 58.4}{10}\]</span></p>
 <p>Which reduces to:</p>
-<p><span class="math display">\[\bar{x} = \frac{426.7}{10} = 42.67\]</span></p>
+<p><span class="math display">\[\overline{x} = \frac{426.7}{10} = 42.67\]</span></p>
 <p>And if we repeat the same procedure for y (i.e. IQ), we get:</p>
-<p><span class="math display">\[\bar{y} = \frac{107 + 121 +  106  + 72  + 85  + 105  + 93  + 88  + 97  + 123}{10}\]</span></p>
+<p><span class="math display">\[\overline{y} = \frac{107 + 121 +  106  + 72  + 85  + 105  + 93  + 88  + 97  + 123}{10}\]</span></p>
 <p>Which reduces to:</p>
-<p><span class="math display">\[\bar{y} = \frac{997}{10} = 99.7\]</span></p>
-<p>Ok great so we now have enough information to start filling in the covariance formula. First, however, before looking at it for all participants, let’s look at this part, <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y})\)</span>, for one participant just to make sure we understand what we are doing. And one thing to remember is that two sets of parentheses (i.e. brackets) side-by-side like that means to multiply them together. So, if we take Participant 1, then we see that:</p>
+<p><span class="math display">\[\overline{y} = \frac{997}{10} = 99.7\]</span></p>
+<p>Ok great so we now have enough information to start filling in the covariance formula. First, however, before looking at it for all participants, let’s look at this part, <span class="math inline">\((x_i - \overline{x})(y_i - \overline{y})\)</span>, for one participant just to make sure we understand what we are doing. And one thing to remember is that two sets of parentheses (i.e. brackets) side-by-side like that means to multiply them together. So, if we take Participant 1, then we see that:</p>
 <ul>
-<li>The mean of x is <span class="math inline">\(\bar{x} = 42.67\)</span></li>
-<li>The mean of y is <span class="math inline">\(\bar{y} = 99.7\)</span></li>
+<li>The mean of x is <span class="math inline">\(\overline{x} = 42.67\)</span></li>
+<li>The mean of y is <span class="math inline">\(\overline{y} = 99.7\)</span></li>
 <li>They have a HeadSize (x) of <span class="math inline">\(x_1\)</span> = 50.8</li>
 <li>They have an IQ (y) of <span class="math inline">\(y_1\)</span> = 107</li>
 <li>And note that we are now saying <span class="math inline">\(x_1\)</span> and <span class="math inline">\(y_1\)</span>, and no longer <span class="math inline">\(x_i\)</span> and <span class="math inline">\(y_i\)</span>, because we know we are specifically dealing with the 1<sup>st</sup> Participant. If it was the 2<sup>nd</sup> Participants we would write <span class="math inline">\(x_2\)</span> and <span class="math inline">\(y_2\)</span>, and the 8<sup>th</sup> would be <span class="math inline">\(x_8\)</span> and <span class="math inline">\(y_8\)</span>, etc</li>
 </ul>
 <p>Putting all that into the formula for Participant 1 (P<sub>1</sub>) would give us:</p>
-<p>P<sub>1</sub> = <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y}) = (50.8 - 42.67)\times(107 - 99.7) = (8.13)\times(7.3) = 59.349\)</span></p>
+<p>P<sub>1</sub> = <span class="math inline">\((x_1 - \overline{x})(y_1 - \overline{y}) = (50.8 - 42.67)\times(107 - 99.7) = 8.13 \times 7.3 = 59.349\)</span></p>
 <p>and we can do that for all participants which would look like:</p>
 <ul>
-<li>P<sub>2</sub> = <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y}) = (63.5 - 42.67)\times(121 - 99.7) = 20.83\times21.3 = 443.679\)</span></li>
-<li>P<sub>3</sub> = <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y}) = (45.7 - 42.67)\times(106 - 99.7) = 3.03\times6.3 = 19.089\)</span></li>
-<li>P<sub>4</sub> = <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y}) = (25.4 - 42.67)\times(72 - 99.7) = -17.27\times-27.7 = 478.379\)</span></li>
-<li>P<sub>5</sub> = <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y}) = (29.2 - 42.67)\times(85 - 99.7) = -13.47\times-14.7 = 198.009\)</span></li>
-<li>P<sub>6</sub> = <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y}) = (49.5 - 42.67)\times(105 - 99.7) = 6.83\times5.3 = 36.199\)</span></li>
-<li>P<sub>7</sub> = <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y}) = (38.1 - 42.67)\times(93 - 99.7) = -4.57\times-6.7 = 30.619\)</span></li>
-<li>P<sub>8</sub> = <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y}) = (30.5 - 42.67)\times(88 - 99.7) = -12.17\times-11.7 = 142.389\)</span></li>
-<li>P<sub>9</sub> = <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y}) = (35.6 - 42.67)\times(97 - 99.7) = -7.07\times-2.7 = 19.089\)</span></li>
-<li>P<sub>10</sub> = <span class="math inline">\((x_i - \bar{x})(y_i - \bar{y}) = (58.4 - 42.67)\times(123 - 99.7) = 15.73\times23.3 = 366.509\)</span></li>
+<li>P<sub>2</sub> = <span class="math inline">\((x_2 - \overline{x})(y_2 - \overline{y}) = (63.5 - 42.67)\times(121 - 99.7) = 20.83\times21.3 = 443.679\)</span></li>
+<li>P<sub>3</sub> = <span class="math inline">\((x_3 - \overline{x})(y_3 - \overline{y}) = (45.7 - 42.67)\times(106 - 99.7) = 3.03\times6.3 = 19.089\)</span></li>
+<li>P<sub>4</sub> = <span class="math inline">\((x_4 - \overline{x})(y_4 - \overline{y}) = (25.4 - 42.67)\times(72 - 99.7) = -17.27\times-27.7 = 478.379\)</span></li>
+<li>P<sub>5</sub> = <span class="math inline">\((x_5 - \overline{x})(y_5 - \overline{y}) = (29.2 - 42.67)\times(85 - 99.7) = -13.47\times-14.7 = 198.009\)</span></li>
+<li>P<sub>6</sub> = <span class="math inline">\((x_6 - \overline{x})(y_6 - \overline{y}) = (49.5 - 42.67)\times(105 - 99.7) = 6.83\times5.3 = 36.199\)</span></li>
+<li>P<sub>7</sub> = <span class="math inline">\((x_7 - \overline{x})(y_7 - \overline{y}) = (38.1 - 42.67)\times(93 - 99.7) = -4.57\times-6.7 = 30.619\)</span></li>
+<li>P<sub>8</sub> = <span class="math inline">\((x_8 - \overline{x})(y_8 - \overline{y}) = (30.5 - 42.67)\times(88 - 99.7) = -12.17\times-11.7 = 142.389\)</span></li>
+<li>P<sub>9</sub> = <span class="math inline">\((x_9 - \overline{x})(y_9 - \overline{y}) = (35.6 - 42.67)\times(97 - 99.7) = -7.07\times-2.7 = 19.089\)</span></li>
+<li>P<sub>10</sub> = <span class="math inline">\((x_10 - \overline{x})(y_10 - \overline{y}) = (58.4 - 42.67)\times(123 - 99.7) = 15.73\times23.3 = 366.509\)</span></li>
 </ul>
 <p>And if we remember that the <span class="math inline">\(\sum_i^n\)</span> part of the formula means that the formula, for this example with 10 participants, is really</p>
-<p><span class="math display">\[cov(x,y) = \frac{(x_1 - \bar{x})(y_1 - \bar{y})+(x_2 - \bar{x})(y_2 - \bar{y})+(x_3 - \bar{x})(y_3 - \bar{y})+(x_4 - \bar{x})(y_4 - \bar{y})+\\(x_5 - \bar{x})(y_5 - \bar{y})+(x_6 - \bar{x})(y_6 - \bar{y})+(x_7 - \bar{x})(y_7 - \bar{y})+(x_8 - \bar{x})(y_8 - \bar{y})+\\(x_9 - \bar{x})(y_9 - \bar{y})+(x_{10} - \bar{x})(y_{10} - \bar{y})}{n-1}\]</span></p>
+<p><span class="math display">\[cov(x,y) = \frac{(x_1 - \overline{x})(y_1 - \overline{y})+(x_2 - \overline{x})(y_2 - \overline{y})+(x_3 - \overline{x})(y_3 - \overline{y})+(x_4 - \overline{x})(y_4 - \overline{y})+\\(x_5 - \overline{x})(y_5 - \overline{y})+(x_6 - \overline{x})(y_6 - \overline{y})+(x_7 - \overline{x})(y_7 - \overline{y})+(x_8 - \overline{x})(y_8 - \overline{y})+\\(x_9 - \overline{x})(y_9 - \overline{y})+(x_{10} - \overline{x})(y_{10} - \overline{y})}{n-1}\]</span></p>
 <p>Then that becomes:</p>
 <p><span class="math display">\[cov(x,y) = \frac{((50.8 - 42.67)\times(107 - 99.7)) + ((63.5 - 42.67)\times(121 - 99.7)) +\\ ((45.7 - 42.67)\times(106 - 99.7)) + ((25.4 - 42.67)\times(72 - 99.7)) +\\ ((29.2 - 42.67)\times(85 - 99.7)) + ((49.5 - 42.67)\times(105 - 99.7)) + \\((38.1 - 42.67)\times(93 - 99.7)) + ((30.5 - 42.67)\times(88 - 99.7)) + \\((35.6 - 42.67)\times(97 - 99.7)) + ((58.4 - 42.67)\times(123 - 99.7))}{n-1}\]</span></p>
 <p>and, remembering the rules of BODMAS/PEMDAS, reduces to:</p>
@@ -337,7 +339,7 @@ IQ
 <p><span class="math display">\[r_{(HeadSize,IQ)} = \frac{cov(HeadSize,IQ)}{\sigma_{HeadSize}\times\sigma_{IQ}}\]</span></p>
 <p>And if we known from above that <span class="math inline">\(cov(HeadSize, IQ)\)</span> = 199.26 (to two decimal places), now all we need is the standard deviation of Headsize (<span class="math inline">\(\sigma_{HeadSize}\)</span>) and the standard deviation of IQ (<span class="math inline">\(\sigma_{IQ}\)</span>).</p>
 <p>We cover standard deviation calculations in the Descriptives chapter, but to briefly recap, the formula is:</p>
-<p><span class="math display">\[\sigma = \sqrt\frac{\sum_i^n(x_{i} - \bar{x})^2}{n-1}\]</span></p>
+<p><span class="math display">\[\sigma = \sqrt\frac{\sum_i^n(x_{i} - \overline{x})^2}{n-1}\]</span></p>
 <p>Which for HeadSize would look like:</p>
 <p><span class="math display">\[\sigma_{HeadSize} = \sqrt\frac{(50.8 - 42.67)^2 + (63.5 - 42.67)^2 +(45.7 - 42.67)^2 +(25.4 - 42.67)^2 +\\(29.2 - 42.67)^2 +(49.5 - 42.67)^2 +(38.1 - 42.67)^2 +(30.5 - 42.67)^2 +\\(35.6 - 42.67)^2 +(58.4 - 42.67)^2}{10-1}\]</span></p>
 <p>Which reduces to:</p>
@@ -357,7 +359,9 @@ IQ
 <li><span class="math inline">\(\sigma_{y}\)</span> = <span class="math inline">\(\sigma_{IQ}\)</span> = 15.95</li>
 </ul>
 <p>Then our correlation value is:</p>
-<p><span class="math display">\[r_{(HeadSize,IQ)} = \frac{cov(HeadSize,IQ)}{\sigma_{HeadSize}\times\sigma_{IQ}} = \frac{199.26}{12.92 \times 15.95} = \frac{199.26}{206.074} = 0.9669342\]</span></p>
+<p><span class="math display">\[\begin{align*}
+r_{(HeadSize,IQ)} &amp;= \frac{cov(HeadSize,IQ)}{\sigma_{HeadSize}\times\sigma_{IQ}} \\ \\ &amp;= \frac{199.26}{12.92 \times 15.95} \\ \\ &amp;= \frac{199.26}{206.074} \\ \\ &amp;= 0.9669342
+\end{align*}\]</span></p>
 <p>Meaning that we would have a correlation value of, to three decimal places, <span class="math inline">\(r\)</span> = 0.967, which, following Cohen’s (1988) proposed cut-offs shown below, would be considered a strong positive relationship.</p>
 <table>
 <thead>

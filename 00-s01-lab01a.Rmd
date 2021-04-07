@@ -26,29 +26,29 @@ knitr::kable(dat, align = "c")
 
 ### The Mean
 
-The symbol for the mean is generally written as $\bar{X}$ (pronounced as X-bar) and the formula for the mean is:
+The symbol for the mean is generally written as $\overline{X}$ (pronounced as X-bar) and the formula for the mean is:
 
-$$\bar{X} = \frac{\sum{X}}{N}$$
+$$\overline{X} = \frac{\sum_i^n{X_i}}{N}$$
 
-If we start to fill in the information from above we get:
+Which reads as sum all the values from i (the first value) to n (the last value) and then divide that by the total number of values (N). If we start to fill in the information from above we get:
 
-$$\bar{X} = \frac{`r dat %>% filter(Participants == 1) %>% pull(X)` + 50000`r dat %>% filter(Participants == 2) %>% pull(X)` + `r dat %>% filter(Participants == 3) %>% pull(X)` +`r dat %>% filter(Participants == 4) %>% pull(X)` +`r dat %>% filter(Participants == 5) %>% pull(X)` +`r dat %>% filter(Participants == 6) %>% pull(X)` +`r dat %>% filter(Participants == 7) %>% pull(X)` +`r dat %>% filter(Participants == 8) %>% pull(X)` +`r dat %>% filter(Participants == 9) %>% pull(X)` +`r dat %>% filter(Participants == 10) %>% pull(X)`}{`r dim(dat)[1]`}$$
+$$\overline{X} = \frac{`r dat %>% filter(Participants == 1) %>% pull(X)` + 50000`r dat %>% filter(Participants == 2) %>% pull(X)` + `r dat %>% filter(Participants == 3) %>% pull(X)` +`r dat %>% filter(Participants == 4) %>% pull(X)` +`r dat %>% filter(Participants == 5) %>% pull(X)` +`r dat %>% filter(Participants == 6) %>% pull(X)` +`r dat %>% filter(Participants == 7) %>% pull(X)` +`r dat %>% filter(Participants == 8) %>% pull(X)` +`r dat %>% filter(Participants == 9) %>% pull(X)` +`r dat %>% filter(Participants == 10) %>% pull(X)`}{`r dim(dat)[1]`}$$
 
 And if we sum all the values on the top half together we get:
 
-$$\bar{X} = \frac{`r dat %>% pull(X) %>% sum()`}{`r dim(dat)[1]`}$$
+$$\overline{X} = \frac{`r dat %>% pull(X) %>% sum()`}{`r dim(dat)[1]`}$$
 
 And finally divide the top half by the bottom half, leaving:
 
-$$\bar{X} = `r (dat %>% pull(X) %>% sum())/(dim(dat)[1])`$$
+$$\overline{X} = `r (dat %>% pull(X) %>% sum())/(dim(dat)[1])`$$
 
-We find that the mean, rounded to two decimal places, is **$\bar{X} = `r meanx`$**
+We find that the mean, rounded to two decimal places, is **$\overline{X} = `r meanx`$**
 
 ### Variance
 
 The symbol for the variance is generally written as $s^2$ (pronounced as sigma-squared) but can also be written as $Var$. The formula for the variance is:
 
-$$s^2 = \frac{\sum(X - \bar{X})^2}{N-1}$$
+$$s^2 = \frac{\sum(X - \overline{X})^2}{N-1}$$
 
 So let's again start by filling in the numbers to the formula:
 
@@ -75,7 +75,7 @@ Showing that the variance, rounded to two decimal places is, **$s^2 = `r dat %>%
 
 The symbol for the standard deviation is generally written as $s$ (pronounced as sigma) but can also be written as $SD$. The formula for the standard deviation is:
 
-$$s = \sqrt\frac{\sum(X - \bar{X})^2}{N-1}$$
+$$s = \sqrt\frac{\sum(X - \overline{X})^2}{N-1}$$
 So let's again start by filling in the numbers to the formula:
 
 $$s = \sqrt\frac{(`r dat %>% filter(Participants == 1) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 2) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 3) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 4) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 5) %>% pull(X)` - `r meanx`)^2 + \\(`r dat %>% filter(Participants == 6) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 7) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 8) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 9) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 10) %>% pull(X)` - `r meanx`)^2}{`r dim(dat)[1]` - 1}$$
@@ -131,12 +131,12 @@ $$s^2 = `r sdx * sdx`$$
 
 Any value on a continuous scale can be converted to a z-score (standard deviation units) through the formula:
 
-$$z = \frac{X - \bar{X}}{s_{X}}$$
+$$z = \frac{X - \overline{X}}{s_{X}}$$
 
-which can be read as the value ($X$) minus the mean value ($\bar{X}$), divided by the standard deviation ($s_{X}$).  For example, if we look at Participant 1:
+which can be read as the value ($X$) minus the mean value ($\overline{X}$), divided by the standard deviation ($s_{X}$).  For example, if we look at Participant 1:
 
 * $X = `r dat %>% filter(Participants == 1) %>% pull(X)`$
-* $\bar{X} = `r meanx`$
+* $\overline{X} = `r meanx`$
 * $s_{X} = `r sdx`$
 
 Which if we fill in the formula we get:
@@ -181,15 +181,15 @@ We find that the standard error, rounded to two decimal places, is $SE = `r semx
 
 We will specifically focus on the 95% Confidence Interval using the cut-off value (assuming $\alpha = .05$ and two-tailed) of $z = 1.96$. The key formulas are:
 
-$$Upper \space 95\%CI = \bar{X} + (z \times SE)$$
+$$Upper \space 95\%CI = \overline{X} + (z \times SE)$$
 
 And
 
-$$Lower \space 95\%CI = \bar{X} - (z \times SE)$$
+$$Lower \space 95\%CI = \overline{X} - (z \times SE)$$
 
 We know that:
 
-* $\bar{X} = `r meanx`$
+* $\overline{X} = `r meanx`$
 * $SE = `r semx`$
 * $z = `r zci`$
 
