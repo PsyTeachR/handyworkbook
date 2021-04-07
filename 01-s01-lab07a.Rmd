@@ -4,14 +4,19 @@ This chapter is currently under development but will eventually show how to comp
 
 ## The ANOVA table
 
-**Scenario:** A research team are investigating the influence of mainstream media on body image and self-esteem. First they record a number of variables from a large cohort of men (n = 72) and
-women (n = 81) including ratings of self-esteem (from 10, low to 40, high), BMI (normal weight considered 18.5 to 24.9), hours spent per week on social media
-(hours), and age (years). The researchers want to check the influence of sex in this study. Calculate F from the below one-way ANOVA output table comparing mean BMI across the two sexes and state whether there is a significant difference between
-the sexes or not. The Sums of Squares ($SS$) have been given to you.
+**Between-Subjects Scenario:** A research team are investigating the influence of mainstream media on body image and self-esteem. First they record a number of variables from a large cohort of people, including ratings of self-esteem (from 10, low to 40, high), BMI (normal weight considered 18.5 to 24.9), hours spent per week on social media (hours), and age (years), and split the participants into two groups; Group 1 (n = 72) and Group 2 (n = 81). The researchers want to check whether there is a difference between the two groups of participants in terms of BMI. Calculate F from the below one-way ANOVA output table comparing mean BMI across the two groups of participants and state whether there is a significant difference between the groups or not. The Sums of Squares ($SS$) have been given to you.
 
 ```{r vals, echo = FALSE}
 BSS <- 44.56
 WSS <- 2126.3
+Ngroups <- 2
+Ngroup1 <- 72
+Ngroup2 <- 81
+dfBet <- Ngroups - 1
+dfWit <- Ngroup1 + Ngroup2 - Ngroups
+MSBet <- BSS/dfBet
+MSWit <- WSS/dfWit
+Fval <- round2(MSBet/MSWit,2)
 ```
 
 |Conditions|$SS$| $df$ |Mean Square|F-value
@@ -26,11 +31,15 @@ In order to complete the above table we need to:
 * use the $df$ to calculate the Mean Squares ($MS$)
 * use the Mean Squares to calculate the F-value
 
-The df of the Between component is calculated as:
+**Degrees of Freedom**
+
+In an ANOVA there are two degrees of freedom. The first is the degrees of freedom related to the number of groups/conditions/models and is usually called $df_{Between}$, $df_{Condition}$, or $df_{Model}$. They all refer to the same idea. Regardless of what you call it, this df is calculated as:
 
 $$df_{between} = k - 1$$
 
-Where $k$ is the number of conditions or groups. And the df of the Within component is calculated as:
+Where $k$ is the number of conditions or groups.
+
+The second degrees of freedom is related to the number of participants/observations/data-points and is usually called $df_{Within}$ or $df_{Model}$; again both referring to the same idea. This df is calculated as:
 
 $$df_{within} = N - k$$
 
@@ -38,21 +47,67 @@ Where $N$ is total number of participants in the whole experiment and $k$ is aga
 
 $$df_{within} = \sum_1^k(n_{k}-1)$$
 
-Which can be read as taking 1 away from the n in each group ($k$) and then summing those values together. For example, if you had a total of 20 participants in your experiment ($N = 20$) and they were split into 2 groups ($k = 2$) of 10 per group ($n = 10$), then you would do:
+Which can be read as taking 1 away from the $n$ in each group ($k$) and then summing those values together. For example, if you had a total of 20 participants in your experiment ($N = 20$) and they were split into 2 groups ($k = 2$) of 10 per group ($n = 10$), then you would do:
 
 $$df_{within} = (10-1)+(10-1) = `r 10-1+10-1`$$
 
 But as that is the same as $N-k$ (i.e. 20 - 2 = 18), and $N-k$ is easier to think about, we will use that approach here. 
 
-The remaining formulas we need are for the Mean Squares ($MS$) and the $F$-value.
+So, using those two formulas and the information given to us, first we see we have two groups. As such:
 
-The Mean Squares is calculated as:
+$$df_{between} = k - 1 = `r Ngroups` - 1 = `r Ngroups - 1`$$
+
+Next we see that we have n = `r Ngroup1` in Group 1, and n = `r Ngroup2` in Group 2, meaning that we have a total number of participants of N = `r Ngroup1` + `r Ngroup2` = `r Ngroup1 + Ngroup2`. And if we put that into the formula for the $df_{Within}$ we see:
+
+$$df_{Within} = N-k = `r Ngroup1 + Ngroup2` - `r Ngroups` = `r Ngroup1 + Ngroup2 - Ngroups`$$
+
+Meaning that we have $df_{Between}$ = `r dfBet`, and $df_{Within}$ = `r dfWit`, and we can fill those into our table as such:
+
+|Conditions|$SS$| $df$ |Mean Square|F-value
+|:--------:|:-------------:|:---:|:---:|:---:|
+|Between   |`r BSS`|`r dfBet`|||
+|Within    |`r WSS`|`r dfWit`|||
+|Total     |`r BSS+WSS`||||
+
+**Mean Squares**
+
+Great! Now the next step is to calculate the Mean Square value for both the Between (i.e. Groups) and Within (i.e. Residuals) components. The Mean Square is really an abbreviation of the Mean Sums of Squares and is the Sums of Squares of a component divided by the degrees of freedom. Or in other words:
 
 $$MS = \frac{SS}{df}$$
 
-And the F-value is calculated as:
+Looking at the table above we have all the information we need to calculate both the $MS_{Between}$ and the $MS_{Within}$. They would look like:
 
-$$F= \frac{MS_{between}}{MS_{within}}$$
+$$MS_{Between} = \frac{SS_{Between}}{df_{Between}} = \frac{`r BSS`}{`r dfBet`} = `r BSS/dfBet`$$
+
+And
+
+$$MS_{Within} = \frac{SS_{Within}}{df_{Within}} = \frac{`r WSS`}{`r dfWit`} = `r WSS/dfWit`$$
+
+Meaning that we have $MS_{Between}$ = `r MSBet` and $MS_{Within}$ = `r MSWit`, which we can add in to our ANOVA table as such:
+
+|Conditions|$SS$| $df$ |Mean Square|F-value|
+|:--------:|:-------------:|:---:|:---:|:---:|
+|Between   |`r BSS`|`r dfBet`|`r MSBet`||
+|Within    |`r WSS`|`r dfWit`|`r MSWit`||
+|Total     |`r BSS+WSS`||||
+
+**The F-value**
+
+Awesome. Finally, we need to calculate our F-value which is the ratio between the $MS_{Between}$ and $MS_{Within}$, and can be written as:
+
+$$F = \frac{MS_{Between}}{MS_{Within}}$$
+
+And so if we put our numbers in from above we see:
+
+$$F = \frac{MS_{Between}}{MS_{Within}} = \frac{`r MSBet`}{`r MSWit`} = `r MSBet/MSWit`$$
+
+Giving us an F-value of F = `r Fval` (to two decimal places), which we can now put into our table to complete our table as such:
+
+|Conditions|$SS$| $df$ |Mean Square|F-value|
+|:--------:|:-------------:|:---:|:---:|:---:|
+|Between   |`r BSS`|`r dfBet`|`r MSBet`|`r Fval`|
+|Within    |`r WSS`|`r dfWit`|`r MSWit`||
+|Total     |`r BSS+WSS`||||
 
 
 ## Look-Up table

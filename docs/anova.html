@@ -157,10 +157,7 @@
 <p>This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.</p>
 <div id="the-anova-table" class="section level2">
 <h2><span class="header-section-number">7.1</span> The ANOVA table</h2>
-<p><strong>Scenario:</strong> A research team are investigating the influence of mainstream media on body image and self-esteem. First they record a number of variables from a large cohort of men (n = 72) and
-women (n = 81) including ratings of self-esteem (from 10, low to 40, high), BMI (normal weight considered 18.5 to 24.9), hours spent per week on social media
-(hours), and age (years). The researchers want to check the influence of sex in this study. Calculate F from the below one-way ANOVA output table comparing mean BMI across the two sexes and state whether there is a significant difference between
-the sexes or not. The Sums of Squares (<span class="math inline">\(SS\)</span>) have been given to you.</p>
+<p><strong>Between-Subjects Scenario:</strong> A research team are investigating the influence of mainstream media on body image and self-esteem. First they record a number of variables from a large cohort of people, including ratings of self-esteem (from 10, low to 40, high), BMI (normal weight considered 18.5 to 24.9), hours spent per week on social media (hours), and age (years), and split the participants into two groups; Group 1 (n = 72) and Group 2 (n = 81). The researchers want to check whether there is a difference between the two groups of participants in terms of BMI. Calculate F from the below one-way ANOVA output table comparing mean BMI across the two groups of participants and state whether there is a significant difference between the groups or not. The Sums of Squares (<span class="math inline">\(SS\)</span>) have been given to you.</p>
 <table>
 <thead>
 <tr class="header">
@@ -201,20 +198,138 @@ the sexes or not. The Sums of Squares (<span class="math inline">\(SS\)</span>) 
 <li>use the <span class="math inline">\(df\)</span> to calculate the Mean Squares (<span class="math inline">\(MS\)</span>)</li>
 <li>use the Mean Squares to calculate the F-value</li>
 </ul>
-<p>The df of the Between component is calculated as:</p>
+<p><strong>Degrees of Freedom</strong></p>
+<p>In an ANOVA there are two degrees of freedom. The first is the degrees of freedom related to the number of groups/conditions/models and is usually called <span class="math inline">\(df_{Between}\)</span>, <span class="math inline">\(df_{Condition}\)</span>, or <span class="math inline">\(df_{Model}\)</span>. They all refer to the same idea. Regardless of what you call it, this df is calculated as:</p>
 <p><span class="math display">\[df_{between} = k - 1\]</span></p>
-<p>Where <span class="math inline">\(k\)</span> is the number of conditions or groups. And the df of the Within component is calculated as:</p>
+<p>Where <span class="math inline">\(k\)</span> is the number of conditions or groups.</p>
+<p>The second degrees of freedom is related to the number of participants/observations/data-points and is usually called <span class="math inline">\(df_{Within}\)</span> or <span class="math inline">\(df_{Model}\)</span>; again both referring to the same idea. This df is calculated as:</p>
 <p><span class="math display">\[df_{within} = N - k\]</span></p>
 <p>Where <span class="math inline">\(N\)</span> is total number of participants in the whole experiment and <span class="math inline">\(k\)</span> is again the number of conditions or groups. The <span class="math inline">\(df_{within}\)</span> can also be phrased as the:</p>
 <p><span class="math display">\[df_{within} = \sum_1^k(n_{k}-1)\]</span></p>
-<p>Which can be read as taking 1 away from the n in each group (<span class="math inline">\(k\)</span>) and then summing those values together. For example, if you had a total of 20 participants in your experiment (<span class="math inline">\(N = 20\)</span>) and they were split into 2 groups (<span class="math inline">\(k = 2\)</span>) of 10 per group (<span class="math inline">\(n = 10\)</span>), then you would do:</p>
+<p>Which can be read as taking 1 away from the <span class="math inline">\(n\)</span> in each group (<span class="math inline">\(k\)</span>) and then summing those values together. For example, if you had a total of 20 participants in your experiment (<span class="math inline">\(N = 20\)</span>) and they were split into 2 groups (<span class="math inline">\(k = 2\)</span>) of 10 per group (<span class="math inline">\(n = 10\)</span>), then you would do:</p>
 <p><span class="math display">\[df_{within} = (10-1)+(10-1) = 18\]</span></p>
 <p>But as that is the same as <span class="math inline">\(N-k\)</span> (i.e. 20 - 2 = 18), and <span class="math inline">\(N-k\)</span> is easier to think about, we will use that approach here.</p>
-<p>The remaining formulas we need are for the Mean Squares (<span class="math inline">\(MS\)</span>) and the <span class="math inline">\(F\)</span>-value.</p>
-<p>The Mean Squares is calculated as:</p>
+<p>So, using those two formulas and the information given to us, first we see we have two groups. As such:</p>
+<p><span class="math display">\[df_{between} = k - 1 = 2 - 1 = 1\]</span></p>
+<p>Next we see that we have n = 72 in Group 1, and n = 81 in Group 2, meaning that we have a total number of participants of N = 72 + 81 = 153. And if we put that into the formula for the <span class="math inline">\(df_{Within}\)</span> we see:</p>
+<p><span class="math display">\[df_{Within} = N-k = 153 - 2 = 151\]</span></p>
+<p>Meaning that we have <span class="math inline">\(df_{Between}\)</span> = 1, and <span class="math inline">\(df_{Within}\)</span> = 151, and we can fill those into our table as such:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Conditions</th>
+<th align="center"><span class="math inline">\(SS\)</span></th>
+<th align="center"><span class="math inline">\(df\)</span></th>
+<th align="center">Mean Square</th>
+<th align="center">F-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Between</td>
+<td align="center">44.56</td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Within</td>
+<td align="center">2126.3</td>
+<td align="center">151</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">2170.86</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mean Squares</strong></p>
+<p>Great! Now the next step is to calculate the Mean Square value for both the Between (i.e. Groups) and Within (i.e. Residuals) components. The Mean Square is really an abbreviation of the Mean Sums of Squares and is the Sums of Squares of a component divided by the degrees of freedom. Or in other words:</p>
 <p><span class="math display">\[MS = \frac{SS}{df}\]</span></p>
-<p>And the F-value is calculated as:</p>
-<p><span class="math display">\[F= \frac{MS_{between}}{MS_{within}}\]</span></p>
+<p>Looking at the table above we have all the information we need to calculate both the <span class="math inline">\(MS_{Between}\)</span> and the <span class="math inline">\(MS_{Within}\)</span>. They would look like:</p>
+<p><span class="math display">\[MS_{Between} = \frac{SS_{Between}}{df_{Between}} = \frac{44.56}{1} = 44.56\]</span></p>
+<p>And</p>
+<p><span class="math display">\[MS_{Within} = \frac{SS_{Within}}{df_{Within}} = \frac{2126.3}{151} = 14.081457\]</span></p>
+<p>Meaning that we have <span class="math inline">\(MS_{Between}\)</span> = 44.56 and <span class="math inline">\(MS_{Within}\)</span> = 14.081457, which we can add in to our ANOVA table as such:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Conditions</th>
+<th align="center"><span class="math inline">\(SS\)</span></th>
+<th align="center"><span class="math inline">\(df\)</span></th>
+<th align="center">Mean Square</th>
+<th align="center">F-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Between</td>
+<td align="center">44.56</td>
+<td align="center">1</td>
+<td align="center">44.56</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Within</td>
+<td align="center">2126.3</td>
+<td align="center">151</td>
+<td align="center">14.081457</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">2170.86</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The F-value</strong></p>
+<p>Awesome. Finally, we need to calculate our F-value which is the ratio between the <span class="math inline">\(MS_{Between}\)</span> and <span class="math inline">\(MS_{Within}\)</span>, and can be written as:</p>
+<p><span class="math display">\[F = \frac{MS_{Between}}{MS_{Within}}\]</span></p>
+<p>And so if we put our numbers in from above we see:</p>
+<p><span class="math display">\[F = \frac{MS_{Between}}{MS_{Within}} = \frac{44.56}{14.081457} = 3.1644453\]</span></p>
+<p>Giving us an F-value of F = 3.16 (to two decimal places), which we can now put into our table to complete our table as such:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Conditions</th>
+<th align="center"><span class="math inline">\(SS\)</span></th>
+<th align="center"><span class="math inline">\(df\)</span></th>
+<th align="center">Mean Square</th>
+<th align="center">F-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Between</td>
+<td align="center">44.56</td>
+<td align="center">1</td>
+<td align="center">44.56</td>
+<td align="center">3.16</td>
+</tr>
+<tr class="even">
+<td align="center">Within</td>
+<td align="center">2126.3</td>
+<td align="center">151</td>
+<td align="center">14.081457</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">2170.86</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="look-up-table-3" class="section level2">
 <h2><span class="header-section-number">7.2</span> Look-Up table</h2>
