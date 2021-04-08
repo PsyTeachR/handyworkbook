@@ -28,11 +28,11 @@ knitr::kable(dat, align = "c")
 
 The symbol for the mean is generally written as $\overline{X}$ (pronounced as X-bar) and the formula for the mean is:
 
-$$\overline{X} = \frac{\sum_i^n{X_i}}{N}$$
+$$\overline{X} = \frac{\sum_i^n{x_i}}{n}$$
 
-Which reads as sum all the values from i (the first value) to n (the last value) and then divide that by the total number of values (N). If we start to fill in the information from above we get:
+Which reads as sum ($\sum$) all the values from $i$ (the first value) to $n$ (the last value) and then divide that number by the total number of values ($n$). If we start to fill in the information from above we get:
 
-$$\overline{X} = \frac{`r dat %>% filter(Participants == 1) %>% pull(X)` + 50000`r dat %>% filter(Participants == 2) %>% pull(X)` + `r dat %>% filter(Participants == 3) %>% pull(X)` +`r dat %>% filter(Participants == 4) %>% pull(X)` +`r dat %>% filter(Participants == 5) %>% pull(X)` +`r dat %>% filter(Participants == 6) %>% pull(X)` +`r dat %>% filter(Participants == 7) %>% pull(X)` +`r dat %>% filter(Participants == 8) %>% pull(X)` +`r dat %>% filter(Participants == 9) %>% pull(X)` +`r dat %>% filter(Participants == 10) %>% pull(X)`}{`r dim(dat)[1]`}$$
+$$\overline{X} = \frac{`r dat %>% filter(Participants == 1) %>% pull(X)` + `r dat %>% filter(Participants == 2) %>% pull(X)` + `r dat %>% filter(Participants == 3) %>% pull(X)` +`r dat %>% filter(Participants == 4) %>% pull(X)` +`r dat %>% filter(Participants == 5) %>% pull(X)` +`r dat %>% filter(Participants == 6) %>% pull(X)` +`r dat %>% filter(Participants == 7) %>% pull(X)` +`r dat %>% filter(Participants == 8) %>% pull(X)` +`r dat %>% filter(Participants == 9) %>% pull(X)` +`r dat %>% filter(Participants == 10) %>% pull(X)`}{`r dim(dat)[1]`}$$
 
 And if we sum all the values on the top half together we get:
 
@@ -48,7 +48,7 @@ We find that the mean, rounded to two decimal places, is **$\overline{X} = `r me
 
 The symbol for the variance is generally written as $s^2$ (pronounced as sigma-squared) but can also be written as $Var$. The formula for the variance is:
 
-$$s^2 = \frac{\sum(X - \overline{X})^2}{N-1}$$
+$$s^2 = \frac{\sum_i^n(x_{i} - \overline{x})^2}{n-1}$$
 
 So let's again start by filling in the numbers to the formula:
 
@@ -75,7 +75,7 @@ Showing that the variance, rounded to two decimal places is, **$s^2 = `r dat %>%
 
 The symbol for the standard deviation is generally written as $s$ (pronounced as sigma) but can also be written as $SD$. The formula for the standard deviation is:
 
-$$s = \sqrt\frac{\sum(X - \overline{X})^2}{N-1}$$
+$$s = \sqrt\frac{\sum_i^n(x_{i} - \overline{x})^2}{n-1}$$
 So let's again start by filling in the numbers to the formula:
 
 $$s = \sqrt\frac{(`r dat %>% filter(Participants == 1) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 2) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 3) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 4) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 5) %>% pull(X)` - `r meanx`)^2 + \\(`r dat %>% filter(Participants == 6) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 7) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 8) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 9) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 10) %>% pull(X)` - `r meanx`)^2}{`r dim(dat)[1]` - 1}$$
@@ -87,12 +87,14 @@ $$s = \sqrt\frac{(`r dat %>% filter(Participants == 1) %>% pull(X) - meanx`)^2 +
 Then we square all those values on the top half:
 
 $$s = \sqrt\frac{`r (dat %>% filter(Participants == 1) %>% pull(X) - meanx)^2` + `r (dat %>% filter(Participants == 2) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 3) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 4) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 5) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 6) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 7) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 8) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 9) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 10) %>% pull(X) - meanx)^2`}{`r dim(dat)[1]-1`}$$
+
 Sum those values together:
 
 $$s = \sqrt\frac{`r ((dat %>% filter(Participants == 1) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 2) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 3) %>% pull(X) - meanx)^2)  + ((dat %>% filter(Participants == 4) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 5) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 6) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 7) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 8) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 9) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 10) %>% pull(X) - meanx)^2)`}{`r dim(dat)[1]-1`}$$
 Divide the top half by the bottom half:
 
 $$s = \sqrt{`r varx`}$$
+
 And finally take the square root:
 
 $$s = `r sdx`$$
@@ -131,13 +133,13 @@ $$s^2 = `r sdx * sdx`$$
 
 Any value on a continuous scale can be converted to a z-score (standard deviation units) through the formula:
 
-$$z = \frac{X - \overline{X}}{s_{X}}$$
+$$z = \frac{x - \overline{x}}{s_{x}}$$
 
-which can be read as the value ($X$) minus the mean value ($\overline{X}$), divided by the standard deviation ($s_{X}$).  For example, if we look at Participant 1:
+which can be read as the value ($x$) minus the mean value of the data ($\overline{x}$), divided by the standard deviation of the data ($s_{X}$).  For example, if we look at Participant 1:
 
-* $X = `r dat %>% filter(Participants == 1) %>% pull(X)`$
-* $\overline{X} = `r meanx`$
-* $s_{X} = `r sdx`$
+* $x = `r dat %>% filter(Participants == 1) %>% pull(X)`$
+* $\overline{x} = `r meanx`$
+* $s_{x} = `r sdx`$
 
 Which if we fill in the formula we get:
 
@@ -155,15 +157,15 @@ So Participant 1, when converted to a z-score and rounded to two decimal places,
 
 ### Standard Error of the Mean
 
-The symbol for the standard error is usually $SE$ but can also be written as $SEM$ when specificaly about the mean - short for standard error of the mean.  The formula for the standard error is the standard deviation ($s$) divided by the square root of N ($\sqrt{N}$), and is written as:
+The symbol for the standard error is usually $SE$ but can also be written as $SEM$ when specificaly about the mean - short for standard error of the mean.  The formula for the standard error is the standard deviation ($s$) divided by the square root of the number of observations ($\sqrt{n}$), and is written as:
 
-$$SE = \frac{s}{\sqrt{N}}$$
+$$SE = \frac{s}{\sqrt{n}}$$
 
 but can also be written as:
 
-$$SE = \frac{SD}{\sqrt{N}}$$
+$$SE = \frac{SD}{\sqrt{n}}$$
 
-We know that our $SD = `r sdx`$ and that we have $N = `r nx`$ participants, so:
+We know that our $SD = `r sdx`$ and that we have $n = `r nx`$ participants, so:
 
 $$SE = \frac{`r sdx`}{\sqrt{`r nx`}}$$
 
@@ -181,7 +183,7 @@ We find that the standard error, rounded to two decimal places, is $SE = `r semx
 
 We will specifically focus on the 95% Confidence Interval using the cut-off value (assuming $\alpha = .05$ and two-tailed) of $z = 1.96$. The key formulas are:
 
-$$Upper \space 95\%CI = \overline{X} + (z \times SE)$$
+$$Upper \space 95\%CI = \overline{x} + (z \times SE)$$
 
 And
 
@@ -189,7 +191,7 @@ $$Lower \space 95\%CI = \overline{X} - (z \times SE)$$
 
 We know that:
 
-* $\overline{X} = `r meanx`$
+* $\overline{x} = `r meanx`$
 * $SE = `r semx`$
 * $z = `r zci`$
 
