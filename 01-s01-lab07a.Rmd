@@ -17,7 +17,7 @@ dfWit <- Ngroup1 + Ngroup2 - Ngroups
 MSBet <- BSS/dfBet
 MSWit <- WSS/dfWit
 Fval <- round2(MSBet/MSWit,2)
-pes <- round2(BSS/(BSS+WSS))
+pes <- round2(BSS/(BSS+WSS),2)
 ```
 
 |Conditions|$SS$| $df$ |Mean Square|F-value
@@ -127,9 +127,23 @@ $$\eta_p^2 = \frac{`r BSS`}{`r BSS` + `r WSS`} = \frac{`r BSS`}{`r BSS + WSS`} =
 
 Meaning that this analysis has an effect size of $\eta_p^2$ = `r pes` (to two decimal places).
 
+**The Write-UP**
+
+The standard APA format for writing up an ANOVA is usually:
+
+<p align = "center">**F($df_{Between}$, $df_{Within}$) = F-value, p = p-value, $\eta_p^2$ = effectsize-value**</p>
+
+From above we know the two dfs and we know the F-value and the effect size, so what we need now is to determine the significance.
+
+**Determining Significance**
+
+If we were to look at a critical values look-up table for $df_{Between}$ = `r dfBet`, $df_{Within}$ = `r dfWit`, and $\alpha = .05$, we would see that the closest we have is for $df_{Between}$ = `r dfBet`, $df_{Within}$ = 100, which has a critical value of $F_{crit}$ = `r qf(1-.95, 1, 100, lower.tail = FALSE) %>% round2(2)`. Given that our F-value is `r ifelse(Fval >= qf(1-.95, 1, 100, lower.tail = FALSE) %>% round2(2), "equal to or larger than", "smaller than")` our $F_{crit}$ then we can say our result is `r ifelse(Fval >= qf(1-.95, 1, 100, lower.tail = FALSE) %>% round2(2), "significant", "not significant")`, and as such would be written up as F(`r dfBet`, `r dfWit`) = `r Fval`, `r ifelse(Fval >= qf(1-.95, 1, 100, lower.tail = FALSE) %>% round2(2), "p < .05", "p > .05")`, $\eta_p^2$ = `r pes`. 
+
+**Remember:** If you were writing this up as a report, and analysed the data in R, then you would see the p-value was actually p = `r format(pf(Fval, dfBet, dfWit, lower.tail = FALSE), scientific = FALSE)`, and would be written up as `r ifelse(pf(Fval, dfBet, dfWit, lower.tail = FALSE) < .001, "p < .001", paste("p = ", round2(pf(Fval, dfBet, dfWit, lower.tail = FALSE),3)))`
+
 ## Look-Up table
 
-Remembering that the $F_{crit}$ value is the smallest t-value you need to find a significant effect, find the $F_{crit}$ for your dfs, assuming $\alpha = .05$. If the $F$-value you calculated is equal to or larger than $F_{crit}$ then your test is significant.
+Remembering that the $F_{crit}$ value is the smallest F-value you need to find a significant effect, find the $F_{crit}$ for your dfs, assuming $\alpha = .05$. If the $F$-value you calculated is equal to or larger than $F_{crit}$ then your test is significant. In this table, to fit it on to the page, $df_{Between}$ is written as df1, and $df_{Within}$ is written as df2.
 
 |dfs|df1 = 1|df1 = 2|df1 = 3|df1 = 4|df1 = 5|
 |:-:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
