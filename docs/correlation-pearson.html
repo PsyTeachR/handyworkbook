@@ -362,12 +362,12 @@ IQ
 <p><span class="math display">\[\begin{align*}
 r_{(HeadSize,IQ)} &amp;= \frac{cov(HeadSize,IQ)}{\sigma_{HeadSize}\times\sigma_{IQ}} \\ \\ &amp;= \frac{199.26}{12.92 \times 15.95} \\ \\ &amp;= \frac{199.26}{206.074} \\ \\ &amp;= 0.9669342
 \end{align*}\]</span></p>
-<p>Meaning that we would have a correlation value of, to three decimal places, <span class="math inline">\(r\)</span> = 0.967, which, following Cohen’s (1988) proposed cut-offs shown below, would be considered a strong positive relationship.</p>
+<p>Meaning that we would have a correlation value of, to three decimal places, <span class="math inline">\(r\)</span> = 0.967, which, following Cohen’s (1988) proposed cut-offs shown below, would be considered to show a strong positive relationship. Remember that these cut-offs are just guides so a value just below a cut-off, e.g. r = .48, would probably be described as, for example, a strong positive relationship.</p>
 <table>
 <thead>
 <tr class="header">
 <th align="right">Relationship Description (Cohen, 1988)</th>
-<th align="center">closest r-value</th>
+<th align="center">r-value</th>
 </tr>
 </thead>
 <tbody>
@@ -409,6 +409,12 @@ r_{(HeadSize,IQ)} &amp;= \frac{cov(HeadSize,IQ)}{\sigma_{HeadSize}\times\sigma_{
 <p>Which reduces to:</p>
 <p><span class="math display">\[df = 8\]</span></p>
 <p>Meaning that we find a <span class="math inline">\(df = 8\)</span></p>
+<p><strong>Writing up</strong></p>
+<p>The standard APA format for writing up a Pearson correlation is usually:</p>
+<p align="center">
+<strong>r(df) = r-value, p = p-value</strong>
+</p>
+<p>From above we know the df and we know the r-value and what we need now is the significance.</p>
 <p><strong>Determining Significance</strong></p>
 <p>If we were to look at a critical values look-up table for <span class="math inline">\(df = 8\)</span> and <span class="math inline">\(\alpha = .05\)</span>, we would see that the critical value is <span class="math inline">\(r_{crit} = 0.632\)</span>. Given that our r-value, ignoring polarity and just looking at the absolute value, so <span class="math inline">\(r = 0.967\)</span>, is equal to or larger than our <span class="math inline">\(r_{crit}\)</span> then we can say our result is significant, and as such would be written up as r(8) = 0.967, p &lt; .05.</p>
 <p><strong>Remember:</strong> If you were writing this up as a report, and analysed the data in R, then you would see the p-value was actually p = 0.000005014954, and would be written up as p &lt; .001</p>

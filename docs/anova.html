@@ -340,11 +340,20 @@
 </ul>
 <p>And if we start to fill those into the formula we see:</p>
 <p><span class="math display">\[\eta_p^2 = \frac{44.56}{44.56 + 2126.3} = \frac{44.56}{2170.86} = 0.0205264\]</span></p>
-<p>Meaning that this analysis has an effect size of <span class="math inline">\(\eta_p^2\)</span> = 0 (to two decimal places).</p>
+<p>Meaning that this analysis has an effect size of <span class="math inline">\(\eta_p^2\)</span> = 0.02 (to two decimal places).</p>
+<p><strong>The Write-UP</strong></p>
+<p>The standard APA format for writing up an ANOVA is usually:</p>
+<p align="center">
+<strong>F(<span class="math inline">\(df_{Between}\)</span>, <span class="math inline">\(df_{Within}\)</span>) = F-value, p = p-value, <span class="math inline">\(\eta_p^2\)</span> = effectsize-value</strong>
+</p>
+<p>From above we know the two dfs and we know the F-value and the effect size, so what we need now is to determine the significance.</p>
+<p><strong>Determining Significance</strong></p>
+<p>If we were to look at a critical values look-up table for <span class="math inline">\(df_{Between}\)</span> = 1, <span class="math inline">\(df_{Within}\)</span> = 151, and <span class="math inline">\(\alpha = .05\)</span>, we would see that the closest we have is for <span class="math inline">\(df_{Between}\)</span> = 1, <span class="math inline">\(df_{Within}\)</span> = 100, which has a critical value of <span class="math inline">\(F_{crit}\)</span> = 3.94. Given that our F-value is smaller than our <span class="math inline">\(F_{crit}\)</span> then we can say our result is not significant, and as such would be written up as F(1, 151) = 3.16, p &gt; .05, <span class="math inline">\(\eta_p^2\)</span> = 0.02.</p>
+<p><strong>Remember:</strong> If you were writing this up as a report, and analysed the data in R, then you would see the p-value was actually p = 0.07747604, and would be written up as p = 0.077</p>
 </div>
 <div id="look-up-table-3" class="section level2">
 <h2><span class="header-section-number">7.2</span> Look-Up table</h2>
-<p>Remembering that the <span class="math inline">\(F_{crit}\)</span> value is the smallest t-value you need to find a significant effect, find the <span class="math inline">\(F_{crit}\)</span> for your dfs, assuming <span class="math inline">\(\alpha = .05\)</span>. If the <span class="math inline">\(F\)</span>-value you calculated is equal to or larger than <span class="math inline">\(F_{crit}\)</span> then your test is significant.</p>
+<p>Remembering that the <span class="math inline">\(F_{crit}\)</span> value is the smallest F-value you need to find a significant effect, find the <span class="math inline">\(F_{crit}\)</span> for your dfs, assuming <span class="math inline">\(\alpha = .05\)</span>. If the <span class="math inline">\(F\)</span>-value you calculated is equal to or larger than <span class="math inline">\(F_{crit}\)</span> then your test is significant. In this table, to fit it on to the page, <span class="math inline">\(df_{Between}\)</span> is written as df1, and <span class="math inline">\(df_{Within}\)</span> is written as df2.</p>
 <table>
 <thead>
 <tr class="header">

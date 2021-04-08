@@ -174,18 +174,31 @@ df <- cor.test(dat_o$HeadSize, dat_o$IQ, method = "pearson") %>% pluck("paramete
 realt <- cor.test(dat_o$HeadSize, dat_o$IQ, method = "pearson") %>% pluck("statistic")
 realp <- pt(realt, df, lower.tail = FALSE)*2
 
-strongcor <- .45
-medcor <- .25
-weakcor <- .1
+strongcorp <- .45
+medcorp <- .25
+weakcorp <- .08
+weakcorn <- -.08
+medcorn <- -.25
+strongcorn <- -.45
+
+
 rcrit <- sqrt(qt(1-.975, df, lower.tail = FALSE)^2/(qt(1-.975, df, lower.tail = FALSE)^2 + df)) %>% round2(3)
+
+verbdesc <- case_when(corval >= strongcorp ~ "a strong positive",
+          medcorp <= corval & corval < strongcorp ~ "a medium positive",
+          weakcorp <= corval & corval < medcorp ~ "a weak positive",
+          corval > medcorn & corval <= weakcorn ~ "a weak negative",
+          corval > strongcorn & corval <= medcorn ~ "a medium negative",
+          corval <= strongcorn ~ "a strong negative",
+          TRUE ~ "no")
 
 
 ```
 
 
-Meaning that we would have a correlation value of, to three decimal places, $r$ = `r corval`, which, following Cohen's (1988) proposed cut-offs shown below, would be considered a strong positive relationship.
+Meaning that we would have a correlation value of, to three decimal places, $r$ = `r corval`, which, following Cohen's (1988) proposed cut-offs shown below, would be considered to show `r verbdesc` relationship. Remember that these cut-offs are just guides so a value just below a cut-off, e.g. r = .48, would probably be described as, for example, a strong positive relationship.
 
-|Relationship Description (Cohen, 1988)| closest r-value|
+|Relationship Description (Cohen, 1988)| r-value |
 |---:|:---:|
 |Strong positive relationship| r = .5|
 |Medium positive relationship| r = .3|
@@ -211,6 +224,14 @@ $$df = `r dim(dat_o)[1] - 2`$$
 
 
 Meaning that we find a $df = `r dim(dat_o)[1] - 2`$
+
+**Writing up**
+
+The standard APA format for writing up a Pearson correlation is usually:
+
+<p align = "center">**r(df) = r-value, p = p-value**</p>
+
+From above we know the df and we know the r-value and what we need now is the significance.
 
 **Determining Significance**
 
