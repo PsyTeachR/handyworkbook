@@ -4,7 +4,7 @@ This chapter is currently under development but will eventually show how to comp
 
 ## The ANOVA table
 
-**One-Way Between-Subjects Scenario:** A research team are investigating the influence of mainstream media on body image and self-esteem. First they record a number of variables from a large cohort of people, including ratings of self-esteem (from 10, low to 40, high), BMI (normal weight considered 18.5 to 24.9), hours spent per week on social media (hours), and age (years), and split the participants into two groups; Group 1 (n = 72) and Group 2 (n = 81). The researchers want to check whether there is a difference between the two groups of participants in terms of BMI. Calculate F from the below one-way ANOVA output table comparing mean BMI across the two groups of participants and state whether there is a significant difference between the groups or not. The Sums of Squares ($SS$) have been given to you.
+**One-Way Between-Subjects Scenario:** A research team are investigating the influence of mainstream media on life happiness. They record Life Happiness scores from 0 to 100 with higher scores meaning more happy with life from a large cohort of participants and split the participants into two groups; Group 1 (n = 72) and Group 2 (n = 81). The researchers want to check whether there is a difference between the two groups of participants in terms of Life Happiness. Calculate F from the below one-way ANOVA output table comparing mean Life Happiness scores across the two groups of participants and state whether there is a significant difference between the groups or not. The Sums of Squares ($SS$) have been given to you.
 
 ```{r vals, echo = FALSE}
 BSS <- 44.56
@@ -17,6 +17,7 @@ dfWit <- Ngroup1 + Ngroup2 - Ngroups
 MSBet <- BSS/dfBet
 MSWit <- WSS/dfWit
 Fval <- round2(MSBet/MSWit,2)
+pes <- round2(BSS/(BSS+WSS))
 ```
 
 |Conditions|$SS$| $df$ |Mean Square|F-value
@@ -109,6 +110,22 @@ Giving us an F-value of F = `r Fval` (to two decimal places), which we can now p
 |Within    |`r WSS`|`r dfWit`|`r MSWit`||
 |Total     |`r BSS+WSS`||||
 
+**Effect size**
+
+There are a few effect sizes that people use for the ANOVA with one of the more common ones being what is called partial eta-squared with the symbol $\eta_p^2$ (as $\eta$ is the symbol for "eta", and is pronounced "eat-ah", and the $_p^2$ indicating "partial" and "squared"). The formula for partial eta-squared is:
+
+$$\eta_{p^2} = \frac{SS_{Between}}{SS_{Between}+SS_{Within}}$$
+
+From above, we know that:
+
+* $SS_{Between}$ = `r BSS` and
+* $SS_{Within}$ = `r WSS`
+
+And if we start to fill those into the formula we see:
+
+$$\eta_p^2 = \frac{`r BSS`}{`r BSS` + `r WSS`} = \frac{`r BSS`}{`r BSS + WSS`} = `r BSS/(BSS + WSS)`$$
+
+Meaning that this analysis has an effect size of $\eta_p^2$ = `r pes` (to two decimal places).
 
 ## Look-Up table
 

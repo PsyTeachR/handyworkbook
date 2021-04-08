@@ -157,7 +157,7 @@
 <p>This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.</p>
 <div id="the-anova-table" class="section level2">
 <h2><span class="header-section-number">7.1</span> The ANOVA table</h2>
-<p><strong>One-Way Between-Subjects Scenario:</strong> A research team are investigating the influence of mainstream media on body image and self-esteem. First they record a number of variables from a large cohort of people, including ratings of self-esteem (from 10, low to 40, high), BMI (normal weight considered 18.5 to 24.9), hours spent per week on social media (hours), and age (years), and split the participants into two groups; Group 1 (n = 72) and Group 2 (n = 81). The researchers want to check whether there is a difference between the two groups of participants in terms of BMI. Calculate F from the below one-way ANOVA output table comparing mean BMI across the two groups of participants and state whether there is a significant difference between the groups or not. The Sums of Squares (<span class="math inline">\(SS\)</span>) have been given to you.</p>
+<p><strong>One-Way Between-Subjects Scenario:</strong> A research team are investigating the influence of mainstream media on life happiness. They record Life Happiness scores from 0 to 100 with higher scores meaning more happy with life from a large cohort of participants and split the participants into two groups; Group 1 (n = 72) and Group 2 (n = 81). The researchers want to check whether there is a difference between the two groups of participants in terms of Life Happiness. Calculate F from the below one-way ANOVA output table comparing mean Life Happiness scores across the two groups of participants and state whether there is a significant difference between the groups or not. The Sums of Squares (<span class="math inline">\(SS\)</span>) have been given to you.</p>
 <table>
 <thead>
 <tr class="header">
@@ -330,6 +330,17 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Effect size</strong></p>
+<p>There are a few effect sizes that people use for the ANOVA with one of the more common ones being what is called partial eta-squared with the symbol <span class="math inline">\(\eta_p^2\)</span> (as <span class="math inline">\(\eta\)</span> is the symbol for “eta”, and is pronounced “eat-ah”, and the <span class="math inline">\(_p^2\)</span> indicating “partial” and “squared”). The formula for partial eta-squared is:</p>
+<p><span class="math display">\[\eta_{p^2} = \frac{SS_{Between}}{SS_{Between}+SS_{Within}}\]</span></p>
+<p>From above, we know that:</p>
+<ul>
+<li><span class="math inline">\(SS_{Between}\)</span> = 44.56 and</li>
+<li><span class="math inline">\(SS_{Within}\)</span> = 2126.3</li>
+</ul>
+<p>And if we start to fill those into the formula we see:</p>
+<p><span class="math display">\[\eta_p^2 = \frac{44.56}{44.56 + 2126.3} = \frac{44.56}{2170.86} = 0.0205264\]</span></p>
+<p>Meaning that this analysis has an effect size of <span class="math inline">\(\eta_p^2\)</span> = 0 (to two decimal places).</p>
 </div>
 <div id="look-up-table-3" class="section level2">
 <h2><span class="header-section-number">7.2</span> Look-Up table</h2>
