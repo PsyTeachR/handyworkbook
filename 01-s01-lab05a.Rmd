@@ -51,6 +51,10 @@ Before getting into the full simple linear regression however we will look at ma
 
 $$b_{1} = \frac{cov_{(x, y)}}{s^2_{x}}$$
 
+Or alternatively it can be written as,
+
+$$b_{1} = r_{(x,y)} \times \frac{s_{y}}{s_{x}}$$
+
 **the intercept**
 
 $$b_{0} = \overline{y} - b_{1} \times \overline{x}$$
@@ -71,7 +75,7 @@ But this can also be written in terms of the correlation between the two variabl
 
 $$b_{1} = r_{(x,y)} \times \frac{s_{y}}{s_{x}}$$
 
-Which is stated the correlation between x and y ($r_{(x,y)}$) multiplied by the standard deviation of y ($s_{y}$) divided by the standard deviation of x ($s_{x}$). [Remember that $s$ is the standard deviation of a variable, and $s^2$ is the variance of the variable.]
+Which is stated as the correlation between x and y ($r_{(x,y)}$) multiplied by the standard deviation of y ($s_{y}$) divided by the standard deviation of x ($s_{x}$). [Remember that $s$ is the standard deviation of a variable, and $s^2$ is the variance of the variable.]
 
 And again we can translate that back into terms of HeadSize ($x$) and IQ ($y$) as:
 
@@ -145,7 +149,7 @@ Well technically it is
 
 $$\hat{Y} = b_{0} + b_{1}X + error$$
 
-But we will disregard the error for now. Also you might have noticed the small hat about the $Y$ making it $\hat{Y}$ (pronounced Y-hat). This means we are making a prediction of Y ($\hat{Y}$) as opposed to an actually measured value ($Y$).
+But we will disregard the error for now. Also you might have noticed the small hat about the $Y$ making it $\hat{Y}$ (pronounced Y-hat). This means we are making a prediction of Y ($\hat{Y}$) as opposed to an actually measured (i.e. observed) value ($Y$).
 
 Now let's say we want to make a prediction about someone who has a HeadSize of 60.1. Then, using the information above, we know:
 
@@ -173,11 +177,11 @@ Meaning that for a participant with a HeadSize of `r HSp2` we would predict an I
 
 ## The R-squared 
 
-Obviously the question now is how good is our model at making these predictions, and one measure of that is $R^2$ (pronounced R-squared). This relates to the $error$ terms that we saw in the original formula, i.e. $\hat{Y} = b_{0} + b_{1}X + error$, and as we said at the start it relates to the residuals. The residuals you might know are the difference between predicted values and observed values. For example, if we look at Participant 1 in our data we see they had a HeadSize of `r dat_o %>% slice(1) %>% pull(HeadSize)` and an IQ of `r dat_o %>% slice(1) %>% pull(IQ)`.  Those are our observed values $X$ and $Y$ for that participant, but what if we predicted a value for that participant instead ($\hat{Y}$). Using the above formula we would see:
+Obviously the question now is how good is our model at making these predictions, and one measure of that is $R^2$ (pronounced R-squared). This relates to the $error$ term that we saw in the original formula, i.e. $\hat{Y} = b_{0} + b_{1}X + error$, and as we said at the start it relates to the residuals. The residuals you might know are the difference between predicted values and observed values. For example, if we look at Participant 1 in our data we see they had a HeadSize of `r dat_o %>% slice(1) %>% pull(HeadSize)` and an IQ of `r dat_o %>% slice(1) %>% pull(IQ)`.  Those are our observed values of $X$ and $Y$ for that participant, but what if we predicted a value for that participant instead ($\hat{Y}$). Using the above formula we would see:
 
 $$\hat{Y} = `r intercept` + `r slope` \times `r dat_o %>% slice(1) %>% pull(HeadSize)` = `r intercept + slope * (dat_o %>% slice(1) %>% pull(HeadSize))`$$
 
-So we would predict for that person, with a HeadSize of `r dat_o %>% slice(1) %>% pull(HeadSize)`, to have an IQ of `r intercept + slope * (dat_o %>% slice(1) %>% pull(HeadSize))`. And if we compare that to the actually observed value for that participant ($Y = `r dat_o %>% slice(1) %>% pull(IQ)`$) we see a difference of `r abs((intercept + slope * (dat_o %>% slice(1) %>% pull(HeadSize))) - (dat_o %>% slice(1) %>% pull(IQ)))` IQ points. And that difference is our residuals for that person - the left over part between the observed and the predicted. If we were then to check that for all the observed participants we would get an overall value that summarises how big or small our residuals are, and the smaller the residuals are, the better the model is at predicting values of $Y$ from $X$, because there is little difference between our predicted values and our observed values. And that is what our $R^2$ tells us. It is a measure of how good our model is at prediction, and a measure of how small our residuals are. $R^2$ can take values between 0 and 1 and simply put, the closer $R^2$ is to 1, the smaller our residuals and the better our model is at prediction.
+So we would predict for Participant 1, with a HeadSize of `r dat_o %>% slice(1) %>% pull(HeadSize)`, to have an IQ of `r intercept + slope * (dat_o %>% slice(1) %>% pull(HeadSize))`. And if we compare that to the actually observed value for that participant ($Y = `r dat_o %>% slice(1) %>% pull(IQ)`$) we see a difference of `r abs((intercept + slope * (dat_o %>% slice(1) %>% pull(HeadSize))) - (dat_o %>% slice(1) %>% pull(IQ)))` IQ points (i.e. $\hat{Y} - Y = `r abs((intercept + slope * (dat_o %>% slice(1) %>% pull(HeadSize))) - (dat_o %>% slice(1) %>% pull(IQ)))`$). And that difference is our residuals for that person - the left over part between the observed and the predicted. If we were then to check that for all the observed participants we would get an overall value that summarises how big or small our residuals are, and the smaller the residuals are, the better the model is at predicting values of $Y$ from $X$, because there is little difference between our predicted values and our observed values. And that is what our $R^2$ tells us. It is a measure of how good our model is at prediction, and a measure of how small our residuals are. $R^2$ can take values between 0 and 1 and simply put, the closer $R^2$ is to 1, the smaller our residuals and the better our model is at prediction.
 
 Now there is a full approach to calculating the $R^2$ which we will show you in a little bit, but when you are dealing with simple linear regression as we are here, there is a quick approach that gives the same answer, and it is:
 
