@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Simple Linear Regression | A Handy Workbook for Research Methods and Statistics</title>
+  <meta name="description" content="ug2-practical-materials" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Simple Linear Regression | A Handy Workbook for Research Methods and Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="ug2-practical-materials" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Simple Linear Regression | A Handy Workbook for Research Methods and Statistics" />
+  
+  <meta name="twitter:description" content="ug2-practical-materials" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="correlation-pearson.html"/>
+<link rel="next" href="anova.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Handy Workbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>1</b> Descriptives</a><ul>
+<li class="chapter" data-level="1.1" data-path="descriptives.html"><a href="descriptives.html#worked-examples"><i class="fa fa-check"></i><b>1.1</b> Worked Examples</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="descriptives.html"><a href="descriptives.html#the-mean"><i class="fa fa-check"></i><b>1.1.1</b> The Mean</a></li>
+<li class="chapter" data-level="1.1.2" data-path="descriptives.html"><a href="descriptives.html#variance"><i class="fa fa-check"></i><b>1.1.2</b> Variance</a></li>
+<li class="chapter" data-level="1.1.3" data-path="descriptives.html"><a href="descriptives.html#standard-deviation"><i class="fa fa-check"></i><b>1.1.3</b> Standard Deviation</a></li>
+<li class="chapter" data-level="1.1.4" data-path="descriptives.html"><a href="descriptives.html#var-to-sd"><i class="fa fa-check"></i><b>1.1.4</b> Var to SD</a></li>
+<li class="chapter" data-level="1.1.5" data-path="descriptives.html"><a href="descriptives.html#sd-to-var"><i class="fa fa-check"></i><b>1.1.5</b> SD to Var</a></li>
+<li class="chapter" data-level="1.1.6" data-path="descriptives.html"><a href="descriptives.html#z-scores"><i class="fa fa-check"></i><b>1.1.6</b> Z-Scores</a></li>
+<li class="chapter" data-level="1.1.7" data-path="descriptives.html"><a href="descriptives.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>1.1.7</b> Standard Error of the Mean</a></li>
+<li class="chapter" data-level="1.1.8" data-path="descriptives.html"><a href="descriptives.html#confidence-intervals"><i class="fa fa-check"></i><b>1.1.8</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="1.1.9" data-path="descriptives.html"><a href="descriptives.html#the-write-up"><i class="fa fa-check"></i><b>1.1.9</b> The Write-Up</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html"><i class="fa fa-check"></i><b>2</b> One-Sample Chi-Square</a><ul>
+<li class="chapter" data-level="2.1" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#the-worked-example"><i class="fa fa-check"></i><b>2.1</b> The Worked Example</a></li>
+<li class="chapter" data-level="2.2" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#test-yourself"><i class="fa fa-check"></i><b>2.2</b> Test Yourself</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#dataset-1"><i class="fa fa-check"></i><b>2.2.1</b> DataSet 1</a></li>
+<li class="chapter" data-level="2.2.2" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#dataset-2"><i class="fa fa-check"></i><b>2.2.2</b> DataSet 2</a></li>
+<li class="chapter" data-level="2.2.3" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#dataset-3"><i class="fa fa-check"></i><b>2.2.3</b> DataSet 3</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="one-sample-chi-square.html"><a href="one-sample-chi-square.html#chisquare-look-up-table"><i class="fa fa-check"></i><b>2.3</b> ChiSquare Look-up Table</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chi-square-cross-tabulation.html"><a href="chi-square-cross-tabulation.html"><i class="fa fa-check"></i><b>3</b> Chi-Square Cross-Tabulation</a><ul>
+<li class="chapter" data-level="3.1" data-path="chi-square-cross-tabulation.html"><a href="chi-square-cross-tabulation.html#the-worked-example-1"><i class="fa fa-check"></i><b>3.1</b> The Worked Example</a></li>
+<li class="chapter" data-level="3.2" data-path="chi-square-cross-tabulation.html"><a href="chi-square-cross-tabulation.html#test-yourself-1"><i class="fa fa-check"></i><b>3.2</b> Test Yourself</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="chi-square-cross-tabulation.html"><a href="chi-square-cross-tabulation.html#dataset-1-1"><i class="fa fa-check"></i><b>3.2.1</b> DataSet 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chi-square-cross-tabulation.html"><a href="chi-square-cross-tabulation.html#chisquare-look-up-table-1"><i class="fa fa-check"></i><b>3.3</b> ChiSquare Look-up Table</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html"><i class="fa fa-check"></i><b>4</b> Between-Subjects Student’s t-test</a><ul>
+<li class="chapter" data-level="4.1" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#the-worked-example-2"><i class="fa fa-check"></i><b>4.1</b> The Worked Example</a></li>
+<li class="chapter" data-level="4.2" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#test-yourself-2"><i class="fa fa-check"></i><b>4.2</b> Test Yourself</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#dataset-1-2"><i class="fa fa-check"></i><b>4.2.1</b> DataSet 1</a></li>
+<li class="chapter" data-level="4.2.2" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#dataset-2-1"><i class="fa fa-check"></i><b>4.2.2</b> DataSet 2</a></li>
+<li class="chapter" data-level="4.2.3" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#dataset-3-1"><i class="fa fa-check"></i><b>4.2.3</b> DataSet 3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="between-subjects-students-t-test.html"><a href="between-subjects-students-t-test.html#look-up-table"><i class="fa fa-check"></i><b>4.3</b> Look-Up table</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>5</b> Within-Subjects t-test</a><ul>
+<li class="chapter" data-level="5.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#the-worked-example-3"><i class="fa fa-check"></i><b>5.1</b> The Worked Example</a></li>
+<li class="chapter" data-level="5.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#test-yourself-3"><i class="fa fa-check"></i><b>5.2</b> Test Yourself</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#dataset-1-3"><i class="fa fa-check"></i><b>5.2.1</b> DataSet 1</a></li>
+<li class="chapter" data-level="5.2.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#dataset-2-2"><i class="fa fa-check"></i><b>5.2.2</b> DataSet 2</a></li>
+<li class="chapter" data-level="5.2.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#dataset-3-2"><i class="fa fa-check"></i><b>5.2.3</b> DataSet 3</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#look-up-table-1"><i class="fa fa-check"></i><b>5.3</b> Look-Up table</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="correlation-pearson.html"><a href="correlation-pearson.html"><i class="fa fa-check"></i><b>6</b> Correlation: Pearson</a><ul>
+<li class="chapter" data-level="6.1" data-path="correlation-pearson.html"><a href="correlation-pearson.html#the-worked-example-4"><i class="fa fa-check"></i><b>6.1</b> The Worked Example</a></li>
+<li class="chapter" data-level="6.2" data-path="correlation-pearson.html"><a href="correlation-pearson.html#look-up-table-2"><i class="fa fa-check"></i><b>6.2</b> Look-Up table</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Simple Linear Regression</a><ul>
+<li class="chapter" data-level="7.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#the-slope"><i class="fa fa-check"></i><b>7.1</b> The slope:</a></li>
+<li class="chapter" data-level="7.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#the-intercept"><i class="fa fa-check"></i><b>7.2</b> The intercept</a></li>
+<li class="chapter" data-level="7.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#making-a-prediction"><i class="fa fa-check"></i><b>7.3</b> Making a Prediction</a></li>
+<li class="chapter" data-level="7.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#the-r-squared"><i class="fa fa-check"></i><b>7.4</b> The R-squared</a></li>
+<li class="chapter" data-level="7.5" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#the-write-up-1"><i class="fa fa-check"></i><b>7.5</b> The Write-up</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>8</b> ANOVA</a><ul>
+<li class="chapter" data-level="8.1" data-path="anova.html"><a href="anova.html#the-anova-table"><i class="fa fa-check"></i><b>8.1</b> The ANOVA table</a></li>
+<li class="chapter" data-level="8.2" data-path="anova.html"><a href="anova.html#look-up-table-3"><i class="fa fa-check"></i><b>8.2</b> Look-Up table</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="random-formulas.html"><a href="random-formulas.html"><i class="fa fa-check"></i><b>9</b> Random formulas</a><ul>
+<li class="chapter" data-level="9.1" data-path="random-formulas.html"><a href="random-formulas.html#t-value-to-r-value"><i class="fa fa-check"></i><b>9.1</b> t-value to r-value</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Handy Workbook for Research Methods and Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simple-linear-regression" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Simple Linear Regression</h1>
+<p>Simple Linear Regression is analytical method that looks to model the relationship between an outcome variable and <strong>one</strong> explanatory predictor variables. For example, thinking about the data that we used for the Pearson Correlation analysis in this book, say instead of asking is HeadSize and IQ related, we could ask can you reliably predict IQ scores (our outcome or dependent variable) from HeadSize measurements (our predictor or independent variable), with the hypothesis of, “We predict that a linear model based on head size, as measured in cms, will significantly predict IQ scores as measured on a standard IQ test”. We are going to look at this example to walk through some of the analysis but lets first remind ourselves of the data.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Participants
+</th>
+<th style="text-align:center;">
+HeadSize
+</th>
+<th style="text-align:center;">
+IQ
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+50.8
+</td>
+<td style="text-align:center;">
+107
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+63.5
+</td>
+<td style="text-align:center;">
+121
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+45.7
+</td>
+<td style="text-align:center;">
+106
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+25.4
+</td>
+<td style="text-align:center;">
+72
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+29.2
+</td>
+<td style="text-align:center;">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+49.5
+</td>
+<td style="text-align:center;">
+105
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+38.1
+</td>
+<td style="text-align:center;">
+93
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+30.5
+</td>
+<td style="text-align:center;">
+88
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+35.6
+</td>
+<td style="text-align:center;">
+97
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+58.4
+</td>
+<td style="text-align:center;">
+123
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now in order to determine how well Head Size predicts IQ we need to know the underlying formula for this type of analysis and use that to calculate elements such as the slope of the relationship and the intercept. You might remember from previous years that a line in a two-dimensional coordinate system (i.e. two dimensional space made of variables X and Y) can be described by a linear equation (model) of the form:</p>
+<p><span class="math display">\[Y = b_{0} + b_{1}X + error\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(Y\)</span> is the value on the outcome variable Y</li>
+<li><span class="math inline">\(X\)</span> is the value on the predictor variable X</li>
+<li><span class="math inline">\(b_{0}\)</span> is the intercept (or regression constant) – pronounced beta-zero - and stated as the value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(X = 0\)</span> when X = 0</li>
+<li><span class="math inline">\(b_{1}\)</span> is the slope (or regression coefficient) – pronounced beta-one - and stated as the change in <span class="math inline">\(Y\)</span> associated with a one-unit increase in <span class="math inline">\(X\)</span></li>
+<li><span class="math inline">\(error\)</span> is a measure of your residuals which are the difference between an actual value and a predicted value</li>
+</ul>
+<p>Before getting into the full simple linear regression however we will look at making predictions from this linear model formula using the slope and the intercept, based on the following equations.</p>
+<p><strong>the slope:</strong></p>
+<p><span class="math display">\[b_{1} = \frac{cov_{(x, y)}}{s^2_{x}}\]</span></p>
+<p><strong>the intercept</strong></p>
+<p><span class="math display">\[b_{0} = \overline{y} - b_{1} \times \overline{x}\]</span></p>
+<p>So lets spend some time looking at those two equations in turn.</p>
+<div id="the-slope" class="section level2">
+<h2><span class="header-section-number">7.1</span> The slope:</h2>
+<p>As above, the formula for the slope is:</p>
+<p><span class="math display">\[b_{1} = \frac{cov_{(x, y)}}{s^2_{x}}\]</span></p>
+<p>which is stated as the covariance of x and y (<span class="math inline">\(cov_{(x,y)}\)</span>) divided by the variance of x (<span class="math inline">\(s^2_{x}\)</span>). If we translate that into outcome and predictors then, given our Head Size is the predictor (<span class="math inline">\(x\)</span>) and the IQ is the outcome (<span class="math inline">\(y\)</span>), that becomes:</p>
+<p><span class="math display">\[b_{1} = \frac{cov_{(HeadSize, IQ)}}{s^2_{HeadSize}}\]</span></p>
+<p>But this can also be written in terms of the correlation between the two variables as opposed to the covariance, and this would look like:</p>
+<p><span class="math display">\[b_{1} = r_{(x,y)} \times \frac{s_{y}}{s_{x}}\]</span></p>
+<p>Which is stated the correlation between x and y (<span class="math inline">\(r_{(x,y)}\)</span>) multiplied by the standard deviation of y (<span class="math inline">\(s_{y}\)</span>) divided by the standard deviation of x (<span class="math inline">\(s_{x}\)</span>). [Remember that <span class="math inline">\(s\)</span> is the standard deviation of a variable, and <span class="math inline">\(s^2\)</span> is the variance of the variable.]</p>
+<p>And again we can translate that back into terms of HeadSize (<span class="math inline">\(x\)</span>) and IQ (<span class="math inline">\(y\)</span>) as:</p>
+<p><span class="math display">\[b_{1} = r \times \frac{s_{IQ}}{s_{HeadSize}}\]</span></p>
+<p>Now if we think back to the correlation chapter we actually do know all the values we need, or at least can calculate them. Here is what we know from the correlation chapter:</p>
+<ul>
+<li><span class="math inline">\(cov_{(x,y)}\)</span> = 199.26</li>
+<li><span class="math inline">\(s_{HeadSize}\)</span> = 12.92</li>
+<li><span class="math inline">\(s_{IQ}\)</span> = 15.95</li>
+<li><span class="math inline">\(r_{(x,y)}\)</span> = 0.967</li>
+</ul>
+<p>And from that we can calculate the variance of HeadSize (<span class="math inline">\(s^2_{HeadSize}\)</span>) and IQ (<span class="math inline">\(s^2_{IQ}\)</span>), based on <span class="math inline">\(s^2 = s \times s\)</span>, meaning:</p>
+<ul>
+<li><span class="math inline">\(s^2_{HeadSize}\)</span> = <span class="math inline">\(12.92 \times 12.92\)</span> = 166.9264</li>
+<li><span class="math inline">\(s^2_{IQ}\)</span> = <span class="math inline">\(15.95 \times 15.95\)</span> = 254.4025</li>
+</ul>
+<p>So we could really use either formula for the slope as we have all the information, but for now let’s use:</p>
+<p><span class="math display">\[b_{1} = r \times \frac{s_{IQ}}{s_{HeadSize}}\]</span></p>
+<p>And if we start to feed in the values, remembering that the IQ is (<span class="math inline">\(y\)</span> - the outcome) and HeadSize is (<span class="math inline">\(x\)</span> - the predictor) we get:</p>
+<p><span class="math display">\[b_{1} = 0.967 \times \frac{15.95}{12.92}\]</span></p>
+<p>And then if we sort out the fraction first, that becomes:</p>
+<p><span class="math display">\[b_{1} = 0.967 \times 1.2345201\]</span></p>
+<p>Which leads down to:</p>
+<p><span class="math display">\[b_{1} = 1.193781\]</span></p>
+<p>Giving a slope of <span class="math inline">\(b_{1}\)</span> = 1.194, to three decimal places, meaning that for a 1 unit change in <span class="math inline">\(x\)</span> we get a 1.194 unit change in <span class="math inline">\(y\)</span>. Or in other words, for a 1 unit change in HeadSize we get a 1.194 unit change in IQ.</p>
+</div>
+<div id="the-intercept" class="section level2">
+<h2><span class="header-section-number">7.2</span> The intercept</h2>
+<p>Great. So now we know the slope of the regression line between HeadSize and IQ, what we need next is the intercept. The formula for the intercept, as above, is:</p>
+<p><span class="math display">\[b_{0} = \overline{y} - b_{1} \times \overline{x}\]</span></p>
+<p>Which is stated as the mean of y (<span class="math inline">\(\overline{y}\)</span> - in this case IQ, our outcome) minus the slope (<span class="math inline">\(b_{1}\)</span>) multiplied by the mean of x (<span class="math inline">\(\overline{x}\)</span> - in this case HeadSize, our predictor).</p>
+<p>Looking back at the correlation chapter, and above, we know:</p>
+<ul>
+<li><span class="math inline">\(b_{1}\)</span> = 1.194</li>
+<li><span class="math inline">\(\overline{x}\)</span> = 42.67</li>
+<li><span class="math inline">\(\overline{y}\)</span> = 99.7</li>
+</ul>
+<p>And if we substitute those values into the formula we get:</p>
+<p><span class="math display">\[b_{0} = 99.7 - 1.194 \times 42.67\]</span></p>
+<p>Remembering BODMAS we need to do the multiplication first, which gives us:</p>
+<p><span class="math display">\[b_{0} = 99.7 - 50.94798\]</span></p>
+<p>And we then complete the formula by doing the subtraction giving us:</p>
+<p><span class="math display">\[b_{0} = 48.75202\]</span></p>
+<p>Meaning that we have an intercept of <span class="math inline">\(b_{0}\)</span> = 48.75, to two decimal places. And if we remember that the intercept is the value of <span class="math inline">\(y\)</span> when <span class="math inline">\(x\)</span> is zero, then this tells us that when <span class="math inline">\(x\)</span> = 0, the value of <span class="math inline">\(y\)</span> is <span class="math inline">\(y\)</span> = 48.75. Or stated in terms of HeadSize and IQ, when Headsize is 0, then IQ is 48.75.</p>
+</div>
+<div id="making-a-prediction" class="section level2">
+<h2><span class="header-section-number">7.3</span> Making a Prediction</h2>
+<p>Now based on the information we have gained above we can actually use that to make predictions about a person we have not measured based on the formula:</p>
+<p><span class="math display">\[\hat{Y} = b_{0} + b_{1}X\]</span></p>
+<p>Well technically it is</p>
+<p><span class="math display">\[\hat{Y} = b_{0} + b_{1}X + error\]</span></p>
+<p>But we will disregard the error for now. Also you might have noticed the small hat about the <span class="math inline">\(Y\)</span> making it <span class="math inline">\(\hat{Y}\)</span> (pronounced Y-hat). This means we are making a prediction of Y (<span class="math inline">\(\hat{Y}\)</span>) as opposed to an actually measured value (<span class="math inline">\(Y\)</span>).</p>
+<p>Now let’s say we want to make a prediction about someone who has a HeadSize of 60.1. Then, using the information above, we know:</p>
+<ul>
+<li>the slope, <span class="math inline">\(b_{1}\)</span> = 1.194</li>
+<li>the intercept, <span class="math inline">\(b_{0}\)</span> = 48.75</li>
+<li>and the HeadSize, <span class="math inline">\(X\)</span> = 60.1</li>
+</ul>
+<p>If we put all that into the formula we would get:</p>
+<p><span class="math display">\[\hat{Y} = 48.75 + 1.194 \times 60.1\]</span></p>
+<p>And if we start to work that through, dealing with the multiplication first, we see:</p>
+<p><span class="math display">\[\hat{Y} = 48.75 + 71.7594\]</span></p>
+<p>Which then becomes:</p>
+<p><span class="math display">\[\hat{Y} = 120.5094\]</span></p>
+<p>Giving a predicted value of <span class="math inline">\(\hat{Y}\)</span> = 120.51, to two decimal places. Meaning that for a participant with a HeadSize of 60.1 we would predict an IQ of 120.51. And you can use the same approach for any number of predictions with this model. Say you measured someone with a HeadSize of 59.4 cm, then they would be:</p>
+<p><span class="math display">\[\hat{Y} = 48.75 + 1.194 \times 59.4 = 119.6736\]</span></p>
+<p>Meaning that for a participant with a HeadSize of 59.4 we would predict an IQ of 119.67.</p>
+</div>
+<div id="the-r-squared" class="section level2">
+<h2><span class="header-section-number">7.4</span> The R-squared</h2>
+<p>Obviously the question now is how good is our model at making these predictions, and one measure of that is <span class="math inline">\(R^2\)</span> (pronounced R-squared). This relates to the <span class="math inline">\(error\)</span> terms that we saw in the original formula, i.e. <span class="math inline">\(\hat{Y} = b_{0} + b_{1}X + error\)</span>, and as we said at the start it relates to the residuals. The residuals you might know are the difference between predicted values and observed values. For example, if we look at Participant 1 in our data we see they had a HeadSize of 50.8 and an IQ of 107. Those are our observed values <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> for that participant, but what if we predicted a value for that participant instead (<span class="math inline">\(\hat{Y}\)</span>). Using the above formula we would see:</p>
+<p><span class="math display">\[\hat{Y} = 48.75 + 1.194 \times 50.8 = 109.4052\]</span></p>
+<p>So we would predict for that person, with a HeadSize of 50.8, to have an IQ of 109.4052. And if we compare that to the actually observed value for that participant (<span class="math inline">\(Y = 107\)</span>) we see a difference of 2.4052 IQ points. And that difference is our residuals for that person - the left over part between the observed and the predicted. If we were then to check that for all the observed participants we would get an overall value that summarises how big or small our residuals are, and the smaller the residuals are, the better the model is at predicting values of <span class="math inline">\(Y\)</span> from <span class="math inline">\(X\)</span>, because there is little difference between our predicted values and our observed values. And that is what our <span class="math inline">\(R^2\)</span> tells us. It is a measure of how good our model is at prediction, and a measure of how small our residuals are. <span class="math inline">\(R^2\)</span> can take values between 0 and 1 and simply put, the closer <span class="math inline">\(R^2\)</span> is to 1, the smaller our residuals and the better our model is at prediction.</p>
+<p>Now there is a full approach to calculating the <span class="math inline">\(R^2\)</span> which we will show you in a little bit, but when you are dealing with simple linear regression as we are here, there is a quick approach that gives the same answer, and it is:</p>
+<p><span class="math display">\[R^2 = r_{(x,y)} \times r_{(x,y)}\]</span></p>
+<p>where <span class="math inline">\(r_{(x,y)}\)</span> is the correlation between the two variables, in this case Headsize (<span class="math inline">\(x\)</span>) and IQ (<span class="math inline">\(y\)</span>). And if we look above we see we already know the correlation between HeadSize and IQ, as we calculated it in the correlation chapter. The correlation between HeadSize and IQ is <span class="math inline">\(r_{(HeadSize, IQ)} = 0.967\)</span>. And if we put that into our formula for <span class="math inline">\(R^2\)</span> we see:</p>
+<p><span class="math display">\[R^2 = 0.967 \times 0.967 = 0.935089\]</span></p>
+<p>Meaning that we have an <span class="math inline">\(R^2\)</span> of <span class="math inline">\(R^2 = 0.935\)</span>, to three decimal places. And given that that is quite close to an <span class="math inline">\(R^2\)</span> of 1, it would suggest that our model is very good at predicting IQ from HeadSize (Y from X), that our residuals are small, and that there is a strong positive relationship between the two variables.</p>
+</div>
+<div id="the-write-up-1" class="section level2">
+<h2><span class="header-section-number">7.5</span> The Write-up</h2>
+<p>Ok great, so we have now got a lot of information on our model including the slope, the intercept, and the <span class="math inline">\(R^2\)</span>. The one thing we don’t actually know is where our model is significant. We will go into what that means and how to determine that in a later part, but in the meantime we will just tell you that the model is significant, (F(1, 8) = 115.07, p &lt; .001). So now we have everything we need for the write up:</p>
+<ul>
+<li>The model is significant - F(1, 8) = 115.07, p &lt; .001</li>
+<li>The <span class="math inline">\(R^2\)</span> = 0.935 is very high</li>
+</ul>
+<p>The only other element we need is the coefficent - the relationship between the two variables - which can take two versions; unstandardised and standardised. But, we actually do already know these. We just called them something else:</p>
+<ul>
+<li>what we call <strong>the slope</strong>, above, is the <strong>unstandardised coefficient</strong> and is written as <span class="math inline">\(b\)</span> = 1.194</li>
+<li>what we called <strong>the correlation</strong> between the variables is actually the <strong>standardised coefficient</strong> and is written as <span class="math inline">\(\beta\)</span> = 0.967</li>
+</ul>
+<p>And it is totally acceptable to write-up either the standardised coefficient (<span class="math inline">\(\beta\)</span>) or the unstandardised coefficient (<span class="math inline">\(b\)</span>). The main thing is to make sure you use the right symbol with the right value and don’t mix them up as that will mislead a reader.</p>
+<p>Now if we take all the information we have, including some information from the correlation chapter, we can put it into a blurb as such:</p>
+<p><strong>A team of researchers were interested in the relationship between Head Size and IQ, and specifically whether they could predict IQ from Head Size. The researchers set out the hypothesis that a linear model based on head size, as measured in cms, will significantly predict IQ scores as measured on a standard IQ test. Descriptive analysis suggested a strong positive relationship between Head Size (M = 42.67, SD = 12.92) and IQ (M = 99.7, SD = 15.95), (r(8) = 0.967). On analysis, a linear regression model revealed that head size (measured in cm) significantly predicted participant scores on an IQ test (<span class="math inline">\(\beta\)</span> = 0.967, F(1, 8) = 115.07, p &lt; .001, <span class="math inline">\(R^2\)</span> = 0.935), with head size explaining 93.5% of the variance in IQ scores. As such the alternative hypothesis was accepted suggesting that…</strong></p>
+<p>But I guess it might look a bit odd as we give the standardised coeffiencient twice, just in different ways, so we could write it with the unstandardised coefficient as:</p>
+<p><strong>A team of researchers were interested in the relationship between Head Size and IQ, and specifically whether they could predict IQ from Head Size. The researchers set out the hypothesis that a linear model based on head size, as measured in cms, will significantly predict IQ scores as measured on a standard IQ test. Descriptive analysis suggested a strong positive relationship between Head Size (M = 42.67, SD = 12.92) and IQ (M = 99.7, SD = 15.95), (r(8) = 0.967), with head size explaining 93.5% of the variance in IQ scores. On analysis, a linear regression model revealed that head size (measured in cm) significantly predicted participant scores on an IQ test (<span class="math inline">\(b\)</span> = 1.194, F(1, 8) = 115.07, p &lt; .001, <span class="math inline">\(R^2\)</span> = 0.935). As such the alternative hypothesis was accepted suggesting that…</strong></p>
+
+</div>
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="correlation-pearson.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": {},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
