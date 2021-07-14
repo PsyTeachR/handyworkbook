@@ -1,5 +1,7 @@
 # One-Sample Chi-Square
 
+This is chi-squares
+
 ## The Worked Example
 
 ```{r we-setup, message=FALSE, warning=FALSE, echo=FALSE}
