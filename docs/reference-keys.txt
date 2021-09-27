@@ -1,3 +1,6 @@
+fig:settings-general
+fig:settings-code
+fig:img-soundimals-hash
 descriptives
 a-note-on-descriptives-and-inferentials
 the-mean
@@ -54,4 +57,14 @@ the-anova-table
 look-up-table-3
 random-formulas
 t-value-to-r-value
-references
+installing-r
+installing-base-r
+installing-rstudio
+rstudio-settings
+installing-latex
+symbols
+conventions
+webexercises
+alert-boxes
+code-chunks
+glossary

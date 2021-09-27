@@ -10,7 +10,7 @@ bibliography: [book.bib, packages.bib]
 csl: include/apa.csl
 link-citations: yes
 description: | # edit
-  This book ...
+  A Handy Workbook for Research Methods and Statistics
 url: https://psyteachr.github.io/handyworkbook 
 github-repo: psyteachr/handyworkbook 
 cover-image: images/logos/logo.png 

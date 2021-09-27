@@ -1,12 +1,22 @@
 --- 
 title: "A Handy Workbook for Research Methods and Statistics"
 date: "Last Update: 2021-09-27"
+author: "Phil McAleer" 
 site: bookdown::bookdown_site
 documentclass: book
+classoption: oneside # for PDFs
+geometry: margin=1in # for PDFs
 bibliography: [book.bib, packages.bib]
-biblio-style: apalike
+csl: include/apa.csl
 link-citations: yes
-description: ug2-practical-materials
+description: | # edit
+  A Handy Workbook for Research Methods and Statistics
+url: https://psyteachr.github.io/handyworkbook 
+github-repo: psyteachr/handyworkbook 
+cover-image: images/logos/logo.png 
+apple-touch-icon: images/logos/apple-touch-icon.png 
+apple-touch-icon-size: 180
+favicon: images/logos/favicon.ico 
 ---
 
 
@@ -23,6 +33,6 @@ description: ug2-practical-materials
 
 **Contact:** This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact [Phil McAleer](mailto:philip.mcaleer@glasgow.ac.uk).
 
-**R Version:** This book has been written with R version 4.1.1 (2021-08-10)
+**R Version:** This book has been written with R version 4.1.0 (2021-05-18)
 
 **Randomising Seed:** In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.
