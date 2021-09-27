@@ -1,10 +1,153 @@
 # Descriptives
 
-## Worked Examples
+## A note on Descriptives and Inferentials
+
+In the first part of this book we are going to look at `r glossary("descriptive", display = "descriptive statistics")` which we use to summarise and describe data we have collected - normally from a `r glossary("sample")` of the `r glossary("population")` of interest. Remember that the population is all the members of a group that we wish to generalise our findings to, and the sample is the subset of that population we have gathered data from. We draw our sample from the population, so to speak. The population is what we determine it to be based on our research question - everyone in Psychology at Glasgow; everyone study Psychology in Scotland; everyone studying Psychology in the world! Most of the time, testing everyone in a population is an unrealistic goal so we take a sample of that population and make inferences from that sample to the population using statistics. And the first step we take is to describe our sample.
+
+Descriptive statistics can be broken down into three kinds:
+
+* `r glossary::glossary("point estimates", def = "a single value that summarises an aspect of a data set.  Examples include the mean, median, and the mode.", link = FALSE)` - these tend to be single values, or points, that summarise a set of data. Most common would be ones that summarise the center of the data such as the mean and the median.
+* `r glossary::glossary("interval estimates", def = "a range of values that summarise an aspect of a data set.  Examples include the range, variance, standard deviation, standard error and confidence intervals.", link = FALSE)` - these tend to be a range of values that summarise a set of data. Most common would be ones that summarise the spread of the data such as the variance and the standard deviation.
+* visualisations - are figures that help display the point and interval estimates of the data and can take various different forms depending on the data type.
+
+Once we have described the data in our sample we then use `r glossary("inferential", display = "inferential statistics")` to make predictions about, or comparisons between, our data. We infer how the general population would perform based on the sample we have collected and described. We will look at inferential statistics later in this book but first we will start with descriptives statistics, looking at point estimates first, before moving on to interval estimates.
+
+**Point Estimates**
+
+We will start by looking at three point estimates. They are:
+
+* the Mean
+* the Median
+* the Mode
+
+## The Mean
+
+The `r glossary("mean")` is a descriptive statistic that measures the average value of a set of numbers.
+
+The symbol for the mean is generally written as $\overline{X}$ (pronounced as X-bar) and the formula for the mean is:
+
+$$\overline{X} = \frac{\sum_i^n{x_i}}{n}$$
+
+Which reads as sum ($\sum$) all the values from $i$ (the first value) to $n$ (the last value) and then divide that number by the total number of values ($n$). Let's look at an example.
+
+Say we are interested in how years of experience in driving impacts on some metric of peformance. We recruit 25 `r glossary::glossary("participant", def = "the word used to describe someone who has taken part in a study. Note that subject is outdated and no longer used.", display = "participants", link = FALSE, add_to_table = TRUE)` and ask them how many years they have been driving. Here are their responses:
+
+```{r driving-years, echo = FALSE}
+drv <- tibble(Participant = 1:25,
+              Years = c(7, 1, 2, 6, 3, 4, 3, 4, 3, 4, 5, 4, 7, 5, 6, 5, 5, 4, 5, 6, 5, 6, 3, 2, 5
+))
+
+
+```
+
+If we start to fill in the information from above we get:
+
+$$\overline{X} = \frac{`r drv %>% filter(Participant == 1) %>% pull(Years)` +
+`r drv %>% filter(Participant == 2) %>% pull(Years)` +
+`r drv %>% filter(Participant == 3) %>% pull(Years)`+
+`r drv %>% filter(Participant == 4) %>% pull(Years)`+
+`r drv %>% filter(Participant == 5) %>% pull(Years)`+\\
+`r drv %>% filter(Participant == 6) %>% pull(Years)`+
+`r drv %>% filter(Participant == 7) %>% pull(Years)`+
+`r drv %>% filter(Participant == 8) %>% pull(Years)`+
+`r drv %>% filter(Participant == 9) %>% pull(Years)`+
+`r drv %>% filter(Participant == 10) %>% pull(Years)`+\\
+`r drv %>% filter(Participant == 11) %>% pull(Years)`+
+`r drv %>% filter(Participant == 12) %>% pull(Years)`+
+`r drv %>% filter(Participant == 13) %>% pull(Years)`+
+`r drv %>% filter(Participant == 14) %>% pull(Years)`+
+`r drv %>% filter(Participant == 15) %>% pull(Years)`+\\
+`r drv %>% filter(Participant == 16) %>% pull(Years)`+
+`r drv %>% filter(Participant == 17) %>% pull(Years)`+
+`r drv %>% filter(Participant == 18) %>% pull(Years)`+
+`r drv %>% filter(Participant == 19) %>% pull(Years)`+
+`r drv %>% filter(Participant == 20) %>% pull(Years)`+\\
+`r drv %>% filter(Participant == 21) %>% pull(Years)`+
+`r drv %>% filter(Participant == 22) %>% pull(Years)`+
+`r drv %>% filter(Participant == 23) %>% pull(Years)`+
+`r drv %>% filter(Participant == 24) %>% pull(Years)`+
+`r drv %>% filter(Participant == 25) %>% pull(Years)`}{`r dim(drv)[1]`}$$
+
+So the first step is to add all the values on the top half of the formula together, which is called the `r glossary::glossary("numerator", def = "name for the top half of a formula", link = FALSE)`, giving us:
+
+$$\overline{X} =\frac{`r drv %>% pull(Years) %>% sum()`}{`r dim(drv)[1]`}$$
+
+Which can also be read as:
+
+$$\overline{X} = `r drv %>% pull(Years) %>% sum()`/`r dim(drv)[1]`$$
+
+And if we then divide top of the formula, the numerator, by the bottom half, called the `r glossary::glossary("denominator", def = "name for the bottom half of a formula", link = FALSE)`, we would get:
+
+$$\overline{X} = `r (drv %>% pull(Years) %>% sum())/(dim(drv)[1])`$$
+
+And so, when using the standard APA write-up format of **M = ...**, we would write **M = `r (drv %>% pull(Years) %>% sum())/(dim(drv)[1])`**.
+
+## The Median
+
+The `r glossary("median")` is the next point estimate we will look at and is the middle number in a distribution where half of the values in the data are larger and half are smaller. It is literally the value that divides the data in half.
+
+The standard way of calculating the Median involves two steps:
+
+1. Sort all values from lowest to highest (i.e. from $i$ (the first value) to $n$ (the last value))
+2. The median is the value at position $\frac{(n + 1)}{2}$
+
+So if we look at our driving data again, the responses were:
+
+$$`r drv %>% pull(Years)`$$
+
+And if we sort them from lowest value to highest value we get:
+
+$$`r drv %>% arrange(Years) %>% pull(Years)`$$
+
+Now we need to figure out what the value would be at the median position of our dataset, where the median position is $\frac{(n + 1)}{2}$ and we have n = `r dim(drv)[1]` participants.
+
+$$Median\space Position = \frac{(n + 1)}{2} = \frac{(`r dim(drv)[1]` + 1)}{2} = \frac{`r dim(drv)[1] + 1`}{2} = `r (dim(drv)[1] + 1)/2`$$
+
+Meaning that the Median Position for n = `r dim(drv)[1]` is the `r (dim(drv)[1] + 1)/2`^th^ position and so the Median is the value at position `r (dim(drv)[1] + 1)/2` after we have sorted the data from smallest to largest:
+
+$$`r drv %>% arrange(Years) %>% pull(Years)`$$
+
+And if we count along the line until we get to the Median Position, we can see that the value in position `r (dim(drv)[1] + 1)/2` is `r drv %>% arrange(Years) %>% slice(((dim(drv)[1] + 1)/2)) %>% pull(Years)`, meaning that for this data the Median = `r drv %>% arrange(Years) %>% slice(((dim(drv)[1] + 1)/2)) %>% pull(Years)`. And so, when using the standard APA write-up format of **Mdn = ...**, we would write **Mdn = `r drv %>% arrange(Years) %>% slice(((dim(drv)[1] + 1)/2)) %>% pull(Years)`**.
+
+## The Mode
+
+The mode is the last point estimate we will consider here and is the value or category that appears most often, most frequently, in your data set. There is no formula for the mode and it involves counting how many of each category or value you have and finding the most common one.  Here are our values again:
+
+$$`r drv %>% pull(Years)`$$
+
+And if we sort them from largest to smallest for easy of reading we get:
+
+$$`r drv %>% arrange(Years) %>% pull(Years)`$$
+
+And if we start to count all the different values we see that we have:
+
+```{r mode-tab, echo=FALSE}
+modtab <- drv %>% group_by(Years) %>% count()
+
+threc <- modtab %>% filter(Years == 3) %>% pull(n)
+fourc <- modtab %>% filter(Years == 4) %>% pull(n)
+
+maxc <- modtab %>% arrange(desc(n)) %>% ungroup %>% slice(1) %>% pull(Years)
+pepc <- modtab %>% arrange(desc(n)) %>% ungroup %>% slice(1) %>% pull(n)
+  
+knitr::kable(modtab)
+```
+
+Meaning, for example, we have `r threc` people with three years of driving experience, and `r fourc` people with four years of driving experience. And looking at our table we can see the most common number of years of driving experience is `r maxc` as there are `r pepc` with that number of years experience. We would therefore write **Mode = `r maxc`**
+
+### Section glossary
+
+```{r gloss-tab, echo=FALSE, results='asis'}
+
+glossary_table()
+```
+
+
+## A full desciptive example
 
 **The Data**
 
-To look at the mean, variance, standard deviation, standard error, 95% Confidence Intervals, and z-scores, we will use the following data from 10 participants:
+To look at a full descriptive example including the mean, variance, standard deviation, standard error, 95% Confidence Intervals, and z-scores, we will use the following data from 10 participants:
 
 ```{r we, message=FALSE, warning=FALSE, echo=FALSE}
 
