@@ -1,0 +1,34 @@
+Package: handyworkbook
+Title: Handy Workbook
+Version: 2.0
+Authors@R:
+  c(
+    person(given = "Phil",
+       family = "McAleer",
+       role = c("aut", "cre"),
+       email = "Philip.McAleer@glasgow.ac.uk",
+       comment = c(ORCID = "0000-0002-4523-2097"))
+  )
+Description: 
+License: CC BY 4.0 + LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    webexercises,
+    glossary (>= 0.0.0.9001),
+    bookdown,
+    pwr,
+    rtweet,
+    meme,
+    gganimate
+    ggforce,
+    knitr,
+    faux,
+    patchwork,
+    statcheck
+Remotes: 
+    psyteachr/glossary
+Depends: 
+    tidyverse

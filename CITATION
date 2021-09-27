@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this book, please cite it as below."
+authors:
+- family-names: "McAleer"
+  given-names: "Phil"
+  orcid: "https://orcid.org/0000-0002-4523-2097"
+title: "Handy Workbook"
+version: 1.0
+date-released: 2021-09-27
+url: "https://github.com/psyteachr/handyworkbook/"
