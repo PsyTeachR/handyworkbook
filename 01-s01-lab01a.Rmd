@@ -2,7 +2,7 @@
 
 ## The Worked Example
 
-```{r we-setup, message=FALSE, warning=FALSE, echo=FALSE}
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
 library(webex)
 library(tidyverse)
 
