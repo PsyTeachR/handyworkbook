@@ -1,0 +1,91 @@
+---
+title: Friendly Advice
+---
+
+Suggested improvements for Between-subjects t-test (01-201-lab02a).
+
+```{r we, echo = FALSE}
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(broom)
+  library(webexercises) # for round2
+})
+
+set.seed(1410)
+
+mx <- runif(1, 0, 100) %>% round2(2)
+sdx <- runif(1, 0, 5) %>% round2(2)
+N <- seq(10, 100, 2) %>% sample(1)
+
+dat <- tibble(Group = rep(c("A","B"), each = N/2),
+              scores = rnorm(N, mx, sdx)) %>%
+  mutate(scores = scores + rep(c(0,2), each = N/2))
+
+desc <- dat %>% 
+  group_by(Group) %>%
+  summarise(Npg = n(),
+            Means = mean(scores) %>% round2(2),
+            SDs = sd(scores) %>% round2(2),
+            Variance = var(scores) %>% round2(2),
+            `Standard Err.` = (SDs/sqrt(Npg)) %>% round2(2))
+
+sdp <- sqrt((((N/2 - 1) * desc$SDs[1]^2) + ((N/2 - 1) * desc$SDs[2]^2))/(N/2 + N/2 - 2))
+
+t.value <- ((desc$Means[1] - desc$Means[2])/(sdp * sqrt(((1/(N/2)) + (1/(N/2)))))) %>% round2(2)            
+
+cohensd <- ((2* t.value)/sqrt(N-2)) %>% round2(2)
+
+results <- t.test(dat %>% filter(Group == "A") %>% pull(scores), 
+                  dat %>% filter(Group == "B") %>% pull(scores), 
+                  var.equal = TRUE) %>% 
+  tidy() %>%
+  mutate(cohensd_t = (2*statistic)/sqrt(parameter))
+```
+
+```{r}
+# add this to your script for increased readability and debugging
+An <- desc %>% filter(Group == "A") %>% pull(Npg)
+Bn <- desc %>% filter(Group == "B") %>% pull(Npg)
+Am <- desc %>% filter(Group == "A") %>% pull(Means)
+Bm <- desc %>% filter(Group == "B") %>% pull(Means)
+Asd <- desc %>% filter(Group == "A") %>% pull(SDs)
+Bsd <- desc %>% filter(Group == "B") %>% pull(SDs)
+
+df <- (An - 1) + (Bn - 1)
+t_crit <- qt(1-.975, df, lower.tail = FALSE) %>% round2(3)
+sd_pooled <- sqrt(((An -1) * Asd * Asd + (Bn -1) * Bsd * Bsd)/(An + Bn - 2)) *
+  sqrt((1/(Bn)) + (1/(Bn)))
+t_abs <- abs((Am - Bm) / sd_pooled) %>% round2(2)
+
+t_compare <- ifelse(t_abs >= t_crit,  "equal to or larger than",  "smaller than")
+t_sig <- ifelse(t_abs >= t_crit, "significant",  "non-significant")
+p_val <- ifelse(t_abs >= t_crit, " p < .05", " p > .05")
+d <- abs(2 * (Am - Bm) / sd_pooled / sqrt(df)) %>% round2(1)
+```
+
+
+**Determining Significance**
+
+If we were to look at a critical values look-up table for 
+$df = `r df`$ and $\alpha = .05$ (two-tailed), 
+we would see that the critical value is $t_{crit} = `r t_crit`$. 
+Given that our t-value, ignoring polarity and just looking at the absolute value, 
+so $t = `r t_abs`$, is `r t_compare` our $t_{crit}$ 
+then we can say our result is `r t_sig`, 
+and as such would be written up as 
+t(`r df`) = `r t_abs`, `r p_val`, d = `r d`.
+
+**is a little easier to read and debug than:**
+
+If we were to look at a critical values look-up table for $df = `r (desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)`$ and $\alpha = .05$ (two-tailed), we would see that the critical value is $t_{crit} = `r qt(1-.975, (desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1), lower.tail = FALSE) %>% round2(3)`$. Given that our t-value, ignoring polarity and just looking at the absolute value, so $t = `r abs(((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2))`$, is `r ifelse(abs(((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) >= qt(1-.975, (desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1), lower.tail = FALSE), "equal to or larger than", "smaller than")` our $t_{crit}$ then we can say our result is `r ifelse(abs(((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) >= qt(1-.975, (desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1), lower.tail = FALSE), "significant", "non-significant")`, and as such would be written up as t(`r (desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)`) = `r abs(((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2))`,`r ifelse(abs(((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) >= qt(1-.975, (desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1), lower.tail = FALSE), " p < .05", " p > .05")`, d = `r abs(((2 * ((desc %>% filter(Group == "A") %>% pull(Means) - desc %>% filter(Group == "B") %>% pull(Means)) / (sqrt(((desc %>% filter(Group == "A") %>% pull(Npg) -1) * desc %>% filter(Group == "A") %>% pull(SDs) * desc %>% filter(Group == "A") %>% pull(SDs) + (desc %>% filter(Group == "B") %>% pull(Npg) -1) * desc %>% filter(Group == "B") %>% pull(SDs) * desc %>% filter(Group == "B") %>% pull(SDs))/(desc %>% filter(Group == "A") %>% pull(Npg) + desc %>% filter(Group == "B") %>% pull(Npg) - 2)) %>% round2(3) * sqrt((1/(desc %>% filter(Group == "B") %>% pull(Npg))) + (1/(desc %>% filter(Group == "B") %>% pull(Npg)))))) %>% round2(2)) / (sqrt((desc %>% filter(Group == "A") %>% pull(Npg) - 1) + (desc %>% filter(Group == "B") %>% pull(Npg) - 1)))) %>% round2(2))`
+
+### Lookup Table
+
+```{r, results='asis'}
+# the manual lookup table could be replaced with this
+
+tibble(df = c(1:10, 15, seq(20, 100, 10))) %>%
+  mutate(alpha = map_dbl(df, ~qt(1-.975, .x, lower.tail = FALSE)),
+         alpha = round2(alpha, 3)) %>%
+  knitr::kable(digits = 3, col.names = c("df", "$\\alpha = .05$"))
+```
