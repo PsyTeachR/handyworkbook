@@ -6,6 +6,7 @@ a-note-on-descriptives-and-inferentials
 the-mean
 test-yourself---the-mean
 the-median
+test-yourself---the-median
 the-mode
 test-yourself---the-mode
 a-full-desciptive-example
