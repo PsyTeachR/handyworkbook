@@ -19,8 +19,8 @@ This book will use the following conventions:
 ## Webexercises
 
 * Type an integer: <input class='webex-solveme nospaces regex' size='1' data-answer='["^[0-9]{1}$"]'/>
-* I am going to learn a lot: <select class='webex-select'><option value='blank'></option><option value='answer'>TRUE</option><option value='x'>FALSE</option></select>
-* What is a p-value? <div class='webex-radiogroup' id='radio_LRXJKLAOHG'><label><input type="radio" autocomplete="off" name="radio_LRXJKLAOHG" value="x"></input> <span>the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_LRXJKLAOHG" value="answer"></input> <span>the probability of the observed (or more extreme) data, under the assumption that the null-hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_LRXJKLAOHG" value="x"></input> <span>the probability of making an error in your conclusion</span></label></div>
+* I am going to learn a lot: <select class='webex-solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select>
+* What is a p-value? <div class='webex-radiogroup' id='radio_EDUSNCVUHB'><label><input type="radio" autocomplete="off" name="radio_EDUSNCVUHB" value="x"></input> <span>the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_EDUSNCVUHB" value="answer"></input> <span>the probability of the observed (or more extreme) data, under the assumption that the null-hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_EDUSNCVUHB" value="x"></input> <span>the probability of making an error in your conclusion</span></label></div>
 
 
 <div class='webex-solution'><button>Hidden Text</button>
