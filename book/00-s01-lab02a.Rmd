@@ -82,6 +82,50 @@ $$\overline{X} = `r (drv %>% pull(Years) %>% sum())/(dim(drv)[1])`$$
 
 And so, when using the standard APA write-up format of **M = ...**, we would write **M = `r (drv %>% pull(Years) %>% sum())/(dim(drv)[1])`**.
 
+### Test Yourself - The Mean
+
+Here are 5 sets of data to practice calculating the mean on. Calculate the mean on each one and then answer the questions below to see if you were correct.
+
+```{r t1, echo=FALSE}
+set.seed(1409)
+dat1 <- sample(1:30, 10, replace = TRUE)
+dat2 <- sample(1:30, 10, replace = TRUE)
+dat3 <- sample(1:30, 10, replace = TRUE)
+dat4 <- sample(1:30, 10, replace = TRUE)
+dat5 <- sample(1:30, 10, replace = TRUE)
+
+m1 <- mean(dat1)
+m2 <- mean(dat2)
+m3 <- mean(dat3)
+m4 <- mean(dat4)
+m5 <- mean(dat5)
+
+r1 <- sample(seq(-1,1,.1),3, replace = FALSE)
+r2 <- sample(seq(-1,1,.1),3, replace = FALSE)
+r3 <- sample(seq(-1,1,.1),3, replace = FALSE)
+r4 <- sample(seq(-1,1,.1),3, replace = FALSE)
+r5 <- sample(seq(-1,1,.1),3, replace = FALSE)
+
+options1 <- sample(c(answer = m1, m1+r1[1], m1+r1[2], m1+r1[3]))
+options2 <- sample(c(answer = m2, m2+r2[1], m2+r2[2], m2+r2[3]))
+options3 <- sample(c(answer = m3, m3+r3[1], m3+r3[2], m3+r3[3]))
+options4 <- sample(c(answer = m4, m4+r4[1], m4+r4[2], m4+r4[3]))
+options5 <- sample(c(answer = m5, m5+r5[1], m5+r5[2], m5+r5[3]))
+
+```
+
+* DataSet 1 - $`r dat1`$
+* DataSet 2 - $`r dat2`$
+* DataSet 3 - $`r dat3`$
+* DataSet 4 - $`r dat4`$
+* DataSet 5 - $`r dat5`$
+<p></p>
+1. What is the mean of DataSet 1? `r mcq(options1)`
+2. What is the mean of DataSet 2? `r mcq(options2)`
+3. What is the mean of DataSet 3? `r mcq(options3)`
+4. What is the mean of DataSet 4? `r mcq(options4)`
+5. What is the mean of DataSet 5? `r mcq(options5)`
+
 ## The Median
 
 The `r glossary("median")` is the next point estimate we will look at and is the middle number in a distribution where half of the values in the data are larger and half are smaller. It is literally the value that divides the data in half.
@@ -135,12 +179,51 @@ knitr::kable(modtab)
 
 Meaning, for example, we have `r threc` people with three years of driving experience, and `r fourc` people with four years of driving experience. And looking at our table we can see the most common number of years of driving experience is `r maxc` as there are `r pepc` with that number of years experience. We would therefore write **Mode = `r maxc`**
 
-### Section glossary
+### Test Yourself - The Mode
 
-```{r gloss-tab, echo=FALSE, results='asis'}
+Here are 5 sets of data to practice calculating the mode on. Calculate the mean on each one and then answer the questions below to see if you were correct.
 
-glossary_table()
+```{r mode1, echo = FALSE}
+set.seed(1409)
+
+dat1 <- sample(rep(c(1:5), times = sample(c(1:5), replace = FALSE)), replace = FALSE)
+dat2 <- sample(rep(c(6:10), times = sample(c(2,4,3,3,1), replace = FALSE)), replace = FALSE)
+dat3 <- sample(rep(sample(rep(seq(0,50,1), each = 1),5, replace = TRUE), times = c(3,3,2,1,6), replace = FALSE), replace = FALSE)
+dat4 <- sample(rep(sample(rep(seq(10,20), each = 1),5, replace = TRUE), times = c(1,2,3,2,4), replace = FALSE), replace = FALSE)
+dat5 <- sample(rep(sample(rep(seq(1,10,1), each = 1),5, replace = TRUE), times = c(2,2,2,2,3), replace = FALSE), replace = FALSE)
+
+
+mode1 <- dat1 %>% tibble(x = .) %>% group_by(x) %>% count() %>% ungroup() %>% filter(n == max(n)) %>% pull(x)
+mode2 <- dat2 %>% tibble(x = .) %>% group_by(x) %>% count() %>% ungroup() %>% filter(n == max(n)) %>% pull(x)
+mode3 <- dat3 %>% tibble(x = .) %>% group_by(x) %>% count() %>% ungroup() %>% filter(n == max(n)) %>% pull(x)
+mode4 <- dat4 %>% tibble(x = .) %>% group_by(x) %>% count() %>% ungroup() %>% filter(n == max(n)) %>% pull(x)
+mode5 <- dat5 %>% tibble(x = .) %>% group_by(x) %>% count() %>% ungroup() %>% filter(n == max(n)) %>% pull(x)
+
+wrong1 <- tibble(y = unique(dat1)) %>% filter(y != mode1) %>% pull(y)
+wrong2 <- tibble(y = unique(dat2)) %>% filter(y != mode2) %>% pull(y)
+wrong3 <- tibble(y = unique(dat3)) %>% filter(y != mode3) %>% pull(y)
+wrong4 <- tibble(y = unique(dat4)) %>% filter(y != mode4) %>% pull(y)
+wrong5 <- tibble(y = unique(dat5)) %>% filter(y != mode5) %>% pull(y)
+
+options1 <- c(answer = mode1, wrong1[1], wrong1[2], wrong1[3])
+options2 <- c(answer = mode2, wrong2[1], wrong2[2], wrong2[3])
+options3 <- c(answer = mode3, wrong3[1], wrong3[2], wrong3[3])
+options4 <- c(answer = mode4, wrong4[1], wrong4[2], wrong4[3])
+options5 <- c(answer = mode5, wrong5[1], wrong5[2], wrong5[3])
+
 ```
+
+* DataSet 1 - $`r dat1`$
+* DataSet 2 - $`r dat2`$
+* DataSet 3 - $`r dat3`$
+* DataSet 4 - $`r dat4`$
+* DataSet 5 - $`r dat5`$
+<p></p>
+1. What is the mode of DataSet 1? `r mcq(options1)`
+2. What is the mode of DataSet 2? `r mcq(options2)`
+3. What is the mode of DataSet 3? `r mcq(options3)`
+4. What is the mode of DataSet 4? `r mcq(options4)`
+5. What is the mode of DataSet 5? `r mcq(options5)`
 
 
 ## A full desciptive example
@@ -372,5 +455,10 @@ And if we round both those values to two decimal places, then you get **$Lower \
 
 And if we were to do a decent presentation of this data, including a measure of central tendency (the mean), a measure of spread relating to the sample (the standard deviation), and a measure of spread relating to the population (the 95% CI), then it would start as something like: **"We ran `r nx` participants (M = `r meanx %>% round2(2)`, SD = `r sdx %>% round2(2)`, 95%CI = [`r (meanx - (zci * semx)) %>% round2(2)`, `r (meanx + (zci * semx)) %>% round2(2)`])....."**
 
+## Section glossary
 
+```{r gloss-tab, echo=FALSE, results='asis'}
+
+glossary_table()
+```
 

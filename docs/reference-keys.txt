@@ -4,9 +4,10 @@ fig:img-soundimals-hash
 descriptives
 a-note-on-descriptives-and-inferentials
 the-mean
+test-yourself---the-mean
 the-median
 the-mode
-section-glossary
+test-yourself---the-mode
 a-full-desciptive-example
 the-mean-1
 variance
@@ -17,6 +18,7 @@ z-scores
 standard-error-of-the-mean
 confidence-intervals
 the-write-up
+section-glossary
 one-sample-chi-square
 the-worked-example
 test-yourself

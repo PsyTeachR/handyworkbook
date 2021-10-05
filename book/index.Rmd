@@ -1,5 +1,5 @@
 --- 
-title: "A Handy Workbook for Research Methods and Statistics"
+title: "A Handy Workbook for Research Methods & Statistics"
 date: "Last Update: `r Sys.Date()`"
 author: "Phil McAleer" 
 site: bookdown::bookdown_site
