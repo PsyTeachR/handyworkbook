@@ -36,9 +36,9 @@ Say we are interested in how years of experience in driving impacts on some metr
 drv <- tibble(Participant = 1:25,
               Years = c(7, 1, 2, 6, 3, 4, 3, 4, 3, 4, 5, 4, 7, 5, 6, 5, 5, 4, 5, 6, 5, 6, 3, 2, 5
 ))
-
-
 ```
+
+$$`r drv %>% pull(Years)`$$
 
 If we start to fill in the information from above we get:
 
@@ -153,6 +153,54 @@ $$`r drv %>% arrange(Years) %>% pull(Years)`$$
 
 And if we count along the line until we get to the Median Position, we can see that the value in position `r (dim(drv)[1] + 1)/2` is `r drv %>% arrange(Years) %>% slice(((dim(drv)[1] + 1)/2)) %>% pull(Years)`, meaning that for this data the Median = `r drv %>% arrange(Years) %>% slice(((dim(drv)[1] + 1)/2)) %>% pull(Years)`. And so, when using the standard APA write-up format of **Mdn = ...**, we would write **Mdn = `r drv %>% arrange(Years) %>% slice(((dim(drv)[1] + 1)/2)) %>% pull(Years)`**.
 
+### Test Yourself - The Median
+
+Here are 5 sets of data to practice calculating the median on. Calculate the median on each one and then answer the questions below to see if you were correct.
+
+
+```{r median1, echo = FALSE}
+set.seed(1409)
+
+dat2 <- sample(rep(c(1:5), times = sample(c(1:5), replace = FALSE)), replace = FALSE)
+dat1 <- sample(rep(c(6:10), times = sample(c(2,4,3,3,1), replace = FALSE)), replace = FALSE)
+dat3 <- sample(rep(sample(rep(seq(0,50,1), each = 1),5, replace = TRUE), times = c(3,3,2,1,6), replace = FALSE), replace = FALSE)
+dat5 <- sample(rep(sample(rep(seq(10,20), each = 1),5, replace = TRUE), times = c(1,2,3,2,4), replace = FALSE), replace = FALSE)
+dat4 <- sample(rep(sample(rep(seq(1,10,1), each = 1),5, replace = TRUE), times = c(2,2,2,2,3), replace = FALSE), replace = FALSE)
+
+
+median1 <- median(dat1)
+median2 <- median(dat2)
+median3 <- median(dat3)
+median4 <- median(dat4)
+median5 <- median(dat5)
+
+wrong1 <- sample(c(1,-1,.5,-.5),3, replace = FALSE)
+wrong2 <- sample(c(1,-1,.5,-.5),3, replace = FALSE)
+wrong3 <- sample(c(1,-1,.5,-.5),3, replace = FALSE)
+wrong4 <- sample(c(1,-1,.5,-.5),3, replace = FALSE)
+wrong5 <- sample(c(1,-1,.5,-.5),3, replace = FALSE)
+
+options1 <- sample(c(answer = median1, median1 + wrong1[1], median1 + wrong1[2], median1 + wrong1[3]))
+options2 <- sample(c(answer = median2, median2 + wrong2[1], median2 + wrong2[2], median2 + wrong2[3]))
+options3 <- sample(c(answer = median3, median3 + wrong3[1], median3 + wrong3[2], median3 + wrong3[3]))
+options4 <- sample(c(answer = median4, median4 + wrong4[1], median4 + wrong4[2], median4 + wrong4[3]))
+options5 <- sample(c(answer = median5, median5 + wrong5[1], median5 + wrong5[2], median5 + wrong5[3]))
+
+```
+
+* DataSet 1 - $`r dat1`$
+* DataSet 2 - $`r dat2`$
+* DataSet 3 - $`r dat3`$
+* DataSet 4 - $`r dat4`$
+* DataSet 5 - $`r dat5`$
+<p></p>
+1. What is the median of DataSet 1? `r mcq(options1)`
+2. What is the median of DataSet 2? `r mcq(options2)`
+3. What is the median of DataSet 3? `r mcq(options3)`
+4. What is the median of DataSet 4? `r mcq(options4)`
+5. What is the median of DataSet 5? `r mcq(options5)`
+
+
 ## The Mode
 
 The mode is the last point estimate we will consider here and is the value or category that appears most often, most frequently, in your data set. There is no formula for the mode and it involves counting how many of each category or value you have and finding the most common one.  Here are our values again:
@@ -205,11 +253,11 @@ wrong3 <- tibble(y = unique(dat3)) %>% filter(y != mode3) %>% pull(y)
 wrong4 <- tibble(y = unique(dat4)) %>% filter(y != mode4) %>% pull(y)
 wrong5 <- tibble(y = unique(dat5)) %>% filter(y != mode5) %>% pull(y)
 
-options1 <- c(answer = mode1, wrong1[1], wrong1[2], wrong1[3])
-options2 <- c(answer = mode2, wrong2[1], wrong2[2], wrong2[3])
-options3 <- c(answer = mode3, wrong3[1], wrong3[2], wrong3[3])
-options4 <- c(answer = mode4, wrong4[1], wrong4[2], wrong4[3])
-options5 <- c(answer = mode5, wrong5[1], wrong5[2], wrong5[3])
+options1 <- sample(c(answer = mode1, wrong1[1], wrong1[2], wrong1[3]))
+options2 <- sample(c(answer = mode2, wrong2[1], wrong2[2], wrong2[3]))
+options3 <- sample(c(answer = mode3, wrong3[1], wrong3[2], wrong3[3]))
+options4 <- sample(c(answer = mode4, wrong4[1], wrong4[2], wrong4[3]))
+options5 <- sample(c(answer = mode5, wrong5[1], wrong5[2], wrong5[3]))
 
 ```
 
