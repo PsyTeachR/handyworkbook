@@ -7,7 +7,7 @@
 <title>Chapter 1 Descriptives | A Handy Workbook for Research Methods &amp; Statistics</title>
 <meta name="author" content="Phil McAleer">
 <meta name="description" content="1.1 A note on Descriptives and Inferentials In the first part of this book we are going to look at descriptive statistics which we use to summarise and describe data we have collected - normally...">
-<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 1 Descriptives | A Handy Workbook for Research Methods &amp; Statistics">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/handyworkbook/descriptives.html">
@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="Chapter 1 Descriptives | A Handy Workbook for Research Methods &amp; Statistics">
 <meta name="twitter:description" content="1.1 A note on Descriptives and Inferentials In the first part of this book we are going to look at descriptive statistics which we use to summarise and describe data we have collected - normally...">
 <meta name="twitter:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -109,7 +109,7 @@
 <p><span class="math display">\[\overline{X} = \frac{\sum_i^n{x_i}}{n}\]</span></p>
 <p>Which reads as sum (<span class="math inline">\(\sum\)</span>) all the values from <span class="math inline">\(i\)</span> (the first value) to <span class="math inline">\(n\)</span> (the last value) and then divide that number by the total number of values (<span class="math inline">\(n\)</span>). Let's look at an example.</p>
 <p>Say we are interested in how years of experience in driving impacts on some metric of peformance. We recruit 25 <a class="glossary" title="the word used to describe someone who has taken part in a study. Note that subject is outdated and no longer used.">participants</a> and ask them how many years they have been driving. Here are their responses:</p>
-<p><span class="math display">\[7, 1, 2, 6, 3, 4, 3, 4, 3, 4, 5, 4, 7, 5, 6, 5, 5, 4, 5, 6, 5, 6, 3, 2, 5`\]</span></p>
+<p><span class="math display">\[7, 1, 2, 6, 3, 4, 3, 4, 3, 4, 5, 4, 7, 5, 6, 5, 5, 4, 5, 6, 5, 6, 3, 2, 5\]</span></p>
 <p>If we start to fill in the information from above we get:</p>
 <p><span class="math display">\[\overline{X} = \frac{7 +
 1 +
@@ -163,35 +163,35 @@
 </li>
 </ul>
 <ol style="list-style-type: decimal">
-<li>What is the mean of DataSet 1? <select class="webex-solveme" data-answer='["16.1"]'><option></option>
-<option>15.2</option>
-<option>16.1</option>
-<option>16.8</option>
-<option>16.9</option></select>
+<li>What is the mean of DataSet 1? <select class="webex-select"><option value="blank"></option>
+<option value="">15.2</option>
+<option value="answer">16.1</option>
+<option value="">16.8</option>
+<option value="">16.9</option></select>
 </li>
-<li>What is the mean of DataSet 2? <select class="webex-solveme" data-answer='["22"]'><option></option>
-<option>21.6</option>
-<option>22</option>
-<option>23</option>
-<option>22.2</option></select>
+<li>What is the mean of DataSet 2? <select class="webex-select"><option value="blank"></option>
+<option value="">21.6</option>
+<option value="answer">22</option>
+<option value="">23</option>
+<option value="">22.2</option></select>
 </li>
-<li>What is the mean of DataSet 3? <select class="webex-solveme" data-answer='["14.4"]'><option></option>
-<option>13.5</option>
-<option>13.9</option>
-<option>14.4</option>
-<option>13.4</option></select>
+<li>What is the mean of DataSet 3? <select class="webex-select"><option value="blank"></option>
+<option value="">13.5</option>
+<option value="">13.9</option>
+<option value="answer">14.4</option>
+<option value="">13.4</option></select>
 </li>
-<li>What is the mean of DataSet 4? <select class="webex-solveme" data-answer='["12.3"]'><option></option>
-<option>12.1</option>
-<option>11.9</option>
-<option>12.3</option>
-<option>12.8</option></select>
+<li>What is the mean of DataSet 4? <select class="webex-select"><option value="blank"></option>
+<option value="">12.1</option>
+<option value="">11.9</option>
+<option value="answer">12.3</option>
+<option value="">12.8</option></select>
 </li>
-<li>What is the mean of DataSet 5? <select class="webex-solveme" data-answer='["17.4"]'><option></option>
-<option>17.6</option>
-<option>18.4</option>
-<option>17.4</option>
-<option>18.3</option></select>
+<li>What is the mean of DataSet 5? <select class="webex-select"><option value="blank"></option>
+<option value="">17.6</option>
+<option value="">18.4</option>
+<option value="answer">17.4</option>
+<option value="">18.3</option></select>
 </li>
 </ol>
 </div>
@@ -236,35 +236,35 @@
 </li>
 </ul>
 <ol style="list-style-type: decimal">
-<li>What is the median of DataSet 1? <select class="webex-solveme" data-answer='["8"]'><option></option>
-<option>8</option>
-<option>9</option>
-<option>7.5</option>
-<option>8.5</option></select>
+<li>What is the median of DataSet 1? <select class="webex-select"><option value="blank"></option>
+<option value="answer">8</option>
+<option value="">9</option>
+<option value="">7.5</option>
+<option value="">8.5</option></select>
 </li>
-<li>What is the median of DataSet 2? <select class="webex-solveme" data-answer='["3"]'><option></option>
-<option>3.5</option>
-<option>2</option>
-<option>2.5</option>
-<option>3</option></select>
+<li>What is the median of DataSet 2? <select class="webex-select"><option value="blank"></option>
+<option value="">3.5</option>
+<option value="">2</option>
+<option value="">2.5</option>
+<option value="answer">3</option></select>
 </li>
-<li>What is the median of DataSet 3? <select class="webex-solveme" data-answer='["18"]'><option></option>
-<option>17.5</option>
-<option>18</option>
-<option>19</option>
-<option>17</option></select>
+<li>What is the median of DataSet 3? <select class="webex-select"><option value="blank"></option>
+<option value="">17.5</option>
+<option value="answer">18</option>
+<option value="">19</option>
+<option value="">17</option></select>
 </li>
-<li>What is the median of DataSet 4? <select class="webex-solveme" data-answer='["4"]'><option></option>
-<option>3</option>
-<option>3.5</option>
-<option>4.5</option>
-<option>4</option></select>
+<li>What is the median of DataSet 4? <select class="webex-select"><option value="blank"></option>
+<option value="">3</option>
+<option value="">3.5</option>
+<option value="">4.5</option>
+<option value="answer">4</option></select>
 </li>
-<li>What is the median of DataSet 5? <select class="webex-solveme" data-answer='["14"]'><option></option>
-<option>13.5</option>
-<option>13</option>
-<option>14</option>
-<option>14.5</option></select>
+<li>What is the median of DataSet 5? <select class="webex-select"><option value="blank"></option>
+<option value="">13.5</option>
+<option value="">13</option>
+<option value="answer">14</option>
+<option value="">14.5</option></select>
 </li>
 </ol>
 </div>
@@ -367,35 +367,35 @@ n
 </li>
 </ul>
 <ol style="list-style-type: decimal">
-<li>What is the mode of DataSet 1? <select class="webex-solveme" data-answer='["3"]'><option></option>
-<option>4</option>
-<option>1</option>
-<option>3</option>
-<option>5</option></select>
+<li>What is the mode of DataSet 1? <select class="webex-select"><option value="blank"></option>
+<option value="">4</option>
+<option value="">1</option>
+<option value="answer">3</option>
+<option value="">5</option></select>
 </li>
-<li>What is the mode of DataSet 2? <select class="webex-solveme" data-answer='["10"]'><option></option>
-<option>8</option>
-<option>7</option>
-<option>10</option>
-<option>6</option></select>
+<li>What is the mode of DataSet 2? <select class="webex-select"><option value="blank"></option>
+<option value="">8</option>
+<option value="">7</option>
+<option value="answer">10</option>
+<option value="">6</option></select>
 </li>
-<li>What is the mode of DataSet 3? <select class="webex-solveme" data-answer='["18"]'><option></option>
-<option>18</option>
-<option>39</option>
-<option>17</option>
-<option>15</option></select>
+<li>What is the mode of DataSet 3? <select class="webex-select"><option value="blank"></option>
+<option value="answer">18</option>
+<option value="">39</option>
+<option value="">17</option>
+<option value="">15</option></select>
 </li>
-<li>What is the mode of DataSet 4? <select class="webex-solveme" data-answer='["14"]'><option></option>
-<option>20</option>
-<option>12</option>
-<option>14</option>
-<option>10</option></select>
+<li>What is the mode of DataSet 4? <select class="webex-select"><option value="blank"></option>
+<option value="">20</option>
+<option value="">12</option>
+<option value="answer">14</option>
+<option value="">10</option></select>
 </li>
-<li>What is the mode of DataSet 5? <select class="webex-solveme" data-answer='["6"]'><option></option>
-<option>4</option>
-<option>3</option>
-<option>2</option>
-<option>6</option></select>
+<li>What is the mode of DataSet 5? <select class="webex-select"><option value="blank"></option>
+<option value="">4</option>
+<option value="">3</option>
+<option value="">2</option>
+<option value="answer">6</option></select>
 </li>
 </ol>
 </div>
@@ -997,7 +997,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>A Handy Workbook for Research Methods &amp; Statistics</strong>" was written by Phil McAleer. It was last built on Last Update: 2021-10-05.</p>
+    <p>"<strong>A Handy Workbook for Research Methods &amp; Statistics</strong>" was written by Phil McAleer. It was last built on Last Update: 2021-10-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

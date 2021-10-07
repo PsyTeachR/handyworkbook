@@ -1,6 +1,6 @@
 --- 
 title: "A Handy Workbook for Research Methods & Statistics"
-date: "Last Update: 2021-10-05"
+date: "Last Update: 2021-10-07"
 author: "Phil McAleer" 
 site: bookdown::bookdown_site
 documentclass: book
