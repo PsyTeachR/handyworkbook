@@ -9,7 +9,8 @@ the-median
 test-yourself---the-median
 the-mode
 test-yourself---the-mode
-a-full-desciptive-example
+the-range
+a-full-descriptive-example
 the-mean-1
 variance
 standard-deviation
