@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Page not found | A Handy Workbook for Research Methods &amp; Statistics</title>
+<title>Chapter 4 One-Sample t-test | A Handy Workbook for Research Methods &amp; Statistics</title>
 <meta name="author" content="Phil McAleer">
-<meta name="description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta name="description" content="one-sample t-test: Compare your sample mean to a known test value. For example, to compare your sample IQ to the population norm of 100.  4.1 The Worked Example The formula is as follows: \[t =...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Page not found | A Handy Workbook for Research Methods &amp; Statistics">
+<meta property="og:title" content="Chapter 4 One-Sample t-test | A Handy Workbook for Research Methods &amp; Statistics">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/404.html">
+<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/one-sample-t-test.html">
 <meta property="og:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
-<meta property="og:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta property="og:description" content="one-sample t-test: Compare your sample mean to a known test value. For example, to compare your sample IQ to the population norm of 100.  4.1 The Worked Example The formula is as follows: \[t =...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Page not found | A Handy Workbook for Research Methods &amp; Statistics">
-<meta name="twitter:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta name="twitter:title" content="Chapter 4 One-Sample t-test | A Handy Workbook for Research Methods &amp; Statistics">
+<meta name="twitter:description" content="one-sample t-test: Compare your sample mean to a known test value. For example, to compare your sample IQ to the population norm of 100.  4.1 The Worked Example The formula is as follows: \[t =...">
 <meta name="twitter:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -55,7 +55,7 @@
 <li><a class="" href="descriptives.html"><span class="header-section-number">1</span> Descriptives</a></li>
 <li><a class="" href="one-sample-chi-square.html"><span class="header-section-number">2</span> One-Sample Chi-Square</a></li>
 <li><a class="" href="chi-square-cross-tabulation.html"><span class="header-section-number">3</span> Chi-Square Cross-Tabulation</a></li>
-<li><a class="" href="one-sample-t-test.html"><span class="header-section-number">4</span> One-Sample t-test</a></li>
+<li><a class="active" href="one-sample-t-test.html"><span class="header-section-number">4</span> One-Sample t-test</a></li>
 <li><a class="" href="between-subjects-students-t-test.html"><span class="header-section-number">5</span> Between-Subjects Student's t-test</a></li>
 <li><a class="" href="within-subjects-t-test.html"><span class="header-section-number">6</span> Within-Subjects t-test</a></li>
 <li><a class="" href="correlation-pearson.html"><span class="header-section-number">7</span> Correlation: Pearson</a></li>
@@ -75,12 +75,172 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="page-not-found" class="section level1">
-<h1>Page not found<a class="anchor" aria-label="anchor" href="#page-not-found"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="one-sample-t-test" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> One-Sample t-test<a class="anchor" aria-label="anchor" href="#one-sample-t-test"><i class="fas fa-link"></i></a>
 </h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<p><strong>one-sample t-test:</strong> Compare your sample mean to a known test value. For example, to compare your sample IQ to the population norm of 100.</p>
+<div id="the-worked-example-2" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> The Worked Example<a class="anchor" aria-label="anchor" href="#the-worked-example-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>The formula is as follows:</p>
+<p><span class="math display">\[t = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}\]</span>
+And you can translate the symbols as:</p>
+<ul>
+<li>
+<span class="math inline">\(\bar{x}\)</span> is the mean value of your sample of interest</li>
+<li>
+<span class="math inline">\(\mu\)</span> is the test value to compare against (also called the <strong>criterion value</strong>)</li>
+<li>
+<span class="math inline">\(s\)</span> is the standard deviation of your sample of interest</li>
+<li>
+<span class="math inline">\(n\)</span> is the number of observations (e.g. participants) in your sample of interest</li>
+</ul>
+<p>So for example, if we had a sample of 25 people, and we knew that the mean and standard deviation of the IQ of was M = 110, SD = 7.5, and that we wanted to compare that sample to a criterion value of <span class="math inline">\(\mu\)</span> = 100, then we would do the following:</p>
+<p><span class="math display">\[t = \frac{110  - 100}{\frac{7.5}{\sqrt{25}}}\]</span></p>
+<p>And if we do the top half of the formula first, that becomes:</p>
+<p><span class="math display">\[t = \frac{10}{\frac{7.5}{\sqrt{25}}}\]</span></p>
+<p>And then start to complete the bottom half by taking the sqaure root of n first, (i.e. <span class="math inline">\(\sqrt{n}\)</span>), we get:</p>
+<p><span class="math display">\[t = \frac{10}{\frac{7.5}{5}}\]</span>
+And so if we then complete the bottom half by dividing the standard deviation of the sample (<span class="math inline">\(s\)</span>) by the square root of n (<span class="math inline">\(\sqrt{n}\)</span>), we get:</p>
+<p><span class="math display">\[t = \frac{10}{1.5}\]</span></p>
+<p>And finally, if we divide the top half of the formula by the bottom half we get:</p>
+<p><span class="math display">\[t = \frac{10}{1.5} = 6.6666667\]</span></p>
+<p>Giving us a t-value of t = 6.6666667 which we can round to two decimal places, giving us t = 6.67</p>
+</div>
+<div id="degrees-of-freedom" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> Degrees of Freedom<a class="anchor" aria-label="anchor" href="#degrees-of-freedom"><i class="fas fa-link"></i></a>
+</h2>
+<p>The degrees of freedom in a one-sample t-test is calculated as:</p>
+<p><span class="math display">\[df = N - 1\]</span></p>
+<p>And if we know that we have 25 participants in our sample then we get:</p>
+<p><span class="math display">\[df = N - 1 = 25 - 1 = 24\]</span></p>
+<p>Giving us <span class="math inline">\(df\)</span> = 24</p>
+</div>
+<div id="effect-size" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> Effect Size<a class="anchor" aria-label="anchor" href="#effect-size"><i class="fas fa-link"></i></a>
+</h2>
+<p>A common effect size used for t-test is Cohen's d. The formula for the effect size, in of a one-sample t-test, if you only know the t-value and the number of participants is:</p>
+<p><span class="math display">\[d = \frac{t}{\sqrt{N}}\]</span></p>
+<p>And here we know that:</p>
+<ul>
+<li>
+<span class="math inline">\(t\)</span> = 6.67</li>
+<li>
+<span class="math inline">\(N\)</span> = 25</li>
+</ul>
+<p>Which if we put those into the formula we get:</p>
+<p><span class="math display">\[d = \frac{6.67}{\sqrt{25}}\]</span>
+And if we resolve the bottom half first:</p>
+<p><span class="math display">\[d = \frac{6.67}{5}\]</span></p>
+<p>And then divide the top by the bottom we get:</p>
+<p><span class="math display">\[d = \frac{6.67}{5} = 1.334\]</span></p>
+<p>Giving us an effect size of <span class="math inline">\(d\)</span> = 1.33, rounded to two decimal places.</p>
+</div>
+<div id="write-up" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Write-up<a class="anchor" aria-label="anchor" href="#write-up"><i class="fas fa-link"></i></a>
+</h2>
+<p>If we were to look at a critical values look-up table for <span class="math inline">\(df = 24\)</span> and <span class="math inline">\(\alpha = .05\)</span> (two-tailed), we would see that the critical value is <span class="math inline">\(t_{crit} = 2.064\)</span>.</p>
+<p>Given that our t-value, ignoring polarity and just looking at the absolute value, so <span class="math inline">\(t = 6.67\)</span>, is equal to or larger than our <span class="math inline">\(t_{crit}\)</span> then we can say our result is significant, and as such would be written up as t(24) = 6.67, p &lt; .05, d = 1.33</p>
+</div>
+<div id="look-up-table" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Look-Up table<a class="anchor" aria-label="anchor" href="#look-up-table"><i class="fas fa-link"></i></a>
+</h2>
+<p>Remembering that the <span class="math inline">\(t_{crit}\)</span> value is the smallest t-value you need to find a significant effect, find the <span class="math inline">\(t_{crit}\)</span> for your df, assuming <span class="math inline">\(\alpha = .05\)</span>. If the <span class="math inline">\(t\)</span> value you calculated is equal to or larger than <span class="math inline">\(t_{crit}\)</span> then your test is significant.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">df</th>
+<th align="center"><span class="math inline">\(\alpha = .05\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">12.706</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">4.303</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">3.182</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">2.776</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">2.571</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">2.447</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">2.365</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">2.306</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">2.262</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">2.228</td>
+</tr>
+<tr class="odd">
+<td align="center">15</td>
+<td align="center">2.131</td>
+</tr>
+<tr class="even">
+<td align="center">20</td>
+<td align="center">2.086</td>
+</tr>
+<tr class="odd">
+<td align="center">30</td>
+<td align="center">2.042</td>
+</tr>
+<tr class="even">
+<td align="center">40</td>
+<td align="center">2.021</td>
+</tr>
+<tr class="odd">
+<td align="center">50</td>
+<td align="center">2.009</td>
+</tr>
+<tr class="even">
+<td align="center">60</td>
+<td align="center">2</td>
+</tr>
+<tr class="odd">
+<td align="center">70</td>
+<td align="center">1.994</td>
+</tr>
+<tr class="even">
+<td align="center">80</td>
+<td align="center">1.99</td>
+</tr>
+<tr class="odd">
+<td align="center">90</td>
+<td align="center">1.987</td>
+</tr>
+<tr class="even">
+<td align="center">100</td>
+<td align="center">1.984</td>
+</tr>
+</tbody>
+</table></div>
+</div>
 </div>
 <script>
 
@@ -281,10 +441,27 @@ $( document ).ready(function() {
   window.onresize = move_sidebar;
 });
 </script><div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="chi-square-cross-tabulation.html"><span class="header-section-number">3</span> Chi-Square Cross-Tabulation</a></div>
+<div class="next"><a href="between-subjects-students-t-test.html"><span class="header-section-number">5</span> Between-Subjects Student's t-test</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    </div>
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#one-sample-t-test"><span class="header-section-number">4</span> One-Sample t-test</a></li>
+<li><a class="nav-link" href="#the-worked-example-2"><span class="header-section-number">4.1</span> The Worked Example</a></li>
+<li><a class="nav-link" href="#degrees-of-freedom"><span class="header-section-number">4.2</span> Degrees of Freedom</a></li>
+<li><a class="nav-link" href="#effect-size"><span class="header-section-number">4.3</span> Effect Size</a></li>
+<li><a class="nav-link" href="#write-up"><span class="header-section-number">4.4</span> Write-up</a></li>
+<li><a class="nav-link" href="#look-up-table"><span class="header-section-number">4.5</span> Look-Up table</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/01-s01-lab02a.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/01-s01-lab02a.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
 
 </div>
 </div> <!-- .container -->
