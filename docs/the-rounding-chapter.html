@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Page not found | A Handy Workbook for Research Methods &amp; Statistics</title>
+<title>Chapter 10 The Rounding Chapter | A Handy Workbook for Research Methods &amp; Statistics</title>
 <meta name="author" content="Phil McAleer">
-<meta name="description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta name="description" content="One stumbling block that people face when first working with statistics is rounding values appropriately. This chapter contains a few examples for you to try out to help you check that you are...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Page not found | A Handy Workbook for Research Methods &amp; Statistics">
+<meta property="og:title" content="Chapter 10 The Rounding Chapter | A Handy Workbook for Research Methods &amp; Statistics">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/404.html">
+<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/the-rounding-chapter.html">
 <meta property="og:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
-<meta property="og:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta property="og:description" content="One stumbling block that people face when first working with statistics is rounding values appropriately. This chapter contains a few examples for you to try out to help you check that you are...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Page not found | A Handy Workbook for Research Methods &amp; Statistics">
-<meta name="twitter:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta name="twitter:title" content="Chapter 10 The Rounding Chapter | A Handy Workbook for Research Methods &amp; Statistics">
+<meta name="twitter:description" content="One stumbling block that people face when first working with statistics is rounding values appropriately. This chapter contains a few examples for you to try out to help you check that you are...">
 <meta name="twitter:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -61,7 +61,7 @@
 <li><a class="" href="correlation-pearson.html"><span class="header-section-number">7</span> Correlation: Pearson</a></li>
 <li><a class="" href="simple-linear-regression.html"><span class="header-section-number">8</span> Simple Linear Regression</a></li>
 <li><a class="" href="anova.html"><span class="header-section-number">9</span> ANOVA</a></li>
-<li><a class="" href="the-rounding-chapter.html"><span class="header-section-number">10</span> The Rounding Chapter</a></li>
+<li><a class="active" href="the-rounding-chapter.html"><span class="header-section-number">10</span> The Rounding Chapter</a></li>
 <li><a class="" href="random-formulas.html"><span class="header-section-number">11</span> Random formulas</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
@@ -76,12 +76,119 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="page-not-found" class="section level1">
-<h1>Page not found<a class="anchor" aria-label="anchor" href="#page-not-found"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="the-rounding-chapter" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> The Rounding Chapter<a class="anchor" aria-label="anchor" href="#the-rounding-chapter"><i class="fas fa-link"></i></a>
 </h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<p>One stumbling block that people face when first working with statistics is rounding values appropriately. This chapter contains a few examples for you to try out to help you check that you are rounding correctly.</p>
+<p><strong>Rounding in Psychology</strong></p>
+<p>The idea behind rounding is that it reduces the numbers shown in your output and makes the values more readable. For example, instead of presenting a mean as M = 12.4251126, you would present it as M = 12.43.</p>
+<p>First thing is to understand the level you want to round to. Often you will see things written as "rounded to two decimal places" or "to 3 d.p." where d.p. is short for decimal places. And that is telling you the number of values after the decimal point that the output has been rounded to. So "rounded to two decimal places" means you show two numbers after the decimal point, whereas "rounded to three decimal places" means you show three numbers after the decimal point. This table gives an overview of the above mean to various decimal places as a guide:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">rounded to</th>
+<th align="center">value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">0 d.p.</td>
+<td align="center">12</td>
+</tr>
+<tr class="even">
+<td align="center">1 d.p.</td>
+<td align="center">12.4</td>
+</tr>
+<tr class="odd">
+<td align="center">2 d.p.</td>
+<td align="center">12.43</td>
+</tr>
+<tr class="even">
+<td align="center">3 d.p.</td>
+<td align="center">12.425</td>
+</tr>
+<tr class="odd">
+<td align="center">4 d.p.</td>
+<td align="center">12.4251</td>
+</tr>
+<tr class="even">
+<td align="center">5 d.p.</td>
+<td align="center">12.42511</td>
+</tr>
+</tbody>
+</table></div>
+<p>The principle behind rounding is that you look to the value in the position after the level you want to round to and see if it is "less than 5" or "equal to or greater than 5". If that value is "less than 5" then you round down - meaning that the value stays as it is. If that value is "equal to or greater than 5" you round up - meaning that the value goes up to the next value. An example will be easier to look at.</p>
+<div id="worked-example" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> Worked Example<a class="anchor" aria-label="anchor" href="#worked-example"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let's say we want to round M = 12.4251126 to different levels.</p>
+<p><strong>Rounding to three decimal places</strong></p>
+<p>First lets round it to three decimal places. To do that we need to look at the value in the fourth decimal place. The value in the fourth decimal place is 1. As that value is less than 5, we round down and so 12.4251126 becomes 12.425</p>
+<p><strong>Rounding to two decimal places</strong></p>
+<p>Lets now round M = 12.4251126 to two decimal places - so two values after the decimal point. To do that we need to look at the value in the third decimal place. The value in the third decimal place is 5. As that value is equal to or greater than 5, we round up and so 12.4251126 becomes 12.43</p>
+</div>
+<div id="test-yourself-4" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Test Yourself<a class="anchor" aria-label="anchor" href="#test-yourself-4"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Example 1</strong></p>
+<p>Now here are a few examples just to see if you can follow the above.</p>
+What is the following value rounded to two decimal places: value = 0.47185
+<div id="radio_NUQGQYVCRU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NUQGQYVCRU" value="answer"><span>0.47</span></label><label><input type="radio" autocomplete="off" name="radio_NUQGQYVCRU" value=""><span>0.5</span></label><label><input type="radio" autocomplete="off" name="radio_NUQGQYVCRU" value=""><span>0.472</span></label><label><input type="radio" autocomplete="off" name="radio_NUQGQYVCRU" value=""><span>0.4718</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Explain this answer
+</button>
+<p>The reason that the answer is 0.47 is because the question asks for two decimal places and so we need to look at the third decimal value of the original number - in this instance it is 1. As that value is less than 5, we round down and so 0.472 becomes 0.47</p>
+</div>
+<p><strong>Example 2</strong></p>
+What is the following value rounded to two decimal places: value = -1.85472
+<div id="radio_YYXGBJBYNH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YYXGBJBYNH" value="answer"><span>-1.85</span></label><label><input type="radio" autocomplete="off" name="radio_YYXGBJBYNH" value=""><span>-1.9</span></label><label><input type="radio" autocomplete="off" name="radio_YYXGBJBYNH" value=""><span>-1.86</span></label><label><input type="radio" autocomplete="off" name="radio_YYXGBJBYNH" value=""><span>-1.84</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Explain this answer
+</button>
+<p>The reason that the answer is -1.85 is because the question asks for two decimal places and so we need to look at the third decimal value of the original number - in this instance it is 4. As that value is less than 5, we round down and so -1.855 becomes -1.85</p>
+</div>
+<p><strong>Example 3</strong></p>
+What is the following value rounded to three decimal places: value = -1.06609
+<div id="radio_FCPSCNSBCN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FCPSCNSBCN" value=""><span>-1.1</span></label><label><input type="radio" autocomplete="off" name="radio_FCPSCNSBCN" value="answer"><span>-1.066</span></label><label><input type="radio" autocomplete="off" name="radio_FCPSCNSBCN" value=""><span>-1.0661</span></label><label><input type="radio" autocomplete="off" name="radio_FCPSCNSBCN" value=""><span>-1.07</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Explain this answer
+</button>
+<p>The reason that the answer is -1.066 is because the question asks for three decimal places and so we need to look at the fourth decimal value of the original number - in this instance it is 0. As that value is less than 5, we round down and so -1.0661 becomes -1.066</p>
+</div>
+<p><strong>Example 4</strong></p>
+What is the following value rounded to three decimal places: value = -2.08314
+<div id="radio_XMQSBFXUYP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XMQSBFXUYP" value=""><span>-2.084</span></label><label><input type="radio" autocomplete="off" name="radio_XMQSBFXUYP" value=""><span>-2.08</span></label><label><input type="radio" autocomplete="off" name="radio_XMQSBFXUYP" value="answer"><span>-2.083</span></label><label><input type="radio" autocomplete="off" name="radio_XMQSBFXUYP" value=""><span>-2.082</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Explain this answer
+</button>
+<p>The reason that the answer is -2.083 is because the question asks for three decimal places and so we need to look at the fourth decimal value of the original number - in this instance it is 1. As that value is less than 5, we round down and so -2.0831 becomes -2.083</p>
+</div>
+<p><strong>Example 5</strong></p>
+What is the following value rounded to three decimal places: value = 0.0186
+<div id="radio_OIKRBNOWXN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OIKRBNOWXN" value=""><span>0.018</span></label><label><input type="radio" autocomplete="off" name="radio_OIKRBNOWXN" value="answer"><span>0.019</span></label><label><input type="radio" autocomplete="off" name="radio_OIKRBNOWXN" value=""><span>0.024</span></label><label><input type="radio" autocomplete="off" name="radio_OIKRBNOWXN" value=""><span>0.02</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Explain this answer
+</button>
+<p>The reason that the answer is 0.019 is because the question asks for three decimal places and so we need to look at the fourth decimal value of the original number - in this instance it is 5. As that value is equal to or greater than 5, we round up and so 0.0186 becomes 0.019</p>
+</div>
+
+</div>
 </div>
 <script>
 
@@ -282,10 +389,24 @@ $( document ).ready(function() {
   window.onresize = move_sidebar;
 });
 </script><div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="anova.html"><span class="header-section-number">9</span> ANOVA</a></div>
+<div class="next"><a href="random-formulas.html"><span class="header-section-number">11</span> Random formulas</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    </div>
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-rounding-chapter"><span class="header-section-number">10</span> The Rounding Chapter</a></li>
+<li><a class="nav-link" href="#worked-example"><span class="header-section-number">10.1</span> Worked Example</a></li>
+<li><a class="nav-link" href="#test-yourself-4"><span class="header-section-number">10.2</span> Test Yourself</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/01-s01-lab999a.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/01-s01-lab999a.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
 
 </div>
 </div> <!-- .container -->

@@ -65,6 +65,9 @@ the-write-up-1
 anova
 the-anova-table
 look-up-table-4
+the-rounding-chapter
+worked-example
+test-yourself-4
 random-formulas
 t-value-to-r-value
 installing-r

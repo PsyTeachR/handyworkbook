@@ -1,0 +1,154 @@
+# The Rounding Chapter
+
+One stumbling block that people face when first working with statistics is rounding values appropriately. This chapter contains a few examples for you to try out to help you check that you are rounding correctly.
+
+**Rounding in Psychology**
+
+```{r, echo = FALSE}
+set.seed(1409)
+library(tidyverse)
+
+we <- 12.4251126
+```
+
+The idea behind rounding is that it reduces the numbers shown in your output and makes the values more readable. For example, instead of presenting a mean as M = `r we`, you would present it as M = 12.43.
+
+First thing is to understand the level you want to round to. Often you will see things written as "rounded to two decimal places" or "to 3 d.p." where d.p. is short for decimal places.  And that is telling you the number of values after the decimal point that the output has been rounded to. So "rounded to two decimal places" means you show two numbers after the decimal point, whereas "rounded to three decimal places" means you show three numbers after the decimal point. This table gives an overview of the above mean to various decimal places as a guide:
+
+|rounded to|value|
+|:--------:|:---:|
+|0 d.p.| `r round(we,0)`|
+|1 d.p.| `r round(we,1)`|
+|2 d.p.| `r round(we,2)`|
+|3 d.p.| `r round(we,3)`|
+|4 d.p.| `r round(we,4)`|
+|5 d.p.| `r round(we,5)`|
+
+The principle behind rounding is that you look to the value in the position after the level you want to round to and see if it is "less than 5" or "equal to or greater than 5".  If that value is "less than 5" then you round down - meaning that the value stays as it is. If that value is "equal to or greater than 5" you round up - meaning that the value goes up to the next value. An example will be easier to look at.
+
+## Worked Example
+
+Let's say we want to round M = 12.4251126 to different levels. 
+
+**Rounding to three decimal places**
+
+First lets round it to three decimal places. To do that we need to look at the value in the fourth decimal place. The value in the fourth decimal place is `r floor(abs(we * 10^4) %% 10)`. As that value `r ifelse(floor(abs(we * 10^4) %% 10) < 5, "is less than 5, we round down", "is equal to or greater than 5, we round up")` and so `r we` becomes `r round(we,3)`
+
+
+**Rounding to two decimal places**
+
+Lets now round M = `r we` to two decimal places - so two values after the decimal point. To do that we need to look at the value in the third decimal place. The value in the third decimal place is `r floor(abs(we * 10^3) %% 10)`. As that value `r ifelse(floor(abs(we * 10^3) %% 10) < 5, "is less than 5, we round down", "is equal to or greater than 5, we round up")` and so `r we` becomes `r round(we,2)`
+
+## Test Yourself
+
+**Example 1**
+
+Now here are a few examples just to see if you can follow the above.
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+
+val <- tibble(x = rnorm(100,0,1)) %>% 
+  sample() %>% 
+  slice(1) %>% 
+  pull() + 0.00001
+val_round <- round(val,2)
+
+options <- sample(c(answer = round(val,2),round(val,3),round(val,4),round(val,1)))
+```
+
+What is the following value rounded to two decimal places: value = `r round(val+0.000001,5)` `r longmcq(options)`
+
+
+`r hide("Explain this answer")`
+
+The reason that the answer is `r round(val,2)` is because the question asks for two decimal places and so we need to look at the third decimal value of the original number - in this instance it is `r floor(abs(val * 10^3) %% 10)`. As that value `r ifelse(floor(abs(val * 10^3) %% 10) < 5, "is less than 5, we round down", "is equal to or greater than 5, we round up")` and so `r round(val,3)` becomes `r round(val,2)`
+
+`r unhide()`
+
+**Example 2**
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+
+val <- tibble(x = rnorm(100,0,1)) %>% 
+  sample() %>% 
+  slice(1) %>% 
+  pull() + 0.00001
+val_round <- round(val,2)
+
+options <- sample(c(answer = round(val,2),round(val,2)+.01,round(val,2)-.01,round(val,1)))
+```
+
+What is the following value rounded to two decimal places: value = `r round(val+0.000001,5)` `r longmcq(options)`
+
+
+`r hide("Explain this answer")`
+
+The reason that the answer is `r round(val,2)` is because the question asks for two decimal places and so we need to look at the third decimal value of the original number - in this instance it is `r floor(abs(val * 10^3) %% 10)`. As that value `r ifelse(floor(abs(val * 10^3) %% 10) < 5, "is less than 5, we round down", "is equal to or greater than 5, we round up")` and so `r round(val,3)` becomes `r round(val,2)`
+
+`r unhide()`
+
+**Example 3**
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+
+val <- tibble(x = rnorm(100,0,1)) %>% 
+  sample() %>% 
+  slice(1) %>% 
+  pull() + 0.00001
+val_round <- round(val,3)
+
+options <- sample(c(answer = round(val,3),round(val,2),round(val,4),round(val,1)))
+```
+
+What is the following value rounded to three decimal places: value = `r round(val+0.000001,5)` `r longmcq(options)`
+
+
+`r hide("Explain this answer")`
+
+The reason that the answer is `r round(val,3)` is because the question asks for three decimal places and so we need to look at the fourth decimal value of the original number - in this instance it is `r floor(abs(val * 10^4) %% 10)`. As that value `r ifelse(floor(abs(val * 10^4) %% 10) < 5, "is less than 5, we round down", "is equal to or greater than 5, we round up")` and so `r round(val,4)` becomes `r round(val,3)`
+
+`r unhide()`
+
+
+**Example 4**
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+
+val <- tibble(x = rnorm(100,0,1)) %>% 
+  sample() %>% 
+  slice(1) %>% 
+  pull() + 0.00001
+val_round <- round(val,3)
+
+options <- sample(c(answer = round(val,3),round(val,3)+.001,round(val,3)-.001,round(val,2)))
+```
+
+What is the following value rounded to three decimal places: value = `r round(val+0.000001,5)` `r longmcq(options)`
+
+
+`r hide("Explain this answer")`
+
+The reason that the answer is `r round(val,3)` is because the question asks for three decimal places and so we need to look at the fourth decimal value of the original number - in this instance it is `r floor(abs(val * 10^4) %% 10)`. As that value `r ifelse(floor(abs(val * 10^4) %% 10) < 5, "is less than 5, we round down", "is equal to or greater than 5, we round up")` and so `r round(val,4)` becomes `r round(val,3)`
+
+`r unhide()`
+
+**Example 5**
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+
+val <- 0.0186
+val_round <- round(val,3)
+
+options <- sample(c(answer = round(val,3),round(val,3)+.001,round(val,3)-.001,round(val,3)+.005))
+```
+
+What is the following value rounded to three decimal places: value = `r round(val+0.000001,5)` `r longmcq(options)`
+
+
+`r hide("Explain this answer")`
+
+The reason that the answer is `r round(val,3)` is because the question asks for three decimal places and so we need to look at the fourth decimal value of the original number - in this instance it is `r floor(abs(val * 10^4) %% 10)`. As that value `r ifelse(floor(abs(val * 10^4) %% 10) < 5, "is less than 5, we round down", "is equal to or greater than 5, we round up")` and so `r round(val,4)` becomes `r round(val,3)`
+
+`r unhide()`
+
+
