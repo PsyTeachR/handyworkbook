@@ -216,7 +216,11 @@ V <- sqrt(chival /(NT * (min((dim(dat_o)[1] - 1), (dim(dat_o)[2]-1 - 1))))) %>% 
 
 If we were to look at a critical value look-up table, we would see that the critical value associated with a $df = `r df`$ at $\alpha = .05$, to three decimal places, is $\chi^2_{crit} = `r qchisq(.05, df, lower.tail = FALSE) %>% round2(3)`$. As the chi-square value of this test (i.e. $\chi^2 = `r chival`$) is `r ifelse(chival >= (qchisq(.05, df, lower.tail = FALSE) %>% round2(3)),"larger","smaller")` than $\chi^2_{crit}$ then we can say that our test is `r ifelse(chival >= (qchisq(.05, df, lower.tail = FALSE) %>% round2(3)),"significant","non-significant")`, and as such would be written up as $\chi^2(df = `r df`, N = `r NT`) = `r chival`,`r ifelse(chival >= (qchisq(.05, df, lower.tail = FALSE) %>% round2(3)),"p < .05","p > .05")`, V = `r V`$.
 
-If our test was significant then we would go on to carry out the relevant one-sample chi-squares to breakdown how the association manifests itself. The key thing to remember however is that in these one-sample chi-squares, following the cross-tabulation, you **MUST** use the expected values from the cross-tabulation and **do not** calculate new expected values. For instance if you were looking at the one-sample chi-square within Group A, then you would use the expected values of $Expected_{A-Yes} = `r AYE`$ and $Expected_{A-No} = `r ANE`$ to compare against the observed values of $Observed_{A-Yes} = `r AYO`$ and $Observed_{A-No} = `r ANO`$ as such:
+**Following up a significant finding**
+
+If our test was significant then we would go on to carry out the relevant one-sample chi-squares to breakdown how the association manifests itself. The key thing to remember however is that in these one-sample chi-squares, following the cross-tabulation, you **MUST** use the expected values from the cross-tabulation and **do not** calculate new expected values. 
+
+For instance if you were looking at the one-sample chi-square within Group A, then you would use the expected values of $Expected_{A-Yes} = `r AYE`$ and $Expected_{A-No} = `r ANE`$ to compare against the observed values of $Observed_{A-Yes} = `r AYO`$ and $Observed_{A-No} = `r ANO`$ as such:
 
 $$\chi^2 = \frac{(`r AYO` - `r AYE`)^2}{`r AYE`}+ \frac{(`r ANO` - `r ANE`)^2}{`r ANE`}$$
 
@@ -224,18 +228,63 @@ Which if you walk the process through you find:
 
 $$\chi^2 = `r (((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)`$$
 
-Meaning that, rounded to two decimal places, we find $\chi^2 = `r ((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2)`$
+Meaning that, rounded to two decimal places, we find $\chi^2 = `r ((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2)`$. The degrees of freedom, based on $df = k - 1$ (because it is a one-sample chi-square now), and that we have two groups (YES and NO, so $k = `r dim(dat_o %>% slice(1))[2]-1`$), would be:
 
+$$df = k - 1 = `r dim(dat_o %>% slice(1))[2]-1` - 1 = `r dim(dat_o %>% slice(1))[2]-1-1`$$
 
-**To Be Continued**
+The effect size is $\phi$ again because it is a one-sample chi-square and, to remind us, has the formula:
 
-## Test Yourself
+$$\phi = \sqrt\frac{\chi^2}{N}$$
 
-### DataSet 1
+And we know:
 
-To Be Added
+* $\chi^2 = `r ((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2)`$
+* and N = `r AYO` + `r ANO` = `r AYO + ANO`
 
-## ChiSquare Look-up Table
+and if we put those into the formula we get:
+
+$$\phi = \sqrt\frac{`r ((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2)`}{`r AYO + ANO`}$$
+
+Which becomes:
+
+$$\phi = \sqrt{`r (((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2))/(AYO + ANO)`} = `r sqrt((((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2))/(AYO + ANO))`$$
+And rounded to two decimal places would show $\phi = `r round(sqrt((((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2))/(AYO + ANO)),2)`$
+
+If we were to thinking about writing this one-sample up, and looking at the critical value table, we would see that the critical value associated with a $df = `r dim(dat_o %>% slice(1))[2]-1-1`$ at $\alpha = .05$, to three decimal places, is $\chi^2_{crit} = `r qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)`$. As the chi-square value of this test (i.e. $\chi^2 = `r ((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2)`$) is `r ifelse(((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2) >= (qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)),"larger","smaller")` than $\chi^2_{crit}$ then we can say that our test is `r ifelse(((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2) >= (qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)),"significant","non-significant")`, and as such would be written up as $\chi^2(df = `r dim(dat_o %>% slice(1))[2]-1-1`, N = `r AYO + ANO`) = `r ((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2)`,`r ifelse(((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2) >= (qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)),"p < .05","p > .05")`, \phi = `r round(sqrt((((((AYO - AYE)^2)/AYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2))/(AYO + ANO)),2)`$.
+
+Likewise, for the one-sample chi-square within Group B you would use the expected values of $Expected_{B-Yes} = `r BYE`$ and $Expected_{B-No} = `r BNE`$ to compare against the observed values of $Observed_{B-Yes} = `r BYO`$ and $Observed_{B-No} = `r BNO`$ as such:
+
+$$\chi^2 = \frac{(`r BYO` - `r BYE`)^2}{`r BYE`}+ \frac{(`r BNO` - `r BNE`)^2}{`r BNE`}$$
+
+Which if you walk the process through you find:
+
+$$\chi^2 = `r (((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)`$$
+
+Meaning that, rounded to two decimal places, we find $\chi^2 = `r ((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2)`$. Again the degrees of freedom, based on $df = k - 1$ (because it is a one-sample chi-square now), and that we have two groups (YES and NO, so $k = `r dim(dat_o %>% slice(1))[2]-1`$), would be:
+
+$$df = k - 1 = `r dim(dat_o %>% slice(1))[2]-1` - 1 = `r dim(dat_o %>% slice(1))[2]-1-1`$$
+
+The effect size is $\phi$ again because it is a one-sample chi-square and, to remind us, has the formula:
+
+$$\phi = \sqrt\frac{\chi^2}{N}$$
+
+And we know:
+
+* $\chi^2 = `r ((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2)`$
+* and N = `r BYO` + `r BNO` = `r BYO + BNO`
+
+and if we put those into the formula we get:
+
+$$\phi = \sqrt\frac{`r ((((BYO - BYE)^2)/BYE) + (((ANO - ANE)^2)/ANE)) %>% round2(2)`}{`r BYO + ANO`}$$
+
+Which becomes:
+
+$$\phi = \sqrt{`r (((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2))/(BYO + BNO)`} = `r sqrt((((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2))/(BYO + BNO))`$$
+And rounded to two decimal places would show $\phi = `r round(sqrt((((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2))/(BYO + BNO)),2)`$
+
+If we were to thinking about writing this one-sample up, and looking at the critical value table, we would see that the critical value associated with a $df = `r dim(dat_o %>% slice(1))[2]-1-1`$ at $\alpha = .05$, to three decimal places, is $\chi^2_{crit} = `r qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)`$. As the chi-square value of this test (i.e. $\chi^2 = `r ((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2)`$) is `r ifelse(((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2) >= (qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)),"larger","smaller")` than $\chi^2_{crit}$ then we can sa that our test is `r ifelse(((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2) >= (qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)),"significant","non-significant")`, and as such would be written up as $\chi^2(df = `r dim(dat_o %>% slice(1))[2]-1-1`, N = `r BYO + BNO`) = `r ((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2)`,`r ifelse(((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2) >= (qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)),"p < .05","p > .05")`, \phi = `r round(sqrt((((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2))/(BYO + BNO)),2)`$.
+
+## Chi-Square ($\chi^2$) Look-up Table
 
 
 |df | $\alpha = .05$|
