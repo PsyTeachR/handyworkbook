@@ -284,6 +284,18 @@ And rounded to two decimal places would show $\phi = `r round(sqrt((((((BYO - BY
 
 If we were to thinking about writing this one-sample up, and looking at the critical value table, we would see that the critical value associated with a $df = `r dim(dat_o %>% slice(1))[2]-1-1`$ at $\alpha = .05$, to three decimal places, is $\chi^2_{crit} = `r qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)`$. As the chi-square value of this test (i.e. $\chi^2 = `r ((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2)`$) is `r ifelse(((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2) >= (qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)),"larger","smaller")` than $\chi^2_{crit}$ then we can sa that our test is `r ifelse(((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2) >= (qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)),"significant","non-significant")`, and as such would be written up as $\chi^2(df = `r dim(dat_o %>% slice(1))[2]-1-1`, N = `r BYO + BNO`) = `r ((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2)`,`r ifelse(((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2) >= (qchisq(.05, dim(dat_o %>% slice(1))[2]-1-1, lower.tail = FALSE) %>% round2(3)),"p < .05","p > .05")`, \phi = `r round(sqrt((((((BYO - BYE)^2)/BYE) + (((BNO - BNE)^2)/BNE)) %>% round2(2))/(BYO + BNO)),2)`$.
 
+```{r, echo = FALSE}
+datl <-dat_o %>% pivot_longer(names_to = "resp", values_to = "ans", cols = Yes:No)
+
+am <- datl %>% filter(Groups == "A") %>% arrange(desc(ans)) %>% slice(1) %>% pull(resp)
+
+bm <- datl %>% filter(Groups == "B") %>% arrange(desc(ans)) %>% slice(1) %>% pull(resp)
+
+
+```
+
+And finally we can round everything off by stating that the most common answer for group A was **`r am`** and the most common answer for group B was **`r bm`**. 
+
 ## Chi-Square ($\chi^2$) Look-up Table
 
 
