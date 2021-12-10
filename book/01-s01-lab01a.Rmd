@@ -456,8 +456,7 @@ Finally, if our test was significant then all we need to do is state the conditi
 
 `r unhide()`
 
-## ChiSquare Look-up Table
-
+## Chi-Square ($\chi^2$) Look-up Table
 
 
 |df | $\alpha = .05$|

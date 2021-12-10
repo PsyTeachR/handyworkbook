@@ -306,27 +306,50 @@ which gives us:</p>
 <p>So we see that, rounded to two decimal places, the effect size is <span class="math inline">\(V = 0.25\)</span></p>
 <p><strong>The write-up</strong></p>
 <p>If we were to look at a critical value look-up table, we would see that the critical value associated with a <span class="math inline">\(df = 1\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(\chi^2_{crit} = 3.841\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(\chi^2 = 25.13\)</span>) is larger than <span class="math inline">\(\chi^2_{crit}\)</span> then we can say that our test is significant, and as such would be written up as <span class="math inline">\(\chi^2(df = 1, N = 400) = 25.13,p &lt; .05, V = 0.25\)</span>.</p>
-<p>If our test was significant then we would go on to carry out the relevant one-sample chi-squares to breakdown how the association manifests itself. The key thing to remember however is that in these one-sample chi-squares, following the cross-tabulation, you <strong>MUST</strong> use the expected values from the cross-tabulation and <strong>do not</strong> calculate new expected values. For instance if you were looking at the one-sample chi-square within Group A, then you would use the expected values of <span class="math inline">\(Expected_{A-Yes} = 112.22\)</span> and <span class="math inline">\(Expected_{A-No} = 68.78\)</span> to compare against the observed values of <span class="math inline">\(Observed_{A-Yes} = 88\)</span> and <span class="math inline">\(Observed_{A-No} = 93\)</span> as such:</p>
+<p><strong>Following up a significant finding</strong></p>
+<p>If our test was significant then we would go on to carry out the relevant one-sample chi-squares to breakdown how the association manifests itself. The key thing to remember however is that in these one-sample chi-squares, following the cross-tabulation, you <strong>MUST</strong> use the expected values from the cross-tabulation and <strong>do not</strong> calculate new expected values.</p>
+<p>For instance if you were looking at the one-sample chi-square within Group A, then you would use the expected values of <span class="math inline">\(Expected_{A-Yes} = 112.22\)</span> and <span class="math inline">\(Expected_{A-No} = 68.78\)</span> to compare against the observed values of <span class="math inline">\(Observed_{A-Yes} = 88\)</span> and <span class="math inline">\(Observed_{A-No} = 93\)</span> as such:</p>
 <p><span class="math display">\[\chi^2 = \frac{(88 - 112.22)^2}{112.22}+ \frac{(93 - 68.78)^2}{68.78}\]</span></p>
 <p>Which if you walk the process through you find:</p>
 <p><span class="math display">\[\chi^2 = 13.7560713\]</span></p>
-<p>Meaning that, rounded to two decimal places, we find <span class="math inline">\(\chi^2 = 13.76\)</span></p>
-<p><strong>To Be Continued</strong></p>
+<p>Meaning that, rounded to two decimal places, we find <span class="math inline">\(\chi^2 = 13.76\)</span>. The degrees of freedom, based on <span class="math inline">\(df = k - 1\)</span> (because it is a one-sample chi-square now), and that we have two groups (YES and NO, so <span class="math inline">\(k = 2\)</span>), would be:</p>
+<p><span class="math display">\[df = k - 1 = 2 - 1 = 1\]</span></p>
+<p>The effect size is <span class="math inline">\(\phi\)</span> again because it is a one-sample chi-square and, to remind us, has the formula:</p>
+<p><span class="math display">\[\phi = \sqrt\frac{\chi^2}{N}\]</span></p>
+<p>And we know:</p>
+<ul>
+<li><span class="math inline">\(\chi^2 = 13.76\)</span></li>
+<li>and N = 88 + 93 = 181</li>
+</ul>
+<p>and if we put those into the formula we get:</p>
+<p><span class="math display">\[\phi = \sqrt\frac{13.76}{181}\]</span></p>
+<p>Which becomes:</p>
+<p><span class="math display">\[\phi = \sqrt{0.0760221} = 0.2757211\]</span>
+And rounded to two decimal places would show <span class="math inline">\(\phi = 0.28\)</span></p>
+<p>If we were to thinking about writing this one-sample up, and looking at the critical value table, we would see that the critical value associated with a <span class="math inline">\(df = 1\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(\chi^2_{crit} = 3.841\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(\chi^2 = 13.76\)</span>) is larger than <span class="math inline">\(\chi^2_{crit}\)</span> then we can say that our test is significant, and as such would be written up as <span class="math inline">\(\chi^2(df = 1, N = 181) = 13.76,p &lt; .05, \phi = 0.28\)</span>.</p>
+<p>Likewise, for the one-sample chi-square within Group B you would use the expected values of <span class="math inline">\(Expected_{B-Yes} = 135.78\)</span> and <span class="math inline">\(Expected_{B-No} = 83.22\)</span> to compare against the observed values of <span class="math inline">\(Observed_{B-Yes} = 160\)</span> and <span class="math inline">\(Observed_{B-No} = 59\)</span> as such:</p>
+<p><span class="math display">\[\chi^2 = \frac{(160 - 135.78)^2}{135.78}+ \frac{(59 - 83.22)^2}{83.22}\]</span></p>
+<p>Which if you walk the process through you find:</p>
+<p><span class="math display">\[\chi^2 = 11.369173\]</span></p>
+<p>Meaning that, rounded to two decimal places, we find <span class="math inline">\(\chi^2 = 11.37\)</span>. Again the degrees of freedom, based on <span class="math inline">\(df = k - 1\)</span> (because it is a one-sample chi-square now), and that we have two groups (YES and NO, so <span class="math inline">\(k = 2\)</span>), would be:</p>
+<p><span class="math display">\[df = k - 1 = 2 - 1 = 1\]</span></p>
+<p>The effect size is <span class="math inline">\(\phi\)</span> again because it is a one-sample chi-square and, to remind us, has the formula:</p>
+<p><span class="math display">\[\phi = \sqrt\frac{\chi^2}{N}\]</span></p>
+<p>And we know:</p>
+<ul>
+<li><span class="math inline">\(\chi^2 = 11.37\)</span></li>
+<li>and N = 160 + 59 = 219</li>
+</ul>
+<p>and if we put those into the formula we get:</p>
+<p><span class="math display">\[\phi = \sqrt\frac{12.85}{253}\]</span></p>
+<p>Which becomes:</p>
+<p><span class="math display">\[\phi = \sqrt{0.0519178} = 0.2278548\]</span>
+And rounded to two decimal places would show <span class="math inline">\(\phi = 0.23\)</span></p>
+<p>If we were to thinking about writing this one-sample up, and looking at the critical value table, we would see that the critical value associated with a <span class="math inline">\(df = 1\)</span> at <span class="math inline">\(\alpha = .05\)</span>, to three decimal places, is <span class="math inline">\(\chi^2_{crit} = 3.841\)</span>. As the chi-square value of this test (i.e. <span class="math inline">\(\chi^2 = 11.37\)</span>) is larger than <span class="math inline">\(\chi^2_{crit}\)</span> then we can sa that our test is significant, and as such would be written up as <span class="math inline">\(\chi^2(df = 1, N = 219) = 11.37,p &lt; .05, \phi = 0.23\)</span>.</p>
 </div>
-<div id="test-yourself-1" class="section level2" number="3.2">
+<div id="chi-square-chi2-look-up-table-1" class="section level2" number="3.2">
 <h2>
-<span class="header-section-number">3.2</span> Test Yourself<a class="anchor" aria-label="anchor" href="#test-yourself-1"><i class="fas fa-link"></i></a>
-</h2>
-<div id="dataset-1-1" class="section level3" number="3.2.1">
-<h3>
-<span class="header-section-number">3.2.1</span> DataSet 1<a class="anchor" aria-label="anchor" href="#dataset-1-1"><i class="fas fa-link"></i></a>
-</h3>
-<p>To Be Added</p>
-</div>
-</div>
-<div id="chisquare-look-up-table-1" class="section level2" number="3.3">
-<h2>
-<span class="header-section-number">3.3</span> ChiSquare Look-up Table<a class="anchor" aria-label="anchor" href="#chisquare-look-up-table-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2</span> Chi-Square (<span class="math inline">\(\chi^2\)</span>) Look-up Table<a class="anchor" aria-label="anchor" href="#chi-square-chi2-look-up-table-1"><i class="fas fa-link"></i></a>
 </h2>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
@@ -584,10 +607,7 @@ $( document ).ready(function() {
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#chi-square-cross-tabulation"><span class="header-section-number">3</span> Chi-Square Cross-Tabulation</a></li>
 <li><a class="nav-link" href="#the-worked-example-1"><span class="header-section-number">3.1</span> The Worked Example</a></li>
-<li>
-<a class="nav-link" href="#test-yourself-1"><span class="header-section-number">3.2</span> Test Yourself</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#dataset-1-1"><span class="header-section-number">3.2.1</span> DataSet 1</a></li></ul>
-</li>
-<li><a class="nav-link" href="#chisquare-look-up-table-1"><span class="header-section-number">3.3</span> ChiSquare Look-up Table</a></li>
+<li><a class="nav-link" href="#chi-square-chi2-look-up-table-1"><span class="header-section-number">3.2</span> Chi-Square (\(\chi^2\)) Look-up Table</a></li>
 </ul>
 
       <div class="book-extra">
@@ -605,7 +625,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>A Handy Workbook for Research Methods &amp; Statistics</strong>" was written by Phil McAleer. It was last built on Last Update: 2021-12-09.</p>
+    <p>"<strong>A Handy Workbook for Research Methods &amp; Statistics</strong>" was written by Phil McAleer. It was last built on Last Update: 2021-12-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
