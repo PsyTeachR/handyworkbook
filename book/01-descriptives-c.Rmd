@@ -1,0 +1,63 @@
+# Interval Estimates
+
+We have so far looked at descriptives that take your whole dataset and summarise the center point of the data - **point estimates** - and whilst that is useful, it does not really tell you that much about your distribution. A more information aspect of your distribution to look at is the spread of the distribution - how wide is your data and what values do most of your data fall between. Here we will look at four measures of spread. They are:
+
+1. The Range
+2. The Interquartile Range
+3. The Variance
+4. The Standard Deviation
+
+## The Range
+
+```{r driving-years, echo = FALSE}
+drv <- tibble(Participant = 1:25,
+              Years = c(7, 1, 2, 6, 3, 4, 3, 4, 3, 4, 5, 4, 7, 5, 6, 5, 5, 4, 5, 6, 5, 6, 3, 2, 5
+))
+```
+
+
+The Range is the most basic and least informative measure of the spread of your data as really it only tells you the distance between the largest value and the smallest value in your data set. You never really see the formula for the range but it can be written as:
+
+$$Range(X) = max(X) - min(X)$$
+And is read as the maximum value in your dataset ($max(X)$) minus the minimum value in your dataset ($min(X)$). So if we look at our driving data again:
+
+$$`r drv %>% pull(Years)`$$
+Then we can see that our largest value here is `r drv %>% pull(Years) %>% max()` and the smallest value is `r drv %>% pull(Years) %>% min()`, so if we put those into our formula we get:
+
+$$Range(X) = max(X) - min(X) = `r drv %>% pull(Years) %>% max()` - `r drv %>% pull(Years) %>% min()` = `r drv %>% pull(Years) %>% max() - drv %>% pull(Years) %>% min()`$$
+Meaning that this dataset has a range of **Range = `r drv %>% pull(Years) %>% max() - drv %>% pull(Years) %>% min()`**.  It is worth pointing out that it doesn't matter how many people have the largest value or the smallest value for that matter, just that those are the smallest and largest values.
+
+The range however can be deceptive as it is heavily influenced by `r glossary("outlier", display = "outliers")`. Look at this data for example:
+
+```{r driving-years2, echo = FALSE}
+drv2 <- tibble(Participant = 1:25,
+              Years = c(7, 1, 2, 6, 3, 4, 3, 4, 3, 4, 5, 4, 30, 5, 6, 5, 5, 4, 5, 6, 5, 6, 3, 2, 5
+))
+```
+
+$$`r drv2 %>% pull(Years)`$$
+Here we can see that our largest value here is `r drv2 %>% pull(Years) %>% max()` and the smallest value is `r drv2 %>% pull(Years) %>% min()`, so if we put those into our formula we get:
+
+$$Range(X) = max(X) - min(X) = `r drv2 %>% pull(Years) %>% max()` - `r drv2 %>% pull(Years) %>% min()` = `r drv2 %>% pull(Years) %>% max() - drv2 %>% pull(Years) %>% min()`$$
+
+Meaning that this dataset has a range of **Range = `r drv2 %>% pull(Years) %>% max() - drv2 %>% pull(Years) %>% min()`** which probably doesn't really reflect the spread of the data that well as only one data point is really large. That is why the range is informative to state but not that great for doing analyses on.
+
+
+```{r range1, echo = FALSE, eval=FALSE}
+
+### Test Yourself
+
+set.seed(1409)
+
+dat1 <- sample(rep(c(1:5), times = sample(c(1:5), replace = FALSE)), replace = FALSE)
+```
+
+
+
+## Section glossary
+
+```{r gloss-tab, echo=FALSE, results='asis'}
+
+glossary_table()
+```
+
