@@ -1,0 +1,15 @@
+# Random formulas
+
+These formulas will eventually move somewhere that makes sense but for now they need a home and this is it:
+
+## t-value to r-value
+
+Did you know that the conversion of a t-value to an r-value is:
+
+$$r = \sqrt\frac{t^2}{t^2 + df}$$
+
+And the conversion of an r-value to a t-value is:
+
+$$t = \sqrt\frac{df * r^2}{1-r^2}$$
+
+Where in both formulas, the $df$ is the degrees of freedom of the respective analysis that has been carried out. For example, if you have carried out a correlation and have an r-value but want the t-value, use the df of the correlation to make the conversion. Likewise, if you have carried out a t-test and you want the r-value, use the df of the t-test to make the conversion.

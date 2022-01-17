@@ -1,7 +1,7 @@
 fig:settings-general
 fig:settings-code
 fig:img-soundimals-hash
-descriptives
+point-estimates
 a-note-on-descriptives-and-inferentials
 the-mean
 test-yourself---the-mean
@@ -9,8 +9,11 @@ the-median
 test-yourself---the-median
 the-mode
 test-yourself---the-mode
+section-glossary
+interval-estimates
 the-range
-a-full-descriptive-example
+section-glossary-1
+a-full-descriptive
 the-mean-1
 variance
 standard-deviation
@@ -20,7 +23,7 @@ z-scores
 standard-error-of-the-mean
 confidence-intervals
 the-write-up
-section-glossary
+section-glossary-2
 one-sample-chi-square
 the-worked-example
 test-yourself
@@ -63,11 +66,11 @@ the-write-up-1
 anova
 the-anova-table
 look-up-table-4
+random-formulas
+t-value-to-r-value
 the-rounding-chapter
 worked-example
 test-yourself-3
-random-formulas
-t-value-to-r-value
 installing-r
 installing-base-r
 installing-rstudio

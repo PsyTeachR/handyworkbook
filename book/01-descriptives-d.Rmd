@@ -1,0 +1,236 @@
+# A full descriptive
+
+**The Data**
+
+To look at a full descriptive example including the mean, variance, standard deviation, standard error, 95% Confidence Intervals, and z-scores, we will use the following data from 10 participants:
+
+```{r we, message=FALSE, warning=FALSE, echo=FALSE}
+
+dat_o <- tibble(Participants = 1:10,
+              PreTest = c(60, 64, 56, 82, 74, 79, 63, 59, 72, 66),
+              PostTest = c(68, 75, 62, 85, 73, 85, 64, 59, 73, 70))
+
+dat <- dat_o %>% mutate(X = abs(PostTest - PreTest)) %>% select(Participants, X)
+
+meanx <- dat %>% pull(X) %>% mean()
+varx <- dat %>% pull(X) %>% var()
+sdx <- dat %>% pull(X) %>% sd()
+nx <- dim(dat)[1]
+semx <- sdx/sqrt(nx)
+zci <- 1.96
+
+knitr::kable(dat, align = "c")
+```
+
+### The Mean
+
+The symbol for the mean is generally written as $\overline{X}$ (pronounced as X-bar) and the formula for the mean is:
+
+$$\overline{X} = \frac{\sum_i^n{x_i}}{n}$$
+
+Which reads as sum ($\sum$) all the values from $i$ (the first value) to $n$ (the last value) and then divide that number by the total number of values ($n$). If we start to fill in the information from above we get:
+
+$$\overline{X} = \frac{`r dat %>% filter(Participants == 1) %>% pull(X)` + `r dat %>% filter(Participants == 2) %>% pull(X)` + `r dat %>% filter(Participants == 3) %>% pull(X)` +`r dat %>% filter(Participants == 4) %>% pull(X)` +`r dat %>% filter(Participants == 5) %>% pull(X)` +`r dat %>% filter(Participants == 6) %>% pull(X)` +`r dat %>% filter(Participants == 7) %>% pull(X)` +`r dat %>% filter(Participants == 8) %>% pull(X)` +`r dat %>% filter(Participants == 9) %>% pull(X)` +`r dat %>% filter(Participants == 10) %>% pull(X)`}{`r dim(dat)[1]`}$$
+
+And if we sum all the values on the top half together we get:
+
+$$\overline{X} = \frac{`r dat %>% pull(X) %>% sum()`}{`r dim(dat)[1]`}$$
+
+And finally divide the top half by the bottom half, leaving:
+
+$$\overline{X} = `r (dat %>% pull(X) %>% sum())/(dim(dat)[1])`$$
+
+We find that the mean, rounded to two decimal places, is **$\overline{X} = `r meanx`$**
+
+### Variance
+
+The symbol for the variance is generally written as $s^2$ (pronounced as sigma-squared) but can also be written as $Var$. The formula for the variance is:
+
+$$s^2 = \frac{\sum_i^n(x_{i} - \overline{x})^2}{n-1}$$
+
+So let's again start by filling in the numbers to the formula:
+
+$$s^2 = \frac{(`r dat %>% filter(Participants == 1) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 2) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 3) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 4) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 5) %>% pull(X)` - `r meanx`)^2 + \\(`r dat %>% filter(Participants == 6) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 7) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 8) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 9) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 10) %>% pull(X)` - `r meanx`)^2}{`r dim(dat)[1]` - 1}$$
+
+And we do the subtractions in all those brackets of the top half and the one on the bottom:
+
+$$s^2 = \frac{(`r dat %>% filter(Participants == 1) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 2) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 3) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 4) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 5) %>% pull(X) - meanx`)^2 + \\(`r dat %>% filter(Participants == 6) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 7) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 8) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 9) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 10) %>% pull(X) - meanx`)^2}{`r dim(dat)[1]-1`}$$
+
+Then we square all those values on the top half:
+
+$$s^2 = \frac{`r (dat %>% filter(Participants == 1) %>% pull(X) - meanx)^2` + `r (dat %>% filter(Participants == 2) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 3) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 4) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 5) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 6) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 7) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 8) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 9) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 10) %>% pull(X) - meanx)^2`}{`r dim(dat)[1]-1`}$$
+
+Sum those values together:
+
+$$s^2 = \frac{`r ((dat %>% filter(Participants == 1) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 2) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 3) %>% pull(X) - meanx)^2)  + ((dat %>% filter(Participants == 4) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 5) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 6) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 7) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 8) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 9) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 10) %>% pull(X) - meanx)^2)`}{`r dim(dat)[1]-1`}$$
+And divide the top half by the bottom half:
+
+$$s^2 = `r dat %>% pull(X) %>% var()`$$
+
+Showing that the variance, rounded to two decimal places is, **$s^2 = `r dat %>% pull(X) %>% var() %>% round2(2)`$**
+
+### Standard Deviation
+
+The symbol for the standard deviation is generally written as $s$ (pronounced as sigma) but can also be written as $SD$. The formula for the standard deviation is:
+
+$$s = \sqrt\frac{\sum_i^n(x_{i} - \overline{x})^2}{n-1}$$
+So let's again start by filling in the numbers to the formula:
+
+$$s = \sqrt\frac{(`r dat %>% filter(Participants == 1) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 2) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 3) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 4) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 5) %>% pull(X)` - `r meanx`)^2 + \\(`r dat %>% filter(Participants == 6) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 7) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 8) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 9) %>% pull(X)` - `r meanx`)^2 + (`r dat %>% filter(Participants == 10) %>% pull(X)` - `r meanx`)^2}{`r dim(dat)[1]` - 1}$$
+
+And we do the subtractions in all those brackets of the top half and the one on the bottom:
+
+$$s = \sqrt\frac{(`r dat %>% filter(Participants == 1) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 2) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 3) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 4) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 5) %>% pull(X) - meanx`)^2 + \\(`r dat %>% filter(Participants == 6) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 7) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 8) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 9) %>% pull(X) - meanx`)^2 + (`r dat %>% filter(Participants == 10) %>% pull(X) - meanx`)^2}{`r dim(dat)[1]-1`}$$
+
+Then we square all those values on the top half:
+
+$$s = \sqrt\frac{`r (dat %>% filter(Participants == 1) %>% pull(X) - meanx)^2` + `r (dat %>% filter(Participants == 2) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 3) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 4) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 5) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 6) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 7) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 8) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 9) %>% pull(X) - meanx)^2`+ `r (dat %>% filter(Participants == 10) %>% pull(X) - meanx)^2`}{`r dim(dat)[1]-1`}$$
+
+Sum those values together:
+
+$$s = \sqrt\frac{`r ((dat %>% filter(Participants == 1) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 2) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 3) %>% pull(X) - meanx)^2)  + ((dat %>% filter(Participants == 4) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 5) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 6) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 7) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 8) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 9) %>% pull(X) - meanx)^2) + ((dat %>% filter(Participants == 10) %>% pull(X) - meanx)^2)`}{`r dim(dat)[1]-1`}$$
+Divide the top half by the bottom half:
+
+$$s = \sqrt{`r varx`}$$
+
+And finally take the square root:
+
+$$s = `r sdx`$$
+
+We find that the standard deviation, rounded to two decimal places, is **$s = `r sdx %>% round2(2)`$**
+
+### Var to SD
+
+Remembering that the standard deviation is the square root of the variance, then if you know the variance ($s^2$) and you need the standard deviation ($s$) then you can do:
+
+$$s = \sqrt{s^2}$$
+
+In our example, $s^2 = `r varx`$ and so
+
+$$s = \sqrt{`r varx`}$$
+
+giving:
+
+$$s = `r sqrt(varx)`$$
+
+### SD to Var
+
+Sometimes you need to go from the standard deviation to the variance, and remembering that the variance is the standard deviation squared, or the standard deviation multiplied by itself, then you can do:
+
+$$s^2 = s \times s$$
+
+And if we know that the standard deviation in our example is $s = `r sdx`$ then:
+
+$$s^2 = `r sdx` \times `r sdx`$$
+
+giving us:
+
+$$s^2 = `r sdx * sdx`$$
+
+### Z-Scores
+
+Any value on a continuous scale can be converted to a z-score (standard deviation units) through the formula:
+
+$$z = \frac{x - \overline{x}}{s_{x}}$$
+
+which can be read as the value ($x$) minus the mean value of the data ($\overline{x}$), divided by the standard deviation of the data ($s_{X}$).  For example, if we look at Participant 1:
+
+* $x = `r dat %>% filter(Participants == 1) %>% pull(X)`$
+* $\overline{x} = `r meanx`$
+* $s_{x} = `r sdx`$
+
+Which if we fill in the formula we get:
+
+$$z = \frac{`r dat %>% filter(Participants == 1) %>% pull(X)` - `r meanx`}{`r sdx`}$$
+
+And if we sort our the top half first:
+
+$$z = \frac{`r dat %>% filter(Participants == 1) %>% pull(X) - meanx`}{`r sdx`}$$
+
+Leaving us with:
+
+$$z = `r (dat %>% filter(Participants == 1) %>% pull(X) - meanx)/sdx`$$
+
+So Participant 1, when converted to a z-score and rounded to two decimal places, would have **z = `r ((dat %>% filter(Participants == 1) %>% pull(X) - meanx)/sdx) %>% round2(2)`**
+
+### Standard Error of the Mean
+
+The symbol for the standard error is usually $SE$ but can also be written as $SEM$ when specificaly about the mean - short for standard error of the mean.  The formula for the standard error is the standard deviation ($s$) divided by the square root of the number of observations ($\sqrt{n}$), and is written as:
+
+$$SE = \frac{s}{\sqrt{n}}$$
+
+but can also be written as:
+
+$$SE = \frac{SD}{\sqrt{n}}$$
+
+We know that our $SD = `r sdx`$ and that we have $n = `r nx`$ participants, so:
+
+$$SE = \frac{`r sdx`}{\sqrt{`r nx`}}$$
+
+And if we do the square root of the bottom half (denominator):
+
+$$SE = \frac{`r sdx`}{`r sqrt(nx)`}$$
+
+And divide the top by the bottom:
+
+$$SE = `r semx`$$
+
+We find that the standard error, rounded to two decimal places, is $SE = `r semx %>% round2(2)`$
+
+### Confidence Intervals
+
+We will specifically focus on the 95% Confidence Interval using the cut-off value (assuming $\alpha = .05$ and two-tailed) of $z = 1.96$. The key formulas are:
+
+$$Upper \space 95\%CI = \overline{x} + (z \times SE)$$
+
+And
+
+$$Lower \space 95\%CI = \overline{X} - (z \times SE)$$
+
+We know that:
+
+* $\overline{x} = `r meanx`$
+* $SE = `r semx`$
+* $z = `r zci`$
+
+**Upper 95% CI**
+
+Dealing with the **Upper 95% CI** we get:
+
+$$Upper \space 95\%CI = `r meanx` + (`r zci` \times `r semx`)$$
+
+And if we sort out the bracket first:
+
+$$Upper \space 95\%CI = `r meanx` + `r zci * semx`$$
+
+Which leaves us with:
+
+$$Upper \space 95\%CI = `r meanx + (zci * semx)`$$
+
+**Lower 95% CI**
+
+And now the **Lower 95% CI** we get:
+
+$$Lower \space 95\%CI = `r meanx` - (`r zci` \times `r semx`)$$
+
+And if we sort out the bracket first:
+
+$$Lower \space 95\%CI = `r meanx` - `r zci * semx`$$
+
+Which leaves us with:
+
+$$Lower \space 95\%CI = `r meanx - (zci * semx)`$$
+
+And if we round both those values to two decimal places, then you get **$Lower \space 95\%CI = `r (meanx - (zci * semx)) %>% round2(2)`$** and **$Upper \space 95\%CI = `r (meanx + (zci * semx)) %>% round2(2)`$**
+
+### The Write-Up
+
+And if we were to do a decent presentation of this data, including a measure of central tendency (the mean), a measure of spread relating to the sample (the standard deviation), and a measure of spread relating to the population (the 95% CI), then it would start as something like: **"We ran `r nx` participants (M = `r meanx %>% round2(2)`, SD = `r sdx %>% round2(2)`, 95%CI = [`r (meanx - (zci * semx)) %>% round2(2)`, `r (meanx + (zci * semx)) %>% round2(2)`])....."**
+
+## Section glossary
+
+```{r gloss-tab, echo=FALSE, results='asis'}
+
+glossary_table()
+```
+
