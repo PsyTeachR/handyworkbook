@@ -245,3 +245,124 @@ Now if we take all the information we have, including some information from the 
 But I guess it might look a bit odd as we give the standardised coeffiencient twice, just in different ways, so we could write it with the unstandardised coefficient as:
 
 **A team of researchers were interested in the relationship between Head Size and IQ, and specifically whether they could predict IQ from Head Size. The researchers set out the hypothesis that a linear model based on head size, as measured in cms, will significantly predict IQ scores as measured on a standard IQ test. Descriptive analysis suggested a strong positive relationship between Head Size (M = 42.67, SD = 12.92) and IQ (M = 99.7, SD = 15.95), (r(8) = 0.967), with head size explaining 93.5% of the variance in IQ scores. On analysis, a linear regression model revealed that head size (measured in cm) significantly predicted participant scores on an IQ test ($b$ = 1.194, F(1, 8) = 115.07, p < .001, $R^2$ = 0.935). As such the alternative hypothesis was accepted suggesting that...**
+
+## Test Yourself
+
+Here we are going to try out a few examples based on the above. First we will use the above numbers we have calculated to make some predictions to check our understanding. So, assuming the values of 1.194 for the slope, and 48.75 for the intercept, try to answer the following questions:
+
+
+
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 37.8? <div class='webex-radiogroup' id='radio_YVWSUBWQWM'><label><input type="radio" autocomplete="off" name="radio_YVWSUBWQWM" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_YVWSUBWQWM" value="answer"></input> <span>93.88</span></label><label><input type="radio" autocomplete="off" name="radio_YVWSUBWQWM" value=""></input> <span>120.51</span></label></div>
+
+
+
+<div class='webex-solution'><button>Show the working</button>
+
+
+If the HeadSize is 37.8 and the slope is 1.194 and intercept is 48.75, then using the formula:
+
+$$\hat{Y} = b_{0} + b_{1}X + error$$
+If we fill in the details:
+
+$$\hat{Y} = 48.75 + 1.194 \times 37.8$$
+
+And if we start to work that through, dealing with the multiplication first, we see:
+
+$$\hat{Y} = 48.75 + 45.1332$$
+
+Which then becomes:
+
+$$\hat{Y} = 93.8832$$
+
+Giving a predicted value of $\hat{Y}$ = 93.88, to two decimal places.
+
+
+</div>
+
+
+
+
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 24.2? <div class='webex-radiogroup' id='radio_ZNPKUXYLRZ'><label><input type="radio" autocomplete="off" name="radio_ZNPKUXYLRZ" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_ZNPKUXYLRZ" value="answer"></input> <span>93.88</span></label><label><input type="radio" autocomplete="off" name="radio_ZNPKUXYLRZ" value=""></input> <span>77.64</span></label></div>
+
+
+
+<div class='webex-solution'><button>Show the working</button>
+
+
+If the HeadSize is 24.2 and the slope is 1.194 and intercept is 48.75, then using the formula:
+
+$$\hat{Y} = b_{0} + b_{1}X + error$$
+If we fill in the details:
+
+$$\hat{Y} = 48.75 + 1.194 \times 24.2$$
+
+And if we start to work that through, dealing with the multiplication first, we see:
+
+$$\hat{Y} = 48.75 + 28.8948$$
+
+Which then becomes:
+
+$$\hat{Y} = 77.6448$$
+
+Giving a predicted value of $\hat{Y}$ = 77.64, to two decimal places.
+
+
+</div>
+
+
+
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 52.9? <div class='webex-radiogroup' id='radio_EQGKVQRWBU'><label><input type="radio" autocomplete="off" name="radio_EQGKVQRWBU" value="answer"></input> <span>120.51</span></label><label><input type="radio" autocomplete="off" name="radio_EQGKVQRWBU" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_EQGKVQRWBU" value=""></input> <span>111.91</span></label></div>
+
+
+
+<div class='webex-solution'><button>Show the working</button>
+
+
+If the HeadSize is 52.9 and the slope is 1.194 and intercept is 48.75, then using the formula:
+
+$$\hat{Y} = b_{0} + b_{1}X + error$$
+If we fill in the details:
+
+$$\hat{Y} = 48.75 + 1.194 \times 52.9$$
+
+And if we start to work that through, dealing with the multiplication first, we see:
+
+$$\hat{Y} = 48.75 + 63.1626$$
+
+Which then becomes:
+
+$$\hat{Y} = 111.9126$$
+
+Giving a predicted value of $\hat{Y}$ = 111.91, to two decimal places.
+
+
+</div>
+
+
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 48.4? <div class='webex-radiogroup' id='radio_ZTWSWUUVLA'><label><input type="radio" autocomplete="off" name="radio_ZTWSWUUVLA" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_ZTWSWUUVLA" value=""></input> <span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_ZTWSWUUVLA" value="answer"></input> <span>106.54</span></label></div>
+
+
+
+<div class='webex-solution'><button>Show the working</button>
+
+
+If the HeadSize is 48.4 and the slope is 1.194 and intercept is 48.75, then using the formula:
+
+$$\hat{Y} = b_{0} + b_{1}X + error$$
+If we fill in the details:
+
+$$\hat{Y} = 48.75 + 1.194 \times 48.4$$
+
+And if we start to work that through, dealing with the multiplication first, we see:
+
+$$\hat{Y} = 48.75 + 57.7896$$
+
+Which then becomes:
+
+$$\hat{Y} = 106.5396$$
+
+Giving a predicted value of $\hat{Y}$ = 106.54, to two decimal places.
+
+
+</div>
+

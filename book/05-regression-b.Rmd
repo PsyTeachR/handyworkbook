@@ -214,3 +214,140 @@ Now if we take all the information we have, including some information from the 
 But I guess it might look a bit odd as we give the standardised coeffiencient twice, just in different ways, so we could write it with the unstandardised coefficient as:
 
 **A team of researchers were interested in the relationship between Head Size and IQ, and specifically whether they could predict IQ from Head Size. The researchers set out the hypothesis that a linear model based on head size, as measured in cms, will significantly predict IQ scores as measured on a standard IQ test. Descriptive analysis suggested a strong positive relationship between Head Size (M = `r m_x`, SD = `r sd_x`) and IQ (M = `r m_y`, SD = `r sd_y`), (r(`r mod_df2`) = `r r_xy`), with head size explaining `r R2*100`% of the variance in IQ scores. On analysis, a linear regression model revealed that head size (measured in cm) significantly predicted participant scores on an IQ test ($b$ = `r slope`, F(`r mod_df1`, `r mod_df2`) = `r mod_F`, p `r mod_p`, $R^2$ = `r R2`). As such the alternative hypothesis was accepted suggesting that...**
+
+## Test Yourself
+
+Here we are going to try out a few examples based on the above. First we will use the above numbers we have calculated to make some predictions to check our understanding. So, assuming the values of `r slope` for the slope, and `r intercept` for the intercept, try to answer the following questions:
+
+```{r ty1, message=FALSE, warning=FALSE, echo=FALSE}
+dat_o <- tibble(Participants = 1:10,
+              HeadSize = c(50.8, 63.5, 45.7, 25.4, 29.2, 49.5, 38.1, 30.5, 35.6, 58.4),
+              IQ = c(107, 121, 106, 72, 85, 105, 93, 88, 97, 123))
+
+m_x <- mean(dat_o$HeadSize) %>% round2(2)
+m_y <- mean(dat_o$IQ) %>% round2(2)
+sd_x <- sd(dat_o$HeadSize) %>% round2(2)
+sd_y <- sd(dat_o$IQ) %>% round2(2)
+cov_xy <- cov(dat_o$HeadSize, dat_o$IQ) %>% round2(2)
+r_xy <- cor(dat_o$HeadSize, dat_o$IQ) %>% round2(3)
+slope <- (r_xy * (sd_y/sd_x)) %>% round2(3)
+intercept <- (m_y - slope * m_x) %>% round2(2)
+HSp <- 60.1
+IQp <- (intercept + slope * HSp) %>% round2(2)
+HSp2 <- 59.4
+IQp2 <- (intercept + slope * HSp2) %>% round2(2)
+HSp3 <- 37.8
+IQp3 <- (intercept + slope * HSp3) %>% round2(2)
+R2 <- (r_xy^2) %>% round2(3)
+
+mod <- lm(IQ ~ HeadSize, data = dat_o) %>% anova() %>% tidy()
+mod_df1 <- mod %>% filter(term == "HeadSize") %>% pull(df)
+mod_df2 <- mod %>% filter(term == "Residuals") %>% pull(df)
+mod_F <- mod %>% filter(term == "HeadSize") %>% pull(statistic) %>% round2(2)
+mod_p <- ifelse(mod %>% filter(term == "HeadSize") %>% pull(p.value) < .001, 
+                "< .001", 
+                paste0("= ", mod %>% filter(term == "HeadSize") %>% pull(p.value) %>% round2(3)))
+```
+
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was `r HSp3`? `r longmcq(sample(c(answer = IQp3, IQp2, IQp)))`
+
+`r hide("Show the working")`
+
+If the HeadSize is `r HSp3` and the slope is `r slope` and intercept is `r intercept`, then using the formula:
+
+$$\hat{Y} = b_{0} + b_{1}X + error$$
+If we fill in the details:
+
+$$\hat{Y} = `r intercept` + `r slope` \times `r HSp3`$$
+
+And if we start to work that through, dealing with the multiplication first, we see:
+
+$$\hat{Y} = `r intercept` + `r slope * HSp3`$$
+
+Which then becomes:
+
+$$\hat{Y} = `r intercept + slope * HSp3`$$
+
+Giving a predicted value of $\hat{Y}$ = `r IQp3`, to two decimal places.
+
+`r unhide()`
+
+```{r ty2, message=FALSE, warning=FALSE, echo=FALSE}
+HSp4 <- 24.2
+IQp4 <- (intercept + slope * HSp4) %>% round2(2)
+HSp5 <- 52.9
+IQp5 <- (intercept + slope * HSp5) %>% round2(2)
+HSp6 <- 48.4
+IQp6 <- (intercept + slope * HSp6) %>% round2(2)
+
+```
+
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was `r HSp4`? `r longmcq(sample(c(answer = IQp3, IQp2, IQp4)))`
+
+`r hide("Show the working")`
+
+If the HeadSize is `r HSp4` and the slope is `r slope` and intercept is `r intercept`, then using the formula:
+
+$$\hat{Y} = b_{0} + b_{1}X + error$$
+If we fill in the details:
+
+$$\hat{Y} = `r intercept` + `r slope` \times `r HSp4`$$
+
+And if we start to work that through, dealing with the multiplication first, we see:
+
+$$\hat{Y} = `r intercept` + `r slope * HSp4`$$
+
+Which then becomes:
+
+$$\hat{Y} = `r intercept + slope * HSp4`$$
+
+Giving a predicted value of $\hat{Y}$ = `r IQp4`, to two decimal places.
+
+`r unhide()`
+
+
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was `r HSp5`? `r longmcq(sample(c(answer = IQp, IQp5, IQp2)))`
+
+`r hide("Show the working")`
+
+If the HeadSize is `r HSp5` and the slope is `r slope` and intercept is `r intercept`, then using the formula:
+
+$$\hat{Y} = b_{0} + b_{1}X + error$$
+If we fill in the details:
+
+$$\hat{Y} = `r intercept` + `r slope` \times `r HSp5`$$
+
+And if we start to work that through, dealing with the multiplication first, we see:
+
+$$\hat{Y} = `r intercept` + `r slope * HSp5`$$
+
+Which then becomes:
+
+$$\hat{Y} = `r intercept + slope * HSp5`$$
+
+Giving a predicted value of $\hat{Y}$ = `r IQp5`, to two decimal places.
+
+`r unhide()`
+
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was `r HSp6`? `r longmcq(sample(c(answer = IQp6, IQp2, IQp4)))`
+
+`r hide("Show the working")`
+
+If the HeadSize is `r HSp6` and the slope is `r slope` and intercept is `r intercept`, then using the formula:
+
+$$\hat{Y} = b_{0} + b_{1}X + error$$
+If we fill in the details:
+
+$$\hat{Y} = `r intercept` + `r slope` \times `r HSp6`$$
+
+And if we start to work that through, dealing with the multiplication first, we see:
+
+$$\hat{Y} = `r intercept` + `r slope * HSp6`$$
+
+Which then becomes:
+
+$$\hat{Y} = `r intercept + slope * HSp6`$$
+
+Giving a predicted value of $\hat{Y}$ = `r IQp6`, to two decimal places.
+
+`r unhide()`
