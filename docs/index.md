@@ -1,6 +1,6 @@
 --- 
 title: "A Handy Workbook for Research Methods & Statistics"
-date: "Last Update: 2022-01-16"
+date: "Last Update: 2022-01-24"
 author: "Phil McAleer" 
 site: bookdown::bookdown_site
 documentclass: book
@@ -23,7 +23,9 @@ favicon: images/logos/favicon.ico
 
 # Overview {-}
 
-<img src="images/HW.png" style="width: 200px; float: right;">
+
+<div class="small_right"><img src="images/HW.png" 
+     alt="ADS Hex Logo" /></div>
 
 **PLEASE NOTE THIS BOOK IS IN EARLY STAGES OF DEVELOPMENT AND WILL BE ADDED TO AND MAY VERY WELL CURRENTLY CONTAIN MISTAKES**
 

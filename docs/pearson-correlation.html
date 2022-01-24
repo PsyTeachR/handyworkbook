@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 9 Pearson Correlation | A Handy Workbook for Research Methods &amp; Statistics</title>
+<meta name="author" content="Phil McAleer">
+<meta name="description" content="The Pearson correlation otherwise known as the Pearson Product-Moment correlation measures the relationship between two variables when that relationship is monotonic and linear. To go a step...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 9 Pearson Correlation | A Handy Workbook for Research Methods &amp; Statistics">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/pearson-correlation.html">
+<meta property="og:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
+<meta property="og:description" content="The Pearson correlation otherwise known as the Pearson Product-Moment correlation measures the relationship between two variables when that relationship is monotonic and linear. To go a step...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 9 Pearson Correlation | A Handy Workbook for Research Methods &amp; Statistics">
+<meta name="twitter:description" content="The Pearson correlation otherwise known as the Pearson Product-Moment correlation measures the relationship between two variables when that relationship is monotonic and linear. To go a step...">
+<meta name="twitter:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6NP3MF25W3');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="include/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">A Handy Workbook for Research Methods &amp; Statistics</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Overview</a></li>
+<li class="book-part">Introduction</li>
+<li><a class="" href="foreword.html">Foreword</a></li>
+<li class="book-part">Descriptives</li>
+<li><a class="" href="point-estimates.html"><span class="header-section-number">1</span> Point Estimates</a></li>
+<li><a class="" href="interval-estimates.html"><span class="header-section-number">2</span> Interval Estimates</a></li>
+<li><a class="" href="a-full-descriptive.html"><span class="header-section-number">3</span> A full descriptive</a></li>
+<li class="book-part">Chi-Squares</li>
+<li><a class="" href="one-sample-chi-square.html"><span class="header-section-number">4</span> One-Sample Chi-Square</a></li>
+<li><a class="" href="chi-square-cross-tabulation.html"><span class="header-section-number">5</span> Chi-Square Cross-Tabulation</a></li>
+<li class="book-part">t-tests</li>
+<li><a class="" href="one-sample-t-test.html"><span class="header-section-number">6</span> One-Sample t-test</a></li>
+<li><a class="" href="between-subjects-students-t-test.html"><span class="header-section-number">7</span> Between-Subjects Student's t-test</a></li>
+<li><a class="" href="within-subjects-t-test.html"><span class="header-section-number">8</span> Within-Subjects t-test</a></li>
+<li class="book-part">Correlations</li>
+<li><a class="active" href="pearson-correlation.html"><span class="header-section-number">9</span> Pearson Correlation</a></li>
+<li><a class="" href="spearman-correlation.html"><span class="header-section-number">10</span> Spearman Correlation</a></li>
+<li class="book-part">Linear Regression</li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">11</span> Simple Linear Regression</a></li>
+<li class="book-part">ANOVAs</li>
+<li><a class="" href="anova.html"><span class="header-section-number">12</span> ANOVA</a></li>
+<li class="book-part">Additional</li>
+<li><a class="" href="random-formulas.html"><span class="header-section-number">13</span> Random formulas</a></li>
+<li><a class="" href="the-rounding-chapter.html"><span class="header-section-number">14</span> The Rounding Chapter</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">C</span> Conventions</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/psyteachr/handyworkbook">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="pearson-correlation" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> Pearson Correlation<a class="anchor" aria-label="anchor" href="#pearson-correlation"><i class="fas fa-link"></i></a>
+</h1>
+<p><strong>The Pearson correlation</strong> otherwise known as the Pearson Product-Moment correlation measures the relationship between two variables when that relationship is monotonic and linear. To go a step further, in relating it measures the covariance between two variables, or the shared variance, and then standardises that measure between the values of -1 and 1 with -1 being the perfect negative relationship and 1 being the perfect positive relationship.</p>
+<div id="the-worked-example-5" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> The Worked Example<a class="anchor" aria-label="anchor" href="#the-worked-example-5"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let's say that this is our starting data:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:center;">
+Participants
+</th>
+<th style="text-align:center;">
+HeadSize
+</th>
+<th style="text-align:center;">
+IQ
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+50.8
+</td>
+<td style="text-align:center;">
+107
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+63.5
+</td>
+<td style="text-align:center;">
+121
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+45.7
+</td>
+<td style="text-align:center;">
+106
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+25.4
+</td>
+<td style="text-align:center;">
+72
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+29.2
+</td>
+<td style="text-align:center;">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+49.5
+</td>
+<td style="text-align:center;">
+105
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+38.1
+</td>
+<td style="text-align:center;">
+93
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+30.5
+</td>
+<td style="text-align:center;">
+88
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+35.6
+</td>
+<td style="text-align:center;">
+97
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+58.4
+</td>
+<td style="text-align:center;">
+123
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>and the formula for the Pearson correlation is:</p>
+<p><span class="math display">\[r_{(x,y)} = \frac{cov(x,y)}{\sigma_{x}\sigma_{y}}\]</span></p>
+<p>Meaning that, assuming we consider HeadSize as variable <span class="math inline">\(x\)</span> and IQ as variable <span class="math inline">\(y\)</span>, to determine the correlation between HeadSize and IQ (<span class="math inline">\(r_{(HeadSize, IQ)}\)</span>) we first need to know the covariance between HeadSize and IQ, (<span class="math inline">\(cov(HeadSize, IQ)\)</span>), as well as the standard deviation of HeadSize (<span class="math inline">\(\sigma_{HeadSize}\)</span>) and the standard deviation of IQ (<span class="math inline">\(\sigma_{IQ}\)</span>). That is what we are going to look at here. We will run it all through from start to finish, assuming all we know are the values. If you know certain aspects like the covariance and the standard deviations then you can skip to just running the correlation but it is good to see the analysis in its entirety.</p>
+<p><strong>Covariance</strong></p>
+<p>The formula for the covariance between two continuous variables is:</p>
+<p><span class="math display">\[cov(x,y) = \frac{\sum_i^n(x_i - \overline{x})(y_i - \overline{y})}{n-1}\]</span></p>
+<p>where the <span class="math inline">\(\sum_i^n\)</span> translates as sum (i.e. add up) the values of <span class="math inline">\((x_i - \overline{x})(y_i - \overline{y})\)</span> for each pair of observations in your data. But to do that we first need to know the mean of x (<span class="math inline">\(\overline{x}\)</span>) and the mean of y, (<span class="math inline">\(\overline{y}\)</span>). Now we know that the mean of a value is the sum of all the values of that variable divided by the number of values - also written as:</p>
+<p><span class="math display">\[\overline{x} = \frac{\sum_i^n x_i}{n}\]</span>.</p>
+<p>So the mean of x (i.e. HeadSize) is:</p>
+<p><span class="math display">\[\overline{x} = \frac{50.8 + 63.5 +  45.7  + 25.4  + 29.2  + 49.5  + 38.1  + 30.5  + 35.6  + 58.4}{10}\]</span></p>
+<p>Which reduces to:</p>
+<p><span class="math display">\[\overline{x} = \frac{426.7}{10} = 42.67\]</span></p>
+<p>And if we repeat the same procedure for y (i.e. IQ), we get:</p>
+<p><span class="math display">\[\overline{y} = \frac{107 + 121 +  106  + 72  + 85  + 105  + 93  + 88  + 97  + 123}{10}\]</span></p>
+<p>Which reduces to:</p>
+<p><span class="math display">\[\overline{y} = \frac{997}{10} = 99.7\]</span></p>
+<p>Ok great so we now have enough information to start filling in the covariance formula. First, however, before looking at it for all participants, let's look at this part, <span class="math inline">\((x_i - \overline{x})(y_i - \overline{y})\)</span>, for one participant just to make sure we understand what we are doing. And one thing to remember is that two sets of parentheses (i.e. brackets) side-by-side like that means to multiply them together. So, if we take Participant 1, then we see that:</p>
+<ul>
+<li>The mean of x is <span class="math inline">\(\overline{x} = 42.67\)</span>
+</li>
+<li>The mean of y is <span class="math inline">\(\overline{y} = 99.7\)</span>
+</li>
+<li>They have a HeadSize (x) of <span class="math inline">\(x_1\)</span> = 50.8</li>
+<li>They have an IQ (y) of <span class="math inline">\(y_1\)</span> = 107</li>
+<li>And note that we are now saying <span class="math inline">\(x_1\)</span> and <span class="math inline">\(y_1\)</span>, and no longer <span class="math inline">\(x_i\)</span> and <span class="math inline">\(y_i\)</span>, because we know we are specifically dealing with the 1<sup>st</sup> Participant. If it was the 2<sup>nd</sup> Participants we would write <span class="math inline">\(x_2\)</span> and <span class="math inline">\(y_2\)</span>, and the 8<sup>th</sup> would be <span class="math inline">\(x_8\)</span> and <span class="math inline">\(y_8\)</span>, etc</li>
+</ul>
+<p>Putting all that into the formula for Participant 1 (P<sub>1</sub>) would give us:</p>
+<p>P<sub>1</sub> = <span class="math inline">\((x_1 - \overline{x})(y_1 - \overline{y}) = (50.8 - 42.67)\times(107 - 99.7) = 8.13 \times 7.3 = 59.349\)</span></p>
+<p>and we can do that for all participants which would look like:</p>
+<ul>
+<li>P<sub>2</sub> = <span class="math inline">\((x_2 - \overline{x})(y_2 - \overline{y}) = (63.5 - 42.67)\times(121 - 99.7) = 20.83\times21.3 = 443.679\)</span>
+</li>
+<li>P<sub>3</sub> = <span class="math inline">\((x_3 - \overline{x})(y_3 - \overline{y}) = (45.7 - 42.67)\times(106 - 99.7) = 3.03\times6.3 = 19.089\)</span>
+</li>
+<li>P<sub>4</sub> = <span class="math inline">\((x_4 - \overline{x})(y_4 - \overline{y}) = (25.4 - 42.67)\times(72 - 99.7) = -17.27\times-27.7 = 478.379\)</span>
+</li>
+<li>P<sub>5</sub> = <span class="math inline">\((x_5 - \overline{x})(y_5 - \overline{y}) = (29.2 - 42.67)\times(85 - 99.7) = -13.47\times-14.7 = 198.009\)</span>
+</li>
+<li>P<sub>6</sub> = <span class="math inline">\((x_6 - \overline{x})(y_6 - \overline{y}) = (49.5 - 42.67)\times(105 - 99.7) = 6.83\times5.3 = 36.199\)</span>
+</li>
+<li>P<sub>7</sub> = <span class="math inline">\((x_7 - \overline{x})(y_7 - \overline{y}) = (38.1 - 42.67)\times(93 - 99.7) = -4.57\times-6.7 = 30.619\)</span>
+</li>
+<li>P<sub>8</sub> = <span class="math inline">\((x_8 - \overline{x})(y_8 - \overline{y}) = (30.5 - 42.67)\times(88 - 99.7) = -12.17\times-11.7 = 142.389\)</span>
+</li>
+<li>P<sub>9</sub> = <span class="math inline">\((x_9 - \overline{x})(y_9 - \overline{y}) = (35.6 - 42.67)\times(97 - 99.7) = -7.07\times-2.7 = 19.089\)</span>
+</li>
+<li>P<sub>10</sub> = <span class="math inline">\((x_10 - \overline{x})(y_10 - \overline{y}) = (58.4 - 42.67)\times(123 - 99.7) = 15.73\times23.3 = 366.509\)</span>
+</li>
+</ul>
+<p>And if we remember that the <span class="math inline">\(\sum_i^n\)</span> part of the formula means that the formula, for this example with 10 participants, is really</p>
+<p><span class="math display">\[cov(x,y) = \frac{(x_1 - \overline{x})(y_1 - \overline{y})+(x_2 - \overline{x})(y_2 - \overline{y})+(x_3 - \overline{x})(y_3 - \overline{y})+(x_4 - \overline{x})(y_4 - \overline{y})+\\(x_5 - \overline{x})(y_5 - \overline{y})+(x_6 - \overline{x})(y_6 - \overline{y})+(x_7 - \overline{x})(y_7 - \overline{y})+(x_8 - \overline{x})(y_8 - \overline{y})+\\(x_9 - \overline{x})(y_9 - \overline{y})+(x_{10} - \overline{x})(y_{10} - \overline{y})}{n-1}\]</span></p>
+<p>Then that becomes:</p>
+<p><span class="math display">\[cov(x,y) = \frac{((50.8 - 42.67)\times(107 - 99.7)) + ((63.5 - 42.67)\times(121 - 99.7)) +\\ ((45.7 - 42.67)\times(106 - 99.7)) + ((25.4 - 42.67)\times(72 - 99.7)) +\\ ((29.2 - 42.67)\times(85 - 99.7)) + ((49.5 - 42.67)\times(105 - 99.7)) + \\((38.1 - 42.67)\times(93 - 99.7)) + ((30.5 - 42.67)\times(88 - 99.7)) + \\((35.6 - 42.67)\times(97 - 99.7)) + ((58.4 - 42.67)\times(123 - 99.7))}{n-1}\]</span></p>
+<p>and, remembering the rules of BODMAS/PEMDAS, reduces to:</p>
+<p><span class="math display">\[cov(x,y) = \frac{59.349 + 443.679 + 19.089 + 478.379 + 198.009\\+ 36.199 + 30.619 + 142.389 + 19.089 + 366.509}{n-1}\]</span></p>
+<p>And all these values match the value we calculated above, so we know that is correct. Then if we know n = 10 as that is the number of participants, and so the bottom of the formula becomes n = 10 - 1 = 9, we can reduce all of the above to:</p>
+<p><span class="math display">\[cov(x,y) = \frac{1793.31}{9}\]</span></p>
+<p>Leaving us with a covariance between HeadSize (<span class="math inline">\(x\)</span>) and IQ (<span class="math inline">\(y\)</span>) of:</p>
+<p><span class="math display">\[cov(x,y) = 199.2566667\]</span></p>
+<p>Great! Now if we look back at the formula for the Pearson correlation, we see:</p>
+<p><span class="math display">\[r_{(x,y)} = \frac{cov(x,y)}{\sigma_{x}\sigma_{y}}\]</span></p>
+<p>So the covariance of x and y, divided by the product (multiply them together) of the standard deviation of x <span class="math inline">\(\sigma_{x}\)</span> (pronounced sigma-x) and the standard deviation of y <span class="math inline">\(\sigma_{y}\)</span> (pronounced sigma-y). Remember that <span class="math inline">\(\sigma\)</span> can also be written as <span class="math inline">\(S\)</span> or <span class="math inline">\(SD\)</span> and is the symbol for the Standard Deviation and that <span class="math inline">\(\sigma^2\)</span> (pronounced sigma-squared) is the symbol for the variance. So in reality, the pearson correlation between Head Size and IQ is written as:</p>
+<p><span class="math display">\[r_{(HeadSize,IQ)} = \frac{cov(HeadSize,IQ)}{\sigma_{HeadSize}\times\sigma_{IQ}}\]</span></p>
+<p>And if we known from above that <span class="math inline">\(cov(HeadSize, IQ)\)</span> = 199.26 (to two decimal places), now all we need is the standard deviation of Headsize (<span class="math inline">\(\sigma_{HeadSize}\)</span>) and the standard deviation of IQ (<span class="math inline">\(\sigma_{IQ}\)</span>).</p>
+<p>We cover standard deviation calculations in the Descriptives chapter, but to briefly recap, the formula is:</p>
+<p><span class="math display">\[\sigma = \sqrt\frac{\sum_i^n(x_{i} - \overline{x})^2}{n-1}\]</span></p>
+<p>Which for HeadSize would look like:</p>
+<p><span class="math display">\[\sigma_{HeadSize} = \sqrt\frac{(50.8 - 42.67)^2 + (63.5 - 42.67)^2 +(45.7 - 42.67)^2 +(25.4 - 42.67)^2 +\\(29.2 - 42.67)^2 +(49.5 - 42.67)^2 +(38.1 - 42.67)^2 +(30.5 - 42.67)^2 +\\(35.6 - 42.67)^2 +(58.4 - 42.67)^2}{10-1}\]</span></p>
+<p>Which reduces to:</p>
+<p><span class="math display">\[\sigma_{HeadSize} = \sqrt\frac{66.0969 + 433.8889 +9.1809 +298.2529 +\\181.4409 +46.6489 +20.8849 +148.1089 +\\49.9849 +247.4329 }{9}\]</span></p>
+<p>Giving us:</p>
+<p><span class="math display">\[\sigma_{HeadSize} = \sqrt\frac{1501.921}{9} = \sqrt{166.8801111} = 12.9182085\]</span></p>
+<p>And if we repeat that process for the standard deviation of IQ (<span class="math inline">\(\sigma_{IQ}\)</span>) then it would be:</p>
+<p><span class="math display">\[\sigma_{IQ} = \sqrt\frac{(107 - 99.7)^2 + (121 - 99.7)^2 +(106 - 99.7)^2 +(72 - 99.7)^2 +(85 - 99.7)^2 +\\(105 - 99.7)^2 +(93 - 99.7)^2 +(88 - 99.7)^2 +(97 - 99.7)^2 +(123 - 99.7)^2}{10-1}\]</span></p>
+<p>Which reduces to:</p>
+<p><span class="math display">\[\sigma_{IQ} = \sqrt\frac{53.29 + 453.69 +39.69 +767.29 +216.09 +\\28.09 +44.89 +136.89 +7.29 +542.89 }{9}\]</span></p>
+<p>Giving us:</p>
+<p><span class="math display">\[\sigma_{IQ} = \sqrt\frac{2290.1}{9} = \sqrt{254.4555556} = 15.9516631\]</span></p>
+<p>And so if we know the following,</p>
+<ul>
+<li>
+<span class="math inline">\(cov(x,y)\)</span> = <span class="math inline">\(cov(HeadSpace, IQ)\)</span> = 199.26</li>
+<li>
+<span class="math inline">\(\sigma_{x}\)</span> = <span class="math inline">\(\sigma_{HeadSpace}\)</span> = 12.92</li>
+<li>
+<span class="math inline">\(\sigma_{y}\)</span> = <span class="math inline">\(\sigma_{IQ}\)</span> = 15.95</li>
+</ul>
+<p>Then our correlation value is:</p>
+<p><span class="math display">\[\begin{align*}
+r_{(HeadSize,IQ)} &amp;= \frac{cov(HeadSize,IQ)}{\sigma_{HeadSize}\times\sigma_{IQ}} \\ \\ &amp;= \frac{199.26}{12.92 \times 15.95} \\ \\ &amp;= \frac{199.26}{206.074} \\ \\ &amp;= 0.9669342
+\end{align*}\]</span></p>
+<p>Meaning that we would have a correlation value of, to three decimal places, <span class="math inline">\(r\)</span> = 0.967, which, following Cohen's (1988) proposed cut-offs shown below, would be considered to show a strong positive relationship. Remember that these cut-offs are just guides so a value just below a cut-off, e.g. r = .48, would probably be described as, for example, a strong positive relationship.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">Relationship Description (Cohen, 1988)</th>
+<th align="center">r-value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">Strong positive relationship</td>
+<td align="center">r = .5</td>
+</tr>
+<tr class="even">
+<td align="right">Medium positive relationship</td>
+<td align="center">r = .3</td>
+</tr>
+<tr class="odd">
+<td align="right">Weak positive relationship</td>
+<td align="center">r = .1</td>
+</tr>
+<tr class="even">
+<td align="right">No relationship</td>
+<td align="center">r = 0</td>
+</tr>
+<tr class="odd">
+<td align="right">Weak negative relationship</td>
+<td align="center">r = -.1</td>
+</tr>
+<tr class="even">
+<td align="right">Medium negative relationship</td>
+<td align="center">r = -.3</td>
+</tr>
+<tr class="odd">
+<td align="right">Strong negative relationship</td>
+<td align="center">r = -.5</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Degrees of Freedom</strong></p>
+<p>Great! Now, finally, to determine significance we first need the degrees of freedom for the test. The degrees of freedom formula is:</p>
+<p><span class="math display">\[df = N - 2\]</span></p>
+<p>And we already know that <span class="math inline">\(N= 10\)</span> and putting them into the equation we get:</p>
+<p><span class="math display">\[df = 10 - 2\]</span></p>
+<p>Which reduces to:</p>
+<p><span class="math display">\[df = 8\]</span></p>
+<p>Meaning that we find a <span class="math inline">\(df = 8\)</span></p>
+<p><strong>Writing up</strong></p>
+<p>The standard APA format for writing up a Pearson correlation is usually:</p>
+<p align="center">
+<strong>r(df) = r-value, p = p-value</strong>
+</p>
+<p>From above we know the df and we know the r-value and what we need now is the significance.</p>
+<p><strong>Determining Significance</strong></p>
+<p>If we were to look at a critical values look-up table for <span class="math inline">\(df = 8\)</span> and <span class="math inline">\(\alpha = .05\)</span>, we would see that the critical value is <span class="math inline">\(r_{crit} = 0.632\)</span>. Given that our r-value, ignoring polarity and just looking at the absolute value, so <span class="math inline">\(r = 0.967\)</span>, is equal to or larger than our <span class="math inline">\(r_{crit}\)</span> then we can say our result is significant, and as such would be written up as r(8) = 0.967, p &lt; .05.</p>
+<p><strong>Remember:</strong> If you were writing this up as a report, and analysed the data in R, then you would see the p-value was actually p = 0.000005014954, and would be written up as p &lt; .001</p>
+</div>
+<div id="look-up-table-3" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Look-Up table<a class="anchor" aria-label="anchor" href="#look-up-table-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>Remembering that the <span class="math inline">\(r_{crit}\)</span> value is the smallest r-value you need to find a significant effect, find the <span class="math inline">\(r_{crit}\)</span> value for your df, assuming <span class="math inline">\(\alpha = .05\)</span>. If the <span class="math inline">\(r\)</span>-value you calculated is equal to or larger than <span class="math inline">\(r_{crit}\)</span> value then your test is significant.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">df</th>
+<th align="center"><span class="math inline">\(\alpha = .05\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">0.997</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">0.95</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">0.878</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">0.811</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">0.754</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">0.707</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">0.666</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">0.632</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">0.602</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">0.576</td>
+</tr>
+<tr class="odd">
+<td align="center">15</td>
+<td align="center">0.482</td>
+</tr>
+<tr class="even">
+<td align="center">20</td>
+<td align="center">0.423</td>
+</tr>
+<tr class="odd">
+<td align="center">30</td>
+<td align="center">0.349</td>
+</tr>
+<tr class="even">
+<td align="center">40</td>
+<td align="center">0.304</td>
+</tr>
+<tr class="odd">
+<td align="center">50</td>
+<td align="center">0.273</td>
+</tr>
+<tr class="even">
+<td align="center">60</td>
+<td align="center">0.25</td>
+</tr>
+<tr class="odd">
+<td align="center">70</td>
+<td align="center">0.232</td>
+</tr>
+<tr class="even">
+<td align="center">80</td>
+<td align="center">0.217</td>
+</tr>
+<tr class="odd">
+<td align="center">90</td>
+<td align="center">0.205</td>
+</tr>
+<tr class="even">
+<td align="center">100</td>
+<td align="center">0.195</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><script>
+$( document ).ready(function() {
+  var cite = ' ';
+  var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
+  var license = ' <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>';
+
+  $("footer div.row div:eq(1) p").html(
+    psyteachr + license + cite
+  );
+  
+  // open rdrr links externally
+  $("a[href^='https://rdrr.io']").click(function(){
+    window.open(this.href);
+    return false;
+  });
+  
+  // visible second sidebar in mobile
+  function move_sidebar() {
+    var w = window.innerWidth;
+    if (w < 992) {
+      $("#toc").appendTo($("#main-nav"));
+    } else {
+      $("#toc").appendTo($("div.sidebar-chapter"));
+    }
+  }
+  move_sidebar();
+  window.onresize = move_sidebar;
+});
+</script><div class="chapter-nav">
+<div class="prev"><a href="within-subjects-t-test.html"><span class="header-section-number">8</span> Within-Subjects t-test</a></div>
+<div class="next"><a href="spearman-correlation.html"><span class="header-section-number">10</span> Spearman Correlation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pearson-correlation"><span class="header-section-number">9</span> Pearson Correlation</a></li>
+<li><a class="nav-link" href="#the-worked-example-5"><span class="header-section-number">9.1</span> The Worked Example</a></li>
+<li><a class="nav-link" href="#look-up-table-3"><span class="header-section-number">9.2</span> Look-Up table</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/04-correlation-b.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/04-correlation-b.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>A Handy Workbook for Research Methods &amp; Statistics</strong>" was written by Phil McAleer. It was last built on Last Update: 2022-01-24.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

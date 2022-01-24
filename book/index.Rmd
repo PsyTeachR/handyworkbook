@@ -31,7 +31,9 @@ knitr::write_bib(c(
 
 # Overview {-}
 
-<img src="images/HW.png" style="width: 200px; float: right;">
+
+<div class="small_right"><img src="images/HW.png" 
+     alt="ADS Hex Logo" /></div>
 
 **PLEASE NOTE THIS BOOK IS IN EARLY STAGES OF DEVELOPMENT AND WILL BE ADDED TO AND MAY VERY WELL CURRENTLY CONTAIN MISTAKES**
 

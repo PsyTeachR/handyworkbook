@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 2 Interval Estimates | A Handy Workbook for Research Methods &amp; Statistics</title>
+<title>Chapter 10 Spearman Correlation | A Handy Workbook for Research Methods &amp; Statistics</title>
 <meta name="author" content="Phil McAleer">
-<meta name="description" content="We have so far looked at descriptives that take your whole dataset and summarise the center point of the data - point estimates - and whilst that is useful, it does not really tell you that much...">
+<meta name="description" content="The Spearman correlation otherwise known as the Spearman rank correlation coefficient measures the relationship between two variables when that relationship is monotonic. It can be used for...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 2 Interval Estimates | A Handy Workbook for Research Methods &amp; Statistics">
+<meta property="og:title" content="Chapter 10 Spearman Correlation | A Handy Workbook for Research Methods &amp; Statistics">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/interval-estimates.html">
+<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/spearman-correlation.html">
 <meta property="og:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
-<meta property="og:description" content="We have so far looked at descriptives that take your whole dataset and summarise the center point of the data - point estimates - and whilst that is useful, it does not really tell you that much...">
+<meta property="og:description" content="The Spearman correlation otherwise known as the Spearman rank correlation coefficient measures the relationship between two variables when that relationship is monotonic. It can be used for...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 2 Interval Estimates | A Handy Workbook for Research Methods &amp; Statistics">
-<meta name="twitter:description" content="We have so far looked at descriptives that take your whole dataset and summarise the center point of the data - point estimates - and whilst that is useful, it does not really tell you that much...">
+<meta name="twitter:title" content="Chapter 10 Spearman Correlation | A Handy Workbook for Research Methods &amp; Statistics">
+<meta name="twitter:description" content="The Spearman correlation otherwise known as the Spearman rank correlation coefficient measures the relationship between two variables when that relationship is monotonic. It can be used for...">
 <meta name="twitter:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -55,7 +55,7 @@
 <li><a class="" href="foreword.html">Foreword</a></li>
 <li class="book-part">Descriptives</li>
 <li><a class="" href="point-estimates.html"><span class="header-section-number">1</span> Point Estimates</a></li>
-<li><a class="active" href="interval-estimates.html"><span class="header-section-number">2</span> Interval Estimates</a></li>
+<li><a class="" href="interval-estimates.html"><span class="header-section-number">2</span> Interval Estimates</a></li>
 <li><a class="" href="a-full-descriptive.html"><span class="header-section-number">3</span> A full descriptive</a></li>
 <li class="book-part">Chi-Squares</li>
 <li><a class="" href="one-sample-chi-square.html"><span class="header-section-number">4</span> One-Sample Chi-Square</a></li>
@@ -66,7 +66,7 @@
 <li><a class="" href="within-subjects-t-test.html"><span class="header-section-number">8</span> Within-Subjects t-test</a></li>
 <li class="book-part">Correlations</li>
 <li><a class="" href="pearson-correlation.html"><span class="header-section-number">9</span> Pearson Correlation</a></li>
-<li><a class="" href="spearman-correlation.html"><span class="header-section-number">10</span> Spearman Correlation</a></li>
+<li><a class="active" href="spearman-correlation.html"><span class="header-section-number">10</span> Spearman Correlation</a></li>
 <li class="book-part">Linear Regression</li>
 <li><a class="" href="simple-linear-regression.html"><span class="header-section-number">11</span> Simple Linear Regression</a></li>
 <li class="book-part">ANOVAs</li>
@@ -87,37 +87,18 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="interval-estimates" class="section level1" number="2">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="spearman-correlation" class="section level1" number="10">
 <h1>
-<span class="header-section-number">2</span> Interval Estimates<a class="anchor" aria-label="anchor" href="#interval-estimates"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10</span> Spearman Correlation<a class="anchor" aria-label="anchor" href="#spearman-correlation"><i class="fas fa-link"></i></a>
 </h1>
-<p>We have so far looked at descriptives that take your whole dataset and summarise the center point of the data - <strong>point estimates</strong> - and whilst that is useful, it does not really tell you that much about your distribution. A more information aspect of your distribution to look at is the spread of the distribution - how wide is your data and what values do most of your data fall between. Here we will look at four measures of spread. They are:</p>
-<ol style="list-style-type: decimal">
-<li>The Range</li>
-<li>The Interquartile Range</li>
-<li>The Variance</li>
-<li>The Standard Deviation</li>
-</ol>
-<div id="the-range" class="section level2" number="2.1">
+<p><strong>The Spearman correlation</strong> otherwise known as the Spearman rank correlation coefficient measures the relationship between two variables when that relationship is monotonic. It can be used for relationships that are linear or non-linear.</p>
+<p>As in the Pearson Correlation, the Spearman correlation measures the covariance between two variables, or the shared variance, and then standardises that measure between the values of -1 and 1 with -1 being the perfect negative relationship and 1 being the perfect positive relationship.</p>
+<p>The key difference between the Spearman Correlation and the Pearson Correlation is that the Spearman Correlation is based on the rank order of data - i.e. the raw data is converted to ordinal ranks.</p>
+<p>If all of the ranks within each variable are unique - i.e. there are no <a class="glossary" title="when two or more values/observations within a variable are identical and assume the same rank order value">tied ranks</a> - then the formula for the Spearman Correlation is as follows:</p>
+<p><span class="math display">\[\rho = 1 - \frac{6 \times \sum{d_i^2}}{n(n^2-1)}\]</span></p>
+<div id="section-glossary-3" class="section level2" number="10.1">
 <h2>
-<span class="header-section-number">2.1</span> The Range<a class="anchor" aria-label="anchor" href="#the-range"><i class="fas fa-link"></i></a>
-</h2>
-<p>The Range is the most basic and least informative measure of the spread of your data as really it only tells you the distance between the largest value and the smallest value in your data set. You never really see the formula for the range but it can be written as:</p>
-<p><span class="math display">\[Range(X) = max(X) - min(X)\]</span>
-And is read as the maximum value in your dataset (<span class="math inline">\(max(X)\)</span>) minus the minimum value in your dataset (<span class="math inline">\(min(X)\)</span>). So if we look at our driving data again:</p>
-<p><span class="math display">\[7, 1, 2, 6, 3, 4, 3, 4, 3, 4, 5, 4, 7, 5, 6, 5, 5, 4, 5, 6, 5, 6, 3, 2, 5\]</span>
-Then we can see that our largest value here is 7 and the smallest value is 1, so if we put those into our formula we get:</p>
-<p><span class="math display">\[Range(X) = max(X) - min(X) = 7 - 1 = 6\]</span>
-Meaning that this dataset has a range of <strong>Range = 6</strong>. It is worth pointing out that it doesn't matter how many people have the largest value or the smallest value for that matter, just that those are the smallest and largest values.</p>
-<p>The range however can be deceptive as it is heavily influenced by <a class="glossary" target="_blank" title="A data point that is extremely distant from most of the other data points" href="https://psyteachr.github.io/glossary/o#outlier">outliers</a>. Look at this data for example:</p>
-<p><span class="math display">\[7, 1, 2, 6, 3, 4, 3, 4, 3, 4, 5, 4, 30, 5, 6, 5, 5, 4, 5, 6, 5, 6, 3, 2, 5\]</span>
-Here we can see that our largest value here is 30 and the smallest value is 1, so if we put those into our formula we get:</p>
-<p><span class="math display">\[Range(X) = max(X) - min(X) = 30 - 1 = 29\]</span></p>
-<p>Meaning that this dataset has a range of <strong>Range = 29</strong> which probably doesn't really reflect the spread of the data that well as only one data point is really large. That is why the range is informative to state but not that great for doing analyses on.</p>
-</div>
-<div id="section-glossary-1" class="section level2" number="2.2">
-<h2>
-<span class="header-section-number">2.2</span> Section glossary<a class="anchor" aria-label="anchor" href="#section-glossary-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1</span> Section glossary<a class="anchor" aria-label="anchor" href="#section-glossary-3"><i class="fas fa-link"></i></a>
 </h2>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr>
@@ -130,13 +111,35 @@ definition
 </tr></thead>
 <tbody><tr>
 <td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/o.html#outlier" class="glossary" target="_blank">outlier</a>
+<a href="https://psyteachr.github.io/glossary/t.html#tied-ranks" class="glossary" target="_blank">tied ranks</a>
 </td>
 <td style="text-align:left;">
-A data point that is extremely distant from most of the other data points
+when two or more values/observations within a variable are identical and assume the same rank order value
 </td>
 </tr></tbody>
 </table></div>
+</div>
+</div>
+
+
+
+<div class="chapter-nav">
+<div class="prev"><a href="pearson-correlation.html"><span class="header-section-number">9</span> Pearson Correlation</a></div>
+<div class="next"><a href="simple-linear-regression.html"><span class="header-section-number">11</span> Simple Linear Regression</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#spearman-correlation"><span class="header-section-number">10</span> Spearman Correlation</a></li>
+<li><a class="nav-link" href="#section-glossary-3"><span class="header-section-number">10.1</span> Section glossary</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/04-correlation-c.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/04-correlation-c.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
 </div>
 </div>
 <script>
@@ -337,28 +340,10 @@ $( document ).ready(function() {
   move_sidebar();
   window.onresize = move_sidebar;
 });
-</script><div class="chapter-nav">
-<div class="prev"><a href="point-estimates.html"><span class="header-section-number">1</span> Point Estimates</a></div>
-<div class="next"><a href="a-full-descriptive.html"><span class="header-section-number">3</span> A full descriptive</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#interval-estimates"><span class="header-section-number">2</span> Interval Estimates</a></li>
-<li><a class="nav-link" href="#the-range"><span class="header-section-number">2.1</span> The Range</a></li>
-<li><a class="nav-link" href="#section-glossary-1"><span class="header-section-number">2.2</span> Section glossary</a></li>
-</ul>
-
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/01-descriptives-c.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/01-descriptives-c.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
-</div>
-    </nav>
-</div>
+</script>
 
 </div>
-</div> <!-- .container -->
+ <!-- .container -->
 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
