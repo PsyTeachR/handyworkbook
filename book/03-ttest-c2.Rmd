@@ -1,0 +1,55 @@
+# Between-Subjects Welch's t-test
+
+**between-subjects Welch's t-test:** Compare two groups or conditions where the participants are different in each group and have not been matched or are only matched on broad demographics, e.g. only age.
+
+## The Worked Example
+
+```{r we, echo = FALSE}
+set.seed(1410)
+
+mx <- runif(1, 0, 100) %>% round2(2)
+sdx <- runif(1, 0, 5) %>% round2(2)
+N <- seq(10, 100, 2) %>% sample(1)
+
+dat <- tibble(Group = rep(c("A","B"), each = N/2),
+              scores = rnorm(N, mx, sdx)) %>%
+  mutate(scores = scores + rep(c(0,2), each = N/2))
+
+desc <- dat %>% 
+  group_by(Group) %>%
+  summarise(Npg = n(),
+            Means = mean(scores) %>% round2(2),
+            SDs = sd(scores) %>% round2(2),
+            Variance = var(scores) %>% round2(2),
+            `Standard Err.` = (SDs/sqrt(Npg)) %>% round2(2))
+
+sdp <- sqrt((((N/2 - 1) * desc$SDs[1]^2) + ((N/2 - 1) * desc$SDs[2]^2))/(N/2 + N/2 - 2))
+
+t.value <- ((desc$Means[1] - desc$Means[2])/(sdp * sqrt(((1/(N/2)) + (1/(N/2)))))) %>% round2(2)            
+
+cohensd <- ((2* t.value)/sqrt(N-2)) %>% round2(2)
+
+results <- t.test(dat %>% filter(Group == "A") %>% pull(scores), 
+                  dat %>% filter(Group == "B") %>% pull(scores), 
+                  var.equal = TRUE) %>% 
+  tidy() %>%
+  mutate(cohensd_t = (2*statistic)/sqrt(parameter))
+```
+
+Here is your data:
+
+```{r, echo = FALSE}
+desc %>% 
+  select(-Variance, -`Standard Err.`) %>% 
+  rename(N = Npg, Mean = Means, SD = SDs) %>%
+  knitr::kable(align = "c")
+```
+
+Let's look at the main t-test formula for Welch's t-test:
+
+$$t = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}$$
+
+**Degrees of Freedom**
+
+$$df = \frac{\left(\frac{s^2_{x_1}}{n_1}+\frac{s^2_{x_2}}{n_2}\right)^2}{\frac{\left(\frac{s^2_{x_1}}{n_1}\right)^2}{n_1 - 1}+\frac{\left(\frac{s^2_{x_2}}{n_2}\right)^2}{n_2 - 1}}$$
+
