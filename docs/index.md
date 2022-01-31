@@ -1,6 +1,6 @@
 --- 
 title: "A Handy Workbook for Research Methods & Statistics"
-date: "Last Update: 2022-01-24"
+date: "Last Update: 2022-01-31"
 author: "Phil McAleer" 
 site: bookdown::bookdown_site
 documentclass: book
@@ -38,3 +38,5 @@ favicon: images/logos/favicon.ico
 **R Version:** This book has been written with R version 4.1.1 (2021-08-10)
 
 **Randomising Seed:** In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.
+
+**Citation:** <a href="https://zenodo.org/badge/latestdoi/319282623"><img src="https://zenodo.org/badge/319282623.svg" alt="DOI"></a>

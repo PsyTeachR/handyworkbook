@@ -46,3 +46,5 @@ knitr::write_bib(c(
 **R Version:** This book has been written with `r R.version.string`
 
 **Randomising Seed:** In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.
+
+**Citation:** <a href="https://zenodo.org/badge/latestdoi/319282623"><img src="https://zenodo.org/badge/319282623.svg" alt="DOI"></a>
