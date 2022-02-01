@@ -36,7 +36,7 @@ n_b <- desc %>% filter(Group == "B") %>% pull(Npg)
 
 results <- t.test(dat %>% filter(Group == "A") %>% pull(scores), 
                   dat %>% filter(Group == "B") %>% pull(scores), 
-                  var.equal = TRUE) %>% 
+                  var.equal = FALSE) %>% 
   tidy() %>%
   mutate(cohensd_t = (2*statistic)/sqrt(parameter))
 ```
