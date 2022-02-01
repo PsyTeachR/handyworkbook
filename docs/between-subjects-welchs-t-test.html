@@ -146,8 +146,53 @@ B
 </table></div>
 <p>Let's look at the main t-test formula for Welch's t-test:</p>
 <p><span class="math display">\[t = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}\]</span></p>
+<p>Now, from the table above we know:</p>
+<ul>
+<li>the mean of Group A is <span class="math inline">\(\bar{X_1} = 25.58\)</span>,</li>
+<li>the mean of Group B is <span class="math inline">\(\bar{X_2} = 29.07\)</span>,</li>
+<li>the N of Group A is <span class="math inline">\(N_1 = 18\)</span>,</li>
+<li>and the N of Group B is <span class="math inline">\(N_2 = 18\)</span>
+</li>
+</ul>
+<p>From the table above we also know the standard deviation (<span class="math inline">\(s_1\)</span> = 2.25 and <span class="math inline">\(s_2\)</span> = 2.53) of the two groups, but the Welch's t-test formula uses the variance of both groups (<span class="math inline">\(s_1^2\)</span> and <span class="math inline">\(s_2^2\)</span>). Fortunately, if you know the standard deviation of a set of values, you can calculate the variance by the formula:</p>
+<p><span class="math display">\[variance = SD \times SD\]</span></p>
+<p>Meaning that:</p>
+<ul>
+<li>the variance of Group A, <span class="math inline">\(s_1^2 = 2.25 \times 2.25\)</span> = 5.0625</li>
+<li>and the variance of Group B, <span class="math inline">\(s_2^2 = 2.53 \times 2.53\)</span> = 6.4009</li>
+</ul>
+<p>And we can now start to fill in the t-test formula as follows:</p>
+<p><span class="math display">\[t = \frac{25.58 - 29.07}{\sqrt{\frac{5.0625}{18}+\frac{6.4009}{18}}}\]</span></p>
+<p><span class="math display">\[t = \frac{25.58 - 29.07}{\sqrt{0.28125+0.3556056}}\]</span>
+<span class="math display">\[t = \frac{25.58 - 29.07}{\sqrt{0.6368556}}\]</span></p>
+<p><span class="math display">\[t = \frac{25.58 - 29.07}{0.7980323}\]</span></p>
+<p><span class="math display">\[t = \frac{-3.49}{0.7980323}\]</span></p>
+<p><span class="math display">\[t = -4.3732566\]</span></p>
 <p><strong>Degrees of Freedom</strong></p>
-<p><span class="math display">\[df = \frac{\left(\frac{s^2_{x_1}}{n_1}+\frac{s^2_{x_2}}{n_2}\right)^2}{\frac{\left(\frac{s^2_{x_1}}{n_1}\right)^2}{n_1 - 1}+\frac{\left(\frac{s^2_{x_2}}{n_2}\right)^2}{n_2 - 1}}\]</span></p>
+<p><span class="math display">\[df = \frac{\left(\frac{s^2_{x_1}}{n_1}+\frac{s^2_{x_2}}{n_2}\right)^2}{\frac{\left(\frac{s^2_{x_1}}{n_1}\right)^2}{n_1 - 1}+\frac{\left(\frac{s^2_{x_2}}{n_2}\right)^2}{n_2 - 1}}\]</span>
+And we know from above that:</p>
+<ul>
+<li>the variance of Group A, <span class="math inline">\(s^2_{x_1} = 5.0625\)</span>
+</li>
+<li>the variance of Group B, <span class="math inline">\(s^2_{x_2} = 6.4009\)</span>
+</li>
+<li>the N of Group A, <span class="math inline">\(n_1 = 18\)</span>
+</li>
+<li>and the N of Group B, <span class="math inline">\(n_1 = 18\)</span>
+</li>
+</ul>
+<p>And we can start to fill that in as follows:</p>
+<p><span class="math display">\[df = \frac{\left(\frac{5.0625}{18}+\frac{6.4009}{18}\right)^2}{\frac{\left(\frac{5.0625}{18}\right)^2}{18 - 1}+\frac{\left(\frac{6.4009}{18}\right)^2}{18 - 1}}\]</span></p>
+<p><span class="math display">\[df = \frac{\left(\frac{5.0625}{18}+\frac{6.4009}{18}\right)^2}{\frac{\left(0.28125\right)^2}{18 - 1}+\frac{\left(\frac{6.4009}{18}\right)^2}{18 - 1}}\]</span>
+<span class="math display">\[df = \frac{\left(\frac{5.0625}{18}+\frac{6.4009}{18}\right)^2}{\frac{\left(0.28125\right)^2}{18 - 1}+\frac{\left(0.3556056\right)^2}{18 - 1}}\]</span></p>
+<p><span class="math display">\[df = \frac{\left(\frac{5.0625}{18}+\frac{6.4009}{18}\right)^2}{\frac{\left(0.28125\right)^2}{17}+\frac{\left(0.3556056\right)^2}{17}}\]</span>
+<span class="math display">\[df = \frac{\left(0.28125+0.3556056\right)^2}{\frac{\left(0.28125\right)^2}{17}+\frac{\left(0.3556056\right)^2}{17}}\]</span></p>
+<p><span class="math display">\[df = \frac{0.6368556^2}{\frac{\left(0.28125\right)^2}{17}+\frac{\left(0.3556056\right)^2}{17}}\]</span></p>
+<p><span class="math display">\[df = \frac{0.405585}{\frac{\left(0.28125\right)^2}{17}+\frac{\left(0.3556056\right)^2}{17}}\]</span>
+<span class="math display">\[df = \frac{0.405585}{\frac{0.0791016}{17}+\frac{0.1264553}{17}}\]</span></p>
+<p><span class="math display">\[df = \frac{0.405585}{0.004653+0.0074385}\]</span></p>
+<p><span class="math display">\[df = \frac{0.405585}{0.0120916}\]</span></p>
+<p><span class="math display">\[df = 33.5427605\]</span></p>
 
 </div>
 </div>
@@ -374,7 +419,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>A Handy Workbook for Research Methods &amp; Statistics</strong>" was written by Phil McAleer. It was last built on Last Update: 2022-01-31.</p>
+    <p>"<strong>A Handy Workbook for Research Methods &amp; Statistics</strong>" was written by Phil McAleer. It was last built on Last Update: 2022-02-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

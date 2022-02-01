@@ -23,15 +23,20 @@ desc <- dat %>%
             Variance = var(scores) %>% round2(2),
             `Standard Err.` = (SDs/sqrt(Npg)) %>% round2(2))
 
-sdp <- sqrt((((N/2 - 1) * desc$SDs[1]^2) + ((N/2 - 1) * desc$SDs[2]^2))/(N/2 + N/2 - 2))
+m_a <- desc %>% filter(Group == "A") %>% pull(Means)
+m_b <- desc %>% filter(Group == "B") %>% pull(Means)
+sd_a <- desc %>% filter(Group == "A") %>% pull(SDs)
+sd_b <- desc %>% filter(Group == "B") %>% pull(SDs)
+var_a <- sd_a^2
+var_b <- sd_b^2
+n_a <- desc %>% filter(Group == "A") %>% pull(Npg)
+n_b <- desc %>% filter(Group == "B") %>% pull(Npg)
 
-t.value <- ((desc$Means[1] - desc$Means[2])/(sdp * sqrt(((1/(N/2)) + (1/(N/2)))))) %>% round2(2)            
-
-cohensd <- ((2* t.value)/sqrt(N-2)) %>% round2(2)
+#cohensd <- ((2* t.value)/sqrt(N-2)) %>% round2(2)
 
 results <- t.test(dat %>% filter(Group == "A") %>% pull(scores), 
                   dat %>% filter(Group == "B") %>% pull(scores), 
-                  var.equal = TRUE) %>% 
+                  var.equal = FALSE) %>% 
   tidy() %>%
   mutate(cohensd_t = (2*statistic)/sqrt(parameter))
 ```
@@ -49,7 +54,63 @@ Let's look at the main t-test formula for Welch's t-test:
 
 $$t = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}$$
 
+Now, from the table above we know:
+
+* the mean of Group A is $\bar{X_1} = `r desc %>% filter(Group == "A") %>% pull(Means)`$, 
+* the mean of Group B is $\bar{X_2} = `r desc %>% filter(Group == "B") %>% pull(Means)`$, 
+* the N of Group A is $N_1 = `r desc %>% filter(Group == "A") %>% pull(Npg)`$, 
+* and the N of Group B is $N_2 = `r desc %>% filter(Group == "B") %>% pull(Npg)`$
+
+From the table above we also know the standard deviation ($s_1$ = `r desc %>% filter(Group == "A") %>% pull(SDs)` and $s_2$ = `r desc %>% filter(Group == "B") %>% pull(SDs)`) of the two groups, but the Welch's t-test formula uses the variance of both groups ($s_1^2$ and $s_2^2$). Fortunately, if you know the standard deviation of a set of values, you can calculate the variance by the formula:
+
+$$variance = SD \times SD$$
+
+Meaning that:
+
+* the variance of Group A, $s_1^2 = `r desc %>% filter(Group == "A") %>% pull(SDs)` \times `r desc %>% filter(Group == "A") %>% pull(SDs)`$ = `r desc %>% filter(Group == "A") %>% pull(SDs) *  desc %>% filter(Group == "A") %>% pull(SDs)`
+* and the variance of Group B, $s_2^2 = `r desc %>% filter(Group == "B") %>% pull(SDs)` \times `r desc %>% filter(Group == "B") %>% pull(SDs)`$ = `r desc %>% filter(Group == "B") %>% pull(SDs) *  desc %>% filter(Group == "B") %>% pull(SDs)`
+
+And we can now start to fill in the t-test formula as follows:
+
+$$t = \frac{`r m_a` - `r m_b`}{\sqrt{\frac{`r var_a`}{`r n_a`}+\frac{`r var_b`}{`r n_b`}}}$$
+
+$$t = \frac{`r m_a` - `r m_b`}{\sqrt{`r var_a/n_a`+`r var_b/n_b`}}$$
+$$t = \frac{`r m_a` - `r m_b`}{\sqrt{`r (var_a/n_a) + (var_b/n_b)`}}$$
+
+$$t = \frac{`r m_a` - `r m_b`}{`r sqrt((var_a/n_a) + (var_b/n_b))`}$$
+
+$$t = \frac{`r m_a - m_b`}{`r sqrt((var_a/n_a) + (var_b/n_b))`}$$
+
+$$t = `r (m_a - m_b)/(sqrt((var_a/n_a) + (var_b/n_b)))`$$
+
+
 **Degrees of Freedom**
 
 $$df = \frac{\left(\frac{s^2_{x_1}}{n_1}+\frac{s^2_{x_2}}{n_2}\right)^2}{\frac{\left(\frac{s^2_{x_1}}{n_1}\right)^2}{n_1 - 1}+\frac{\left(\frac{s^2_{x_2}}{n_2}\right)^2}{n_2 - 1}}$$
+And we know from above that:
 
+* the variance of Group A, $s^2_{x_1} = `r var_a`$
+* the variance of Group B, $s^2_{x_2} = `r var_b`$
+* the N of Group A, $n_1 = `r n_a`$
+* and the N of Group B, $n_1 = `r n_b`$
+
+And we can start to fill that in as follows:
+
+$$df = \frac{\left(\frac{`r var_a`}{`r n_a`}+\frac{`r var_b`}{`r n_b`}\right)^2}{\frac{\left(\frac{`r var_a`}{`r n_a`}\right)^2}{`r n_a` - 1}+\frac{\left(\frac{`r var_b`}{`r n_b`}\right)^2}{`r n_b` - 1}}$$
+
+$$df = \frac{\left(\frac{`r var_a`}{`r n_a`}+\frac{`r var_b`}{`r n_b`}\right)^2}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a` - 1}+\frac{\left(\frac{`r var_b`}{`r n_b`}\right)^2}{`r n_b` - 1}}$$
+$$df = \frac{\left(\frac{`r var_a`}{`r n_a`}+\frac{`r var_b`}{`r n_b`}\right)^2}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a` - 1}+\frac{\left(`r var_b/n_b`\right)^2}{`r n_b` - 1}}$$
+
+$$df = \frac{\left(\frac{`r var_a`}{`r n_a`}+\frac{`r var_b`}{`r n_b`}\right)^2}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a - 1`}+\frac{\left(`r var_b/n_b`\right)^2}{`r n_b - 1`}}$$
+$$df = \frac{\left(`r var_a/n_a`+`r var_b/n_b`\right)^2}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a - 1`}+\frac{\left(`r var_b/n_b`\right)^2}{`r n_b - 1`}}$$
+
+$$df = \frac{`r (var_a/n_a) + (var_b/n_b)`^2}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a - 1`}+\frac{\left(`r var_b/n_b`\right)^2}{`r n_b - 1`}}$$
+
+$$df = \frac{`r ((var_a/n_a)+(var_b/n_b))^2`}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a - 1`}+\frac{\left(`r var_b/n_b`\right)^2}{`r n_b - 1`}}$$
+$$df = \frac{`r ((var_a/n_a)+(var_b/n_b))^2`}{\frac{`r (var_a/n_a)^2`}{`r n_a - 1`}+\frac{`r (var_b/n_b)^2`}{`r n_b - 1`}}$$
+
+$$df = \frac{`r ((var_a/n_a)+(var_b/n_b))^2`}{`r ((var_a/n_a)^2)/(n_a - 1)`+`r ((var_b/n_b)^2)/(n_b - 1)`}$$
+
+$$df = \frac{`r ((var_a/n_a)+(var_b/n_b))^2`}{`r (((var_a/n_a)^2)/(n_a - 1))+ (((var_b/n_b)^2)/(n_b - 1))`}$$
+
+$$df = `r (((var_a/n_a)+(var_b/n_b))^2)/((((var_a/n_a)^2)/(n_a - 1))+ (((var_b/n_b)^2)/(n_b - 1)))`$$
