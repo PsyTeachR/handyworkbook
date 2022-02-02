@@ -101,7 +101,1001 @@
 <p>As in the Pearson Correlation, the Spearman correlation measures the covariance between two variables, or the shared variance, and then standardises that measure between the values of -1 and 1 with -1 being the perfect negative relationship and 1 being the perfect positive relationship.</p>
 <p>The key difference between the Spearman Correlation and the Pearson Correlation is that the Spearman Correlation is based on the rank order of data - i.e. the raw data is converted to ordinal ranks.</p>
 <p>If all of the ranks within each variable are unique - i.e. there are no <a class="glossary" title="when two or more values/observations within a variable are identical and assume the same rank order value">tied ranks</a> - then the formula for the Spearman Correlation is as follows:</p>
+<p><span class="math display">\[\rho = 1 - \frac{6 \times \sum{d_i^2}}{n(n^2-1)}\]</span>
+Let's start with a rather simple dataset of 10 participants measured on two scales, A and B. Here is our data:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+a
+</th>
+<th style="text-align:right;">
+b
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>And to orientate ourselves a little, the table shows Participant 1 scored 11 for scale A and 20 for scale B, and Participant 2 scored 12 for scale A and 19 for scale B.</p>
+<p><strong>Ranking data</strong></p>
+<p>The first step in this analysis is to convert the data in both scales into their respective rank order starting from the smallest value in each scale. For example, the smallest value would get the rank of 1, the second smallest value would get the rank of 2, and so on and so on. If we do that with our data in scale A, we get the following:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+a
+</th>
+<th style="text-align:right;">
+a_rank
+</th>
+<th style="text-align:right;">
+b
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>And then do the same for the scores in scale b, again starting from the smallest value and giving it a rank of 1, and so on. This would look like:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+a
+</th>
+<th style="text-align:right;">
+a_rank
+</th>
+<th style="text-align:right;">
+b
+</th>
+<th style="text-align:right;">
+b_rank
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>Now we have both scales in their respective rank orders, we can now calculate <span class="math inline">\(d\)</span>, each individual participants difference between their ranks on the two scales. For example, with Participant 1, they have a rank of 1 on scale A, and a rank of 10 on scale B. This would give them a <span class="math inline">\(d\)</span> of 1 - 10 = -9</p>
+<p>If we do that for all the participants we then get:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+a
+</th>
+<th style="text-align:right;">
+a_rank
+</th>
+<th style="text-align:right;">
+b
+</th>
+<th style="text-align:right;">
+b_rank
+</th>
+<th style="text-align:right;">
+d
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+-9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+-7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+-5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+-3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+-1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>And finally we want to square each of those individual values to give us a <span class="math inline">\(d^2\)</span> for each participant. For example, Participant 1, with a value of d =-9, would have a <span class="math inline">\(d^2\)</span> of -9 <span class="math inline">\(\times\)</span> -9 = 81</p>
+<p>And if we do that for all the participants we then get:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+a
+</th>
+<th style="text-align:right;">
+b
+</th>
+<th style="text-align:right;">
+a_rank
+</th>
+<th style="text-align:right;">
+b_rank
+</th>
+<th style="text-align:right;">
+d
+</th>
+<th style="text-align:right;">
+d^2
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+-9
+</td>
+<td style="text-align:right;">
+81
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+-7
+</td>
+<td style="text-align:right;">
+49
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+-5
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+-3
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+-1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+49
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+81
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>Now that we have calculated <span class="math inline">\(d^2\)</span> for each participant we can sum them altogether to give us <span class="math inline">\(\sum{d_i^2}\)</span> as follows:</p>
+<p><span class="math display">\[\sum{d_i^2} = 81 + 49 + 25 + 9 + 1 + 1+ 9 + 25 + 49 + 81\]</span></p>
+<p>Which gives us:</p>
+<p><span class="math display">\[\sum{d_i^2} = 330\]</span></p>
+<p><strong>The Correlation</strong></p>
+<p>We can now return to our formula:</p>
 <p><span class="math display">\[\rho = 1 - \frac{6 \times \sum{d_i^2}}{n(n^2-1)}\]</span></p>
+<p>And we know that:</p>
+<ul>
+<li><span class="math inline">\(\sum{d_i^2} = 330\)</span></li>
+<li>and <span class="math inline">\(n = 10\)</span>
+</li>
+</ul>
+<p>Which we can then put into our formula giving:</p>
+<p><span class="math display">\[\rho = 1 - \frac{6 \times 330}{10(10^2-1)}\]</span></p>
+<p>If we resolve the square in the bottom half of the formula, that gives:</p>
+<p><span class="math display">\[\rho = 1 - \frac{6 \times 330}{10(100-1)}\]</span></p>
+<p>And then subtract the 1, giving:</p>
+<p><span class="math display">\[\rho = 1 - \frac{6 \times 330}{10(99)}\]</span>
+Now the bottom half can really be read as:</p>
+<p><span class="math display">\[\rho = 1 - \frac{6 \times 330}{10 \times (99)}\]</span></p>
+<p>Which, when we do the multiplication on the bottom half, gives us:</p>
+<p><span class="math display">\[\rho = 1 - \frac{6 \times 330}{990}\]</span></p>
+<p>And if we then do the multiplication on the top half, we get:</p>
+<p><span class="math display">\[\rho = 1 - \frac{1980}{990}\]</span></p>
+<p>We then divide the top half by the bottom half to give us:</p>
+<p><span class="math display">\[\rho = 1 - 2\]</span></p>
+<p>And we do the final subtraction, leaving us:</p>
+<p><span class="math display">\[\rho = -1\]</span>
+Meaning that we have a spearman rho of <span class="math inline">\(\rho = -1\)</span></p>
 <div id="section-glossary-3" class="section level2" number="11.1">
 <h2>
 <span class="header-section-number">11.1</span> Section glossary<a class="anchor" aria-label="anchor" href="#section-glossary-3"><i class="fas fa-link"></i></a>
