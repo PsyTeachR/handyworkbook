@@ -27,11 +27,11 @@ favicon: images/logos/favicon.ico
 <div class="small_right"><img src="images/HW.png" 
      alt="ADS Hex Logo" /></div>
 
-**PLEASE NOTE THIS BOOK IS IN EARLY STAGES OF DEVELOPMENT AND WILL BE ADDED TO AND MAY VERY WELL CURRENTLY CONTAIN MISTAKES**
-
 **Authors:** Phil McAleer
 
 **Aim:** A Handy Workbook to help students understand Research Methods and Statistics through worked examples and self-tests.
+
+**Note:** This book is still in development and any issues or suggestions can be sent to the below email or logged as an issue on the [Github repository](https://github.com/PsyTeachR/handyworkbook){target="_blank"}
 
 **Contact:** This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact [Phil McAleer](mailto:philip.mcaleer@glasgow.ac.uk).
 

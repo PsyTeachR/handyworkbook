@@ -163,12 +163,19 @@ B
 </ul>
 <p>And we can now start to fill in the t-test formula as follows:</p>
 <p><span class="math display">\[t = \frac{25.58 - 29.07}{\sqrt{\frac{5.0625}{18}+\frac{6.4009}{18}}}\]</span></p>
-<p><span class="math display">\[t = \frac{25.58 - 29.07}{\sqrt{0.28125+0.3556056}}\]</span>
-<span class="math display">\[t = \frac{25.58 - 29.07}{\sqrt{0.6368556}}\]</span></p>
+<p>Let's start by resolving the fractions on the bottom half of the formula by dividing the variance of each group by the number of participants in each group:</p>
+<p><span class="math display">\[t = \frac{25.58 - 29.07}{\sqrt{0.28125+0.3556056}}\]</span></p>
+<p>And we can then add them together:</p>
+<p><span class="math display">\[t = \frac{25.58 - 29.07}{\sqrt{0.6368556}}\]</span></p>
+<p>Then take the square root of that value to give us one value on the bottom half of the formula:</p>
 <p><span class="math display">\[t = \frac{25.58 - 29.07}{0.7980323}\]</span></p>
+<p>And we can then resolve the top half of the formula by taking one mean from the other:</p>
 <p><span class="math display">\[t = \frac{-3.49}{0.7980323}\]</span></p>
-<p><span class="math display">\[t = -4.3732566\]</span></p>
+<p>And finally, dividing the top by the bottom to give us a t-value:</p>
+<p><span class="math display">\[t = -4.3732566\]</span>
+Meaning that we would have a t-value, rounded to two decimal places, of <span class="math inline">\(t = -4.37\)</span></p>
 <p><strong>Degrees of Freedom</strong></p>
+<p>The degrees of freedom formula for the Welch's between-subjects t-test is actually a little bit complicated as shown below. However, as with anything, once you break it down it is ok and really you only need the variance of both groups and the number of people in both groups. It just requires you to be very careful of the order that you do the different parts.</p>
 <p><span class="math display">\[df = \frac{\left(\frac{s^2_{x_1}}{n_1}+\frac{s^2_{x_2}}{n_2}\right)^2}{\frac{\left(\frac{s^2_{x_1}}{n_1}\right)^2}{n_1 - 1}+\frac{\left(\frac{s^2_{x_2}}{n_2}\right)^2}{n_2 - 1}}\]</span>
 And we know from above that:</p>
 <ul>
@@ -182,18 +189,231 @@ And we know from above that:</p>
 </li>
 </ul>
 <p>And we can start to fill that in as follows:</p>
-<p><span class="math display">\[df = \frac{\left(\frac{5.0625}{18}+\frac{6.4009}{18}\right)^2}{\frac{\left(\frac{5.0625}{18}\right)^2}{18 - 1}+\frac{\left(\frac{6.4009}{18}\right)^2}{18 - 1}}\]</span></p>
+<p><span class="math display">\[df = \frac{\left(\frac{5.0625}{18}+\frac{6.4009}{18}\right)^2}{\frac{\left(\frac{5.0625}{18}\right)^2}{18 - 1}+\frac{\left(\frac{6.4009}{18}\right)^2}{18 - 1}}\]</span>
+So let's do this slowly and reduce one of the fractions by dividing the variance of the first group by the number of people in that group.</p>
 <p><span class="math display">\[df = \frac{\left(\frac{5.0625}{18}+\frac{6.4009}{18}\right)^2}{\frac{\left(0.28125\right)^2}{18 - 1}+\frac{\left(\frac{6.4009}{18}\right)^2}{18 - 1}}\]</span>
-<span class="math display">\[df = \frac{\left(\frac{5.0625}{18}+\frac{6.4009}{18}\right)^2}{\frac{\left(0.28125\right)^2}{18 - 1}+\frac{\left(0.3556056\right)^2}{18 - 1}}\]</span></p>
+And now we do the same for the second group:</p>
+<p><span class="math display">\[df = \frac{\left(\frac{5.0625}{18}+\frac{6.4009}{18}\right)^2}{\frac{\left(0.28125\right)^2}{18 - 1}+\frac{\left(0.3556056\right)^2}{18 - 1}}\]</span></p>
+<p>We could also reduce the formula a little by dealing with both <span class="math inline">\(n-1\)</span> in the bottom half of the formula:</p>
 <p><span class="math display">\[df = \frac{\left(\frac{5.0625}{18}+\frac{6.4009}{18}\right)^2}{\frac{\left(0.28125\right)^2}{17}+\frac{\left(0.3556056\right)^2}{17}}\]</span>
-<span class="math display">\[df = \frac{\left(0.28125+0.3556056\right)^2}{\frac{\left(0.28125\right)^2}{17}+\frac{\left(0.3556056\right)^2}{17}}\]</span></p>
-<p><span class="math display">\[df = \frac{0.6368556^2}{\frac{\left(0.28125\right)^2}{17}+\frac{\left(0.3556056\right)^2}{17}}\]</span></p>
-<p><span class="math display">\[df = \frac{0.405585}{\frac{\left(0.28125\right)^2}{17}+\frac{\left(0.3556056\right)^2}{17}}\]</span>
-<span class="math display">\[df = \frac{0.405585}{\frac{0.0791016}{17}+\frac{0.1264553}{17}}\]</span></p>
+And now maybe reduce the top half of the formula by again dividing the variance of the first group by the number of people in that group, and then doing the same for the second group.</p>
+<p><span class="math display">\[df = \frac{\left(0.28125+0.3556056\right)^2}{\frac{\left(0.28125\right)^2}{17}+\frac{\left(0.3556056\right)^2}{17}}\]</span></p>
+<p>So now let's stick to the top half and add the two values together:</p>
+<p><span class="math display">\[df = \frac{0.6368556^2}{\frac{\left(0.28125\right)^2}{17}+\frac{\left(0.3556056\right)^2}{17}}\]</span>
+And then square that value:</p>
+<p><span class="math display">\[df = \frac{0.405585}{\frac{\left(0.28125\right)^2}{17}+\frac{\left(0.3556056\right)^2}{17}}\]</span></p>
+<p>Then looking back at the bottom half of the formula we can reduce it a bit by squaring the two values:</p>
+<p><span class="math display">\[df = \frac{0.405585}{\frac{0.0791016}{17}+\frac{0.1264553}{17}}\]</span></p>
+<p>And now we resolve the fractions in the bottom half by dividing the top part by the bottom part for each group:</p>
 <p><span class="math display">\[df = \frac{0.405585}{0.004653+0.0074385}\]</span></p>
+<p>We then add those two values on the bottom part of the formula together:</p>
 <p><span class="math display">\[df = \frac{0.405585}{0.0120916}\]</span></p>
-<p><span class="math display">\[df = 33.5427605\]</span></p>
-
+<p>And finally divide the top half of the formula by the bottom half to get the degrees of freedom:</p>
+<p><span class="math display">\[df = 33.5427605\]</span>
+Meaning that we would have a df, rounded to two decimal places, of <span class="math inline">\(df = 33.54\)</span></p>
+<p><strong>Effect Size</strong></p>
+<p>And finally Cohen's d, the effect size:</p>
+<p><span class="math display">\[d = \frac{2t}{\sqrt{df}}\]</span></p>
+<p>Which, based on the info above, we know:</p>
+<ul>
+<li>the t-value is <span class="math inline">\(t = -4.37\)</span>
+</li>
+<li>and the degrees of freedom is <span class="math inline">\(df = 33.54\)</span>
+</li>
+</ul>
+<p>And putting that in the formula we get:</p>
+<p><span class="math display">\[d = \frac{2 \times -4.37}{\sqrt{33.54}}\]</span></p>
+<p>So if we resolve the square-root first we get:</p>
+<p><span class="math display">\[d = \frac{2 \times -4.37}{5.7913729}\]</span></p>
+<p>And then work through the top half:</p>
+<p><span class="math display">\[d = \frac{-8.74}{5.7913729}\]</span></p>
+<p>And divide the top by the bottom:</p>
+<p><span class="math display">\[d = -1.5091413\]</span></p>
+<p>Meaning that we have a cohen's d, rounded to two decimal places, of d = -1.51</p>
+<p><strong>Determining Significance</strong></p>
+<p>If we were to look at a critical values look-up table for <span class="math inline">\(df = 33.54\)</span> and <span class="math inline">\(\alpha = .05\)</span>, we would see that the critical value is <span class="math inline">\(t_{crit} = 2.033\)</span>. Given that our t-value, ignoring polarity and just looking at the absolute value, so <span class="math inline">\(t = 4.37\)</span>, is equal to or larger than our <span class="math inline">\(t_{crit}\)</span> then we can say our result is significant, and as such could be written up as t(33.54) = -4.37, p &lt; .05, d = -1.51.</p>
+</div>
+<div id="look-up-table-2" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> Look-Up table<a class="anchor" aria-label="anchor" href="#look-up-table-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Remembering that the <span class="math inline">\(t_{crit}\)</span> value is the smallest t-value you need to find a significant effect, find the <span class="math inline">\(t_{crit}\)</span> for your df, assuming <span class="math inline">\(\alpha = .05\)</span>.</p>
+<ul>
+<li>If the <span class="math inline">\(df\)</span> of your test is not on the look-up table, use the next smallest <span class="math inline">\(df\)</span>. For example, if your test has <span class="math inline">\(df = 37\)</span> and your table only has <span class="math inline">\(df = 30\)</span> or <span class="math inline">\(df = 40\)</span>, you would use <span class="math inline">\(df = 30\)</span>.</li>
+<li>If the <span class="math inline">\(t\)</span> value you calculated is equal to or larger than <span class="math inline">\(t_{crit}\)</span> then your test is significant.</li>
+</ul>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:right;">
+df
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\alpha = .05\)</span>
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+12.706
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4.303
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3.182
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2.776
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2.571
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2.447
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+2.365
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+2.306
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+2.262
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+2.228
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+2.131
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+2.086
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+2.042
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+2.021
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+2.009
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+2.000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+1.994
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:right;">
+1.990
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:right;">
+1.987
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+1.984
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 </div>
 <script>
@@ -402,6 +622,7 @@ $( document ).ready(function() {
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#between-subjects-welchs-t-test"><span class="header-section-number">8</span> Between-Subjects Welch's t-test</a></li>
 <li><a class="nav-link" href="#the-worked-example-4"><span class="header-section-number">8.1</span> The Worked Example</a></li>
+<li><a class="nav-link" href="#look-up-table-2"><span class="header-section-number">8.2</span> Look-Up table</a></li>
 </ul>
 
       <div class="book-extra">
