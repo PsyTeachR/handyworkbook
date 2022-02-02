@@ -252,7 +252,7 @@ Here we are going to try out a few examples based on the above. First we will us
 
 
 
-* To two decimal places, what would be the predicted value of IQ if the HeadSize was 37.8? <div class='webex-radiogroup' id='radio_FMQLOJQWDA'><label><input type="radio" autocomplete="off" name="radio_FMQLOJQWDA" value="answer"></input> <span>93.88</span></label><label><input type="radio" autocomplete="off" name="radio_FMQLOJQWDA" value=""></input> <span>120.51</span></label><label><input type="radio" autocomplete="off" name="radio_FMQLOJQWDA" value=""></input> <span>119.67</span></label></div>
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 37.8? <div class='webex-radiogroup' id='radio_LXXAMTPBIU'><label><input type="radio" autocomplete="off" name="radio_LXXAMTPBIU" value=""></input> <span>120.51</span></label><label><input type="radio" autocomplete="off" name="radio_LXXAMTPBIU" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_LXXAMTPBIU" value="answer"></input> <span>93.88</span></label></div>
 
 
 
@@ -282,7 +282,7 @@ Giving a predicted value of $\hat{Y}$ = 93.88, to two decimal places.
 
 
 
-* To two decimal places, what would be the predicted value of IQ if the HeadSize was 24.2? <div class='webex-radiogroup' id='radio_YQTJTSLTGK'><label><input type="radio" autocomplete="off" name="radio_YQTJTSLTGK" value="answer"></input> <span>93.88</span></label><label><input type="radio" autocomplete="off" name="radio_YQTJTSLTGK" value=""></input> <span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_YQTJTSLTGK" value=""></input> <span>119.67</span></label></div>
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 24.2? <div class='webex-radiogroup' id='radio_WDPZWWRDDD'><label><input type="radio" autocomplete="off" name="radio_WDPZWWRDDD" value="answer"></input> <span>93.88</span></label><label><input type="radio" autocomplete="off" name="radio_WDPZWWRDDD" value=""></input> <span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_WDPZWWRDDD" value=""></input> <span>119.67</span></label></div>
 
 
 
@@ -311,7 +311,7 @@ Giving a predicted value of $\hat{Y}$ = 77.64, to two decimal places.
 
 
 
-* To two decimal places, what would be the predicted value of IQ if the HeadSize was 52.9? <div class='webex-radiogroup' id='radio_EOBJHKATRG'><label><input type="radio" autocomplete="off" name="radio_EOBJHKATRG" value="answer"></input> <span>120.51</span></label><label><input type="radio" autocomplete="off" name="radio_EOBJHKATRG" value=""></input> <span>111.91</span></label><label><input type="radio" autocomplete="off" name="radio_EOBJHKATRG" value=""></input> <span>119.67</span></label></div>
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 52.9? <div class='webex-radiogroup' id='radio_WRBTCYSXHH'><label><input type="radio" autocomplete="off" name="radio_WRBTCYSXHH" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_WRBTCYSXHH" value=""></input> <span>111.91</span></label><label><input type="radio" autocomplete="off" name="radio_WRBTCYSXHH" value="answer"></input> <span>120.51</span></label></div>
 
 
 
@@ -339,7 +339,7 @@ Giving a predicted value of $\hat{Y}$ = 111.91, to two decimal places.
 </div>
 
 
-* To two decimal places, what would be the predicted value of IQ if the HeadSize was 48.4? <div class='webex-radiogroup' id='radio_XGJDYZONKZ'><label><input type="radio" autocomplete="off" name="radio_XGJDYZONKZ" value="answer"></input> <span>106.54</span></label><label><input type="radio" autocomplete="off" name="radio_XGJDYZONKZ" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_XGJDYZONKZ" value=""></input> <span>77.64</span></label></div>
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 48.4? <div class='webex-radiogroup' id='radio_WJVYNSNORB'><label><input type="radio" autocomplete="off" name="radio_WJVYNSNORB" value=""></input> <span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_WJVYNSNORB" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_WJVYNSNORB" value="answer"></input> <span>106.54</span></label></div>
 
 
 

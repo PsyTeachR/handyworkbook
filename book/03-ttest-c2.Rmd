@@ -32,7 +32,10 @@ var_b <- sd_b^2
 n_a <- desc %>% filter(Group == "A") %>% pull(Npg)
 n_b <- desc %>% filter(Group == "B") %>% pull(Npg)
 
-#cohensd <- ((2* t.value)/sqrt(N-2)) %>% round2(2)
+df <- round2((((var_a/n_a)+(var_b/n_b))^2)/((((var_a/n_a)^2)/(n_a - 1))+ (((var_b/n_b)^2)/(n_b - 1))),2)
+tval <- round2((m_a - m_b)/(sqrt((var_a/n_a) + (var_b/n_b))),2)
+
+cohensd <- ((2* tval)/sqrt(df)) %>% round2(2)
 
 results <- t.test(dat %>% filter(Group == "A") %>% pull(scores), 
                   dat %>% filter(Group == "B") %>% pull(scores), 
@@ -74,17 +77,30 @@ And we can now start to fill in the t-test formula as follows:
 
 $$t = \frac{`r m_a` - `r m_b`}{\sqrt{\frac{`r var_a`}{`r n_a`}+\frac{`r var_b`}{`r n_b`}}}$$
 
+Let's start by resolving the fractions on the bottom half of the formula by dividing the variance of each group by the number of participants in each group:
+
 $$t = \frac{`r m_a` - `r m_b`}{\sqrt{`r var_a/n_a`+`r var_b/n_b`}}$$
+
+And we can then add them together:
+
 $$t = \frac{`r m_a` - `r m_b`}{\sqrt{`r (var_a/n_a) + (var_b/n_b)`}}$$
+
+Then take the square root of that value to give us one value on the bottom half of the formula:
 
 $$t = \frac{`r m_a` - `r m_b`}{`r sqrt((var_a/n_a) + (var_b/n_b))`}$$
 
+And we can then resolve the top half of the formula by taking one mean from the other:
+
 $$t = \frac{`r m_a - m_b`}{`r sqrt((var_a/n_a) + (var_b/n_b))`}$$
 
-$$t = `r (m_a - m_b)/(sqrt((var_a/n_a) + (var_b/n_b)))`$$
+And finally, dividing the top by the bottom to give us a t-value:
 
+$$t = `r (m_a - m_b)/(sqrt((var_a/n_a) + (var_b/n_b)))`$$
+Meaning that we would have a t-value, rounded to two decimal places, of $t = `r tval`$
 
 **Degrees of Freedom**
+
+The degrees of freedom formula for the Welch's between-subjects t-test is actually a little bit complicated as shown below. However, as with anything, once you break it down it is ok and really you only need the variance of both groups and the number of people in both groups. It just requires you to be very careful of the order that you do the different parts.
 
 $$df = \frac{\left(\frac{s^2_{x_1}}{n_1}+\frac{s^2_{x_2}}{n_2}\right)^2}{\frac{\left(\frac{s^2_{x_1}}{n_1}\right)^2}{n_1 - 1}+\frac{\left(\frac{s^2_{x_2}}{n_2}\right)^2}{n_2 - 1}}$$
 And we know from above that:
@@ -97,20 +113,94 @@ And we know from above that:
 And we can start to fill that in as follows:
 
 $$df = \frac{\left(\frac{`r var_a`}{`r n_a`}+\frac{`r var_b`}{`r n_b`}\right)^2}{\frac{\left(\frac{`r var_a`}{`r n_a`}\right)^2}{`r n_a` - 1}+\frac{\left(\frac{`r var_b`}{`r n_b`}\right)^2}{`r n_b` - 1}}$$
+So let's do this slowly and reduce one of the fractions by dividing the variance of the first group by the number of people in that group.
 
 $$df = \frac{\left(\frac{`r var_a`}{`r n_a`}+\frac{`r var_b`}{`r n_b`}\right)^2}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a` - 1}+\frac{\left(\frac{`r var_b`}{`r n_b`}\right)^2}{`r n_b` - 1}}$$
+And now we do the same for the second group:
+
 $$df = \frac{\left(\frac{`r var_a`}{`r n_a`}+\frac{`r var_b`}{`r n_b`}\right)^2}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a` - 1}+\frac{\left(`r var_b/n_b`\right)^2}{`r n_b` - 1}}$$
 
+We could also reduce the formula a little by dealing with both $n-1$ in the bottom half of the formula:
+
 $$df = \frac{\left(\frac{`r var_a`}{`r n_a`}+\frac{`r var_b`}{`r n_b`}\right)^2}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a - 1`}+\frac{\left(`r var_b/n_b`\right)^2}{`r n_b - 1`}}$$
+And now maybe reduce the top half of the formula by again dividing the variance of the first group by the number of people in that group, and then doing the same for the second group.
+
 $$df = \frac{\left(`r var_a/n_a`+`r var_b/n_b`\right)^2}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a - 1`}+\frac{\left(`r var_b/n_b`\right)^2}{`r n_b - 1`}}$$
 
+So now let's stick to the top half and add the two values together:
+
 $$df = \frac{`r (var_a/n_a) + (var_b/n_b)`^2}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a - 1`}+\frac{\left(`r var_b/n_b`\right)^2}{`r n_b - 1`}}$$
+And then square that value:
 
 $$df = \frac{`r ((var_a/n_a)+(var_b/n_b))^2`}{\frac{\left(`r var_a/n_a`\right)^2}{`r n_a - 1`}+\frac{\left(`r var_b/n_b`\right)^2}{`r n_b - 1`}}$$
+
+Then looking back at the bottom half of the formula we can reduce it a bit by squaring the two values:
+
 $$df = \frac{`r ((var_a/n_a)+(var_b/n_b))^2`}{\frac{`r (var_a/n_a)^2`}{`r n_a - 1`}+\frac{`r (var_b/n_b)^2`}{`r n_b - 1`}}$$
+
+And now we resolve the fractions in the bottom half by dividing the top part by the bottom part for each group:
 
 $$df = \frac{`r ((var_a/n_a)+(var_b/n_b))^2`}{`r ((var_a/n_a)^2)/(n_a - 1)`+`r ((var_b/n_b)^2)/(n_b - 1)`}$$
 
+We then add those two values on the bottom part of the formula together:
+
 $$df = \frac{`r ((var_a/n_a)+(var_b/n_b))^2`}{`r (((var_a/n_a)^2)/(n_a - 1))+ (((var_b/n_b)^2)/(n_b - 1))`}$$
 
+And finally divide the top half of the formula by the bottom half to get the degrees of freedom:
+
 $$df = `r (((var_a/n_a)+(var_b/n_b))^2)/((((var_a/n_a)^2)/(n_a - 1))+ (((var_b/n_b)^2)/(n_b - 1)))`$$
+Meaning that we would have a df, rounded to two decimal places, of $df = `r df`$
+
+**Effect Size**
+
+And finally Cohen's d, the effect size:
+
+$$d = \frac{2t}{\sqrt{df}}$$
+
+Which, based on the info above, we know:
+
+* the t-value is $t = `r tval`$
+* and the degrees of freedom is $df = `r df`$
+
+And putting that in the formula we get:
+
+$$d = \frac{2 \times `r tval`}{\sqrt{`r df`}}$$
+
+So if we resolve the square-root first we get:
+
+$$d = \frac{2 \times `r tval`}{`r sqrt(df)`}$$
+
+And then work through the top half:
+
+$$d = \frac{`r 2*tval`}{`r sqrt(df)`}$$
+
+And divide the top by the bottom:
+
+$$d = `r 2*tval/sqrt(df)`$$
+
+Meaning that we have a cohen's d, rounded to two decimal places, of d = `r cohensd`
+
+**Determining Significance**
+
+```{r welch-val1, echo=FALSE}
+df <- round2((((var_a/n_a)+(var_b/n_b))^2)/((((var_a/n_a)^2)/(n_a - 1))+ (((var_b/n_b)^2)/(n_b - 1))),2)
+tval <- round2((m_a - m_b)/(sqrt((var_a/n_a) + (var_b/n_b))),2)
+tcrit <- qt(1-.975, df, lower.tail = FALSE) %>% round2(3)
+
+```
+  
+If we were to look at a critical values look-up table for $df = `r df`$ and $\alpha = .05$, we would see that the critical value is $t_{crit} = `r tcrit`$. Given that our t-value, ignoring polarity and just looking at the absolute value, so $t = `r abs(tval)`$, is `r ifelse(abs(tval) >= tcrit, "equal to or larger than", "smaller than")` our $t_{crit}$ then we can say our result is `r ifelse(abs(tval) >= tcrit, "significant", "not significant")`, and as such could be written up as t(`r df`) = `r tval`, `r ifelse(abs(tval) >= tcrit, "p < .05", "p > .05")`, d = `r cohensd`. 
+
+## Look-Up table
+
+Remembering that the $t_{crit}$ value is the smallest t-value you need to find a significant effect, find the $t_{crit}$ for your df, assuming $\alpha = .05$. 
+
+* If the $df$ of your test is not on the look-up table, use the next smallest $df$. For example, if your test has $df = 37$ and your table only has $df = 30$ or $df = 40$, you would use $df = 30$.
+* If the $t$ value you calculated is equal to or larger than $t_{crit}$ then your test is significant. 
+
+```{r, echo = FALSE, results='asis'}
+tibble(df = c(1:10, 15, seq(20, 100, 10))) %>%
+  mutate(alpha = map_dbl(df, ~qt(1-.975, .x, lower.tail = FALSE)),
+         alpha = round2(alpha, 3)) %>%
+  knitr::kable(digits = 3, col.names = c("df", "$\\alpha = .05$"))
+```
