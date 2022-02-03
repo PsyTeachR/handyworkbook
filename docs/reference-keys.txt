@@ -12,11 +12,13 @@ test-yourself---the-mode
 section-glossary
 interval-estimates
 the-range
+test-yourself---range
 variance
 standard-deviation
 var-to-sd
 sd-to-var
 z-scores
+test-yourself---z-scores
 standard-error-of-the-mean
 confidence-intervals
 test-yourself---95-confidence-intervals

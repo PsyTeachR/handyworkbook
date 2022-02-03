@@ -7,6 +7,12 @@ We have so far looked at descriptives that take your whole dataset and summarise
 3. The Variance
 4. The Standard Deviation
 
+In addition, we will look at:
+
+* z-scores
+* Standard Error of the Mean
+* Confidence Intervals
+
 ## The Range
 
 
@@ -34,10 +40,15 @@ $$Range(X) = max(X) - min(X) = 30 - 1 = 29$$
 
 Meaning that this dataset has a range of **Range = 29** which probably doesn't really reflect the spread of the data that well as only one data point is really large. That is why the range is informative to state but not that great for doing analyses on.
 
+### Test Yourself - Range
 
 
 
-### Variance
+* DataSet1: $5, 4, 3, 1, 5, 4, 3, 3, 5, 1, 3, 3, 5, 4, 2$
+
+1. What is the range of Dataset1: <select class='webex-select'><option value='blank'></option><option value=''>3</option><option value=''>5</option><option value='answer'>4</option></select>
+
+## Variance
 
 The symbol for the variance is generally written as $s^2$ (pronounced as sigma-squared) but can also be written as $Var$. The formula for the variance is:
 
@@ -71,7 +82,7 @@ $$s^2 = 3.1222222$$
 
 Showing that the variance, rounded to two decimal places, is **$s^2 = 3.12$**
 
-### Standard Deviation
+## Standard Deviation
 
 The symbol for the standard deviation is generally written as $s$ (pronounced as sigma) but can also be written as $SD$. The formula for the standard deviation is:
 
@@ -130,7 +141,7 @@ giving us:
 
 $$s^2 = 3.1222222$$
 
-### z-scores
+## z-scores
 
 Any value on a continuous scale can be converted to a z-score (standard deviation units) through the formula:
 
@@ -156,7 +167,18 @@ $$z = 1.8675921$$
 
 So Participant 1, when converted to a z-score and rounded to two decimal places, would have **z = 1.87**
 
-### Standard Error of the Mean
+### Test Yourself - z-scores
+
+
+
+
+* What would be 12 expressed as a z-score, assuming a sample with the following values, **M** = 15, **SD** = 1.5: <select class='webex-select'><option value='blank'></option><option value='answer'>-2</option><option value=''>1.24</option><option value=''>-1.67</option></select>
+* What would be 8 expressed as a z-score, assuming a sample with the following values, **M** = 10, **SD** = 2: <select class='webex-select'><option value='blank'></option><option value=''>0.94</option><option value='answer'>-1</option><option value=''>-1.67</option></select>
+* What would be 31 expressed as a z-score, assuming a sample with the following values, **M** = 28, **SD** = 3.2: <select class='webex-select'><option value='blank'></option><option value=''>1.24</option><option value=''>-2</option><option value='answer'>0.94</option></select>
+* What would be 21.2 expressed as a z-score, assuming a sample with the following values, **M** = 19.1, **SD** = 1.7: <select class='webex-select'><option value='blank'></option><option value='answer'>1.24</option><option value=''>-1</option><option value=''>-2</option></select>
+* What would be 3.8 expressed as a z-score, assuming a sample with the following values, **M** = 4, **SD** = 0.12: <select class='webex-select'><option value='blank'></option><option value='answer'>-1.67</option><option value=''>-1</option><option value=''>1.24</option></select>
+
+## Standard Error of the Mean
 
 The symbol for the standard error is usually $SE$ but can also be written as $SEM$ when specificaly about the mean - short for standard error of the mean.  The formula for the standard error is the standard deviation ($s$) divided by the square root of the number of observations ($\sqrt{n}$), and is written as:
 
@@ -180,15 +202,13 @@ $$SE = 0.5587685$$
 
 We find that the standard error, rounded to two decimal places, is $SE = 0.56$
 
-### Confidence Intervals
+## Confidence Intervals
 
 We will specifically focus on the 95% Confidence Interval using the cut-off value (assuming $\alpha = .05$ and two-tailed) of $z = 1.96$. The key formulas are:
 
 $$Upper \space 95\%CI = \overline{x} + (z \times SE)$$
 
-And
-
-$$Lower \space 95\%CI = \overline{X} - (z \times SE)$$
+$$Lower \space 95\%CI = \overline{x} - (z \times SE)$$
 
 We know that:
 
@@ -226,7 +246,7 @@ $$Lower \space 95\%CI = 2.6048138$$
 
 And if we round both those values to two decimal places, then you get **Lower 95%CI = 2.6** and **$Upper 95%CI = 4.8**. You will often see Confidence Intervals written up as 95%CI = [LowerCI, UpperCI], and so we could summarise our values as, 95%CI = [2.6, 4.8].
 
-#### Test Yourself - 95% Confidence Intervals
+### Test Yourself - 95% Confidence Intervals
 
 Below are the Means and Standard Errors of 5 datasets.
 
