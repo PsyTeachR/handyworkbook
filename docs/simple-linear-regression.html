@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 12 Simple Linear Regression | A Handy Workbook for Research Methods &amp; Statistics</title>
 <meta name="author" content="Phil McAleer">
-<meta name="description" content="Simple Linear Regression is analytical method that looks to model the relationship between an outcome variable and one explanatory predictor variables. For example, thinking about the data that we...">
+<meta name="description" content="Simple Linear Regression is an analytical method that looks to model the relationship between an outcome variable and one explanatory predictor variables. For example, thinking about the data that...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 12 Simple Linear Regression | A Handy Workbook for Research Methods &amp; Statistics">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/handyworkbook/simple-linear-regression.html">
 <meta property="og:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
-<meta property="og:description" content="Simple Linear Regression is analytical method that looks to model the relationship between an outcome variable and one explanatory predictor variables. For example, thinking about the data that we...">
+<meta property="og:description" content="Simple Linear Regression is an analytical method that looks to model the relationship between an outcome variable and one explanatory predictor variables. For example, thinking about the data that...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 12 Simple Linear Regression | A Handy Workbook for Research Methods &amp; Statistics">
-<meta name="twitter:description" content="Simple Linear Regression is analytical method that looks to model the relationship between an outcome variable and one explanatory predictor variables. For example, thinking about the data that we...">
+<meta name="twitter:description" content="Simple Linear Regression is an analytical method that looks to model the relationship between an outcome variable and one explanatory predictor variables. For example, thinking about the data that...">
 <meta name="twitter:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -98,7 +98,7 @@
 <h1>
 <span class="header-section-number">12</span> Simple Linear Regression<a class="anchor" aria-label="anchor" href="#simple-linear-regression"><i class="fas fa-link"></i></a>
 </h1>
-<p>Simple Linear Regression is analytical method that looks to model the relationship between an outcome variable and <strong>one</strong> explanatory predictor variables. For example, thinking about the data that we used for the Pearson Correlation analysis in this book, say instead of asking is HeadSize and IQ related, we could ask can you reliably predict IQ scores (our outcome or dependent variable) from HeadSize measurements (our predictor or independent variable), with the hypothesis of, "We predict that a linear model based on head size, as measured in cms, will significantly predict IQ scores as measured on a standard IQ test". We are going to look at this example to walk through some of the analysis but lets first remind ourselves of the data.</p>
+<p>Simple Linear Regression is an analytical method that looks to model the relationship between an outcome variable and <strong>one</strong> explanatory predictor variables. For example, thinking about the data that we used for the Pearson Correlation analysis in this book, say instead of asking is HeadSize and IQ related, we could ask can you reliably predict IQ scores (our outcome or dependent variable) from HeadSize measurements (our predictor or independent variable), with the hypothesis of, "We predict that a linear model based on head size, as measured in cms, will significantly predict IQ scores as measured on a standard IQ test". We are going to look at this example to walk through some of the analysis but lets first remind ourselves of the data.</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr>
 <th style="text-align:center;">
@@ -378,8 +378,8 @@ IQ
 <p>Here we are going to try out a few examples based on the above. First we will use the above numbers we have calculated to make some predictions to check our understanding. So, assuming the values of 1.194 for the slope, and 48.75 for the intercept, try to answer the following questions:</p>
 <ul>
 <li>To two decimal places, what would be the predicted value of IQ if the HeadSize was 37.8?
-<div id="radio_QTGDGFKKSY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QTGDGFKKSY" value="answer"><span>93.88</span></label><label><input type="radio" autocomplete="off" name="radio_QTGDGFKKSY" value=""><span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_QTGDGFKKSY" value=""><span>120.51</span></label>
+<div id="radio_NVIVDTBXKS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NVIVDTBXKS" value=""><span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_NVIVDTBXKS" value="answer"><span>93.88</span></label><label><input type="radio" autocomplete="off" name="radio_NVIVDTBXKS" value=""><span>120.51</span></label>
 </div>
 </li>
 </ul>
@@ -399,8 +399,8 @@ If we fill in the details:</p>
 </div>
 <ul>
 <li>To two decimal places, what would be the predicted value of IQ if the HeadSize was 24.2?
-<div id="radio_TWWOOMOJFI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_TWWOOMOJFI" value=""><span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_TWWOOMOJFI" value=""><span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_TWWOOMOJFI" value="answer"><span>93.88</span></label>
+<div id="radio_WLIFYSHCBL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WLIFYSHCBL" value=""><span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_WLIFYSHCBL" value="answer"><span>93.88</span></label><label><input type="radio" autocomplete="off" name="radio_WLIFYSHCBL" value=""><span>119.67</span></label>
 </div>
 </li>
 </ul>
@@ -420,8 +420,8 @@ If we fill in the details:</p>
 </div>
 <ul>
 <li>To two decimal places, what would be the predicted value of IQ if the HeadSize was 52.9?
-<div id="radio_SGDGXPNFFH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SGDGXPNFFH" value=""><span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_SGDGXPNFFH" value=""><span>111.91</span></label><label><input type="radio" autocomplete="off" name="radio_SGDGXPNFFH" value="answer"><span>120.51</span></label>
+<div id="radio_BXNHSRBPEI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BXNHSRBPEI" value="answer"><span>120.51</span></label><label><input type="radio" autocomplete="off" name="radio_BXNHSRBPEI" value=""><span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_BXNHSRBPEI" value=""><span>111.91</span></label>
 </div>
 </li>
 </ul>
@@ -441,8 +441,8 @@ If we fill in the details:</p>
 </div>
 <ul>
 <li>To two decimal places, what would be the predicted value of IQ if the HeadSize was 48.4?
-<div id="radio_XWNYKBJPXA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XWNYKBJPXA" value="answer"><span>106.54</span></label><label><input type="radio" autocomplete="off" name="radio_XWNYKBJPXA" value=""><span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_XWNYKBJPXA" value=""><span>119.67</span></label>
+<div id="radio_IYIZGYVWFG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IYIZGYVWFG" value=""><span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_IYIZGYVWFG" value=""><span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_IYIZGYVWFG" value="answer"><span>106.54</span></label>
 </div>
 </li>
 </ul>

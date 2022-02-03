@@ -1,6 +1,6 @@
 # Simple Linear Regression
 
-Simple Linear Regression is analytical method that looks to model the relationship between an outcome variable and **one** explanatory predictor variables. For example, thinking about the data that we used for the Pearson Correlation analysis in this book, say instead of asking is HeadSize and IQ related, we could ask can you reliably predict IQ scores (our outcome or dependent variable) from HeadSize measurements (our predictor or independent variable), with the hypothesis of, "We predict that a linear model based on head size, as measured in cms, will significantly predict IQ scores as measured on a standard IQ test". We are going to look at this example to walk through some of the analysis but lets first remind ourselves of the data.
+Simple Linear Regression is an analytical method that looks to model the relationship between an outcome variable and **one** explanatory predictor variables. For example, thinking about the data that we used for the Pearson Correlation analysis in this book, say instead of asking is HeadSize and IQ related, we could ask can you reliably predict IQ scores (our outcome or dependent variable) from HeadSize measurements (our predictor or independent variable), with the hypothesis of, "We predict that a linear model based on head size, as measured in cms, will significantly predict IQ scores as measured on a standard IQ test". We are going to look at this example to walk through some of the analysis but lets first remind ourselves of the data.
 
 <table>
  <thead>
@@ -252,7 +252,7 @@ Here we are going to try out a few examples based on the above. First we will us
 
 
 
-* To two decimal places, what would be the predicted value of IQ if the HeadSize was 37.8? <div class='webex-radiogroup' id='radio_QTGDGFKKSY'><label><input type="radio" autocomplete="off" name="radio_QTGDGFKKSY" value="answer"></input> <span>93.88</span></label><label><input type="radio" autocomplete="off" name="radio_QTGDGFKKSY" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_QTGDGFKKSY" value=""></input> <span>120.51</span></label></div>
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 37.8? <div class='webex-radiogroup' id='radio_NVIVDTBXKS'><label><input type="radio" autocomplete="off" name="radio_NVIVDTBXKS" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_NVIVDTBXKS" value="answer"></input> <span>93.88</span></label><label><input type="radio" autocomplete="off" name="radio_NVIVDTBXKS" value=""></input> <span>120.51</span></label></div>
 
 
 
@@ -282,7 +282,7 @@ Giving a predicted value of $\hat{Y}$ = 93.88, to two decimal places.
 
 
 
-* To two decimal places, what would be the predicted value of IQ if the HeadSize was 24.2? <div class='webex-radiogroup' id='radio_TWWOOMOJFI'><label><input type="radio" autocomplete="off" name="radio_TWWOOMOJFI" value=""></input> <span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_TWWOOMOJFI" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_TWWOOMOJFI" value="answer"></input> <span>93.88</span></label></div>
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 24.2? <div class='webex-radiogroup' id='radio_WLIFYSHCBL'><label><input type="radio" autocomplete="off" name="radio_WLIFYSHCBL" value=""></input> <span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_WLIFYSHCBL" value="answer"></input> <span>93.88</span></label><label><input type="radio" autocomplete="off" name="radio_WLIFYSHCBL" value=""></input> <span>119.67</span></label></div>
 
 
 
@@ -311,7 +311,7 @@ Giving a predicted value of $\hat{Y}$ = 77.64, to two decimal places.
 
 
 
-* To two decimal places, what would be the predicted value of IQ if the HeadSize was 52.9? <div class='webex-radiogroup' id='radio_SGDGXPNFFH'><label><input type="radio" autocomplete="off" name="radio_SGDGXPNFFH" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_SGDGXPNFFH" value=""></input> <span>111.91</span></label><label><input type="radio" autocomplete="off" name="radio_SGDGXPNFFH" value="answer"></input> <span>120.51</span></label></div>
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 52.9? <div class='webex-radiogroup' id='radio_BXNHSRBPEI'><label><input type="radio" autocomplete="off" name="radio_BXNHSRBPEI" value="answer"></input> <span>120.51</span></label><label><input type="radio" autocomplete="off" name="radio_BXNHSRBPEI" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_BXNHSRBPEI" value=""></input> <span>111.91</span></label></div>
 
 
 
@@ -339,7 +339,7 @@ Giving a predicted value of $\hat{Y}$ = 111.91, to two decimal places.
 </div>
 
 
-* To two decimal places, what would be the predicted value of IQ if the HeadSize was 48.4? <div class='webex-radiogroup' id='radio_XWNYKBJPXA'><label><input type="radio" autocomplete="off" name="radio_XWNYKBJPXA" value="answer"></input> <span>106.54</span></label><label><input type="radio" autocomplete="off" name="radio_XWNYKBJPXA" value=""></input> <span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_XWNYKBJPXA" value=""></input> <span>119.67</span></label></div>
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was 48.4? <div class='webex-radiogroup' id='radio_IYIZGYVWFG'><label><input type="radio" autocomplete="off" name="radio_IYIZGYVWFG" value=""></input> <span>119.67</span></label><label><input type="radio" autocomplete="off" name="radio_IYIZGYVWFG" value=""></input> <span>77.64</span></label><label><input type="radio" autocomplete="off" name="radio_IYIZGYVWFG" value="answer"></input> <span>106.54</span></label></div>
 
 
 
