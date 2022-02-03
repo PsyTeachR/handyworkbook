@@ -498,22 +498,80 @@ $$\rho = 1 - 2$$
 And we do the final subtraction, leaving us:
 
 $$\rho = -1$$
-Meaning that we have a spearman rho of $\rho = -1$
 
-## Section glossary
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> term </th>
-   <th style="text-align:left;"> definition </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> [tied ranks](https://psyteachr.github.io/glossary/t.html#tied-ranks){class="glossary" target="_blank"} </td>
-   <td style="text-align:left;"> when two or more values/observations within a variable are identical and assume the same rank order value </td>
-  </tr>
-</tbody>
-</table>
 
+
+Meaning that we have a Spearman rho of $\rho = -1$.  Following Cohen's (1988) proposed cut-offs shown below, would be considered to show a strong negative relationship. Remember that these cut-offs are just guides so a value just below a cut-off, e.g. r = .48, would probably be described as, for example, a strong positive relationship.
+
+|Relationship Description (Cohen, 1988)| r-value |
+|---:|:---:|
+|Strong positive relationship| r = .5|
+|Medium positive relationship| r = .3|
+|Weak positive relationship| r = .1|
+|No relationship| r = 0| 
+|Weak negative relationship| r = -.1|
+|Medium negative relationship| r = -.3|
+|Strong negative relationship| r = -.5|
+
+**Degrees of Freedom**
+
+Great! Now, finally, to determine significance we first need the degrees of freedom for the test. The degrees of freedom formula is:
+
+$$df = N - 2$$
+
+And we already know that $N= 10$ and putting them into the equation we get:
+
+$$df = 10 - 2$$
+
+Which reduces to:
+
+$$df = 8$$
+
+
+Meaning that we find a $df = 8$
+
+**Writing up**
+
+The standard APA format for writing up a Spearman correlation is usually:
+
+<p align = "center">**$\rho$(df) = r-value, p = p-value**</p>
+
+or alternatively
+
+<p align = "center">**$r_s$(df) = r-value, p = p-value**</p>
+
+From above we know the df and we know the r-value and what we need now is the significance.
+
+**Determining Significance**
+
+If we were to look at a critical values look-up table for $df = 8$ and $\alpha = .05$, we would see that the critical value is $r_{crit} = 0.632$. Given that our r-value, ignoring polarity and just looking at the absolute value, so $r = -1$, is equal to or larger than our $r_{crit}$ then we can say our result is significant, and as such would be written up as $r_s$(8) = -1, p < .05. 
+
+**Remember:** If you were writing this up as a report, and analysed the data in R, then you would see the p-value was actually p = 0.00000000000000000000000000000000000000000000000000000000000001063504, and would be written up as p < .001
+
+## Look-Up table
+
+Remembering that the $r_{crit}$ value is the smallest r-value you need to find a significant effect, find the $r_{crit}$ value for your df, assuming $\alpha = .05$. If the $r$-value you calculated is equal to or larger than $r_{crit}$ value then your test is significant.
+
+|df | $\alpha = .05$|
+|:-:|:-------------:|
+|1  |0.997|
+|2  |0.95|
+|3  |0.878|
+|4  |0.811|
+|5  |0.754|
+|6  |0.707|
+|7  |0.666|
+|8  |0.632|
+|9  |0.602|
+|10 |0.576|
+|15 |0.482|
+|20 |0.423|
+|30 |0.349|
+|40 |0.304|
+|50 |0.273|
+|60 |0.25|
+|70 |0.232|
+|80 |0.217|
+|90 |0.205|
+|100|0.195|

@@ -1,4 +1,4 @@
-# ANOVA
+# One-Way Between-Subjects tables
 
 This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.
 

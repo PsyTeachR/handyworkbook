@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 14 One-Way Between-Subjects tables | A Handy Workbook for Research Methods &amp; Statistics</title>
+<meta name="author" content="Phil McAleer">
+<meta name="description" content="This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.  14.1 The ANOVA table One-Way Between-Subjects Scenario: A research team are...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 14 One-Way Between-Subjects tables | A Handy Workbook for Research Methods &amp; Statistics">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/one-way-between-subjects-tables.html">
+<meta property="og:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
+<meta property="og:description" content="This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.  14.1 The ANOVA table One-Way Between-Subjects Scenario: A research team are...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 14 One-Way Between-Subjects tables | A Handy Workbook for Research Methods &amp; Statistics">
+<meta name="twitter:description" content="This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.  14.1 The ANOVA table One-Way Between-Subjects Scenario: A research team are...">
+<meta name="twitter:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><meta property="og:title" content="A Handy Workbook for Research Methods &amp; Statistics">
+<meta property="og:description" content="A Handy Workbook to help students understand Research Methods and Statistics through worked examples and self-tests.">
+<meta property="og:image" content="https://psyteachr.github.io/images/twitter/HW.png">
+<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/">
+<meta property="twitter:card" content="summary_large_image">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6NP3MF25W3');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="include/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">A Handy Workbook for Research Methods &amp; Statistics</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Overview</a></li>
+<li class="book-part">Introduction</li>
+<li><a class="" href="foreword.html">Foreword</a></li>
+<li class="book-part">Descriptives</li>
+<li><a class="" href="point-estimates.html"><span class="header-section-number">1</span> Point Estimates</a></li>
+<li><a class="" href="interval-estimates.html"><span class="header-section-number">2</span> Interval Estimates</a></li>
+<li><a class="" href="a-full-descriptive.html"><span class="header-section-number">3</span> A full descriptive</a></li>
+<li class="book-part">Chi-Squares</li>
+<li><a class="" href="one-sample-chi-square.html"><span class="header-section-number">4</span> One-Sample Chi-Square</a></li>
+<li><a class="" href="chi-square-cross-tabulation.html"><span class="header-section-number">5</span> Chi-Square Cross-Tabulation</a></li>
+<li class="book-part">t-tests</li>
+<li><a class="" href="one-sample-t-test.html"><span class="header-section-number">6</span> One-Sample t-test</a></li>
+<li><a class="" href="between-subjects-students-t-test.html"><span class="header-section-number">7</span> Between-Subjects Student's t-test</a></li>
+<li><a class="" href="between-subjects-welchs-t-test.html"><span class="header-section-number">8</span> Between-Subjects Welch's t-test</a></li>
+<li><a class="" href="within-subjects-t-test.html"><span class="header-section-number">9</span> Within-Subjects t-test</a></li>
+<li class="book-part">Correlations</li>
+<li><a class="" href="pearson-correlation.html"><span class="header-section-number">10</span> Pearson Correlation</a></li>
+<li><a class="" href="spearman-correlation.html"><span class="header-section-number">11</span> Spearman Correlation</a></li>
+<li class="book-part">Linear Regression</li>
+<li><a class="" href="simple-linear-regression.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
+<li><a class="" href="slopes.html"><span class="header-section-number">13</span> Slopes</a></li>
+<li class="book-part">ANOVAs</li>
+<li><a class="active" href="one-way-between-subjects-tables.html"><span class="header-section-number">14</span> One-Way Between-Subjects tables</a></li>
+<li class="book-part">Additional</li>
+<li><a class="" href="random-formulas.html"><span class="header-section-number">15</span> Random formulas</a></li>
+<li><a class="" href="the-rounding-chapter.html"><span class="header-section-number">16</span> The Rounding Chapter</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">C</span> Conventions</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/psyteachr/handyworkbook">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="one-way-between-subjects-tables" class="section level1" number="14">
+<h1>
+<span class="header-section-number">14</span> One-Way Between-Subjects tables<a class="anchor" aria-label="anchor" href="#one-way-between-subjects-tables"><i class="fas fa-link"></i></a>
+</h1>
+<p>This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.</p>
+<div id="the-anova-table" class="section level2" number="14.1">
+<h2>
+<span class="header-section-number">14.1</span> The ANOVA table<a class="anchor" aria-label="anchor" href="#the-anova-table"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>One-Way Between-Subjects Scenario:</strong> A research team are investigating the influence of mainstream media on life happiness. They record Life Happiness scores from 0 to 100 with higher scores meaning more happy with life from a large cohort of participants and split the participants into two groups; Group 1 (n = 72) and Group 2 (n = 81). The researchers want to check whether there is a difference between the two groups of participants in terms of Life Happiness. Calculate F from the below one-way ANOVA output table comparing mean Life Happiness scores across the two groups of participants and state whether there is a significant difference between the groups or not. The Sums of Squares (<span class="math inline">\(SS\)</span>) have been given to you.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">Conditions</th>
+<th align="center"><span class="math inline">\(SS\)</span></th>
+<th align="center"><span class="math inline">\(df\)</span></th>
+<th align="center">Mean Square</th>
+<th align="center">F-value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">Between</td>
+<td align="center">44.56</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Within</td>
+<td align="center">2126.3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">2170.86</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table></div>
+<p>In order to complete the above table we need to:</p>
+<ul>
+<li>determine the degrees of freedom (<span class="math inline">\(df\)</span>) of the Between and the Within components</li>
+<li>use the <span class="math inline">\(df\)</span> to calculate the Mean Squares (<span class="math inline">\(MS\)</span>)</li>
+<li>use the Mean Squares to calculate the F-value</li>
+</ul>
+<p><strong>Degrees of Freedom</strong></p>
+<p>In an ANOVA there are two degrees of freedom. The first is the degrees of freedom related to the number of groups/conditions/models and is usually called <span class="math inline">\(df_{Between}\)</span>, <span class="math inline">\(df_{Condition}\)</span>, or <span class="math inline">\(df_{Model}\)</span>. They all refer to the same idea. Regardless of what you call it, this df is calculated as:</p>
+<p><span class="math display">\[df_{between} = k - 1\]</span></p>
+<p>Where <span class="math inline">\(k\)</span> is the number of conditions or groups.</p>
+<p>The second degrees of freedom is related to the number of participants/observations/data-points and is usually called <span class="math inline">\(df_{Within}\)</span> or <span class="math inline">\(df_{Model}\)</span>; again both referring to the same idea. This df is calculated as:</p>
+<p><span class="math display">\[df_{within} = N - k\]</span></p>
+<p>Where <span class="math inline">\(N\)</span> is total number of participants in the whole experiment and <span class="math inline">\(k\)</span> is again the number of conditions or groups. The <span class="math inline">\(df_{within}\)</span> can also be phrased as the:</p>
+<p><span class="math display">\[df_{within} = \sum_1^k(n_{k}-1)\]</span></p>
+<p>Which can be read as taking 1 away from the <span class="math inline">\(n\)</span> in each group (<span class="math inline">\(k\)</span>) and then summing those values together. For example, if you had a total of 20 participants in your experiment (<span class="math inline">\(N = 20\)</span>) and they were split into 2 groups (<span class="math inline">\(k = 2\)</span>) of 10 per group (<span class="math inline">\(n = 10\)</span>), then you would do:</p>
+<p><span class="math display">\[df_{within} = (10-1)+(10-1) = 18\]</span></p>
+<p>But as that is the same as <span class="math inline">\(N-k\)</span> (i.e. 20 - 2 = 18), and <span class="math inline">\(N-k\)</span> is easier to think about, we will use that approach here.</p>
+<p>So, using those two formulas and the information given to us, first we see we have two groups. As such:</p>
+<p><span class="math display">\[df_{between} = k - 1 = 2 - 1 = 1\]</span></p>
+<p>Next we see that we have n = 72 in Group 1, and n = 81 in Group 2, meaning that we have a total number of participants of N = 72 + 81 = 153. And if we put that into the formula for the <span class="math inline">\(df_{Within}\)</span> we see:</p>
+<p><span class="math display">\[df_{Within} = N-k = 153 - 2 = 151\]</span></p>
+<p>Meaning that we have <span class="math inline">\(df_{Between}\)</span> = 1, and <span class="math inline">\(df_{Within}\)</span> = 151, and we can fill those into our table as such:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">Conditions</th>
+<th align="center"><span class="math inline">\(SS\)</span></th>
+<th align="center"><span class="math inline">\(df\)</span></th>
+<th align="center">Mean Square</th>
+<th align="center">F-value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">Between</td>
+<td align="center">44.56</td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Within</td>
+<td align="center">2126.3</td>
+<td align="center">151</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">2170.86</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Mean Squares</strong></p>
+<p>Great! Now the next step is to calculate the Mean Square value for both the Between (i.e. Groups) and Within (i.e. Residuals) components. The Mean Square is really an abbreviation of the Mean Sums of Squares and is the Sums of Squares of a component divided by the degrees of freedom. Or in other words:</p>
+<p><span class="math display">\[MS = \frac{SS}{df}\]</span></p>
+<p>Looking at the table above we have all the information we need to calculate both the <span class="math inline">\(MS_{Between}\)</span> and the <span class="math inline">\(MS_{Within}\)</span>. They would look like:</p>
+<p><span class="math display">\[MS_{Between} = \frac{SS_{Between}}{df_{Between}} = \frac{44.56}{1} = 44.56\]</span></p>
+<p>And</p>
+<p><span class="math display">\[MS_{Within} = \frac{SS_{Within}}{df_{Within}} = \frac{2126.3}{151} = 14.081457\]</span></p>
+<p>Meaning that we have <span class="math inline">\(MS_{Between}\)</span> = 44.56 and <span class="math inline">\(MS_{Within}\)</span> = 14.081457, which we can add in to our ANOVA table as such:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">Conditions</th>
+<th align="center"><span class="math inline">\(SS\)</span></th>
+<th align="center"><span class="math inline">\(df\)</span></th>
+<th align="center">Mean Square</th>
+<th align="center">F-value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">Between</td>
+<td align="center">44.56</td>
+<td align="center">1</td>
+<td align="center">44.56</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Within</td>
+<td align="center">2126.3</td>
+<td align="center">151</td>
+<td align="center">14.081457</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">2170.86</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The F-value</strong></p>
+<p>Awesome. Finally, we need to calculate our F-value which is the ratio between the <span class="math inline">\(MS_{Between}\)</span> and <span class="math inline">\(MS_{Within}\)</span>, and can be written as:</p>
+<p><span class="math display">\[F = \frac{MS_{Between}}{MS_{Within}}\]</span></p>
+<p>And so if we put our numbers in from above we see:</p>
+<p><span class="math display">\[F = \frac{MS_{Between}}{MS_{Within}} = \frac{44.56}{14.081457} = 3.1644453\]</span></p>
+<p>Giving us an F-value of F = 3.16 (to two decimal places), which we can now put into our table to complete our table as such:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">Conditions</th>
+<th align="center"><span class="math inline">\(SS\)</span></th>
+<th align="center"><span class="math inline">\(df\)</span></th>
+<th align="center">Mean Square</th>
+<th align="center">F-value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">Between</td>
+<td align="center">44.56</td>
+<td align="center">1</td>
+<td align="center">44.56</td>
+<td align="center">3.16</td>
+</tr>
+<tr class="even">
+<td align="center">Within</td>
+<td align="center">2126.3</td>
+<td align="center">151</td>
+<td align="center">14.081457</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">2170.86</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Effect size</strong></p>
+<p>There are a few effect sizes that people use for the ANOVA with one of the more common ones being what is called partial eta-squared with the symbol <span class="math inline">\(\eta_p^2\)</span> (as <span class="math inline">\(\eta\)</span> is the symbol for "eta", and is pronounced "eat-ah", and the <span class="math inline">\(_p^2\)</span> indicating "partial" and "squared"). The formula for partial eta-squared is:</p>
+<p><span class="math display">\[\eta_{p^2} = \frac{SS_{Between}}{SS_{Between}+SS_{Within}}\]</span></p>
+<p>From above, we know that:</p>
+<ul>
+<li>
+<span class="math inline">\(SS_{Between}\)</span> = 44.56 and</li>
+<li>
+<span class="math inline">\(SS_{Within}\)</span> = 2126.3</li>
+</ul>
+<p>And if we start to fill those into the formula we see:</p>
+<p><span class="math display">\[\eta_p^2 = \frac{44.56}{44.56 + 2126.3} = \frac{44.56}{2170.86} = 0.0205264\]</span></p>
+<p>Meaning that this analysis has an effect size of <span class="math inline">\(\eta_p^2\)</span> = 0.02 (to two decimal places).</p>
+<p><strong>The Write-UP</strong></p>
+<p>The standard APA format for writing up an ANOVA is usually:</p>
+<p align="center">
+<strong>F(<span class="math inline">\(df_{Between}\)</span>, <span class="math inline">\(df_{Within}\)</span>) = F-value, p = p-value, <span class="math inline">\(\eta_p^2\)</span> = effectsize-value</strong>
+</p>
+<p>From above we know the two dfs and we know the F-value and the effect size, so what we need now is to determine the significance.</p>
+<p><strong>Determining Significance</strong></p>
+<p>If we were to look at a critical values look-up table for <span class="math inline">\(df_{Between}\)</span> = 1, <span class="math inline">\(df_{Within}\)</span> = 151, and <span class="math inline">\(\alpha = .05\)</span>, we would see that the closest we have is for <span class="math inline">\(df_{Between}\)</span> = 1, <span class="math inline">\(df_{Within}\)</span> = 100, which has a critical value of <span class="math inline">\(F_{crit}\)</span> = 3.94. Given that our F-value is smaller than our <span class="math inline">\(F_{crit}\)</span> then we can say our result is not significant, and as such would be written up as F(1, 151) = 3.16, p &gt; .05, <span class="math inline">\(\eta_p^2\)</span> = 0.02.</p>
+<p><strong>Remember:</strong> If you were writing this up as a report, and analysed the data in R, then you would see the p-value was actually p = 0.07747604, and would be written up as p = 0.077</p>
+</div>
+<div id="look-up-table-6" class="section level2" number="14.2">
+<h2>
+<span class="header-section-number">14.2</span> Look-Up table<a class="anchor" aria-label="anchor" href="#look-up-table-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>Remembering that the <span class="math inline">\(F_{crit}\)</span> value is the smallest F-value you need to find a significant effect, find the <span class="math inline">\(F_{crit}\)</span> for your dfs, assuming <span class="math inline">\(\alpha = .05\)</span>. If the <span class="math inline">\(F\)</span>-value you calculated is equal to or larger than <span class="math inline">\(F_{crit}\)</span> then your test is significant. In this table, to fit it on to the page, <span class="math inline">\(df_{Between}\)</span> is written as df1, and <span class="math inline">\(df_{Within}\)</span> is written as df2.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">dfs</th>
+<th align="center">df1 = 1</th>
+<th align="center">df1 = 2</th>
+<th align="center">df1 = 3</th>
+<th align="center">df1 = 4</th>
+<th align="center">df1 = 5</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>df2 = 1</strong></td>
+<td align="center">161.448</td>
+<td align="center">199.5</td>
+<td align="center">215.707</td>
+<td align="center">224.583</td>
+<td align="center">230.162</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 2</strong></td>
+<td align="center">18.513</td>
+<td align="center">19</td>
+<td align="center">19.164</td>
+<td align="center">19.247</td>
+<td align="center">19.296</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 3</strong></td>
+<td align="center">10.128</td>
+<td align="center">9.552</td>
+<td align="center">9.277</td>
+<td align="center">9.117</td>
+<td align="center">9.013</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 4</strong></td>
+<td align="center">7.709</td>
+<td align="center">6.944</td>
+<td align="center">6.591</td>
+<td align="center">6.388</td>
+<td align="center">6.256</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 5</strong></td>
+<td align="center">6.608</td>
+<td align="center">5.786</td>
+<td align="center">5.409</td>
+<td align="center">5.192</td>
+<td align="center">5.05</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 10</strong></td>
+<td align="center">4.965</td>
+<td align="center">4.103</td>
+<td align="center">3.708</td>
+<td align="center">3.478</td>
+<td align="center">3.326</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 15</strong></td>
+<td align="center">4.543</td>
+<td align="center">3.682</td>
+<td align="center">3.287</td>
+<td align="center">3.056</td>
+<td align="center">2.901</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 20</strong></td>
+<td align="center">4.351</td>
+<td align="center">3.493</td>
+<td align="center">3.098</td>
+<td align="center">2.866</td>
+<td align="center">2.711</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 25</strong></td>
+<td align="center">4.242</td>
+<td align="center">3.385</td>
+<td align="center">2.991</td>
+<td align="center">2.759</td>
+<td align="center">2.603</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 30</strong></td>
+<td align="center">4.171</td>
+<td align="center">3.316</td>
+<td align="center">2.922</td>
+<td align="center">2.69</td>
+<td align="center">2.534</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 40</strong></td>
+<td align="center">4.085</td>
+<td align="center">3.232</td>
+<td align="center">2.839</td>
+<td align="center">2.606</td>
+<td align="center">2.449</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 50</strong></td>
+<td align="center">4.034</td>
+<td align="center">3.183</td>
+<td align="center">2.79</td>
+<td align="center">2.557</td>
+<td align="center">2.4</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 60</strong></td>
+<td align="center">4.001</td>
+<td align="center">3.15</td>
+<td align="center">2.758</td>
+<td align="center">2.525</td>
+<td align="center">2.368</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 70</strong></td>
+<td align="center">3.978</td>
+<td align="center">3.128</td>
+<td align="center">2.736</td>
+<td align="center">2.503</td>
+<td align="center">2.346</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 80</strong></td>
+<td align="center">3.96</td>
+<td align="center">3.111</td>
+<td align="center">2.719</td>
+<td align="center">2.486</td>
+<td align="center">2.329</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>df2 = 90</strong></td>
+<td align="center">3.947</td>
+<td align="center">3.098</td>
+<td align="center">2.706</td>
+<td align="center">2.473</td>
+<td align="center">2.316</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>df2 = 100</strong></td>
+<td align="center">3.936</td>
+<td align="center">3.087</td>
+<td align="center">2.696</td>
+<td align="center">2.463</td>
+<td align="center">2.305</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+
+
+
+<div class="chapter-nav">
+<div class="prev"><a href="slopes.html"><span class="header-section-number">13</span> Slopes</a></div>
+<div class="next"><a href="random-formulas.html"><span class="header-section-number">15</span> Random formulas</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#one-way-between-subjects-tables"><span class="header-section-number">14</span> One-Way Between-Subjects tables</a></li>
+<li><a class="nav-link" href="#the-anova-table"><span class="header-section-number">14.1</span> The ANOVA table</a></li>
+<li><a class="nav-link" href="#look-up-table-6"><span class="header-section-number">14.2</span> Look-Up table</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/06-ANOVA-b.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/06-ANOVA-b.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><script>
+$( document ).ready(function() {
+  var cite = ' ';
+  var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
+  var license = ' <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>';
+
+  $("footer div.row div:eq(1) p").html(
+    psyteachr + license + cite
+  );
+  
+  // open rdrr links externally
+  $("a[href^='https://rdrr.io']").click(function(){
+    window.open(this.href);
+    return false;
+  });
+  
+  // visible second sidebar in mobile
+  function move_sidebar() {
+    var w = window.innerWidth;
+    if (w < 992) {
+      $("#toc").appendTo($("#main-nav"));
+    } else {
+      $("#toc").appendTo($("div.sidebar-chapter"));
+    }
+  }
+  move_sidebar();
+  window.onresize = move_sidebar;
+});
+</script>
+
+</div>
+ <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>A Handy Workbook for Research Methods &amp; Statistics</strong>" was written by Phil McAleer. It was last built on Last Update: 2022-02-03.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
