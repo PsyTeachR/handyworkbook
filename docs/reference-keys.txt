@@ -12,9 +12,6 @@ test-yourself---the-mode
 section-glossary
 interval-estimates
 the-range
-section-glossary-1
-a-full-descriptive
-the-mean-1
 variance
 standard-deviation
 var-to-sd
@@ -22,8 +19,13 @@ sd-to-var
 z-scores
 standard-error-of-the-mean
 confidence-intervals
+test-yourself---95-confidence-intervals
+a-full-descriptive
+the-mean-1
+standard-deviation-1
+standard-error-of-the-mean-1
+confidence-intervals-1
 the-write-up
-section-glossary-2
 one-sample-chi-square
 the-worked-example
 test-yourself
@@ -61,7 +63,7 @@ pearson-correlation
 the-worked-example-6
 look-up-table-4
 spearman-correlation
-section-glossary-3
+look-up-table-5
 simple-linear-regression
 the-slope
 the-intercept
@@ -69,9 +71,10 @@ making-a-prediction
 the-r-squared
 the-write-up-1
 test-yourself-3
-anova
+slopes
+one-way-between-subjects-tables
 the-anova-table
-look-up-table-5
+look-up-table-6
 random-formulas
 t-value-to-r-value
 the-rounding-chapter

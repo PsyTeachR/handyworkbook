@@ -128,12 +128,105 @@ $$\rho = 1 - `r (6 * sumd2)/(n * (n^2-1))`$$
 And we do the final subtraction, leaving us:
 
 $$\rho = `r 1 - ((6 * sumd2)/(n * (n^2-1)))`$$
-Meaning that we have a spearman rho of $\rho = `r 1 - ((6 * sumd2)/(n * (n^2-1)))`$
 
-## Section glossary
+```{r cor_vals, echo = FALSE}
+corval <- cor.test(dat$a, dat$b, method = "spearman") %>% pluck("estimate") %>% round2(3)
+df <- cor.test(dat$a, dat$b, method = "pearson") %>% pluck("parameter")
+realt <- cor.test(dat$a, dat$b, method = "pearson") %>% pluck("statistic") %>% abs()
+realp <- pt(realt, df, lower.tail = FALSE)*2
 
-```{r gloss-tab, echo=FALSE, results='asis'}
+strongcorp <- .45
+medcorp <- .25
+weakcorp <- .08
+weakcorn <- -.08
+medcorn <- -.25
+strongcorn <- -.45
 
-glossary_table()
+
+rcrit <- sqrt(qt(1-.975, df, lower.tail = FALSE)^2/(qt(1-.975, df, lower.tail = FALSE)^2 + df)) %>% round2(3)
+
+verbdesc <- case_when(corval >= strongcorp ~ "a strong positive",
+          medcorp <= corval & corval < strongcorp ~ "a medium positive",
+          weakcorp <= corval & corval < medcorp ~ "a weak positive",
+          corval > medcorn & corval <= weakcorn ~ "a weak negative",
+          corval > strongcorn & corval <= medcorn ~ "a medium negative",
+          corval <= strongcorn ~ "a strong negative",
+          TRUE ~ "no")
+
+
 ```
 
+
+Meaning that we have a Spearman rho of $\rho = `r 1 - ((6 * sumd2)/(n * (n^2-1)))`$.  Following Cohen's (1988) proposed cut-offs shown below, would be considered to show `r verbdesc` relationship. Remember that these cut-offs are just guides so a value just below a cut-off, e.g. r = .48, would probably be described as, for example, a strong positive relationship.
+
+|Relationship Description (Cohen, 1988)| r-value |
+|---:|:---:|
+|Strong positive relationship| r = .5|
+|Medium positive relationship| r = .3|
+|Weak positive relationship| r = .1|
+|No relationship| r = 0| 
+|Weak negative relationship| r = -.1|
+|Medium negative relationship| r = -.3|
+|Strong negative relationship| r = -.5|
+
+**Degrees of Freedom**
+
+Great! Now, finally, to determine significance we first need the degrees of freedom for the test. The degrees of freedom formula is:
+
+$$df = N - 2$$
+
+And we already know that $N= `r dim(dat)[1]`$ and putting them into the equation we get:
+
+$$df = `r dim(dat)[1]` - 2$$
+
+Which reduces to:
+
+$$df = `r dim(dat)[1] - 2`$$
+
+
+Meaning that we find a $df = `r dim(dat)[1] - 2`$
+
+**Writing up**
+
+The standard APA format for writing up a Spearman correlation is usually:
+
+<p align = "center">**$\rho$(df) = r-value, p = p-value**</p>
+
+or alternatively
+
+<p align = "center">**$r_s$(df) = r-value, p = p-value**</p>
+
+From above we know the df and we know the r-value and what we need now is the significance.
+
+**Determining Significance**
+
+If we were to look at a critical values look-up table for $df = `r df`$ and $\alpha = .05$, we would see that the critical value is $r_{crit} = `r rcrit`$. Given that our r-value, ignoring polarity and just looking at the absolute value, so $r = `r corval`$, is `r ifelse(abs(corval) >= rcrit, "equal to or larger than", "smaller than")` our $r_{crit}$ then we can say our result is `r ifelse(abs(corval) >= rcrit, "significant", "not significant")`, and as such would be written up as $r_s$(`r df`) = `r corval`, `r ifelse(abs(corval) >= rcrit, "p < .05", "p > .05")`. 
+
+**Remember:** If you were writing this up as a report, and analysed the data in R, then you would see the p-value was actually p = `r format(realp, scientific = FALSE)`, and would be written up as `r ifelse(realp < .001, "p < .001", paste("p = ", realp))`
+
+## Look-Up table
+
+Remembering that the $r_{crit}$ value is the smallest r-value you need to find a significant effect, find the $r_{crit}$ value for your df, assuming $\alpha = .05$. If the $r$-value you calculated is equal to or larger than $r_{crit}$ value then your test is significant.
+
+|df | $\alpha = .05$|
+|:-:|:-------------:|
+|1  |`r sqrt(qt(1-.975, 1, lower.tail = FALSE)^2/(qt(1-.975, 1, lower.tail = FALSE)^2 + 1)) %>% round2(3)`|
+|2  |`r sqrt(qt(1-.975, 2, lower.tail = FALSE)^2/(qt(1-.975, 2, lower.tail = FALSE)^2 + 2)) %>% round2(3)`|
+|3  |`r sqrt(qt(1-.975, 3, lower.tail = FALSE)^2/(qt(1-.975, 3, lower.tail = FALSE)^2 + 3)) %>% round2(3)`|
+|4  |`r sqrt(qt(1-.975, 4, lower.tail = FALSE)^2/(qt(1-.975, 4, lower.tail = FALSE)^2 + 4)) %>% round2(3)`|
+|5  |`r sqrt(qt(1-.975, 5, lower.tail = FALSE)^2/(qt(1-.975, 5, lower.tail = FALSE)^2 + 5)) %>% round2(3)`|
+|6  |`r sqrt(qt(1-.975, 6, lower.tail = FALSE)^2/(qt(1-.975, 6, lower.tail = FALSE)^2 + 6)) %>% round2(3)`|
+|7  |`r sqrt(qt(1-.975, 7, lower.tail = FALSE)^2/(qt(1-.975, 7, lower.tail = FALSE)^2 + 7)) %>% round2(3)`|
+|8  |`r sqrt(qt(1-.975, 8, lower.tail = FALSE)^2/(qt(1-.975, 8, lower.tail = FALSE)^2 + 8)) %>% round2(3)`|
+|9  |`r sqrt(qt(1-.975, 9, lower.tail = FALSE)^2/(qt(1-.975, 9, lower.tail = FALSE)^2 + 9)) %>% round2(3)`|
+|10 |`r sqrt(qt(1-.975, 10, lower.tail = FALSE)^2/(qt(1-.975, 10, lower.tail = FALSE)^2 + 10)) %>% round2(3)`|
+|15 |`r sqrt(qt(1-.975, 15, lower.tail = FALSE)^2/(qt(1-.975, 15, lower.tail = FALSE)^2 + 15)) %>% round2(3)`|
+|20 |`r sqrt(qt(1-.975, 20, lower.tail = FALSE)^2/(qt(1-.975, 20, lower.tail = FALSE)^2 + 20)) %>% round2(3)`|
+|30 |`r sqrt(qt(1-.975, 30, lower.tail = FALSE)^2/(qt(1-.975, 30, lower.tail = FALSE)^2 + 30)) %>% round2(3)`|
+|40 |`r sqrt(qt(1-.975, 40, lower.tail = FALSE)^2/(qt(1-.975, 40, lower.tail = FALSE)^2 + 40)) %>% round2(3)`|
+|50 |`r sqrt(qt(1-.975, 50, lower.tail = FALSE)^2/(qt(1-.975, 50, lower.tail = FALSE)^2 + 50)) %>% round2(3)`|
+|60 |`r sqrt(qt(1-.975, 60, lower.tail = FALSE)^2/(qt(1-.975, 60, lower.tail = FALSE)^2 + 60)) %>% round2(3)`|
+|70 |`r sqrt(qt(1-.975, 70, lower.tail = FALSE)^2/(qt(1-.975, 70, lower.tail = FALSE)^2 + 70)) %>% round2(3)`|
+|80 |`r sqrt(qt(1-.975, 80, lower.tail = FALSE)^2/(qt(1-.975, 80, lower.tail = FALSE)^2 + 80)) %>% round2(3)`|
+|90 |`r sqrt(qt(1-.975, 90, lower.tail = FALSE)^2/(qt(1-.975, 90, lower.tail = FALSE)^2 + 90)) %>% round2(3)`|
+|100|`r sqrt(qt(1-.975, 100, lower.tail = FALSE)^2/(qt(1-.975, 100, lower.tail = FALSE)^2 + 100)) %>% round2(3)`|

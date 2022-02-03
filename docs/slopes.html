@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 6 One-Sample t-test | A Handy Workbook for Research Methods &amp; Statistics</title>
+<title>Chapter 13 Slopes | A Handy Workbook for Research Methods &amp; Statistics</title>
 <meta name="author" content="Phil McAleer">
-<meta name="description" content="one-sample t-test: Compare your sample mean to a known test value. For example, to compare your sample IQ to the population norm of 100.  6.1 The Worked Example The formula is as follows: \[t =...">
+<meta name="description" content="The slope in a simple linear regression can be defined as the change in predicted values of Y (the dependent variable) for every one unit change in X (the predictor variable). In the simple linear...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 6 One-Sample t-test | A Handy Workbook for Research Methods &amp; Statistics">
+<meta property="og:title" content="Chapter 13 Slopes | A Handy Workbook for Research Methods &amp; Statistics">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/one-sample-t-test.html">
+<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/slopes.html">
 <meta property="og:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
-<meta property="og:description" content="one-sample t-test: Compare your sample mean to a known test value. For example, to compare your sample IQ to the population norm of 100.  6.1 The Worked Example The formula is as follows: \[t =...">
+<meta property="og:description" content="The slope in a simple linear regression can be defined as the change in predicted values of Y (the dependent variable) for every one unit change in X (the predictor variable). In the simple linear...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 6 One-Sample t-test | A Handy Workbook for Research Methods &amp; Statistics">
-<meta name="twitter:description" content="one-sample t-test: Compare your sample mean to a known test value. For example, to compare your sample IQ to the population norm of 100.  6.1 The Worked Example The formula is as follows: \[t =...">
+<meta name="twitter:title" content="Chapter 13 Slopes | A Handy Workbook for Research Methods &amp; Statistics">
+<meta name="twitter:description" content="The slope in a simple linear regression can be defined as the change in predicted values of Y (the dependent variable) for every one unit change in X (the predictor variable). In the simple linear...">
 <meta name="twitter:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -66,7 +66,7 @@
 <li><a class="" href="one-sample-chi-square.html"><span class="header-section-number">4</span> One-Sample Chi-Square</a></li>
 <li><a class="" href="chi-square-cross-tabulation.html"><span class="header-section-number">5</span> Chi-Square Cross-Tabulation</a></li>
 <li class="book-part">t-tests</li>
-<li><a class="active" href="one-sample-t-test.html"><span class="header-section-number">6</span> One-Sample t-test</a></li>
+<li><a class="" href="one-sample-t-test.html"><span class="header-section-number">6</span> One-Sample t-test</a></li>
 <li><a class="" href="between-subjects-students-t-test.html"><span class="header-section-number">7</span> Between-Subjects Student's t-test</a></li>
 <li><a class="" href="between-subjects-welchs-t-test.html"><span class="header-section-number">8</span> Between-Subjects Welch's t-test</a></li>
 <li><a class="" href="within-subjects-t-test.html"><span class="header-section-number">9</span> Within-Subjects t-test</a></li>
@@ -75,7 +75,7 @@
 <li><a class="" href="spearman-correlation.html"><span class="header-section-number">11</span> Spearman Correlation</a></li>
 <li class="book-part">Linear Regression</li>
 <li><a class="" href="simple-linear-regression.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
-<li><a class="" href="slopes.html"><span class="header-section-number">13</span> Slopes</a></li>
+<li><a class="active" href="slopes.html"><span class="header-section-number">13</span> Slopes</a></li>
 <li class="book-part">ANOVAs</li>
 <li><a class="" href="one-way-between-subjects-tables.html"><span class="header-section-number">14</span> One-Way Between-Subjects tables</a></li>
 <li class="book-part">Additional</li>
@@ -94,171 +94,69 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="one-sample-t-test" class="section level1" number="6">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="slopes" class="section level1" number="13">
 <h1>
-<span class="header-section-number">6</span> One-Sample t-test<a class="anchor" aria-label="anchor" href="#one-sample-t-test"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13</span> Slopes<a class="anchor" aria-label="anchor" href="#slopes"><i class="fas fa-link"></i></a>
 </h1>
-<p><strong>one-sample t-test:</strong> Compare your sample mean to a known test value. For example, to compare your sample IQ to the population norm of 100.</p>
-<div id="the-worked-example-2" class="section level2" number="6.1">
-<h2>
-<span class="header-section-number">6.1</span> The Worked Example<a class="anchor" aria-label="anchor" href="#the-worked-example-2"><i class="fas fa-link"></i></a>
-</h2>
-<p>The formula is as follows:</p>
-<p><span class="math display">\[t = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}\]</span>
-And you can translate the symbols as:</p>
+<p>The slope in a simple linear regression can be defined as the change in predicted values of Y (the dependent variable) for every one unit change in X (the predictor variable). In the simple linear regression model shown below, the slope is written as <span class="math inline">\(b_1\)</span> (pronounced beta-one) .</p>
+<p><span class="math display">\[Y = b_{0} + b_{1}X + error\]</span></p>
+<p>To put the slope into a physical context, say, for example, when measuring headsize to predict IQ, you find a slope of <span class="math inline">\(b_1\)</span> = 1.5, that would mean that for every increase of 1 in headsize, you would predict an increase of 1.5 in IQ.</p>
+<p><strong>the slope:</strong></p>
+<p>The formula for the slope is:</p>
+<p><span class="math display">\[b_{1} = \frac{cov_{(x, y)}}{s^2_{x}}\]</span>
+which is stated as the covariance of x and y (<span class="math inline">\(cov_{(x,y)}\)</span>) divided by the variance of x (<span class="math inline">\(s^2_{x}\)</span>). If we translate that into outcome and predictors then, given our Head Size is the predictor (<span class="math inline">\(x\)</span>) and the IQ is the outcome (<span class="math inline">\(y\)</span>), that becomes:</p>
+<p><span class="math display">\[b_{1} = \frac{cov_{(HeadSize, IQ)}}{s^2_{HeadSize}}\]</span></p>
+<p>But this can also be written in terms of the correlation between the two variables as opposed to the covariance, and this would look like:</p>
+<p><span class="math display">\[b_{1} = r_{(x,y)} \times \frac{s_{y}}{s_{x}}\]</span></p>
+<p>Which is stated as the correlation between x and y (<span class="math inline">\(r_{(x,y)}\)</span>) multiplied by the standard deviation of y (<span class="math inline">\(s_{y}\)</span>) divided by the standard deviation of x (<span class="math inline">\(s_{x}\)</span>). [Remember that <span class="math inline">\(s\)</span> is the standard deviation of a variable, and <span class="math inline">\(s^2\)</span> is the variance of the variable.]</p>
+<p>And again we can translate that back into terms of HeadSize (<span class="math inline">\(x\)</span>) and IQ (<span class="math inline">\(y\)</span>) as:</p>
+<p><span class="math display">\[b_{1} = r \times \frac{s_{IQ}}{s_{HeadSize}}\]</span></p>
+<p>Now if we think back to the correlation chapter we actually do know all the values we need, or at least can calculate them. Here is what we know from the correlation chapter:</p>
 <ul>
 <li>
-<span class="math inline">\(\bar{x}\)</span> is the mean value of your sample of interest</li>
+<span class="math inline">\(cov_{(x,y)}\)</span> = 199.26</li>
 <li>
-<span class="math inline">\(\mu\)</span> is the test value to compare against (also called the <strong>criterion value</strong>)</li>
+<span class="math inline">\(s_{HeadSize}\)</span> = 12.92</li>
 <li>
-<span class="math inline">\(s\)</span> is the standard deviation of your sample of interest</li>
+<span class="math inline">\(s_{IQ}\)</span> = 15.95</li>
 <li>
-<span class="math inline">\(n\)</span> is the number of observations (e.g. participants) in your sample of interest</li>
+<span class="math inline">\(r_{(x,y)}\)</span> = 0.967</li>
 </ul>
-<p>So for example, if we had a sample of 25 people, and we knew that the mean and standard deviation of the IQ of was M = 110, SD = 7.5, and that we wanted to compare that sample to a criterion value of <span class="math inline">\(\mu\)</span> = 100, then we would do the following:</p>
-<p><span class="math display">\[t = \frac{110  - 100}{\frac{7.5}{\sqrt{25}}}\]</span></p>
-<p>And if we do the top half of the formula first, that becomes:</p>
-<p><span class="math display">\[t = \frac{10}{\frac{7.5}{\sqrt{25}}}\]</span></p>
-<p>And then start to complete the bottom half by taking the sqaure root of n first, (i.e. <span class="math inline">\(\sqrt{n}\)</span>), we get:</p>
-<p><span class="math display">\[t = \frac{10}{\frac{7.5}{5}}\]</span>
-And so if we then complete the bottom half by dividing the standard deviation of the sample (<span class="math inline">\(s\)</span>) by the square root of n (<span class="math inline">\(\sqrt{n}\)</span>), we get:</p>
-<p><span class="math display">\[t = \frac{10}{1.5}\]</span></p>
-<p>And finally, if we divide the top half of the formula by the bottom half we get:</p>
-<p><span class="math display">\[t = \frac{10}{1.5} = 6.6666667\]</span></p>
-<p>Giving us a t-value of t = 6.6666667 which we can round to two decimal places, giving us t = 6.67</p>
-</div>
-<div id="degrees-of-freedom" class="section level2" number="6.2">
-<h2>
-<span class="header-section-number">6.2</span> Degrees of Freedom<a class="anchor" aria-label="anchor" href="#degrees-of-freedom"><i class="fas fa-link"></i></a>
-</h2>
-<p>The degrees of freedom in a one-sample t-test is calculated as:</p>
-<p><span class="math display">\[df = N - 1\]</span></p>
-<p>And if we know that we have 25 participants in our sample then we get:</p>
-<p><span class="math display">\[df = N - 1 = 25 - 1 = 24\]</span></p>
-<p>Giving us <span class="math inline">\(df\)</span> = 24</p>
-</div>
-<div id="effect-size" class="section level2" number="6.3">
-<h2>
-<span class="header-section-number">6.3</span> Effect Size<a class="anchor" aria-label="anchor" href="#effect-size"><i class="fas fa-link"></i></a>
-</h2>
-<p>A common effect size used for t-test is Cohen's d. The formula for the effect size, in of a one-sample t-test, if you only know the t-value and the number of participants is:</p>
-<p><span class="math display">\[d = \frac{t}{\sqrt{N}}\]</span></p>
-<p>And here we know that:</p>
+<p>And from that we can calculate the variance of HeadSize (<span class="math inline">\(s^2_{HeadSize}\)</span>) and IQ (<span class="math inline">\(s^2_{IQ}\)</span>), based on <span class="math inline">\(s^2 = s \times s\)</span>, meaning:</p>
 <ul>
 <li>
-<span class="math inline">\(t\)</span> = 6.67</li>
+<span class="math inline">\(s^2_{HeadSize}\)</span> = <span class="math inline">\(12.92 \times 12.92\)</span> = 166.9264</li>
 <li>
-<span class="math inline">\(N\)</span> = 25</li>
+<span class="math inline">\(s^2_{IQ}\)</span> = <span class="math inline">\(15.95 \times 15.95\)</span> = 254.4025</li>
 </ul>
-<p>Which if we put those into the formula we get:</p>
-<p><span class="math display">\[d = \frac{6.67}{\sqrt{25}}\]</span>
-And if we resolve the bottom half first:</p>
-<p><span class="math display">\[d = \frac{6.67}{5}\]</span></p>
-<p>And then divide the top by the bottom we get:</p>
-<p><span class="math display">\[d = \frac{6.67}{5} = 1.334\]</span></p>
-<p>Giving us an effect size of <span class="math inline">\(d\)</span> = 1.33, rounded to two decimal places.</p>
+<p>So we could really use either formula for the slope as we have all the information, but for now let's use:</p>
+<p><span class="math display">\[b_{1} = r \times \frac{s_{IQ}}{s_{HeadSize}}\]</span></p>
+<p>And if we start to feed in the values, remembering that the IQ is (<span class="math inline">\(y\)</span> - the outcome) and HeadSize is (<span class="math inline">\(x\)</span> - the predictor) we get:</p>
+<p><span class="math display">\[b_{1} = 0.967 \times \frac{15.95}{12.92}\]</span></p>
+<p>And then if we sort out the fraction first, that becomes:</p>
+<p><span class="math display">\[b_{1} = 0.967 \times 1.2345201\]</span></p>
+<p>Which leads down to:</p>
+<p><span class="math display">\[b_{1} = 1.193781\]</span></p>
+<p>Giving a slope of <span class="math inline">\(b_{1}\)</span> = 1.194, to three decimal places, meaning that for a 1 unit change in <span class="math inline">\(x\)</span> we get a 1.194 unit change in <span class="math inline">\(y\)</span>. Or in other words, for a 1 unit change in HeadSize we get a 1.194 unit change in IQ.</p>
+
 </div>
-<div id="write-up" class="section level2" number="6.4">
-<h2>
-<span class="header-section-number">6.4</span> Write-up<a class="anchor" aria-label="anchor" href="#write-up"><i class="fas fa-link"></i></a>
-</h2>
-<p>If we were to look at a critical values look-up table for <span class="math inline">\(df = 24\)</span> and <span class="math inline">\(\alpha = .05\)</span> (two-tailed), we would see that the critical value is <span class="math inline">\(t_{crit} = 2.064\)</span>.</p>
-<p>Given that our t-value, ignoring polarity and just looking at the absolute value, so <span class="math inline">\(t = 6.67\)</span>, is equal to or larger than our <span class="math inline">\(t_{crit}\)</span> then we can say our result is significant, and as such would be written up as t(24) = 6.67, p &lt; .05, d = 1.33</p>
+
+
+
+<div class="chapter-nav">
+<div class="prev"><a href="simple-linear-regression.html"><span class="header-section-number">12</span> Simple Linear Regression</a></div>
+<div class="next"><a href="one-way-between-subjects-tables.html"><span class="header-section-number">14</span> One-Way Between-Subjects tables</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#slopes"><span class="header-section-number">13</span> Slopes</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/05-regression-c.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/05-regression-c.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
 </div>
-<div id="look-up-table" class="section level2" number="6.5">
-<h2>
-<span class="header-section-number">6.5</span> Look-Up table<a class="anchor" aria-label="anchor" href="#look-up-table"><i class="fas fa-link"></i></a>
-</h2>
-<p>Remembering that the <span class="math inline">\(t_{crit}\)</span> value is the smallest t-value you need to find a significant effect, find the <span class="math inline">\(t_{crit}\)</span> for your df, assuming <span class="math inline">\(\alpha = .05\)</span>. If the <span class="math inline">\(t\)</span> value you calculated is equal to or larger than <span class="math inline">\(t_{crit}\)</span> then your test is significant.</p>
-<div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="center">df</th>
-<th align="center"><span class="math inline">\(\alpha = .05\)</span></th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="center">1</td>
-<td align="center">12.706</td>
-</tr>
-<tr class="even">
-<td align="center">2</td>
-<td align="center">4.303</td>
-</tr>
-<tr class="odd">
-<td align="center">3</td>
-<td align="center">3.182</td>
-</tr>
-<tr class="even">
-<td align="center">4</td>
-<td align="center">2.776</td>
-</tr>
-<tr class="odd">
-<td align="center">5</td>
-<td align="center">2.571</td>
-</tr>
-<tr class="even">
-<td align="center">6</td>
-<td align="center">2.447</td>
-</tr>
-<tr class="odd">
-<td align="center">7</td>
-<td align="center">2.365</td>
-</tr>
-<tr class="even">
-<td align="center">8</td>
-<td align="center">2.306</td>
-</tr>
-<tr class="odd">
-<td align="center">9</td>
-<td align="center">2.262</td>
-</tr>
-<tr class="even">
-<td align="center">10</td>
-<td align="center">2.228</td>
-</tr>
-<tr class="odd">
-<td align="center">15</td>
-<td align="center">2.131</td>
-</tr>
-<tr class="even">
-<td align="center">20</td>
-<td align="center">2.086</td>
-</tr>
-<tr class="odd">
-<td align="center">30</td>
-<td align="center">2.042</td>
-</tr>
-<tr class="even">
-<td align="center">40</td>
-<td align="center">2.021</td>
-</tr>
-<tr class="odd">
-<td align="center">50</td>
-<td align="center">2.009</td>
-</tr>
-<tr class="even">
-<td align="center">60</td>
-<td align="center">2</td>
-</tr>
-<tr class="odd">
-<td align="center">70</td>
-<td align="center">1.994</td>
-</tr>
-<tr class="even">
-<td align="center">80</td>
-<td align="center">1.99</td>
-</tr>
-<tr class="odd">
-<td align="center">90</td>
-<td align="center">1.987</td>
-</tr>
-<tr class="even">
-<td align="center">100</td>
-<td align="center">1.984</td>
-</tr>
-</tbody>
-</table></div>
+    </nav>
 </div>
 </div>
 <script>
@@ -459,31 +357,10 @@ $( document ).ready(function() {
   move_sidebar();
   window.onresize = move_sidebar;
 });
-</script><div class="chapter-nav">
-<div class="prev"><a href="chi-square-cross-tabulation.html"><span class="header-section-number">5</span> Chi-Square Cross-Tabulation</a></div>
-<div class="next"><a href="between-subjects-students-t-test.html"><span class="header-section-number">7</span> Between-Subjects Student's t-test</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#one-sample-t-test"><span class="header-section-number">6</span> One-Sample t-test</a></li>
-<li><a class="nav-link" href="#the-worked-example-2"><span class="header-section-number">6.1</span> The Worked Example</a></li>
-<li><a class="nav-link" href="#degrees-of-freedom"><span class="header-section-number">6.2</span> Degrees of Freedom</a></li>
-<li><a class="nav-link" href="#effect-size"><span class="header-section-number">6.3</span> Effect Size</a></li>
-<li><a class="nav-link" href="#write-up"><span class="header-section-number">6.4</span> Write-up</a></li>
-<li><a class="nav-link" href="#look-up-table"><span class="header-section-number">6.5</span> Look-Up table</a></li>
-</ul>
-
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/03-ttest-b.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/03-ttest-b.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
-</div>
-    </nav>
-</div>
+</script>
 
 </div>
-</div> <!-- .container -->
+ <!-- .container -->
 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
