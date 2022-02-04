@@ -84,8 +84,6 @@ $$s^2 = 3.1222222$$
 
 Showing that the variance, rounded to two decimal places, is **$s^2 = 3.12$**
 
-### Test Yourself - Variance
-
 ---
 
 ## Standard Deviation
@@ -118,10 +116,6 @@ And finally take the square root:
 $$s = 1.7669811$$
 
 We find that the standard deviation, rounded to two decimal places, is **$s = 1.77$**
-
-### Test Yourself - Standard Deviation
-
-
 
 ### Var to SD
 

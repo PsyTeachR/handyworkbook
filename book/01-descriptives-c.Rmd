@@ -113,8 +113,6 @@ $$s^2 = `r drv3 %>% pull(Years) %>% var()`$$
 
 Showing that the variance, rounded to two decimal places, is **$s^2 = `r varx %>% round2(2)`$**
 
-### Test Yourself - Variance
-
 ---
 
 ## Standard Deviation
@@ -147,10 +145,6 @@ And finally take the square root:
 $$s = `r sdx`$$
 
 We find that the standard deviation, rounded to two decimal places, is **$s = `r sdx %>% round2(2)`$**
-
-### Test Yourself - Standard Deviation
-
-
 
 ### Var to SD
 
