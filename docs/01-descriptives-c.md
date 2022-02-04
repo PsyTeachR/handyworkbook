@@ -48,6 +48,8 @@ Meaning that this dataset has a range of **Range = 29** which probably doesn't r
 
 1. What is the range of Dataset1: <select class='webex-select'><option value='blank'></option><option value=''>3</option><option value=''>5</option><option value='answer'>4</option></select>
 
+---
+
 ## Variance
 
 The symbol for the variance is generally written as $s^2$ (pronounced as sigma-squared) but can also be written as $Var$. The formula for the variance is:
@@ -82,6 +84,10 @@ $$s^2 = 3.1222222$$
 
 Showing that the variance, rounded to two decimal places, is **$s^2 = 3.12$**
 
+### Test Yourself - Variance
+
+---
+
 ## Standard Deviation
 
 The symbol for the standard deviation is generally written as $s$ (pronounced as sigma) but can also be written as $SD$. The formula for the standard deviation is:
@@ -113,6 +119,10 @@ $$s = 1.7669811$$
 
 We find that the standard deviation, rounded to two decimal places, is **$s = 1.77$**
 
+### Test Yourself - Standard Deviation
+
+
+
 ### Var to SD
 
 Remembering that the standard deviation is the square root of the variance, then if you know the variance ($s^2$) and you need the standard deviation ($s$) then you can do:
@@ -140,6 +150,7 @@ $$s^2 = 1.7669811 \times 1.7669811$$
 giving us:
 
 $$s^2 = 3.1222222$$
+---
 
 ## z-scores
 
@@ -201,6 +212,24 @@ And divide the top by the bottom:
 $$SE = 0.5587685$$
 
 We find that the standard error, rounded to two decimal places, is $SE = 0.56$
+
+### Test Yourself - Standard Error
+
+
+
+* Dataset1: **SD** = 10.44, **N** = 10
+* Dataset2: **SD** = 5.7, **N** = 10
+* Dataset3: **SD** = 9.13, **N** = 10
+* Dataset4: **SD** = 8.84, **N** = 10
+* Dataset5: **SD** = 8.15, **N** = 10
+
+1. What is the SEM of Dataset1? <select class='webex-select'><option value='blank'></option><option value=''>1.54</option><option value=''>3.23</option><option value='answer'>3.3</option><option value=''>5.09</option></select>
+2. What is the SEM of Dataset2? <select class='webex-select'><option value='blank'></option><option value='answer'>1.8</option><option value=''>2.82</option><option value=''>2.39</option><option value=''>4.69</option></select>
+3. What is the SEM of Dataset3? <select class='webex-select'><option value='blank'></option><option value='answer'>2.89</option><option value=''>1.76</option><option value=''>1.89</option><option value=''>3.79</option></select>
+4. What is the SEM of Dataset4? <select class='webex-select'><option value='blank'></option><option value=''>1.82</option><option value='answer'>2.8</option><option value=''>1.92</option><option value=''>3.51</option></select>
+5. What is the SEM of Dataset5? <select class='webex-select'><option value='blank'></option><option value=''>4.17</option><option value='answer'>2.58</option><option value=''>1.98</option><option value=''>2</option></select>
+
+---
 
 ## Confidence Intervals
 
