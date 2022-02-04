@@ -96,6 +96,8 @@ Here are 5 sets of data to practice calculating the mean on. Calculate the mean 
 4. What is the mean of DataSet 4? <select class='webex-select'><option value='blank'></option><option value=''>12.1</option><option value=''>11.9</option><option value='answer'>12.3</option><option value=''>12.8</option></select>
 5. What is the mean of DataSet 5? <select class='webex-select'><option value='blank'></option><option value=''>17.6</option><option value=''>18.4</option><option value='answer'>17.4</option><option value=''>18.3</option></select>
 
+---
+
 ## The Median
 
 The <a class='glossary' target='_blank' title='The middle number in a distribution where half of the values are larger and half are smaller.' href='https://psyteachr.github.io/glossary/m#median'>median</a> is the next point estimate we will look at and is the middle number in a distribution where half of the values in the data are larger and half are smaller. It is literally the value that divides the data in half.
@@ -142,6 +144,7 @@ Here are 5 sets of data to practice calculating the median on. Calculate the med
 4. What is the median of DataSet 4? <select class='webex-select'><option value='blank'></option><option value=''>3</option><option value=''>3.5</option><option value=''>4.5</option><option value='answer'>4</option></select>
 5. What is the median of DataSet 5? <select class='webex-select'><option value='blank'></option><option value=''>13.5</option><option value=''>13</option><option value='answer'>14</option><option value=''>14.5</option></select>
 
+---
 
 ## The Mode
 
