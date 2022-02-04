@@ -39,12 +39,8 @@ knitr::write_bib(c(
 
 **Aim:** A Handy Workbook to help students understand Research Methods and Statistics through worked examples and self-tests.
 
-**Note:** This book is still in development and any issues or suggestions can be sent to the below email or logged as an issue on the [Github repository](https://github.com/PsyTeachR/handyworkbook){target="_blank"}
-
-**Contact:** This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact [Phil McAleer](mailto:philip.mcaleer@glasgow.ac.uk).
+**Note:** This book is a living document and will be regularly checked and updated for improvements. This book is still in development and any issues or suggestions can be emailed to please [Phil McAleer](mailto:philip.mcaleer@glasgow.ac.uk) or logged as an issue on the [Github repository](https://github.com/PsyTeachR/handyworkbook){target="_blank"}
 
 **R Version:** This book has been written with `r R.version.string`
 
-**Randomising Seed:** In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.
-
-**Citation:** <a href="https://zenodo.org/badge/latestdoi/319282623"><img src="https://zenodo.org/badge/319282623.svg" alt="DOI"></a>
+**Citation:** McAleer, P., (2022). A Handy Workbook for Research Methods & Statistics (0.0.9012). Zenodo. https://doi.org/10.5281/zenodo.5934243 <a href="https://zenodo.org/badge/latestdoi/319282623"><img src="https://zenodo.org/badge/319282623.svg" alt="DOI"></a>
