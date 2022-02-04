@@ -126,6 +126,8 @@ options5 <- sample(c(answer = m5, m5+r5[1], m5+r5[2], m5+r5[3]))
 4. What is the mean of DataSet 4? `r mcq(options4)`
 5. What is the mean of DataSet 5? `r mcq(options5)`
 
+---
+
 ## The Median
 
 The `r glossary("median")` is the next point estimate we will look at and is the middle number in a distribution where half of the values in the data are larger and half are smaller. It is literally the value that divides the data in half.
@@ -200,6 +202,7 @@ options5 <- sample(c(answer = median5, median5 + wrong5[1], median5 + wrong5[2],
 4. What is the median of DataSet 4? `r mcq(options4)`
 5. What is the median of DataSet 5? `r mcq(options5)`
 
+---
 
 ## The Mode
 
