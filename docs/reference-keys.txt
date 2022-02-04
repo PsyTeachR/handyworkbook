@@ -19,7 +19,6 @@ standard-deviation
 test-yourself---standard-deviation
 var-to-sd
 sd-to-var
-s2-3.1222222
 z-scores
 test-yourself---z-scores
 standard-error-of-the-mean

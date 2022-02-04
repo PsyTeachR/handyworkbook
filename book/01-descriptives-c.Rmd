@@ -179,6 +179,7 @@ $$s^2 = `r sdx` \times `r sdx`$$
 giving us:
 
 $$s^2 = `r sdx * sdx`$$
+
 ---
 
 ## z-scores
