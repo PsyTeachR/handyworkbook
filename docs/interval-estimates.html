@@ -214,16 +214,13 @@ Divide the top half by the bottom half:</p>
 <p>And if we know that the standard deviation in our example is <span class="math inline">\(s = 1.7669811\)</span> then:</p>
 <p><span class="math display">\[s^2 = 1.7669811 \times 1.7669811\]</span></p>
 <p>giving us:</p>
+<p><span class="math display">\[s^2 = 3.1222222\]</span></p>
+<hr>
 </div>
 </div>
-<div id="s2-3.1222222" class="section level2" number="2.4">
+<div id="z-scores" class="section level2" number="2.4">
 <h2>
-<span class="header-section-number">2.4</span> <span class="math display">\[s^2 = 3.1222222\]</span><a class="anchor" aria-label="anchor" href="#s2-3.1222222"><i class="fas fa-link"></i></a>
-</h2>
-</div>
-<div id="z-scores" class="section level2" number="2.5">
-<h2>
-<span class="header-section-number">2.5</span> z-scores<a class="anchor" aria-label="anchor" href="#z-scores"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.4</span> z-scores<a class="anchor" aria-label="anchor" href="#z-scores"><i class="fas fa-link"></i></a>
 </h2>
 <p>Any value on a continuous scale can be converted to a z-score (standard deviation units) through the formula:</p>
 <p><span class="math display">\[z = \frac{x - \overline{x}}{s_{x}}\]</span></p>
@@ -240,9 +237,9 @@ Divide the top half by the bottom half:</p>
 <p>Leaving us with:</p>
 <p><span class="math display">\[z = 1.8675921\]</span></p>
 <p>So Participant 1, when converted to a z-score and rounded to two decimal places, would have <strong>z = 1.87</strong></p>
-<div id="test-yourself---z-scores" class="section level3" number="2.5.1">
+<div id="test-yourself---z-scores" class="section level3" number="2.4.1">
 <h3>
-<span class="header-section-number">2.5.1</span> Test Yourself - z-scores<a class="anchor" aria-label="anchor" href="#test-yourself---z-scores"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.4.1</span> Test Yourself - z-scores<a class="anchor" aria-label="anchor" href="#test-yourself---z-scores"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>What would be 12 expressed as a z-score, assuming a sample with the following values, <strong>M</strong> = 15, <strong>SD</strong> = 1.5: <select class="webex-select"><option value="blank"></option>
@@ -273,9 +270,9 @@ Divide the top half by the bottom half:</p>
 </ul>
 </div>
 </div>
-<div id="standard-error-of-the-mean" class="section level2" number="2.6">
+<div id="standard-error-of-the-mean" class="section level2" number="2.5">
 <h2>
-<span class="header-section-number">2.6</span> Standard Error of the Mean<a class="anchor" aria-label="anchor" href="#standard-error-of-the-mean"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.5</span> Standard Error of the Mean<a class="anchor" aria-label="anchor" href="#standard-error-of-the-mean"><i class="fas fa-link"></i></a>
 </h2>
 <p>The symbol for the standard error is usually <span class="math inline">\(SE\)</span> but can also be written as <span class="math inline">\(SEM\)</span> when specificaly about the mean - short for standard error of the mean. The formula for the standard error is the standard deviation (<span class="math inline">\(s\)</span>) divided by the square root of the number of observations (<span class="math inline">\(\sqrt{n}\)</span>), and is written as:</p>
 <p><span class="math display">\[SE = \frac{s}{\sqrt{n}}\]</span></p>
@@ -288,9 +285,9 @@ Divide the top half by the bottom half:</p>
 <p>And divide the top by the bottom:</p>
 <p><span class="math display">\[SE = 0.5587685\]</span></p>
 <p>We find that the standard error, rounded to two decimal places, is <span class="math inline">\(SE = 0.56\)</span></p>
-<div id="test-yourself---standard-error" class="section level3" number="2.6.1">
+<div id="test-yourself---standard-error" class="section level3" number="2.5.1">
 <h3>
-<span class="header-section-number">2.6.1</span> Test Yourself - Standard Error<a class="anchor" aria-label="anchor" href="#test-yourself---standard-error"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.5.1</span> Test Yourself - Standard Error<a class="anchor" aria-label="anchor" href="#test-yourself---standard-error"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>Dataset1: <strong>SD</strong> = 10.44, <strong>N</strong> = 10</li>
@@ -334,9 +331,9 @@ Divide the top half by the bottom half:</p>
 <hr>
 </div>
 </div>
-<div id="confidence-intervals" class="section level2" number="2.7">
+<div id="confidence-intervals" class="section level2" number="2.6">
 <h2>
-<span class="header-section-number">2.7</span> Confidence Intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.6</span> Confidence Intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"><i class="fas fa-link"></i></a>
 </h2>
 <p>We will specifically focus on the 95% Confidence Interval using the cut-off value (assuming <span class="math inline">\(\alpha = .05\)</span> and two-tailed) of <span class="math inline">\(z = 1.96\)</span>. The key formulas are:</p>
 <p><span class="math display">\[Upper \space 95\%CI = \overline{x} + (z \times SE)\]</span></p>
@@ -362,9 +359,9 @@ Divide the top half by the bottom half:</p>
 <p>Which leaves us with:</p>
 <p><span class="math display">\[Lower \space 95\%CI = 2.6048138\]</span></p>
 <p>And if we round both those values to two decimal places, then you get <strong>Lower 95%CI = 2.6</strong> and <strong>$Upper 95%CI = 4.8</strong>. You will often see Confidence Intervals written up as 95%CI = [LowerCI, UpperCI], and so we could summarise our values as, 95%CI = [2.6, 4.8].</p>
-<div id="test-yourself---95-confidence-intervals" class="section level3" number="2.7.1">
+<div id="test-yourself---95-confidence-intervals" class="section level3" number="2.6.1">
 <h3>
-<span class="header-section-number">2.7.1</span> Test Yourself - 95% Confidence Intervals<a class="anchor" aria-label="anchor" href="#test-yourself---95-confidence-intervals"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.6.1</span> Test Yourself - 95% Confidence Intervals<a class="anchor" aria-label="anchor" href="#test-yourself---95-confidence-intervals"><i class="fas fa-link"></i></a>
 </h3>
 <p>Below are the Means and Standard Errors of 5 datasets.</p>
 <ul>
@@ -673,15 +670,14 @@ $( document ).ready(function() {
 <li><a class="nav-link" href="#sd-to-var"><span class="header-section-number">2.3.3</span> SD to Var</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#s2-3.1222222"><span class="header-section-number">2.4</span> \[s^2 = 3.1222222\]</a></li>
 <li>
-<a class="nav-link" href="#z-scores"><span class="header-section-number">2.5</span> z-scores</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---z-scores"><span class="header-section-number">2.5.1</span> Test Yourself - z-scores</a></li></ul>
+<a class="nav-link" href="#z-scores"><span class="header-section-number">2.4</span> z-scores</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---z-scores"><span class="header-section-number">2.4.1</span> Test Yourself - z-scores</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#standard-error-of-the-mean"><span class="header-section-number">2.6</span> Standard Error of the Mean</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---standard-error"><span class="header-section-number">2.6.1</span> Test Yourself - Standard Error</a></li></ul>
+<a class="nav-link" href="#standard-error-of-the-mean"><span class="header-section-number">2.5</span> Standard Error of the Mean</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---standard-error"><span class="header-section-number">2.5.1</span> Test Yourself - Standard Error</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#confidence-intervals"><span class="header-section-number">2.7</span> Confidence Intervals</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---95-confidence-intervals"><span class="header-section-number">2.7.1</span> Test Yourself - 95% Confidence Intervals</a></li></ul>
+<a class="nav-link" href="#confidence-intervals"><span class="header-section-number">2.6</span> Confidence Intervals</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---95-confidence-intervals"><span class="header-section-number">2.6.1</span> Test Yourself - 95% Confidence Intervals</a></li></ul>
 </li>
 </ul>
 
