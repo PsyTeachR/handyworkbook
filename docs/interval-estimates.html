@@ -75,12 +75,11 @@
 <li><a class="" href="spearman-correlation.html"><span class="header-section-number">11</span> Spearman Correlation</a></li>
 <li class="book-part">Linear Regression</li>
 <li><a class="" href="simple-linear-regression.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
-<li><a class="" href="slopes.html"><span class="header-section-number">13</span> Slopes</a></li>
 <li class="book-part">ANOVAs</li>
-<li><a class="" href="one-way-between-subjects-tables.html"><span class="header-section-number">14</span> One-Way Between-Subjects tables</a></li>
+<li><a class="" href="one-way-between-subjects-tables.html"><span class="header-section-number">13</span> One-Way Between-Subjects tables</a></li>
 <li class="book-part">Additional</li>
-<li><a class="" href="random-formulas.html"><span class="header-section-number">15</span> Random formulas</a></li>
-<li><a class="" href="the-rounding-chapter.html"><span class="header-section-number">16</span> The Rounding Chapter</a></li>
+<li><a class="" href="random-formulas.html"><span class="header-section-number">14</span> Random formulas</a></li>
+<li><a class="" href="the-rounding-chapter.html"><span class="header-section-number">15</span> The Rounding Chapter</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
 <li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
@@ -142,6 +141,7 @@ Here we can see that our largest value here is 30 and the smallest value is 1, s
 <option value="answer">4</option></select>
 </li>
 </ol>
+<hr>
 </div>
 </div>
 <div id="variance" class="section level2" number="2.2">
@@ -163,6 +163,12 @@ Here we can see that our largest value here is 30 and the smallest value is 1, s
 <p>And divide the top half by the bottom half:</p>
 <p><span class="math display">\[s^2 = 3.1222222\]</span></p>
 <p>Showing that the variance, rounded to two decimal places, is <strong><span class="math inline">\(s^2 = 3.12\)</span></strong></p>
+<div id="test-yourself---variance" class="section level3" number="2.2.1">
+<h3>
+<span class="header-section-number">2.2.1</span> Test Yourself - Variance<a class="anchor" aria-label="anchor" href="#test-yourself---variance"><i class="fas fa-link"></i></a>
+</h3>
+<hr>
+</div>
 </div>
 <div id="standard-deviation" class="section level2" number="2.3">
 <h2>
@@ -183,9 +189,14 @@ Divide the top half by the bottom half:</p>
 <p>And finally take the square root:</p>
 <p><span class="math display">\[s = 1.7669811\]</span></p>
 <p>We find that the standard deviation, rounded to two decimal places, is <strong><span class="math inline">\(s = 1.77\)</span></strong></p>
-<div id="var-to-sd" class="section level3" number="2.3.1">
+<div id="test-yourself---standard-deviation" class="section level3" number="2.3.1">
 <h3>
-<span class="header-section-number">2.3.1</span> Var to SD<a class="anchor" aria-label="anchor" href="#var-to-sd"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3.1</span> Test Yourself - Standard Deviation<a class="anchor" aria-label="anchor" href="#test-yourself---standard-deviation"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="var-to-sd" class="section level3" number="2.3.2">
+<h3>
+<span class="header-section-number">2.3.2</span> Var to SD<a class="anchor" aria-label="anchor" href="#var-to-sd"><i class="fas fa-link"></i></a>
 </h3>
 <p>Remembering that the standard deviation is the square root of the variance, then if you know the variance (<span class="math inline">\(s^2\)</span>) and you need the standard deviation (<span class="math inline">\(s\)</span>) then you can do:</p>
 <p><span class="math display">\[s = \sqrt{s^2}\]</span></p>
@@ -194,21 +205,25 @@ Divide the top half by the bottom half:</p>
 <p>giving:</p>
 <p><span class="math display">\[s = 1.7669811\]</span></p>
 </div>
-<div id="sd-to-var" class="section level3" number="2.3.2">
+<div id="sd-to-var" class="section level3" number="2.3.3">
 <h3>
-<span class="header-section-number">2.3.2</span> SD to Var<a class="anchor" aria-label="anchor" href="#sd-to-var"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3.3</span> SD to Var<a class="anchor" aria-label="anchor" href="#sd-to-var"><i class="fas fa-link"></i></a>
 </h3>
 <p>Sometimes you need to go from the standard deviation to the variance, and remembering that the variance is the standard deviation squared, or the standard deviation multiplied by itself, then you can do:</p>
 <p><span class="math display">\[s^2 = s \times s\]</span></p>
 <p>And if we know that the standard deviation in our example is <span class="math inline">\(s = 1.7669811\)</span> then:</p>
 <p><span class="math display">\[s^2 = 1.7669811 \times 1.7669811\]</span></p>
 <p>giving us:</p>
-<p><span class="math display">\[s^2 = 3.1222222\]</span></p>
 </div>
 </div>
-<div id="z-scores" class="section level2" number="2.4">
+<div id="s2-3.1222222" class="section level2" number="2.4">
 <h2>
-<span class="header-section-number">2.4</span> z-scores<a class="anchor" aria-label="anchor" href="#z-scores"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.4</span> <span class="math display">\[s^2 = 3.1222222\]</span><a class="anchor" aria-label="anchor" href="#s2-3.1222222"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="z-scores" class="section level2" number="2.5">
+<h2>
+<span class="header-section-number">2.5</span> z-scores<a class="anchor" aria-label="anchor" href="#z-scores"><i class="fas fa-link"></i></a>
 </h2>
 <p>Any value on a continuous scale can be converted to a z-score (standard deviation units) through the formula:</p>
 <p><span class="math display">\[z = \frac{x - \overline{x}}{s_{x}}\]</span></p>
@@ -225,9 +240,9 @@ Divide the top half by the bottom half:</p>
 <p>Leaving us with:</p>
 <p><span class="math display">\[z = 1.8675921\]</span></p>
 <p>So Participant 1, when converted to a z-score and rounded to two decimal places, would have <strong>z = 1.87</strong></p>
-<div id="test-yourself---z-scores" class="section level3" number="2.4.1">
+<div id="test-yourself---z-scores" class="section level3" number="2.5.1">
 <h3>
-<span class="header-section-number">2.4.1</span> Test Yourself - z-scores<a class="anchor" aria-label="anchor" href="#test-yourself---z-scores"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.5.1</span> Test Yourself - z-scores<a class="anchor" aria-label="anchor" href="#test-yourself---z-scores"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>What would be 12 expressed as a z-score, assuming a sample with the following values, <strong>M</strong> = 15, <strong>SD</strong> = 1.5: <select class="webex-select"><option value="blank"></option>
@@ -258,9 +273,9 @@ Divide the top half by the bottom half:</p>
 </ul>
 </div>
 </div>
-<div id="standard-error-of-the-mean" class="section level2" number="2.5">
+<div id="standard-error-of-the-mean" class="section level2" number="2.6">
 <h2>
-<span class="header-section-number">2.5</span> Standard Error of the Mean<a class="anchor" aria-label="anchor" href="#standard-error-of-the-mean"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.6</span> Standard Error of the Mean<a class="anchor" aria-label="anchor" href="#standard-error-of-the-mean"><i class="fas fa-link"></i></a>
 </h2>
 <p>The symbol for the standard error is usually <span class="math inline">\(SE\)</span> but can also be written as <span class="math inline">\(SEM\)</span> when specificaly about the mean - short for standard error of the mean. The formula for the standard error is the standard deviation (<span class="math inline">\(s\)</span>) divided by the square root of the number of observations (<span class="math inline">\(\sqrt{n}\)</span>), and is written as:</p>
 <p><span class="math display">\[SE = \frac{s}{\sqrt{n}}\]</span></p>
@@ -273,10 +288,55 @@ Divide the top half by the bottom half:</p>
 <p>And divide the top by the bottom:</p>
 <p><span class="math display">\[SE = 0.5587685\]</span></p>
 <p>We find that the standard error, rounded to two decimal places, is <span class="math inline">\(SE = 0.56\)</span></p>
+<div id="test-yourself---standard-error" class="section level3" number="2.6.1">
+<h3>
+<span class="header-section-number">2.6.1</span> Test Yourself - Standard Error<a class="anchor" aria-label="anchor" href="#test-yourself---standard-error"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Dataset1: <strong>SD</strong> = 10.44, <strong>N</strong> = 10</li>
+<li>Dataset2: <strong>SD</strong> = 5.7, <strong>N</strong> = 10</li>
+<li>Dataset3: <strong>SD</strong> = 9.13, <strong>N</strong> = 10</li>
+<li>Dataset4: <strong>SD</strong> = 8.84, <strong>N</strong> = 10</li>
+<li>Dataset5: <strong>SD</strong> = 8.15, <strong>N</strong> = 10</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>What is the SEM of Dataset1? <select class="webex-select"><option value="blank"></option>
+<option value="">1.54</option>
+<option value="">3.23</option>
+<option value="answer">3.3</option>
+<option value="">5.09</option></select>
+</li>
+<li>What is the SEM of Dataset2? <select class="webex-select"><option value="blank"></option>
+<option value="answer">1.8</option>
+<option value="">2.82</option>
+<option value="">2.39</option>
+<option value="">4.69</option></select>
+</li>
+<li>What is the SEM of Dataset3? <select class="webex-select"><option value="blank"></option>
+<option value="answer">2.89</option>
+<option value="">1.76</option>
+<option value="">1.89</option>
+<option value="">3.79</option></select>
+</li>
+<li>What is the SEM of Dataset4? <select class="webex-select"><option value="blank"></option>
+<option value="">1.82</option>
+<option value="answer">2.8</option>
+<option value="">1.92</option>
+<option value="">3.51</option></select>
+</li>
+<li>What is the SEM of Dataset5? <select class="webex-select"><option value="blank"></option>
+<option value="">4.17</option>
+<option value="answer">2.58</option>
+<option value="">1.98</option>
+<option value="">2</option></select>
+</li>
+</ol>
+<hr>
 </div>
-<div id="confidence-intervals" class="section level2" number="2.6">
+</div>
+<div id="confidence-intervals" class="section level2" number="2.7">
 <h2>
-<span class="header-section-number">2.6</span> Confidence Intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.7</span> Confidence Intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"><i class="fas fa-link"></i></a>
 </h2>
 <p>We will specifically focus on the 95% Confidence Interval using the cut-off value (assuming <span class="math inline">\(\alpha = .05\)</span> and two-tailed) of <span class="math inline">\(z = 1.96\)</span>. The key formulas are:</p>
 <p><span class="math display">\[Upper \space 95\%CI = \overline{x} + (z \times SE)\]</span></p>
@@ -302,9 +362,9 @@ Divide the top half by the bottom half:</p>
 <p>Which leaves us with:</p>
 <p><span class="math display">\[Lower \space 95\%CI = 2.6048138\]</span></p>
 <p>And if we round both those values to two decimal places, then you get <strong>Lower 95%CI = 2.6</strong> and <strong>$Upper 95%CI = 4.8</strong>. You will often see Confidence Intervals written up as 95%CI = [LowerCI, UpperCI], and so we could summarise our values as, 95%CI = [2.6, 4.8].</p>
-<div id="test-yourself---95-confidence-intervals" class="section level3" number="2.6.1">
+<div id="test-yourself---95-confidence-intervals" class="section level3" number="2.7.1">
 <h3>
-<span class="header-section-number">2.6.1</span> Test Yourself - 95% Confidence Intervals<a class="anchor" aria-label="anchor" href="#test-yourself---95-confidence-intervals"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.7.1</span> Test Yourself - 95% Confidence Intervals<a class="anchor" aria-label="anchor" href="#test-yourself---95-confidence-intervals"><i class="fas fa-link"></i></a>
 </h3>
 <p>Below are the Means and Standard Errors of 5 datasets.</p>
 <ul>
@@ -603,19 +663,25 @@ $( document ).ready(function() {
 <li>
 <a class="nav-link" href="#the-range"><span class="header-section-number">2.1</span> The Range</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---range"><span class="header-section-number">2.1.1</span> Test Yourself - Range</a></li></ul>
 </li>
-<li><a class="nav-link" href="#variance"><span class="header-section-number">2.2</span> Variance</a></li>
+<li>
+<a class="nav-link" href="#variance"><span class="header-section-number">2.2</span> Variance</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---variance"><span class="header-section-number">2.2.1</span> Test Yourself - Variance</a></li></ul>
+</li>
 <li>
 <a class="nav-link" href="#standard-deviation"><span class="header-section-number">2.3</span> Standard Deviation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#var-to-sd"><span class="header-section-number">2.3.1</span> Var to SD</a></li>
-<li><a class="nav-link" href="#sd-to-var"><span class="header-section-number">2.3.2</span> SD to Var</a></li>
+<li><a class="nav-link" href="#test-yourself---standard-deviation"><span class="header-section-number">2.3.1</span> Test Yourself - Standard Deviation</a></li>
+<li><a class="nav-link" href="#var-to-sd"><span class="header-section-number">2.3.2</span> Var to SD</a></li>
+<li><a class="nav-link" href="#sd-to-var"><span class="header-section-number">2.3.3</span> SD to Var</a></li>
 </ul>
 </li>
+<li><a class="nav-link" href="#s2-3.1222222"><span class="header-section-number">2.4</span> \[s^2 = 3.1222222\]</a></li>
 <li>
-<a class="nav-link" href="#z-scores"><span class="header-section-number">2.4</span> z-scores</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---z-scores"><span class="header-section-number">2.4.1</span> Test Yourself - z-scores</a></li></ul>
+<a class="nav-link" href="#z-scores"><span class="header-section-number">2.5</span> z-scores</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---z-scores"><span class="header-section-number">2.5.1</span> Test Yourself - z-scores</a></li></ul>
 </li>
-<li><a class="nav-link" href="#standard-error-of-the-mean"><span class="header-section-number">2.5</span> Standard Error of the Mean</a></li>
 <li>
-<a class="nav-link" href="#confidence-intervals"><span class="header-section-number">2.6</span> Confidence Intervals</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---95-confidence-intervals"><span class="header-section-number">2.6.1</span> Test Yourself - 95% Confidence Intervals</a></li></ul>
+<a class="nav-link" href="#standard-error-of-the-mean"><span class="header-section-number">2.6</span> Standard Error of the Mean</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---standard-error"><span class="header-section-number">2.6.1</span> Test Yourself - Standard Error</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#confidence-intervals"><span class="header-section-number">2.7</span> Confidence Intervals</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#test-yourself---95-confidence-intervals"><span class="header-section-number">2.7.1</span> Test Yourself - 95% Confidence Intervals</a></li></ul>
 </li>
 </ul>
 
@@ -634,7 +700,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>A Handy Workbook for Research Methods &amp; Statistics</strong>" was written by Phil McAleer. It was last built on Last Update: 2022-02-03.</p>
+    <p>"<strong>A Handy Workbook for Research Methods &amp; Statistics</strong>" was written by Phil McAleer. It was last built on Last Update: 2022-02-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

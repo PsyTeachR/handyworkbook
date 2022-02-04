@@ -69,6 +69,8 @@ option1 <- sample(c(answer = r_dat1, r_dat1+1, r_dat1-1))
 
 1. What is the range of Dataset1: `r mcq(option1)`
 
+---
+
 ## Variance
 
 The symbol for the variance is generally written as $s^2$ (pronounced as sigma-squared) but can also be written as $Var$. The formula for the variance is:
@@ -111,6 +113,10 @@ $$s^2 = `r drv3 %>% pull(Years) %>% var()`$$
 
 Showing that the variance, rounded to two decimal places, is **$s^2 = `r varx %>% round2(2)`$**
 
+### Test Yourself - Variance
+
+---
+
 ## Standard Deviation
 
 The symbol for the standard deviation is generally written as $s$ (pronounced as sigma) but can also be written as $SD$. The formula for the standard deviation is:
@@ -142,6 +148,10 @@ $$s = `r sdx`$$
 
 We find that the standard deviation, rounded to two decimal places, is **$s = `r sdx %>% round2(2)`$**
 
+### Test Yourself - Standard Deviation
+
+
+
 ### Var to SD
 
 Remembering that the standard deviation is the square root of the variance, then if you know the variance ($s^2$) and you need the standard deviation ($s$) then you can do:
@@ -169,6 +179,7 @@ $$s^2 = `r sdx` \times `r sdx`$$
 giving us:
 
 $$s^2 = `r sdx * sdx`$$
+---
 
 ## z-scores
 
@@ -243,6 +254,55 @@ And divide the top by the bottom:
 $$SE = `r semx`$$
 
 We find that the standard error, rounded to two decimal places, is $SE = `r semx %>% round2(2)`$
+
+### Test Yourself - Standard Error
+
+```{r sem1, echo=FALSE}
+set.seed(1409)
+dat1 <- sample(1:30, 10, replace = TRUE)
+dat2 <- sample(1:30, 10, replace = TRUE)
+dat3 <- sample(1:30, 10, replace = TRUE)
+dat4 <- sample(1:30, 10, replace = TRUE)
+dat5 <- sample(1:30, 10, replace = TRUE)
+
+n1 <- length(dat1)
+n2 <- length(dat2)
+n3 <- length(dat3)
+n4 <- length(dat4)
+n5 <- length(dat5)
+
+m1 <- tibble(x = mean(dat1)) %>% pull(x) %>% round2(2)
+m2 <- tibble(x = mean(dat2)) %>% pull(x) %>% round2(2)
+m3 <- tibble(x = mean(dat3)) %>% pull(x) %>% round2(2)
+m4 <- tibble(x = mean(dat4)) %>% pull(x) %>% round2(2)
+m5 <- tibble(x = mean(dat5)) %>% pull(x) %>% round2(2)
+
+sd1 <- tibble(x = sd(dat1)) %>% pull(x) %>% round2(2)
+sd2 <- tibble(x = sd(dat2)) %>% pull(x) %>% round2(2)
+sd3 <- tibble(x = sd(dat3)) %>% pull(x) %>% round2(2)
+sd4 <- tibble(x = sd(dat4)) %>% pull(x) %>% round2(2)
+sd5 <- tibble(x = sd(dat5)) %>% pull(x) %>% round2(2)
+
+sem1 <- sample(c(answer = round2(sd1/sqrt(n1),2), round2(m1/sd1,2), round2(m1/sqrt(n1),2), round2(sd1/sqrt(sd1),2)))
+sem2 <- sample(c(answer = round2(sd2/sqrt(n2),2), round2(m1/sd2,2), round2(m2/sqrt(m2),2), round2(sd2/sqrt(sd2),2)))
+sem3 <- sample(c(answer = round2(sd3/sqrt(n3),2), round2(m1/sd3,2), round2(m3/sqrt(m3),2), round2(sd2/sqrt(sd3),2)))
+sem4 <- sample(c(answer = round2(sd4/sqrt(n4),2), round2(m1/sd4,2), round2(m4/sqrt(m4),2), round2(sd2/sqrt(sd4),2)))
+sem5 <- sample(c(answer = round2(sd5/sqrt(n5),2), round2(m1/sd5,2), round2(m5/sqrt(m5),2), round2(sd2/sqrt(sd5),2)))
+```
+
+* Dataset1: **SD** = `r sd1`, **N** = `r n1`
+* Dataset2: **SD** = `r sd2`, **N** = `r n2`
+* Dataset3: **SD** = `r sd3`, **N** = `r n3`
+* Dataset4: **SD** = `r sd4`, **N** = `r n4`
+* Dataset5: **SD** = `r sd5`, **N** = `r n5`
+
+1. What is the SEM of Dataset1? `r mcq(sem1)`
+2. What is the SEM of Dataset2? `r mcq(sem2)`
+3. What is the SEM of Dataset3? `r mcq(sem3)`
+4. What is the SEM of Dataset4? `r mcq(sem4)`
+5. What is the SEM of Dataset5? `r mcq(sem5)`
+
+---
 
 ## Confidence Intervals
 

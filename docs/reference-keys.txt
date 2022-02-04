@@ -14,12 +14,16 @@ interval-estimates
 the-range
 test-yourself---range
 variance
+test-yourself---variance
 standard-deviation
+test-yourself---standard-deviation
 var-to-sd
 sd-to-var
+s2-3.1222222
 z-scores
 test-yourself---z-scores
 standard-error-of-the-mean
+test-yourself---standard-error
 confidence-intervals
 test-yourself---95-confidence-intervals
 a-full-descriptive
@@ -73,7 +77,6 @@ making-a-prediction
 the-r-squared
 the-write-up-1
 test-yourself-3
-slopes
 one-way-between-subjects-tables
 the-anova-table
 look-up-table-6
