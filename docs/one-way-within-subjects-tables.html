@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 13 One-Way Between-Subjects tables | A Handy Workbook for Research Methods &amp; Statistics</title>
+<title>Chapter 14 One-Way Within-Subjects tables | A Handy Workbook for Research Methods &amp; Statistics</title>
 <meta name="author" content="Phil McAleer">
-<meta name="description" content="This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.  13.1 The ANOVA table One-Way Between-Subjects Scenario: A research team are...">
+<meta name="description" content="Notes: This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand. To show you how very similar a between groups and within groups ANOVA...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 13 One-Way Between-Subjects tables | A Handy Workbook for Research Methods &amp; Statistics">
+<meta property="og:title" content="Chapter 14 One-Way Within-Subjects tables | A Handy Workbook for Research Methods &amp; Statistics">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/one-way-between-subjects-tables.html">
+<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/one-way-within-subjects-tables.html">
 <meta property="og:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
-<meta property="og:description" content="This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.  13.1 The ANOVA table One-Way Between-Subjects Scenario: A research team are...">
+<meta property="og:description" content="Notes: This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand. To show you how very similar a between groups and within groups ANOVA...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 13 One-Way Between-Subjects tables | A Handy Workbook for Research Methods &amp; Statistics">
-<meta name="twitter:description" content="This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.  13.1 The ANOVA table One-Way Between-Subjects Scenario: A research team are...">
+<meta name="twitter:title" content="Chapter 14 One-Way Within-Subjects tables | A Handy Workbook for Research Methods &amp; Statistics">
+<meta name="twitter:description" content="Notes: This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand. To show you how very similar a between groups and within groups ANOVA...">
 <meta name="twitter:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -71,8 +71,8 @@
 <li class="book-part">Linear Regression</li>
 <li><a class="" href="simple-linear-regression.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
 <li class="book-part">ANOVAs</li>
-<li><a class="active" href="one-way-between-subjects-tables.html"><span class="header-section-number">13</span> One-Way Between-Subjects tables</a></li>
-<li><a class="" href="one-way-within-subjects-tables.html"><span class="header-section-number">14</span> One-Way Within-Subjects tables</a></li>
+<li><a class="" href="one-way-between-subjects-tables.html"><span class="header-section-number">13</span> One-Way Between-Subjects tables</a></li>
+<li><a class="active" href="one-way-within-subjects-tables.html"><span class="header-section-number">14</span> One-Way Within-Subjects tables</a></li>
 <li class="book-part">Additional</li>
 <li><a class="" href="random-formulas.html"><span class="header-section-number">15</span> Random formulas</a></li>
 <li><a class="" href="the-rounding-chapter.html"><span class="header-section-number">16</span> The Rounding Chapter</a></li>
@@ -86,21 +86,27 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="one-way-between-subjects-tables" class="section level1" number="13">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="one-way-within-subjects-tables" class="section level1" number="14">
 <h1>
-<span class="header-section-number">13</span> One-Way Between-Subjects tables<a class="anchor" aria-label="anchor" href="#one-way-between-subjects-tables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14</span> One-Way Within-Subjects tables<a class="anchor" aria-label="anchor" href="#one-way-within-subjects-tables"><i class="fas fa-link"></i></a>
 </h1>
-<p>This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.</p>
-<div id="the-anova-table" class="section level2" number="13.1">
+<p>Notes:</p>
+<ol style="list-style-type: decimal">
+<li>This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.</li>
+<li>To show you how very similar a between groups and within groups ANOVA are, we have tweaked the study from the One-Way Between-Subjects Scenario previously introduced.</li>
+<li>We use the term repeated measures and within-subjects interchangably here</li>
+<li>My thanks to Dr Helena Paterson for building this chapter.</li>
+</ol>
+<div id="the-anova-table-1" class="section level2" number="14.1">
 <h2>
-<span class="header-section-number">13.1</span> The ANOVA table<a class="anchor" aria-label="anchor" href="#the-anova-table"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1</span> The ANOVA table<a class="anchor" aria-label="anchor" href="#the-anova-table-1"><i class="fas fa-link"></i></a>
 </h2>
-<p><strong>One-Way Between-Subjects Scenario:</strong> A research team are investigating the influence of mainstream media on life happiness. They record Life Happiness scores from 0 to 100 with higher scores meaning more happy with life from a large cohort of participants and split the participants into two groups; Group 1 (n = 72) and Group 2 (n = 81). The researchers want to check whether there is a difference between the two groups of participants in terms of Life Happiness. Calculate F from the below one-way ANOVA output table comparing mean Life Happiness scores across the two groups of participants and state whether there is a significant difference between the groups or not. The Sums of Squares (<span class="math inline">\(SS\)</span>) have been given to you.</p>
+<p><strong>One-Way Within-Subjects Scenario:</strong> A research team are investigating the influence of mainstream media on life happiness. They record Life Happiness scores from 0 to 100 with higher scores meaning more happy with life from a large cohort of participants (n = 153) and record their life happiness scores at two time points; once before a happiness intervention and once after the intervention. The researchers want to check whether there is a difference in terms of Life Happiness due to the intervention. Calculate F from the below one-way ANOVA output table comparing mean Life Happiness scores across the two time points and state whether there is a significant difference between the pre- and post-intervention happiness scores. The Sums of Squares (<span class="math inline">\(SS\)</span>) have been given to you.</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="center">Conditions</th>
-<th align="center"><span class="math inline">\(SS\)</span></th>
-<th align="center"><span class="math inline">\(df\)</span></th>
+<th align="center">SS</th>
+<th align="center">df</th>
 <th align="center">Mean Square</th>
 <th align="center">F-value</th>
 </tr></thead>
@@ -139,17 +145,24 @@
 <p><span class="math display">\[df_{between} = k - 1\]</span></p>
 <p>Where <span class="math inline">\(k\)</span> is the number of conditions or groups.</p>
 <p>The second degrees of freedom is related to the number of participants/observations/data-points and is usually called <span class="math inline">\(df_{Within}\)</span> or <span class="math inline">\(df_{Model}\)</span>; again both referring to the same idea. This df is calculated as:</p>
-<p><span class="math display">\[df_{within} = N - k\]</span></p>
-<p>Where <span class="math inline">\(N\)</span> is total number of participants in the whole experiment and <span class="math inline">\(k\)</span> is again the number of conditions or groups. The <span class="math inline">\(df_{within}\)</span> can also be phrased as the:</p>
-<p><span class="math display">\[df_{within} = \sum_1^k(n_{k}-1)\]</span></p>
-<p>Which can be read as taking 1 away from the <span class="math inline">\(n\)</span> in each group (<span class="math inline">\(k\)</span>) and then summing those values together. For example, if you had a total of 20 participants in your experiment (<span class="math inline">\(N = 20\)</span>) and they were split into 2 groups (<span class="math inline">\(k = 2\)</span>) of 10 per group (<span class="math inline">\(n = 10\)</span>), then you would do:</p>
-<p><span class="math display">\[df_{within} = (10-1)+(10-1) = 18\]</span></p>
-<p>But as that is the same as <span class="math inline">\(N-k\)</span> (i.e. 20 - 2 = 18), and <span class="math inline">\(N-k\)</span> is easier to think about, we will use that approach here.</p>
-<p>So, using those two formulas and the information given to us, first we see we have two groups. As such:</p>
-<p><span class="math display">\[df_{between} = k - 1 = 2 - 1 = 1\]</span></p>
-<p>Next we see that we have n = 72 in Group 1, and n = 81 in Group 2, meaning that we have a total number of participants of N = 72 + 81 = 153. And if we put that into the formula for the <span class="math inline">\(df_{Within}\)</span> we see:</p>
-<p><span class="math display">\[df_{Within} = N-k = 153 - 2 = 151\]</span></p>
-<p>Meaning that we have <span class="math inline">\(df_{Between}\)</span> = 1, and <span class="math inline">\(df_{Within}\)</span> = 151, and we can fill those into our table as such:</p>
+<p><span class="math display">\[df_{within} = ((N \times k) - 1) - (N - 1) - (k - 1)\]</span></p>
+<p>Where <span class="math inline">\(N\)</span> is total number of participants in the whole experiment and <span class="math inline">\(k\)</span> is again the number of conditions or times that you observed the participants. <span class="math inline">\(N \times k\)</span> is essentially all the observations in your study because you collected <span class="math inline">\(k\)</span> data points from <span class="math inline">\(N\)</span> participants.</p>
+<p>For example, if you had a total of 5 participants in your experiment (<span class="math inline">\(N\)</span> = 5) and you measured them three times on the same dependent variable (<span class="math inline">\(k\)</span> = 3) then you would do:</p>
+<p><span class="math display">\[df_{within} = ((5 \times 3)-1) - (5-1) - (3-1) = 8\]</span></p>
+<p>However, the <span class="math inline">\(df_{within}\)</span> can also be phrased more simply as:</p>
+<p><span class="math display">\[df_{within} = (N-1)(k-1)\]</span></p>
+<p>This can be read as:</p>
+<ul>
+<li>subtracting one from the total number of participants, <span class="math inline">\(N\)</span>,</li>
+<li>subtracting one from the total number of conditions, <span class="math inline">\(k\)</span>, * and then multiplying those two values together.</li>
+</ul>
+<p>Which would, assuming the five participants and three groups, look like this:</p>
+<p><span class="math display">\[df_{within} = (N-1)(k-1) = (5 - 1) \times (3 - 1) = 4 \times 2 = 8\]</span></p>
+<p>So, returning to the original study we were looking at, first we see each person's happiness has been measured twice (before and after intervention) - meaning that <span class="math inline">\(k\)</span> = 2. As such:</p>
+<p><span class="math display">\[df_{between} = (k-1) = 2 - 1 = 1\]</span></p>
+<p>Next we see that we have a total number of participants of <span class="math inline">\(N\)</span> = 153. And if we put that into the formula for the <span class="math inline">\(df_{Within}\)</span> we see:</p>
+<p><span class="math display">\[df_{Within} = (N-1)\times(k-1) = (153 - 1)\times(2 - 1) = 152\]</span></p>
+<p>Meaning that we have <span class="math inline">\(df_{Between}\)</span> = 1, and <span class="math inline">\(df_{Within}\)</span> = 152, and we can fill those into our table as such:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="center">Conditions</th>
@@ -169,7 +182,7 @@
 <tr class="even">
 <td align="center">Within</td>
 <td align="center">2126.3</td>
-<td align="center">151</td>
+<td align="center">152</td>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
@@ -188,8 +201,8 @@
 <p>Looking at the table above we have all the information we need to calculate both the <span class="math inline">\(MS_{Between}\)</span> and the <span class="math inline">\(MS_{Within}\)</span>. They would look like:</p>
 <p><span class="math display">\[MS_{Between} = \frac{SS_{Between}}{df_{Between}} = \frac{44.56}{1} = 44.56\]</span></p>
 <p>And</p>
-<p><span class="math display">\[MS_{Within} = \frac{SS_{Within}}{df_{Within}} = \frac{2126.3}{151} = 14.081457\]</span></p>
-<p>Meaning that we have <span class="math inline">\(MS_{Between}\)</span> = 44.56 and <span class="math inline">\(MS_{Within}\)</span> = 14.081457, which we can add in to our ANOVA table as such:</p>
+<p><span class="math display">\[MS_{Within} = \frac{SS_{Within}}{df_{Within}} = \frac{2126.3}{152} = 13.9888158\]</span></p>
+<p>Meaning that we have <span class="math inline">\(MS_{Between}\)</span> = 44.56 and <span class="math inline">\(MS_{Within}\)</span> = 13.9888158, which we can add in to our ANOVA table as such:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="center">Conditions</th>
@@ -209,8 +222,8 @@
 <tr class="even">
 <td align="center">Within</td>
 <td align="center">2126.3</td>
-<td align="center">151</td>
-<td align="center">14.081457</td>
+<td align="center">152</td>
+<td align="center">13.9888158</td>
 <td align="center"></td>
 </tr>
 <tr class="odd">
@@ -226,8 +239,8 @@
 <p>Awesome. Finally, we need to calculate our F-value which is the ratio between the <span class="math inline">\(MS_{Between}\)</span> and <span class="math inline">\(MS_{Within}\)</span>, and can be written as:</p>
 <p><span class="math display">\[F = \frac{MS_{Between}}{MS_{Within}}\]</span></p>
 <p>And so if we put our numbers in from above we see:</p>
-<p><span class="math display">\[F = \frac{MS_{Between}}{MS_{Within}} = \frac{44.56}{14.081457} = 3.1644453\]</span></p>
-<p>Giving us an F-value of F = 3.16 (to two decimal places), which we can now put into our table to complete our table as such:</p>
+<p><span class="math display">\[F = \frac{MS_{Between}}{MS_{Within}} = \frac{44.56}{13.9888158} = 3.1854019\]</span></p>
+<p>Giving us an F-value of F = 3.19 (to two decimal places), which we can now put into our table to complete our table as such:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="center">Conditions</th>
@@ -242,13 +255,13 @@
 <td align="center">44.56</td>
 <td align="center">1</td>
 <td align="center">44.56</td>
-<td align="center">3.16</td>
+<td align="center">3.19</td>
 </tr>
 <tr class="even">
 <td align="center">Within</td>
 <td align="center">2126.3</td>
-<td align="center">151</td>
-<td align="center">14.081457</td>
+<td align="center">152</td>
+<td align="center">13.9888158</td>
 <td align="center"></td>
 </tr>
 <tr class="odd">
@@ -280,12 +293,12 @@
 </p>
 <p>From above we know the two dfs and we know the F-value and the effect size, so what we need now is to determine the significance.</p>
 <p><strong>Determining Significance</strong></p>
-<p>If we were to look at a critical values look-up table for <span class="math inline">\(df_{Between}\)</span> = 1, <span class="math inline">\(df_{Within}\)</span> = 151, and <span class="math inline">\(\alpha = .05\)</span>, we would see that the closest we have is for <span class="math inline">\(df_{Between}\)</span> = 1, <span class="math inline">\(df_{Within}\)</span> = 100, which has a critical value of <span class="math inline">\(F_{crit}\)</span> = 3.94. Given that our F-value is smaller than our <span class="math inline">\(F_{crit}\)</span> then we can say our result is not significant, and as such would be written up as F(1, 151) = 3.16, p &gt; .05, <span class="math inline">\(\eta_p^2\)</span> = 0.02.</p>
-<p><strong>Remember:</strong> If you were writing this up as a report, and analysed the data in R, then you would see the p-value was actually p = 0.07747604, and would be written up as p = 0.077</p>
+<p>If we were to look at a critical values look-up table for <span class="math inline">\(df_{Between}\)</span> = 1, <span class="math inline">\(df_{Within}\)</span> = 152, and <span class="math inline">\(\alpha = .05\)</span>, we would see that the closest we have is for <span class="math inline">\(df_{Between}\)</span> = 1, <span class="math inline">\(df_{Within}\)</span> = 100, which has a critical value of <span class="math inline">\(F_{crit}\)</span> = 3.94. Given that our F-value is smaller than our <span class="math inline">\(F_{crit}\)</span> then we can say our result is not significant, and as such would be written up as F(1, 152) = 3.19, p &gt; .05, <span class="math inline">\(\eta_p^2\)</span> = 0.02.</p>
+<p><strong>Remember:</strong> If you were writing this up as a report, and analysed the data in R, then you would see the p-value was actually p = 0.0760836, and would be written up as p = 0.076</p>
 </div>
-<div id="look-up-table-6" class="section level2" number="13.2">
+<div id="look-up-table-7" class="section level2" number="14.2">
 <h2>
-<span class="header-section-number">13.2</span> Look-Up table<a class="anchor" aria-label="anchor" href="#look-up-table-6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2</span> Look-Up table<a class="anchor" aria-label="anchor" href="#look-up-table-7"><i class="fas fa-link"></i></a>
 </h2>
 <p>Remembering that the <span class="math inline">\(F_{crit}\)</span> value is the smallest F-value you need to find a significant effect, find the <span class="math inline">\(F_{crit}\)</span> for your dfs, assuming <span class="math inline">\(\alpha = .05\)</span>. If the <span class="math inline">\(F\)</span>-value you calculated is equal to or larger than <span class="math inline">\(F_{crit}\)</span> then your test is significant. In this table, to fit it on to the page, <span class="math inline">\(df_{Between}\)</span> is written as df1, and <span class="math inline">\(df_{Within}\)</span> is written as df2.</p>
 <div class="inline-table"><table class="table table-sm">
@@ -436,6 +449,29 @@
 </tr>
 </tbody>
 </table></div>
+</div>
+</div>
+
+
+
+<div class="chapter-nav">
+<div class="prev"><a href="one-way-between-subjects-tables.html"><span class="header-section-number">13</span> One-Way Between-Subjects tables</a></div>
+<div class="next"><a href="random-formulas.html"><span class="header-section-number">15</span> Random formulas</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#one-way-within-subjects-tables"><span class="header-section-number">14</span> One-Way Within-Subjects tables</a></li>
+<li><a class="nav-link" href="#the-anova-table-1"><span class="header-section-number">14.1</span> The ANOVA table</a></li>
+<li><a class="nav-link" href="#look-up-table-7"><span class="header-section-number">14.2</span> Look-Up table</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/06-ANOVA-c.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/06-ANOVA-c.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
 </div>
 </div>
 <script>
@@ -636,28 +672,10 @@ $( document ).ready(function() {
   move_sidebar();
   window.onresize = move_sidebar;
 });
-</script><div class="chapter-nav">
-<div class="prev"><a href="simple-linear-regression.html"><span class="header-section-number">12</span> Simple Linear Regression</a></div>
-<div class="next"><a href="one-way-within-subjects-tables.html"><span class="header-section-number">14</span> One-Way Within-Subjects tables</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#one-way-between-subjects-tables"><span class="header-section-number">13</span> One-Way Between-Subjects tables</a></li>
-<li><a class="nav-link" href="#the-anova-table"><span class="header-section-number">13.1</span> The ANOVA table</a></li>
-<li><a class="nav-link" href="#look-up-table-6"><span class="header-section-number">13.2</span> Look-Up table</a></li>
-</ul>
-
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/06-ANOVA-b.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/06-ANOVA-b.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
-</div>
-    </nav>
-</div>
+</script>
 
 </div>
-</div> <!-- .container -->
+ <!-- .container -->
 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
