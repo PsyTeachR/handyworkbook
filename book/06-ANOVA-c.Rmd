@@ -1,0 +1,179 @@
+# One-Way Within-Subjects tables
+
+Notes: 
+
+1. This chapter is currently under development but will eventually show how to complete ANOVAs and ANOVA tables by hand.
+2. To show you how very similar a between groups and within groups ANOVA are, we have tweaked the study from the One-Way Between-Subjects Scenario previously introduced.
+3. We use the term repeated measures and within-subjects interchangably here
+4. My thanks to Dr Helena Paterson for building this chapter.
+
+## The ANOVA table
+
+**One-Way Within-Subjects Scenario:** A research team are investigating the influence of mainstream media on life happiness. They record Life Happiness scores from 0 to 100 with higher scores meaning more happy with life from a large cohort of participants (n = 153) and record their life happiness scores at two time points; once before a happiness intervention and once after the intervention. The researchers want to check whether there is a difference in terms of Life Happiness due to the intervention. Calculate F from the below one-way ANOVA output table comparing mean Life Happiness scores across the two time points and state whether there is a significant difference between the pre- and post-intervention happiness scores. The Sums of Squares ($SS$) have been given to you.
+
+```{r vals, echo = FALSE}
+BSS <- 44.56
+WSS <- 2126.3
+Ngroups <- 2
+Ngroup1 <- 153
+dfBet <- Ngroups - 1
+dfWit <- (Ngroup1 - 1)*(Ngroups - 1)
+MSBet <- BSS/dfBet
+MSWit <- WSS/dfWit
+Fval <- round2(MSBet/MSWit,2)
+pes <- round2(BSS/(BSS+WSS),2)
+```
+
+|Conditions|SS | df |Mean Square|F-value|
+|:--------:|:-------------:|:---:|:---:|:---:|
+|Between   |`r BSS`||||
+|Within    |`r WSS`||||
+|Total     |`r BSS+WSS`||||
+
+In order to complete the above table we need to:
+
+* determine the degrees of freedom ($df$) of the Between and the Within components
+* use the $df$ to calculate the Mean Squares ($MS$)
+* use the Mean Squares to calculate the F-value
+
+**Degrees of Freedom**
+
+In an ANOVA there are two degrees of freedom. The first is the degrees of freedom related to the number of groups/conditions/models and is usually called $df_{Between}$, $df_{Condition}$, or $df_{Model}$. They all refer to the same idea. Regardless of what you call it, this df is calculated as:
+
+$$df_{between} = k - 1$$
+
+Where $k$ is the number of conditions or groups.
+
+The second degrees of freedom is related to the number of participants/observations/data-points and is usually called $df_{Within}$ or $df_{Model}$; again both referring to the same idea. This df is calculated as:
+
+$$df_{within} = ((N \times k) - 1) - (N - 1) - (k - 1)$$
+
+Where $N$ is total number of participants in the whole experiment and $k$ is again the number of conditions or times that you observed the participants. $N \times k$ is essentially all the observations in your study because you collected $k$ data points from $N$ participants.
+
+For example, if you had a total of 5 participants in your experiment ($N$ = 5) and you measured them three times on the same dependent variable ($k$ = 3) then you would do:
+
+$$df_{within} = ((5 \times 3)-1) - (5-1) - (3-1) = `r (5-1)*(3-1)`$$
+
+However, the $df_{within}$ can also be phrased more simply as:
+
+$$df_{within} = (N-1)(k-1)$$
+
+This can be read as:
+
+* subtracting one from the total number of participants, $N$, 
+* subtracting one from the total number of conditions, $k$, * and then multiplying those two values together. 
+
+Which would, assuming the five participants and three groups, look like this:
+
+$$df_{within} = (N-1)(k-1) = (5 - 1) \times (3 - 1) = `r 5-1` \times `r 3-1` = `r (5-1)*(3-1)`$$
+
+So, returning to the original study we were looking at, first we see each person's happiness has been measured twice (before and after intervention) - meaning that $k$ = 2. As such:
+
+$$df_{between} = (k-1) = `r Ngroups` - 1 = `r (Ngroups - 1)`$$
+
+Next we see that we have a total number of participants of $N$ = `r Ngroup1`. And if we put that into the formula for the $df_{Within}$ we see:
+
+$$df_{Within} = (N-1)\times(k-1) = (`r Ngroup1` - 1)\times(`r Ngroups` - 1) = `r (Ngroup1 - 1)*(Ngroups - 1)`$$
+
+Meaning that we have $df_{Between}$ = `r dfBet`, and $df_{Within}$ = `r dfWit`, and we can fill those into our table as such:
+
+|Conditions|$SS$| $df$ |Mean Square|F-value|
+|:--------:|:-------------:|:---:|:---:|:---:|
+|Between   |`r BSS`|`r dfBet`|||
+|Within    |`r WSS`|`r dfWit`|||
+|Total     |`r BSS+WSS`||||
+
+**Mean Squares**
+
+Great! Now the next step is to calculate the Mean Square value for both the Between (i.e. Groups) and Within (i.e. Residuals) components. The Mean Square is really an abbreviation of the Mean Sums of Squares and is the Sums of Squares of a component divided by the degrees of freedom. Or in other words:
+
+$$MS = \frac{SS}{df}$$
+
+Looking at the table above we have all the information we need to calculate both the $MS_{Between}$ and the $MS_{Within}$. They would look like:
+
+$$MS_{Between} = \frac{SS_{Between}}{df_{Between}} = \frac{`r BSS`}{`r dfBet`} = `r BSS/dfBet`$$
+
+And
+
+$$MS_{Within} = \frac{SS_{Within}}{df_{Within}} = \frac{`r WSS`}{`r dfWit`} = `r WSS/dfWit`$$
+
+Meaning that we have $MS_{Between}$ = `r MSBet` and $MS_{Within}$ = `r MSWit`, which we can add in to our ANOVA table as such:
+
+|Conditions|$SS$| $df$ |Mean Square|F-value|
+|:--------:|:-------------:|:---:|:---:|:---:|
+|Between   |`r BSS`|`r dfBet`|`r MSBet`||
+|Within    |`r WSS`|`r dfWit`|`r MSWit`||
+|Total     |`r BSS+WSS`||||
+
+**The F-value**
+
+Awesome. Finally, we need to calculate our F-value which is the ratio between the $MS_{Between}$ and $MS_{Within}$, and can be written as:
+
+$$F = \frac{MS_{Between}}{MS_{Within}}$$
+
+And so if we put our numbers in from above we see:
+
+$$F = \frac{MS_{Between}}{MS_{Within}} = \frac{`r MSBet`}{`r MSWit`} = `r MSBet/MSWit`$$
+
+Giving us an F-value of F = `r Fval` (to two decimal places), which we can now put into our table to complete our table as such:
+
+|Conditions|$SS$| $df$ |Mean Square|F-value|
+|:--------:|:-------------:|:---:|:---:|:---:|
+|Between   |`r BSS`|`r dfBet`|`r MSBet`|`r Fval`|
+|Within    |`r WSS`|`r dfWit`|`r MSWit`||
+|Total     |`r BSS+WSS`||||
+
+**Effect size**
+
+There are a few effect sizes that people use for the ANOVA with one of the more common ones being what is called partial eta-squared with the symbol $\eta_p^2$ (as $\eta$ is the symbol for "eta", and is pronounced "eat-ah", and the $_p^2$ indicating "partial" and "squared"). The formula for partial eta-squared is:
+
+$$\eta_{p^2} = \frac{SS_{Between}}{SS_{Between}+SS_{Within}}$$
+
+From above, we know that:
+
+* $SS_{Between}$ = `r BSS` and
+* $SS_{Within}$ = `r WSS`
+
+And if we start to fill those into the formula we see:
+
+$$\eta_p^2 = \frac{`r BSS`}{`r BSS` + `r WSS`} = \frac{`r BSS`}{`r BSS + WSS`} = `r BSS/(BSS + WSS)`$$
+
+Meaning that this analysis has an effect size of $\eta_p^2$ = `r pes` (to two decimal places).
+
+**The Write-UP**
+
+The standard APA format for writing up an ANOVA is usually:
+
+<p align = "center">**F($df_{Between}$, $df_{Within}$) = F-value, p = p-value, $\eta_p^2$ = effectsize-value**</p>
+
+From above we know the two dfs and we know the F-value and the effect size, so what we need now is to determine the significance.
+
+**Determining Significance**
+
+If we were to look at a critical values look-up table for $df_{Between}$ = `r dfBet`, $df_{Within}$ = `r dfWit`, and $\alpha = .05$, we would see that the closest we have is for $df_{Between}$ = `r dfBet`, $df_{Within}$ = 100, which has a critical value of $F_{crit}$ = `r qf(1-.95, 1, 100, lower.tail = FALSE) %>% round2(2)`. Given that our F-value is `r ifelse(Fval >= qf(1-.95, 1, 100, lower.tail = FALSE) %>% round2(2), "equal to or larger than", "smaller than")` our $F_{crit}$ then we can say our result is `r ifelse(Fval >= qf(1-.95, 1, 100, lower.tail = FALSE) %>% round2(2), "significant", "not significant")`, and as such would be written up as F(`r dfBet`, `r dfWit`) = `r Fval`, `r ifelse(Fval >= qf(1-.95, 1, 100, lower.tail = FALSE) %>% round2(2), "p < .05", "p > .05")`, $\eta_p^2$ = `r pes`. 
+
+**Remember:** If you were writing this up as a report, and analysed the data in R, then you would see the p-value was actually p = `r format(pf(Fval, dfBet, dfWit, lower.tail = FALSE), scientific = FALSE)`, and would be written up as `r ifelse(pf(Fval, dfBet, dfWit, lower.tail = FALSE) < .001, "p < .001", paste("p = ", round2(pf(Fval, dfBet, dfWit, lower.tail = FALSE),3)))`
+
+## Look-Up table
+
+Remembering that the $F_{crit}$ value is the smallest F-value you need to find a significant effect, find the $F_{crit}$ for your dfs, assuming $\alpha = .05$. If the $F$-value you calculated is equal to or larger than $F_{crit}$ then your test is significant. In this table, to fit it on to the page, $df_{Between}$ is written as df1, and $df_{Within}$ is written as df2.
+
+|dfs|df1 = 1|df1 = 2|df1 = 3|df1 = 4|df1 = 5|
+|:-:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+|**df2 = 1**|`r qf(1-.95, 1, 1, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 1, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 1, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 1, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 1, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 2**|`r qf(1-.95, 1, 2, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 2, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 2, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 2, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 2, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 3**|`r qf(1-.95, 1, 3, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 3, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 3, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 3, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 3, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 4**|`r qf(1-.95, 1, 4, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 4, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 4, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 4, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 4, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 5**|`r qf(1-.95, 1, 5, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 5, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 5, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 5, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 5, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 10**|`r qf(1-.95, 1, 10, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 10, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 10, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 10, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 10, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 15**|`r qf(1-.95, 1, 15, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 15, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 15, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 15, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 15, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 20**|`r qf(1-.95, 1, 20, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 20, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 20, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 20, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 20, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 25**|`r qf(1-.95, 1, 25, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 25, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 25, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 25, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 25, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 30**|`r qf(1-.95, 1, 30, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 30, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 30, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 30, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 30, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 40**|`r qf(1-.95, 1, 40, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 40, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 40, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 40, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 40, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 50**|`r qf(1-.95, 1, 50, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 50, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 50, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 50, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 50, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 60**|`r qf(1-.95, 1, 60, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 60, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 60, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 60, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 60, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 70**|`r qf(1-.95, 1, 70, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 70, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 70, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 70, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 70, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 80**|`r qf(1-.95, 1, 80, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 80, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 80, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 80, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 80, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 90**|`r qf(1-.95, 1, 90, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 90, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 90, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 90, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 90, lower.tail = FALSE) %>% round2(3)`|
+|**df2 = 100**|`r qf(1-.95, 1, 100, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 2, 100, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 3, 100, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95, 4, 100, lower.tail = FALSE) %>% round2(3)`|`r qf(1-.95,5, 100, lower.tail = FALSE) %>% round2(3)`|

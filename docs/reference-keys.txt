@@ -74,6 +74,9 @@ test-yourself-3
 one-way-between-subjects-tables
 the-anova-table
 look-up-table-6
+one-way-within-subjects-tables
+the-anova-table-1
+look-up-table-7
 random-formulas
 t-value-to-r-value
 the-rounding-chapter
