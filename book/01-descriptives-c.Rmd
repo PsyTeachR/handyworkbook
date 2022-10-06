@@ -369,14 +369,14 @@ sem5 <- tibble(x = sd(dat5)/sqrt(length(dat5))) %>% pull(x) %>% round2(2)
 
 uci1 <- sample(c(answer = m1 + sem1 * zci, m1 - sem1 * zci, m2 + sem1 * zci, m3 - sem1 * zci))
 lci1 <- sample(c(answer = m1 - sem1 * zci, m1 + sem1 * zci, m2 + sem1 * zci, m3 - sem1 * zci))
-uci2 <- sample(c(answer = m2 + sem1 * zci, m1 - sem1 * zci, m4 + sem1 * zci, m3 - sem1 * zci))
-lci2 <- sample(c(answer = m2 - sem1 * zci, m1 + sem1 * zci, m4 + sem1 * zci, m3 - sem1 * zci))
-uci3 <- sample(c(answer = m3 + sem1 * zci, m1 - sem1 * zci, m2 + sem1 * zci, m5 - sem1 * zci))
-lci3 <- sample(c(answer = m3 - sem1 * zci, m1 + sem1 * zci, m2 + sem1 * zci, m5 - sem1 * zci))
-uci4 <- sample(c(answer = m4 + sem1 * zci, m5 - sem1 * zci, m2 + sem1 * zci, m3 - sem1 * zci))
-lci4 <- sample(c(answer = m4 - sem1 * zci, m5 + sem1 * zci, m2 + sem1 * zci, m3 - sem1 * zci))
-uci5 <- sample(c(answer = m5 + sem1 * zci, m4 - sem1 * zci, m1 + sem1 * zci, m3 - sem1 * zci))
-lci5 <- sample(c(answer = m5 - sem1 * zci, m4 + sem1 * zci, m1 + sem1 * zci, m3 - sem1 * zci))
+uci2 <- sample(c(answer = m2 + sem2 * zci, m1 - sem1 * zci, m4 + sem1 * zci, m3 - sem1 * zci))
+lci2 <- sample(c(answer = m2 - sem2 * zci, m1 + sem1 * zci, m4 + sem1 * zci, m3 - sem1 * zci))
+uci3 <- sample(c(answer = m3 + sem3 * zci, m1 - sem1 * zci, m2 + sem1 * zci, m5 - sem1 * zci))
+lci3 <- sample(c(answer = m3 - sem3 * zci, m1 + sem1 * zci, m2 + sem1 * zci, m5 - sem1 * zci))
+uci4 <- sample(c(answer = m4 + sem4 * zci, m5 - sem1 * zci, m2 + sem1 * zci, m3 - sem1 * zci))
+lci4 <- sample(c(answer = m4 - sem4 * zci, m5 + sem1 * zci, m2 + sem1 * zci, m3 - sem1 * zci))
+uci5 <- sample(c(answer = m5 + sem5 * zci, m4 - sem1 * zci, m1 + sem1 * zci, m3 - sem1 * zci))
+lci5 <- sample(c(answer = m5 - sem5 * zci, m4 + sem1 * zci, m1 + sem1 * zci, m3 - sem1 * zci))
 
 
 ```
