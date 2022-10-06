@@ -50,7 +50,8 @@ $$df_{within} = (N-1)(k-1)$$
 This can be read as:
 
 * subtracting one from the total number of participants, $N$, 
-* subtracting one from the total number of conditions, $k$, * and then multiplying those two values together. 
+* subtracting one from the total number of conditions, $k$, 
+* and then multiplying those two values together. 
 
 Which would, assuming the five participants and three groups, look like this:
 
