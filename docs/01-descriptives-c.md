@@ -283,21 +283,21 @@ Below are the Means and Standard Errors of 5 datasets.
 
 * Dataset 2: **M** = 22, **SE** = 1.8
 
-3. What is the Upper 95% CI of DataSet 2? <select class='webex-select'><option value='blank'></option><option value='answer'>28.468</option><option value=''>9.632</option><option value=''>7.932</option><option value=''>18.768</option></select>
-4. What is the Lower 95% CI of DataSet 2? <select class='webex-select'><option value='blank'></option><option value=''>22.568</option><option value='answer'>15.532</option><option value=''>7.932</option><option value=''>18.768</option></select>
+3. What is the Upper 95% CI of DataSet 2? <select class='webex-select'><option value='blank'></option><option value='answer'>25.528</option><option value=''>9.632</option><option value=''>7.932</option><option value=''>18.768</option></select>
+4. What is the Lower 95% CI of DataSet 2? <select class='webex-select'><option value='blank'></option><option value=''>22.568</option><option value='answer'>18.472</option><option value=''>7.932</option><option value=''>18.768</option></select>
 
 * Dataset 3: **M** = 14.4, **SE** = 2.89
 
-5. What is the Upper 95% CI of DataSet 3? <select class='webex-select'><option value='blank'></option><option value=''>28.468</option><option value='answer'>20.868</option><option value=''>9.632</option><option value=''>10.932</option></select>
-6. What is the Lower 95% CI of DataSet 3? <select class='webex-select'><option value='blank'></option><option value=''>10.932</option><option value='answer'>7.932</option><option value=''>28.468</option><option value=''>22.568</option></select>
+5. What is the Upper 95% CI of DataSet 3? <select class='webex-select'><option value='blank'></option><option value=''>28.468</option><option value='answer'>20.0644</option><option value=''>9.632</option><option value=''>10.932</option></select>
+6. What is the Lower 95% CI of DataSet 3? <select class='webex-select'><option value='blank'></option><option value=''>10.932</option><option value='answer'>8.7356</option><option value=''>28.468</option><option value=''>22.568</option></select>
 
 * Dataset 4: **M** = 12.3, **SE** = 2.8
 
-7. What is the Upper 95% CI of DataSet 4? <select class='webex-select'><option value='blank'></option><option value=''>7.932</option><option value=''>28.468</option><option value='answer'>18.768</option><option value=''>10.932</option></select>
-8. What is the Lower 95% CI of DataSet 4? <select class='webex-select'><option value='blank'></option><option value='answer'>5.832</option><option value=''>7.932</option><option value=''>23.868</option><option value=''>28.468</option></select>
+7. What is the Upper 95% CI of DataSet 4? <select class='webex-select'><option value='blank'></option><option value=''>7.932</option><option value=''>28.468</option><option value='answer'>17.788</option><option value=''>10.932</option></select>
+8. What is the Lower 95% CI of DataSet 4? <select class='webex-select'><option value='blank'></option><option value='answer'>6.812</option><option value=''>7.932</option><option value=''>23.868</option><option value=''>28.468</option></select>
 
 
 * Dataset 5: **M** = 17.4, **SE** = 2.58
 
-9. What is the Upper 95% CI of DataSet 5? <select class='webex-select'><option value='blank'></option><option value='answer'>23.868</option><option value=''>22.568</option><option value=''>5.832</option><option value=''>7.932</option></select>
-10. What is the Lower 95% CI of DataSet 5? <select class='webex-select'><option value='blank'></option><option value=''>18.768</option><option value=''>22.568</option><option value=''>7.932</option><option value='answer'>10.932</option></select>
+9. What is the Upper 95% CI of DataSet 5? <select class='webex-select'><option value='blank'></option><option value='answer'>22.4568</option><option value=''>22.568</option><option value=''>5.832</option><option value=''>7.932</option></select>
+10. What is the Lower 95% CI of DataSet 5? <select class='webex-select'><option value='blank'></option><option value=''>18.768</option><option value=''>22.568</option><option value=''>7.932</option><option value='answer'>12.3432</option></select>
