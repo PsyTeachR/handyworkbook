@@ -1,0 +1,148 @@
+# Multiple Linear Regression
+
+Let's say we want to make a prediction about the following four people who have these scores on the five OCEAN scales:
+
+|    |Openness|Conscientousness|Extraversion|Agreeableness|Neuroticism|
+|---|:---:|:---:|:---:|:---:|:---:|
+|Participant 1| 9 | 8 | 6 | 6 | 5 |
+|Participant 2| 8 | 9 | 5 | 5 | 6 |
+|Participant 3| 5 | 6 | 8 | 8 | 9 |
+|Participant 4| 5 | 6 | 9 | 9 | 8 |
+
+And let's say we have this output from the multiple linear regression model we created using all of the five OCEAN scales as predictors:
+
+```{r, echo = FALSE}
+
+int <- 197.65
+ope <- -5.28
+con <- -5.68
+ext <- -0.4
+agr <- 0.64
+neu <- 1.89
+
+p1o <- 9
+p1c <- 8 
+p1e <- 6
+p1a <- 6
+p1n <- 5
+
+p2o <- 8
+p2c <- 9 
+p2e <- 5
+p2a <- 5
+p2n <- 6
+
+p3o <- 5
+p3c <- 6 
+p3e <- 8
+p3a <- 8
+p3n <- 9
+
+p4o <- 5
+p4c <- 6 
+p4e <- 9
+p4a <- 9
+p4n <- 8
+
+hy1 <- int + (ope * p1o) + (con * p1c) + (ext * p1e) + (agr * p1a) + (neu * p1n)
+hy2 <- int + (ope * p2o) + (con * p2c) + (ext * p2e) + (agr * p2a) + (neu * p2n)
+hy3 <- round(int + (ope * p3o) + (con * p3c) + (ext * p3e) + (agr * p3a) + (neu * p3n),2)
+hy4 <- int + (ope * p4o) + (con * p4c) + (ext * p4e) + (agr * p4a) + (neu * p4n)
+
+```
+
+
+|    |Unstandardised Coefficient|t-value|p-value|
+|---|:---:|:---:|:---:|
+|Intercept|197.65|22.43|.0001|
+|Openness|-5.28|-7.68|.0001|
+|Conscientiousness|-5.68|-7.44|.0001|
+|Extraversion|-0.4|-0.65|.522|
+|Agreeableness|0.64|0.69|.495|
+|Neuroticism|1.89|2.56|.014|
+|---|---|---|---|
+|Multiple R^2^| .7619| Adjusted R^2^|.7348|
+|F-statistic|28.16 on 5 and 44 DF| p-value| .001|
+
+## Making a Prediction
+
+Now based on the information we have gained above we can actually use that to make predictions about a person we have not measured based on the formula:
+
+$$\hat{Y} = b_{0} + b_{1}X_{1} + b_{2}X_{2} + b_{3}X_{3} + b_{4}X_{4} + b_{5}X_{5}$$
+
+Well technically it is 
+
+$$\hat{Y} = b_{0} + b_{1}X_{1} + b_{2}X_{2} + b_{3}X_{3} + b_{4}X_{4} + b_{5}X_{5} + error$$
+
+But we will disregard the error for now. Also you might have noticed the small hat about the $Y$ making it $\hat{Y}$ (pronounced Y-hat). This means we are making a prediction of Y ($\hat{Y}$) as opposed to an actually measured (i.e. observed) value ($Y$).
+
+And to break that formula down a bit we can say:
+
+* $b_{0}$ is the intercept of the model
+* $b_{1}X_{1}$, for example, is read at the non-standardised coeffecient of the first predictor $b_{1}$ multiplied by the measured value of the first predictor $X_{1}$
+* $b_{1}$, $b_{2}$, $b_{3}$, $b_{4}$, $b_{5}$ are the non-standardised coefficient values of the different predictors in the model. There is one non-standardised coefficient for each predictor. For example, let's say Openness is our first predictor and as such $b_{1}$ = `r ope`
+* $X_{1}$, $X_{2}$, $X_{3}$, $X_{4}$, $X_{5}$ are the measured values of the different predictors for a participant. For example, for Participant 1, again assuming Openness is our first predictor, then $X_{1}$ = `r p1o`. If Conscientousness is our second predictor, Extraversion our third predictor, Agreeableness our fourth predictor, and Neuroticism our fifth predictor, then $X_{2}$ = `r p2o`, $X_{3}$ = `r p3o` and $X_{4}$ = `r p4o`.
+
+Then, using the information above, we know can start to fill in the information for **Participant 1** as follows:
+
+$$\hat{Y} = `r int` + (`r ope` \times `r p1o`) + (`r con` \times `r p1c`) + (`r ext` \times `r p1e`) + (`r agr` \times `r p1a`) + (`r neu` \times `r p1n`)$$
+
+And if we start to work that through, dealing with the multiplications first, we see:
+
+$$\hat{Y} = `r int` + (`r ope * p1o`) + (`r con * p1c`) + (`r ext * p1e`) + (`r agr * p1a`) + (`r neu * p1n`)$$
+
+Which then becomes:
+
+$$\hat{Y} = `r int + (ope * p1o) + (con * p1c) + (ext * p1e) + (agr * p1a) + (neu * p1n)`$$
+
+Giving a predicted value of $\hat{Y}$ = `r hy1`, to two decimal places. 
+
+Likewise for **Participant 2** we would have:
+
+$$\hat{Y} = `r int` + (`r ope` \times `r p2o`) + (`r con` \times `r p2c`) + (`r ext` \times `r p2e`) + (`r agr` \times `r p2a`) + (`r neu` \times `r p2n`)$$
+
+And if we start to work that through, dealing with the multiplications first, we see:
+
+$$\hat{Y} = `r int` + (`r ope * p2o`) + (`r con * p2c`) + (`r ext * p2e`) + (`r agr * p2a`) + (`r neu * p2n`)$$
+
+Which then becomes:
+
+$$\hat{Y} = `r int + (ope * p2o) + (con * p2c) + (ext * p2e) + (agr * p2a) + (neu * p2n)`$$
+
+Giving a predicted value of $\hat{Y}$ = `r hy2`, to two decimal places. 
+
+Likewise for **Participant 3** we would have:
+
+$$\hat{Y} = `r int` + (`r ope` \times `r p3o`) + (`r con` \times `r p3c`) + (`r ext` \times `r p3e`) + (`r agr` \times `r p3a`) + (`r neu` \times `r p3n`)$$
+
+And if we start to work that through, dealing with the multiplications first, we see:
+
+$$\hat{Y} = `r int` + (`r ope * p3o`) + (`r con * p3c`) + (`r ext * p3e`) + (`r agr * p3a`) + (`r neu * p3n`)$$
+
+Which then becomes:
+
+$$\hat{Y} = `r int + (ope * p3o) + (con * p3c) + (ext * p3e) + (agr * p3a) + (neu * p3n)`$$
+
+Giving a predicted value of $\hat{Y}$ = `r hy3`, to two decimal places. 
+
+And finally for **Participant 4** we would have:
+
+$$\hat{Y} = `r int` + (`r ope` \times `r p4o`) + (`r con` \times `r p4c`) + (`r ext` \times `r p4e`) + (`r agr` \times `r p4a`) + (`r neu` \times `r p4n`)$$
+
+And if we start to work that through, dealing with the multiplications first, we see:
+
+$$\hat{Y} = `r int` + (`r ope * p4o`) + (`r con * p4c`) + (`r ext * p4e`) + (`r agr * p4a`) + (`r neu * p4n`)$$
+
+Which then becomes:
+
+$$\hat{Y} = `r int + (ope * p4o) + (con * p4c) + (ext * p4e) + (agr * p4a) + (neu * p4n)`$$
+
+Giving a predicted value of $\hat{Y}$ = `r hy4`, to two decimal places. 
+
+And so in summary, based on our above model, and the above measured values, we would predict the following values:
+
+* Participant 1, $\hat{Y}$ = `r hy1`  
+* Participant 2, $\hat{Y}$ = `r hy2`
+* Participant 3, $\hat{Y}$ = `r hy3`
+* Participant 4, $\hat{Y}$ = `r hy4`
+
