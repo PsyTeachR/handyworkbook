@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 17 The Rounding Chapter | A Handy Workbook for Research Methods &amp; Statistics</title>
+<title>Chapter 13 Multiple Linear Regression | A Handy Workbook for Research Methods &amp; Statistics</title>
 <meta name="author" content="Phil McAleer">
-<meta name="description" content="One stumbling block that people face when first working with statistics is rounding values appropriately. This chapter contains a few examples for you to try out to help you check that you are...">
+<meta name="description" content="Let's say we want to make a prediction about the following four people who have these scores on the five OCEAN scales: Openness Conscientousness Extraversion Agreeableness Neuroticism Participant...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 17 The Rounding Chapter | A Handy Workbook for Research Methods &amp; Statistics">
+<meta property="og:title" content="Chapter 13 Multiple Linear Regression | A Handy Workbook for Research Methods &amp; Statistics">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/the-rounding-chapter.html">
+<meta property="og:url" content="https://psyteachr.github.io/handyworkbook/multiple-linear-regression.html">
 <meta property="og:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
-<meta property="og:description" content="One stumbling block that people face when first working with statistics is rounding values appropriately. This chapter contains a few examples for you to try out to help you check that you are...">
+<meta property="og:description" content="Let's say we want to make a prediction about the following four people who have these scores on the five OCEAN scales: Openness Conscientousness Extraversion Agreeableness Neuroticism Participant...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 17 The Rounding Chapter | A Handy Workbook for Research Methods &amp; Statistics">
-<meta name="twitter:description" content="One stumbling block that people face when first working with statistics is rounding values appropriately. This chapter contains a few examples for you to try out to help you check that you are...">
+<meta name="twitter:title" content="Chapter 13 Multiple Linear Regression | A Handy Workbook for Research Methods &amp; Statistics">
+<meta name="twitter:description" content="Let's say we want to make a prediction about the following four people who have these scores on the five OCEAN scales: Openness Conscientousness Extraversion Agreeableness Neuroticism Participant...">
 <meta name="twitter:image" content="https://psyteachr.github.io/handyworkbook/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -70,13 +70,13 @@
 <li><a class="" href="spearman-correlation.html"><span class="header-section-number">11</span> Spearman Correlation</a></li>
 <li class="book-part">Linear Regression</li>
 <li><a class="" href="simple-linear-regression.html"><span class="header-section-number">12</span> Simple Linear Regression</a></li>
-<li><a class="" href="multiple-linear-regression.html"><span class="header-section-number">13</span> Multiple Linear Regression</a></li>
+<li><a class="active" href="multiple-linear-regression.html"><span class="header-section-number">13</span> Multiple Linear Regression</a></li>
 <li class="book-part">ANOVAs</li>
 <li><a class="" href="one-way-between-subjects-tables.html"><span class="header-section-number">14</span> One-Way Between-Subjects tables</a></li>
 <li><a class="" href="one-way-within-subjects-tables.html"><span class="header-section-number">15</span> One-Way Within-Subjects tables</a></li>
 <li class="book-part">Additional</li>
 <li><a class="" href="random-formulas.html"><span class="header-section-number">16</span> Random formulas</a></li>
-<li><a class="active" href="the-rounding-chapter.html"><span class="header-section-number">17</span> The Rounding Chapter</a></li>
+<li><a class="" href="the-rounding-chapter.html"><span class="header-section-number">17</span> The Rounding Chapter</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="license.html">License</a></li>
 <li><a class="" href="references.html">References</a></li>
@@ -87,138 +87,198 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="the-rounding-chapter" class="section level1" number="17">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="multiple-linear-regression" class="section level1" number="13">
 <h1>
-<span class="header-section-number">17</span> The Rounding Chapter<a class="anchor" aria-label="anchor" href="#the-rounding-chapter"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13</span> Multiple Linear Regression<a class="anchor" aria-label="anchor" href="#multiple-linear-regression"><i class="fas fa-link"></i></a>
 </h1>
-<p>One stumbling block that people face when first working with statistics is rounding values appropriately. This chapter contains a few examples for you to try out to help you check that you are rounding correctly.</p>
-<p><strong>Rounding in Psychology</strong></p>
-<p>The idea behind rounding is that it reduces the numbers shown in your output and makes the values more readable. For example, instead of presenting a mean as M = 12.4251126, you would present it as M = 12.43.</p>
-<p>First thing is to understand the level you want to round to. Often you will see things written as "rounded to two decimal places" or "to 3 d.p." where d.p. is short for decimal places. And that is telling you the number of values after the decimal point that the output has been rounded to. So "rounded to two decimal places" means you show two numbers after the decimal point, whereas "rounded to three decimal places" means you show three numbers after the decimal point. This table gives an overview of the above mean to various decimal places as a guide:</p>
+<p>Let's say we want to make a prediction about the following four people who have these scores on the five OCEAN scales:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
-<th align="center">rounded to</th>
-<th align="center">value</th>
+<th></th>
+<th align="center">Openness</th>
+<th align="center">Conscientousness</th>
+<th align="center">Extraversion</th>
+<th align="center">Agreeableness</th>
+<th align="center">Neuroticism</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="center">0 d.p.</td>
-<td align="center">12</td>
+<td>Participant 1</td>
+<td align="center">9</td>
+<td align="center">8</td>
+<td align="center">6</td>
+<td align="center">6</td>
+<td align="center">5</td>
 </tr>
 <tr class="even">
-<td align="center">1 d.p.</td>
-<td align="center">12.4</td>
+<td>Participant 2</td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">5</td>
+<td align="center">5</td>
+<td align="center">6</td>
 </tr>
 <tr class="odd">
-<td align="center">2 d.p.</td>
-<td align="center">12.43</td>
+<td>Participant 3</td>
+<td align="center">5</td>
+<td align="center">6</td>
+<td align="center">8</td>
+<td align="center">8</td>
+<td align="center">9</td>
 </tr>
 <tr class="even">
-<td align="center">3 d.p.</td>
-<td align="center">12.425</td>
-</tr>
-<tr class="odd">
-<td align="center">4 d.p.</td>
-<td align="center">12.4251</td>
-</tr>
-<tr class="even">
-<td align="center">5 d.p.</td>
-<td align="center">12.42511</td>
+<td>Participant 4</td>
+<td align="center">5</td>
+<td align="center">6</td>
+<td align="center">9</td>
+<td align="center">9</td>
+<td align="center">8</td>
 </tr>
 </tbody>
 </table></div>
-<p>The principle behind rounding is that you look to the value in the position after the level you want to round to and see if it is "less than 5" or "equal to or greater than 5". If that value is "less than 5" then you round down - meaning that the value stays as it is. If that value is "equal to or greater than 5" you round up - meaning that the value goes up to the next value. An example will be easier to look at.</p>
-<div id="worked-example" class="section level2" number="17.1">
+<p>And let's say we have this output from the multiple linear regression model we created using all of the five OCEAN scales as predictors:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th></th>
+<th align="center">Unstandardised Coefficient</th>
+<th align="center">t-value</th>
+<th align="center">p-value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td align="center">197.65</td>
+<td align="center">22.43</td>
+<td align="center">.0001</td>
+</tr>
+<tr class="even">
+<td>Openness</td>
+<td align="center">-5.28</td>
+<td align="center">-7.68</td>
+<td align="center">.0001</td>
+</tr>
+<tr class="odd">
+<td>Conscientiousness</td>
+<td align="center">-5.68</td>
+<td align="center">-7.44</td>
+<td align="center">.0001</td>
+</tr>
+<tr class="even">
+<td>Extraversion</td>
+<td align="center">-0.4</td>
+<td align="center">-0.65</td>
+<td align="center">.522</td>
+</tr>
+<tr class="odd">
+<td>Agreeableness</td>
+<td align="center">0.64</td>
+<td align="center">0.69</td>
+<td align="center">.495</td>
+</tr>
+<tr class="even">
+<td>Neuroticism</td>
+<td align="center">1.89</td>
+<td align="center">2.56</td>
+<td align="center">.014</td>
+</tr>
+<tr class="odd">
+<td>---</td>
+<td align="center">---</td>
+<td align="center">---</td>
+<td align="center">---</td>
+</tr>
+<tr class="even">
+<td>Multiple R<sup>2</sup>
+</td>
+<td align="center">.7619</td>
+<td align="center">Adjusted R<sup>2</sup>
+</td>
+<td align="center">.7348</td>
+</tr>
+<tr class="odd">
+<td>F-statistic</td>
+<td align="center">28.16 on 5 and 44 DF</td>
+<td align="center">p-value</td>
+<td align="center">.001</td>
+</tr>
+</tbody>
+</table></div>
+<div id="making-a-prediction-1" class="section level2" number="13.1">
 <h2>
-<span class="header-section-number">17.1</span> Worked Example<a class="anchor" aria-label="anchor" href="#worked-example"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.1</span> Making a Prediction<a class="anchor" aria-label="anchor" href="#making-a-prediction-1"><i class="fas fa-link"></i></a>
 </h2>
-<p>Let's say we want to round M = 12.4251126 to different levels.</p>
-<p><strong>Rounding to three decimal places</strong></p>
-<p>First lets round it to three decimal places. To do that we need to look at the value in the fourth decimal place. The value in the fourth decimal place is 1. As that value is less than 5, we round down and so 12.4251126 becomes 12.425</p>
-<p><strong>Rounding to two decimal places</strong></p>
-<p>Lets now round M = 12.4251126 to two decimal places - so two values after the decimal point. To do that we need to look at the value in the third decimal place. The value in the third decimal place is 5. As that value is equal to or greater than 5, we round up and so 12.4251126 becomes 12.43</p>
-</div>
-<div id="test-yourself-4" class="section level2" number="17.2">
-<h2>
-<span class="header-section-number">17.2</span> Test Yourself<a class="anchor" aria-label="anchor" href="#test-yourself-4"><i class="fas fa-link"></i></a>
-</h2>
-<p><strong>Example 1</strong></p>
-<p>Now here are a few examples just to see if you can follow the above.</p>
-What is the following value rounded to two decimal places: value = 0.47185
-<div id="radio_NUQGQYVCRU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NUQGQYVCRU" value="answer"><span>0.47</span></label><label><input type="radio" autocomplete="off" name="radio_NUQGQYVCRU" value=""><span>0.5</span></label><label><input type="radio" autocomplete="off" name="radio_NUQGQYVCRU" value=""><span>0.472</span></label><label><input type="radio" autocomplete="off" name="radio_NUQGQYVCRU" value=""><span>0.4718</span></label>
-</div>
-<div class="webex-solution">
-<button>
-Explain this answer
-</button>
-<p>The reason that the answer is 0.47 is because the question asks for two decimal places and so we need to look at the third decimal value of the original number - in this instance it is 1. As that value is less than 5, we round down and so 0.472 becomes 0.47</p>
-</div>
-<p><strong>Example 2</strong></p>
-What is the following value rounded to two decimal places: value = -1.85472
-<div id="radio_YYXGBJBYNH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YYXGBJBYNH" value="answer"><span>-1.85</span></label><label><input type="radio" autocomplete="off" name="radio_YYXGBJBYNH" value=""><span>-1.9</span></label><label><input type="radio" autocomplete="off" name="radio_YYXGBJBYNH" value=""><span>-1.86</span></label><label><input type="radio" autocomplete="off" name="radio_YYXGBJBYNH" value=""><span>-1.84</span></label>
-</div>
-<div class="webex-solution">
-<button>
-Explain this answer
-</button>
-<p>The reason that the answer is -1.85 is because the question asks for two decimal places and so we need to look at the third decimal value of the original number - in this instance it is 4. As that value is less than 5, we round down and so -1.855 becomes -1.85</p>
-</div>
-<p><strong>Example 3</strong></p>
-What is the following value rounded to three decimal places: value = -1.06609
-<div id="radio_FCPSCNSBCN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_FCPSCNSBCN" value=""><span>-1.1</span></label><label><input type="radio" autocomplete="off" name="radio_FCPSCNSBCN" value="answer"><span>-1.066</span></label><label><input type="radio" autocomplete="off" name="radio_FCPSCNSBCN" value=""><span>-1.0661</span></label><label><input type="radio" autocomplete="off" name="radio_FCPSCNSBCN" value=""><span>-1.07</span></label>
-</div>
-<div class="webex-solution">
-<button>
-Explain this answer
-</button>
-<p>The reason that the answer is -1.066 is because the question asks for three decimal places and so we need to look at the fourth decimal value of the original number - in this instance it is 0. As that value is less than 5, we round down and so -1.0661 becomes -1.066</p>
-</div>
-<p><strong>Example 4</strong></p>
-What is the following value rounded to three decimal places: value = -2.08314
-<div id="radio_XMQSBFXUYP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XMQSBFXUYP" value=""><span>-2.084</span></label><label><input type="radio" autocomplete="off" name="radio_XMQSBFXUYP" value=""><span>-2.08</span></label><label><input type="radio" autocomplete="off" name="radio_XMQSBFXUYP" value="answer"><span>-2.083</span></label><label><input type="radio" autocomplete="off" name="radio_XMQSBFXUYP" value=""><span>-2.082</span></label>
-</div>
-<div class="webex-solution">
-<button>
-Explain this answer
-</button>
-<p>The reason that the answer is -2.083 is because the question asks for three decimal places and so we need to look at the fourth decimal value of the original number - in this instance it is 1. As that value is less than 5, we round down and so -2.0831 becomes -2.083</p>
-</div>
-<p><strong>Example 5</strong></p>
-What is the following value rounded to three decimal places: value = 0.0186
-<div id="radio_OIKRBNOWXN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_OIKRBNOWXN" value=""><span>0.018</span></label><label><input type="radio" autocomplete="off" name="radio_OIKRBNOWXN" value="answer"><span>0.019</span></label><label><input type="radio" autocomplete="off" name="radio_OIKRBNOWXN" value=""><span>0.024</span></label><label><input type="radio" autocomplete="off" name="radio_OIKRBNOWXN" value=""><span>0.02</span></label>
-</div>
-<div class="webex-solution">
-<button>
-Explain this answer
-</button>
-<p>The reason that the answer is 0.019 is because the question asks for three decimal places and so we need to look at the fourth decimal value of the original number - in this instance it is 5. As that value is equal to or greater than 5, we round up and so 0.0186 becomes 0.019</p>
-</div>
-
+<p>Now based on the information we have gained above we can actually use that to make predictions about a person we have not measured based on the formula:</p>
+<p><span class="math display">\[\hat{Y} = b_{0} + b_{1}X_{1} + b_{2}X_{2} + b_{3}X_{3} + b_{4}X_{4} + b_{5}X_{5}\]</span></p>
+<p>Well technically it is</p>
+<p><span class="math display">\[\hat{Y} = b_{0} + b_{1}X_{1} + b_{2}X_{2} + b_{3}X_{3} + b_{4}X_{4} + b_{5}X_{5} + error\]</span></p>
+<p>But we will disregard the error for now. Also you might have noticed the small hat about the <span class="math inline">\(Y\)</span> making it <span class="math inline">\(\hat{Y}\)</span> (pronounced Y-hat). This means we are making a prediction of Y (<span class="math inline">\(\hat{Y}\)</span>) as opposed to an actually measured (i.e. observed) value (<span class="math inline">\(Y\)</span>).</p>
+<p>And to break that formula down a bit we can say:</p>
+<ul>
+<li>
+<span class="math inline">\(b_{0}\)</span> is the intercept of the model</li>
+<li>
+<span class="math inline">\(b_{1}X_{1}\)</span>, for example, is read at the non-standardised coeffecient of the first predictor <span class="math inline">\(b_{1}\)</span> multiplied by the measured value of the first predictor <span class="math inline">\(X_{1}\)</span>
+</li>
+<li>
+<span class="math inline">\(b_{1}\)</span>, <span class="math inline">\(b_{2}\)</span>, <span class="math inline">\(b_{3}\)</span>, <span class="math inline">\(b_{4}\)</span>, <span class="math inline">\(b_{5}\)</span> are the non-standardised coefficient values of the different predictors in the model. There is one non-standardised coefficient for each predictor. For example, let's say Openness is our first predictor and as such <span class="math inline">\(b_{1}\)</span> = -5.28</li>
+<li>
+<span class="math inline">\(X_{1}\)</span>, <span class="math inline">\(X_{2}\)</span>, <span class="math inline">\(X_{3}\)</span>, <span class="math inline">\(X_{4}\)</span>, <span class="math inline">\(X_{5}\)</span> are the measured values of the different predictors for a participant. For example, for Participant 1, again assuming Openness is our first predictor, then <span class="math inline">\(X_{1}\)</span> = 9. If Conscientousness is our second predictor, Extraversion our third predictor, Agreeableness our fourth predictor, and Neuroticism our fifth predictor, then <span class="math inline">\(X_{2}\)</span> = 8, <span class="math inline">\(X_{3}\)</span> = 5 and <span class="math inline">\(X_{4}\)</span> = 5.</li>
+</ul>
+<p>Then, using the information above, we know can start to fill in the information for <strong>Participant 1</strong> as follows:</p>
+<p><span class="math display">\[\hat{Y} = 197.65 + (-5.28 \times 9) + (-5.68 \times 8) + (-0.4 \times 6) + (0.64 \times 6) + (1.89 \times 5)\]</span></p>
+<p>And if we start to work that through, dealing with the multiplications first, we see:</p>
+<p><span class="math display">\[\hat{Y} = 197.65 + (-47.52) + (-45.44) + (-2.4) + (3.84) + (9.45)\]</span></p>
+<p>Which then becomes:</p>
+<p><span class="math display">\[\hat{Y} = 115.58\]</span></p>
+<p>Giving a predicted value of <span class="math inline">\(\hat{Y}\)</span> = 115.58, to two decimal places.</p>
+<p>Likewise for <strong>Participant 2</strong> we would have:</p>
+<p><span class="math display">\[\hat{Y} = 197.65 + (-5.28 \times 8) + (-5.68 \times 9) + (-0.4 \times 5) + (0.64 \times 5) + (1.89 \times 6)\]</span></p>
+<p>And if we start to work that through, dealing with the multiplications first, we see:</p>
+<p><span class="math display">\[\hat{Y} = 197.65 + (-42.24) + (-51.12) + (-2) + (3.2) + (11.34)\]</span></p>
+<p>Which then becomes:</p>
+<p><span class="math display">\[\hat{Y} = 116.83\]</span></p>
+<p>Giving a predicted value of <span class="math inline">\(\hat{Y}\)</span> = 116.83, to two decimal places.</p>
+<p>Likewise for <strong>Participant 3</strong> we would have:</p>
+<p><span class="math display">\[\hat{Y} = 197.65 + (-5.28 \times 5) + (-5.68 \times 6) + (-0.4 \times 8) + (0.64 \times 8) + (1.89 \times 9)\]</span></p>
+<p>And if we start to work that through, dealing with the multiplications first, we see:</p>
+<p><span class="math display">\[\hat{Y} = 197.65 + (-26.4) + (-34.08) + (-3.2) + (5.12) + (17.01)\]</span></p>
+<p>Which then becomes:</p>
+<p><span class="math display">\[\hat{Y} = 156.1\]</span></p>
+<p>Giving a predicted value of <span class="math inline">\(\hat{Y}\)</span> = 156.1, to two decimal places.</p>
+<p>And finally for <strong>Participant 4</strong> we would have:</p>
+<p><span class="math display">\[\hat{Y} = 197.65 + (-5.28 \times 5) + (-5.68 \times 6) + (-0.4 \times 9) + (0.64 \times 9) + (1.89 \times 8)\]</span></p>
+<p>And if we start to work that through, dealing with the multiplications first, we see:</p>
+<p><span class="math display">\[\hat{Y} = 197.65 + (-26.4) + (-34.08) + (-3.6) + (5.76) + (15.12)\]</span></p>
+<p>Which then becomes:</p>
+<p><span class="math display">\[\hat{Y} = 154.45\]</span></p>
+<p>Giving a predicted value of <span class="math inline">\(\hat{Y}\)</span> = 154.45, to two decimal places.</p>
+<p>And so in summary, based on our above model, and the above measured values, we would predict the following values:</p>
+<ul>
+<li>Participant 1, <span class="math inline">\(\hat{Y}\)</span> = 115.58<br>
+</li>
+<li>Participant 2, <span class="math inline">\(\hat{Y}\)</span> = 116.83</li>
+<li>Participant 3, <span class="math inline">\(\hat{Y}\)</span> = 156.1</li>
+<li>Participant 4, <span class="math inline">\(\hat{Y}\)</span> = 154.45</li>
+</ul>
 </div>
 </div>
 
 
 
 <div class="chapter-nav">
-<div class="prev"><a href="random-formulas.html"><span class="header-section-number">16</span> Random formulas</a></div>
-<div class="next"><a href="license.html">License</a></div>
+<div class="prev"><a href="simple-linear-regression.html"><span class="header-section-number">12</span> Simple Linear Regression</a></div>
+<div class="next"><a href="one-way-between-subjects-tables.html"><span class="header-section-number">14</span> One-Way Between-Subjects tables</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#the-rounding-chapter"><span class="header-section-number">17</span> The Rounding Chapter</a></li>
-<li><a class="nav-link" href="#worked-example"><span class="header-section-number">17.1</span> Worked Example</a></li>
-<li><a class="nav-link" href="#test-yourself-4"><span class="header-section-number">17.2</span> Test Yourself</a></li>
+<li><a class="nav-link" href="#multiple-linear-regression"><span class="header-section-number">13</span> Multiple Linear Regression</a></li>
+<li><a class="nav-link" href="#making-a-prediction-1"><span class="header-section-number">13.1</span> Making a Prediction</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/07-additional-c.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/07-additional-c.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/psyteachr/handyworkbook/blob/master/book/05-regression-c.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/handyworkbook/edit/master/book/05-regression-c.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
