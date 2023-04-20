@@ -40,10 +40,10 @@ But we will disregard the error for now. Also you might have noticed the small h
 
 And to break that formula down a bit we can say:
 
-* $b_{0}$ is the intercept of the model
+* $b_{0}$ is the intercept of the model. In this case $b_{0}$ = 197.65
 * $b_{1}X_{1}$, for example, is read at the non-standardised coeffecient of the first predictor $b_{1}$ multiplied by the measured value of the first predictor $X_{1}$
 * $b_{1}$, $b_{2}$, $b_{3}$, $b_{4}$, $b_{5}$ are the non-standardised coefficient values of the different predictors in the model. There is one non-standardised coefficient for each predictor. For example, let's say Openness is our first predictor and as such $b_{1}$ = -5.28
-* $X_{1}$, $X_{2}$, $X_{3}$, $X_{4}$, $X_{5}$ are the measured values of the different predictors for a participant. For example, for Participant 1, again assuming Openness is our first predictor, then $X_{1}$ = 9. If Conscientousness is our second predictor, Extraversion our third predictor, Agreeableness our fourth predictor, and Neuroticism our fifth predictor, then $X_{2}$ = 8, $X_{3}$ = 5 and $X_{4}$ = 5.
+* $X_{1}$, $X_{2}$, $X_{3}$, $X_{4}$, $X_{5}$ are the measured values of the different predictors for a participant. For example, for Participant 1, again assuming Openness is our first predictor, then $X_{1}$ = 9. If Conscientousness is our second predictor, Extraversion our third predictor, Agreeableness our fourth predictor, and Neuroticism our fifth predictor, then $X_{2}$ = 8, $X_{3}$ = 6, $X_{4}$ = 6 and $X_{5}$ = 5.
 
 Then, using the information above, we know can start to fill in the information for **Participant 1** as follows:
 
