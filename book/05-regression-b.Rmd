@@ -282,7 +282,7 @@ IQp6 <- (intercept + slope * HSp6) %>% round2(2)
 
 ```
 
-* To two decimal places, what would be the predicted value of IQ if the HeadSize was `r HSp4`? `r longmcq(sample(c(answer = IQp3, IQp2, IQp4)))`
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was `r HSp4`? `r longmcq(sample(c(answer = IQp4, IQp2, IQp3)))`
 
 `r hide("Show the working")`
 
@@ -306,7 +306,7 @@ Giving a predicted value of $\hat{Y}$ = `r IQp4`, to two decimal places.
 `r unhide()`
 
 
-* To two decimal places, what would be the predicted value of IQ if the HeadSize was `r HSp5`? `r longmcq(sample(c(answer = IQp, IQp5, IQp2)))`
+* To two decimal places, what would be the predicted value of IQ if the HeadSize was `r HSp5`? `r longmcq(sample(c(answer = IQp5, IQp3, IQp2)))`
 
 `r hide("Show the working")`
 
